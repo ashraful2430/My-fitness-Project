@@ -1,0 +1,2101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project 70 — Your Training & Diet Plan</title>
+    <meta
+      name="description"
+      content="A 5-day gym + 2-day home plan with a 7-day rotating halal diet. Built for a beginner cutting from 86kg."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #14100b;
+        --bg-2: #1b1610;
+        --surface: #221c15;
+        --surface-2: #2a2219;
+        --line: rgba(246, 241, 232, 0.08);
+        --line-2: rgba(246, 241, 232, 0.16);
+        --ink: #f6f1e8;
+        --ink-2: #b7ac9b;
+        --ink-3: #7e7464;
+        --effort: #ff7a18;
+        --effort-2: #ffb45a;
+        --effort-soft: rgba(255, 122, 24, 0.14);
+        --recover: #57c09a;
+        --recover-soft: rgba(87, 192, 154, 0.14);
+        --radius: 16px;
+        --maxw: 940px;
+        --disp: "Archivo", system-ui, sans-serif;
+        --body: "Inter", system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--body);
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(
+            900px 500px at 80% -10%,
+            rgba(255, 122, 24, 0.1),
+            transparent 60%
+          ),
+          radial-gradient(
+            700px 500px at -10% 110%,
+            rgba(87, 192, 154, 0.07),
+            transparent 60%
+          );
+      }
+
+      /* ---------- header / nav ---------- */
+      header.site {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(20, 16, 11, 0.82);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--line);
+      }
+      .bar {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 14px 20px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        margin-right: auto;
+      }
+      .mark {
+        width: 34px;
+        height: 34px;
+        border-radius: 9px;
+        flex: 0 0 auto;
+        background: linear-gradient(150deg, var(--effort), #e85f00);
+        display: grid;
+        place-items: center;
+        box-shadow: 0 6px 18px rgba(255, 122, 24, 0.35);
+      }
+      .mark svg {
+        width: 18px;
+        height: 18px;
+        display: block;
+      }
+      .brand-text {
+        line-height: 1.05;
+      }
+      .brand-text b {
+        font-family: var(--disp);
+        font-weight: 900;
+        font-size: 1.02rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        display: block;
+      }
+      .brand-text span {
+        font-family: var(--mono);
+        font-size: 0.64rem;
+        color: var(--ink-3);
+        letter-spacing: 0.04em;
+      }
+      nav.tabs {
+        display: flex;
+        gap: 6px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        padding: 5px;
+        border-radius: 13px;
+      }
+      nav.tabs button {
+        font-family: var(--mono);
+        font-size: 0.74rem;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--ink-2);
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+        padding: 8px 15px;
+        border-radius: 9px;
+        transition: all 0.18s ease;
+      }
+      nav.tabs button:hover {
+        color: var(--ink);
+      }
+      nav.tabs button[aria-selected="true"] {
+        background: var(--effort);
+        color: #1a1206;
+        font-weight: 700;
+        box-shadow: 0 4px 14px rgba(255, 122, 24, 0.3);
+      }
+
+      main {
+        position: relative;
+        z-index: 1;
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 0 20px 80px;
+      }
+      .view {
+        display: none;
+        animation: rise 0.4s ease both;
+      }
+      .view.active {
+        display: block;
+      }
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      .eyebrow {
+        font-family: var(--mono);
+        font-size: 0.7rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--effort);
+        display: block;
+        margin-bottom: 10px;
+      }
+      .eyebrow.rec {
+        color: var(--recover);
+      }
+
+      /* ---------- hero / today ---------- */
+      .hero {
+        padding: 34px 0 8px;
+      }
+      .hero h1 {
+        font-family: var(--disp);
+        font-weight: 900;
+        line-height: 1.02;
+        font-size: clamp(2rem, 7vw, 3.4rem);
+        letter-spacing: -0.01em;
+      }
+      .hero h1 .accent {
+        background: linear-gradient(180deg, var(--effort-2), var(--effort));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .hero p.lead {
+        color: var(--ink-2);
+        max-width: 54ch;
+        margin-top: 14px;
+        font-size: 1.02rem;
+      }
+
+      .today-card {
+        margin-top: 24px;
+        border: 1px solid var(--line-2);
+        border-radius: var(--radius);
+        background: linear-gradient(180deg, var(--surface), var(--bg-2));
+        padding: 22px 22px 20px;
+        position: relative;
+        overflow: hidden;
+      }
+      .today-card::after {
+        content: "";
+        position: absolute;
+        right: -40px;
+        top: -40px;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        background: var(--effort-soft);
+        filter: blur(8px);
+      }
+      .today-card.home::after {
+        background: var(--recover-soft);
+      }
+      .today-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 1;
+      }
+      .today-tag {
+        font-family: var(--mono);
+        font-size: 0.66rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--ink-3);
+        margin-bottom: 6px;
+      }
+      .today-focus {
+        font-family: var(--disp);
+        font-weight: 800;
+        font-size: clamp(1.5rem, 5vw, 2.1rem);
+        line-height: 1.05;
+      }
+      .today-sub {
+        color: var(--ink-2);
+        font-size: 0.92rem;
+        margin-top: 4px;
+      }
+      .badge {
+        font-family: var(--mono);
+        font-size: 0.66rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 7px 13px;
+        border-radius: 999px;
+        white-space: nowrap;
+      }
+      .badge.gym {
+        background: var(--effort-soft);
+        color: var(--effort-2);
+        border: 1px solid rgba(255, 122, 24, 0.3);
+      }
+      .badge.home {
+        background: var(--recover-soft);
+        color: var(--recover);
+        border: 1px solid rgba(87, 192, 154, 0.3);
+      }
+      .today-meta {
+        display: flex;
+        gap: 18px;
+        margin-top: 16px;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 1;
+      }
+      .today-meta div {
+        font-size: 0.82rem;
+        color: var(--ink-2);
+      }
+      .today-meta b {
+        display: block;
+        font-family: var(--mono);
+        font-size: 1.05rem;
+        color: var(--ink);
+        font-weight: 700;
+      }
+      .jump {
+        margin-top: 18px;
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--mono);
+        font-size: 0.74rem;
+        letter-spacing: 0.04em;
+        font-weight: 500;
+        color: var(--recover);
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+        padding: 0;
+      }
+      .jump:hover {
+        text-decoration: underline;
+      }
+
+      /* ---------- week waveform ---------- */
+      .section-head {
+        margin: 46px 0 18px;
+      }
+      .section-head h2 {
+        font-family: var(--disp);
+        font-weight: 800;
+        font-size: 1.5rem;
+        letter-spacing: -0.01em;
+      }
+      .section-head p {
+        color: var(--ink-2);
+        font-size: 0.9rem;
+        margin-top: 6px;
+        max-width: 60ch;
+      }
+
+      .week {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface);
+        padding: 20px 12px 14px;
+      }
+      .wave {
+        display: flex;
+        align-items: flex-end;
+        gap: 6px;
+        height: 130px;
+        padding: 0 4px;
+      }
+      .day {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+        height: 100%;
+        gap: 0;
+        position: relative;
+        border-radius: 10px;
+        padding-top: 18px;
+        transition: background 0.18s ease;
+      }
+      .day:hover {
+        background: rgba(246, 241, 232, 0.03);
+      }
+      .day .pin {
+        position: absolute;
+        top: 0;
+        font-family: var(--mono);
+        font-size: 0.5rem;
+        letter-spacing: 0.1em;
+        font-weight: 700;
+        color: var(--ink);
+        background: var(--ink);
+        color: #14100b;
+        padding: 2px 6px;
+        border-radius: 5px;
+        opacity: 0;
+      }
+      .day.today .pin {
+        opacity: 1;
+        background: #fff;
+        color: #14100b;
+      }
+      .day .col {
+        width: 100%;
+        max-width: 38px;
+        border-radius: 7px 7px 4px 4px;
+        transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+        background: linear-gradient(180deg, var(--effort), #c44d00);
+        opacity: 0.5;
+      }
+      .day.home .col {
+        background: linear-gradient(180deg, var(--recover), #2f7d61);
+      }
+      .day.active .col {
+        opacity: 1;
+        box-shadow:
+          0 0 0 2px var(--bg),
+          0 0 0 4px var(--effort);
+      }
+      .day.home.active .col {
+        box-shadow:
+          0 0 0 2px var(--bg),
+          0 0 0 4px var(--recover);
+      }
+      .day:hover .col {
+        opacity: 0.85;
+      }
+      .day .dlabel {
+        font-family: var(--mono);
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: var(--ink-2);
+        margin-top: 10px;
+        letter-spacing: 0.04em;
+      }
+      .day.active .dlabel {
+        color: var(--ink);
+      }
+      .day .dfocus {
+        font-size: 0.58rem;
+        color: var(--ink-3);
+        margin-top: 2px;
+        text-align: center;
+        line-height: 1.2;
+        height: 1.5em;
+      }
+      .legend {
+        display: flex;
+        gap: 18px;
+        justify-content: center;
+        margin-top: 14px;
+        padding-top: 14px;
+        border-top: 1px solid var(--line);
+      }
+      .legend span {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        font-family: var(--mono);
+        font-size: 0.66rem;
+        color: var(--ink-2);
+        letter-spacing: 0.04em;
+      }
+      .dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 3px;
+      }
+      .dot.g {
+        background: var(--effort);
+      }
+      .dot.r {
+        background: var(--recover);
+      }
+
+      /* ---------- day detail ---------- */
+      .detail {
+        margin-top: 30px;
+      }
+      .detail-head {
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-bottom: 6px;
+      }
+      .detail-head h3 {
+        font-family: var(--disp);
+        font-weight: 800;
+        font-size: 1.6rem;
+      }
+      .detail-head .dnum {
+        font-family: var(--mono);
+        color: var(--effort);
+        font-size: 0.8rem;
+        letter-spacing: 0.1em;
+        font-weight: 700;
+      }
+      .detail.home .detail-head .dnum {
+        color: var(--recover);
+      }
+      .detail-sub {
+        color: var(--ink-2);
+        font-size: 0.92rem;
+        margin-bottom: 20px;
+      }
+
+      .ex {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--surface);
+        padding: 16px 18px;
+        margin-bottom: 11px;
+        transition:
+          border-color 0.18s ease,
+          transform 0.18s ease;
+      }
+      .ex:hover {
+        border-color: var(--line-2);
+        transform: translateX(2px);
+      }
+      .ex-top {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .ex-n {
+        font-family: var(--mono);
+        font-weight: 700;
+        font-size: 0.82rem;
+        color: var(--ink-3);
+        width: 26px;
+        flex: 0 0 auto;
+        padding-top: 2px;
+      }
+      .ex-name {
+        font-family: var(--disp);
+        font-weight: 700;
+        font-size: 1.06rem;
+        line-height: 1.2;
+        flex: 1;
+      }
+      .chip {
+        font-family: var(--mono);
+        font-size: 0.6rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-weight: 500;
+        color: var(--ink-2);
+        background: var(--surface-2);
+        border: 1px solid var(--line);
+        padding: 5px 9px;
+        border-radius: 7px;
+        white-space: nowrap;
+      }
+      .ex-metrics {
+        display: flex;
+        gap: 22px;
+        margin: 13px 0 10px;
+        padding-left: 38px;
+        flex-wrap: wrap;
+      }
+      .metric .k {
+        font-family: var(--mono);
+        font-size: 0.58rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--ink-3);
+      }
+      .metric .v {
+        font-family: var(--mono);
+        font-weight: 700;
+        font-size: 1.12rem;
+        color: var(--effort-2);
+        margin-top: 1px;
+      }
+      .detail.home .metric .v {
+        color: var(--recover);
+      }
+      .metric .v.muted {
+        color: var(--ink);
+      }
+      .ex-cue {
+        padding-left: 38px;
+        color: var(--ink-2);
+        font-size: 0.86rem;
+        display: flex;
+        gap: 8px;
+      }
+      .ex-cue svg {
+        flex: 0 0 auto;
+        width: 14px;
+        height: 14px;
+        margin-top: 3px;
+        opacity: 0.7;
+      }
+      .watch {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        margin: 12px 0 0 38px;
+        font-family: var(--mono);
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        color: var(--ink);
+        background: var(--surface-2);
+        border: 1px solid var(--line-2);
+        padding: 8px 13px;
+        border-radius: 9px;
+        text-decoration: none;
+        transition: all 0.18s ease;
+      }
+      .watch:hover {
+        border-color: var(--effort);
+        color: var(--effort-2);
+        background: var(--effort-soft);
+      }
+      .detail.home .watch:hover {
+        border-color: var(--recover);
+        color: var(--recover);
+        background: var(--recover-soft);
+      }
+      .watch svg {
+        width: 15px;
+        height: 15px;
+      }
+
+      .note {
+        border: 1px dashed var(--line-2);
+        border-radius: 12px;
+        padding: 14px 16px;
+        margin-top: 8px;
+        font-size: 0.86rem;
+        color: var(--ink-2);
+        background: rgba(246, 241, 232, 0.02);
+        display: flex;
+        gap: 10px;
+      }
+      .note svg {
+        flex: 0 0 auto;
+        width: 16px;
+        height: 16px;
+        margin-top: 2px;
+        color: var(--effort-2);
+      }
+      .detail.home .note svg {
+        color: var(--recover);
+      }
+
+      /* ---------- diet ---------- */
+      .diet-rules {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface);
+        padding: 18px 20px;
+        margin-bottom: 26px;
+      }
+      .diet-rules h4 {
+        font-family: var(--disp);
+        font-weight: 700;
+        font-size: 1rem;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
+      .diet-rules h4 svg {
+        width: 17px;
+        height: 17px;
+        color: var(--recover);
+      }
+      .rule-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 9px 24px;
+      }
+      .rule {
+        display: flex;
+        gap: 9px;
+        font-size: 0.86rem;
+        color: var(--ink-2);
+        align-items: flex-start;
+      }
+      .rule .yn {
+        font-family: var(--mono);
+        font-weight: 700;
+        font-size: 0.72rem;
+        flex: 0 0 auto;
+        margin-top: 2px;
+      }
+      .rule .yn.y {
+        color: var(--recover);
+      }
+      .rule .yn.n {
+        color: #e0654a;
+      }
+
+      .meals {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 13px;
+      }
+      .meal {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--surface);
+        padding: 16px 17px;
+        position: relative;
+        overflow: hidden;
+      }
+      .meal::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: var(--recover);
+      }
+      .meal .mtime {
+        font-family: var(--mono);
+        font-size: 0.62rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--recover);
+        font-weight: 700;
+      }
+      .meal h5 {
+        font-family: var(--disp);
+        font-weight: 700;
+        font-size: 1.02rem;
+        margin: 5px 0 10px;
+        line-height: 1.2;
+      }
+      .meal ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .meal li {
+        font-size: 0.86rem;
+        color: var(--ink-2);
+        padding-left: 15px;
+        position: relative;
+      }
+      .meal li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--ink-3);
+      }
+      .meal .mnote {
+        margin-top: 11px;
+        font-size: 0.76rem;
+        color: var(--ink-3);
+        font-style: italic;
+        padding-top: 9px;
+        border-top: 1px solid var(--line);
+      }
+
+      /* ---------- guide ---------- */
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 11px;
+        margin-bottom: 26px;
+      }
+      .stat {
+        border: 1px solid var(--line);
+        border-radius: 13px;
+        background: var(--surface);
+        padding: 16px 14px;
+        text-align: center;
+      }
+      .stat .sv {
+        font-family: var(--disp);
+        font-weight: 900;
+        font-size: 1.7rem;
+        line-height: 1;
+        color: var(--effort-2);
+      }
+      .stat .sk {
+        font-family: var(--mono);
+        font-size: 0.6rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--ink-3);
+        margin-top: 7px;
+      }
+      .stat.goal .sv {
+        color: var(--recover);
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface);
+        padding: 22px 22px;
+        margin-bottom: 16px;
+      }
+      .card h4 {
+        font-family: var(--disp);
+        font-weight: 800;
+        font-size: 1.15rem;
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .card h4 .num {
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        color: var(--effort);
+        font-weight: 700;
+      }
+      .card p {
+        color: var(--ink-2);
+        font-size: 0.92rem;
+        margin-bottom: 10px;
+      }
+      .card p:last-child {
+        margin-bottom: 0;
+      }
+      .card p b {
+        color: var(--ink);
+        font-weight: 600;
+      }
+      .card ul.plain {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+        margin-top: 6px;
+      }
+      .card ul.plain li {
+        font-size: 0.9rem;
+        color: var(--ink-2);
+        padding-left: 20px;
+        position: relative;
+      }
+      .card ul.plain li::before {
+        content: "›";
+        position: absolute;
+        left: 2px;
+        color: var(--effort);
+        font-weight: 700;
+      }
+      .pep {
+        border: 1px solid rgba(255, 122, 24, 0.3);
+        background: linear-gradient(180deg, var(--effort-soft), transparent);
+      }
+      .pep h4 .num {
+        color: var(--effort-2);
+      }
+
+      footer.site {
+        border-top: 1px solid var(--line);
+        margin-top: 50px;
+        padding-top: 24px;
+        color: var(--ink-3);
+        font-size: 0.78rem;
+        line-height: 1.7;
+      }
+      footer.site b {
+        color: var(--ink-2);
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 680px) {
+        .bar {
+          padding: 12px 16px;
+          gap: 10px;
+        }
+        main {
+          padding: 0 16px 90px;
+        }
+        nav.tabs {
+          width: 100%;
+          order: 3;
+        }
+        nav.tabs button {
+          flex: 1;
+          text-align: center;
+          padding: 9px 6px;
+        }
+        .meals,
+        .rule-grid {
+          grid-template-columns: 1fr;
+        }
+        .stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .wave {
+          height: 118px;
+          gap: 3px;
+        }
+        .day .col {
+          max-width: 30px;
+        }
+        .day .dfocus {
+          display: none;
+        }
+        .ex-metrics {
+          gap: 16px;
+        }
+        .today-meta {
+          gap: 14px;
+        }
+      }
+      @media (max-width: 380px) {
+        .day .dlabel {
+          font-size: 0.6rem;
+        }
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--effort-2);
+        outline-offset: 3px;
+        border-radius: 6px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+          scroll-behavior: auto !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site">
+      <div class="bar">
+        <div class="brand">
+          <div class="mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="#1a1206" />
+            </svg>
+          </div>
+          <div class="brand-text">
+            <b>Project 70</b>
+            <span>86 → 70 kg · 5 + 2 plan</span>
+          </div>
+        </div>
+        <nav class="tabs" role="tablist" aria-label="Sections">
+          <button role="tab" aria-selected="true" data-view="workout">
+            Workout
+          </button>
+          <button role="tab" aria-selected="false" data-view="diet">
+            Diet
+          </button>
+          <button role="tab" aria-selected="false" data-view="guide">
+            Guide
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- ============ WORKOUT ============ -->
+      <section class="view active" id="view-workout" role="tabpanel">
+        <div class="hero">
+          <span class="eyebrow" id="hero-eyebrow">Today's session</span>
+          <h1 id="hero-title">Loading <span class="accent">today…</span></h1>
+          <p class="lead">
+            Tap any day on the week bar to see exactly what to do. Every move
+            has sets, reps, rest, and a form video. Gym days are orange, home
+            days are green.
+          </p>
+
+          <div class="today-card" id="today-card">
+            <!-- filled by JS -->
+          </div>
+        </div>
+
+        <div class="section-head">
+          <h2>Your week</h2>
+          <p>
+            Bar height shows how hard the day is. Three gym days, a home reset,
+            two more gym days, another reset — nothing back-to-back for the same
+            muscles.
+          </p>
+        </div>
+
+        <div class="week">
+          <div
+            class="wave"
+            id="wave"
+            role="tablist"
+            aria-label="Days of the week"
+          ></div>
+          <div class="legend">
+            <span><i class="dot g"></i> Gym day</span>
+            <span><i class="dot r"></i> Home / recovery</span>
+          </div>
+        </div>
+
+        <div class="detail" id="detail">
+          <!-- filled by JS -->
+        </div>
+      </section>
+
+      <!-- ============ DIET ============ -->
+      <section class="view" id="view-diet" role="tabpanel">
+        <div class="hero">
+          <span class="eyebrow rec">Eat for the cut</span>
+          <h1>Seven days, <span class="accent">no repeats.</span></h1>
+          <p class="lead">
+            A different breakfast, lunch, snack and dinner every day — all halal
+            and easy to find in Bangladesh. Heavier carbs land on gym days,
+            lighter on home days. This matters more than the workout, so don't
+            skip it.
+          </p>
+        </div>
+
+        <div class="diet-rules">
+          <h4>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M9 11l3 3L22 4" />
+              <path
+                d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"
+              />
+            </svg>
+            Daily rules
+          </h4>
+          <div class="rule-grid">
+            <div class="rule">
+              <span class="yn y">DO</span> Drink 3–4 litres of water through the
+              day
+            </div>
+            <div class="rule">
+              <span class="yn n">SKIP</span> Soft drinks, packet juice, sugary
+              tea/coffee
+            </div>
+            <div class="rule">
+              <span class="yn y">DO</span> Keep rice to one cup; fill the plate
+              with veg + protein
+            </div>
+            <div class="rule">
+              <span class="yn n">SKIP</span> Fried snacks — singara, samosa,
+              puri, piyaju
+            </div>
+            <div class="rule">
+              <span class="yn y">DO</span> Walk 10–15 min after lunch and dinner
+            </div>
+            <div class="rule">
+              <span class="yn n">SKIP</span> Extra ghee, dalda and deep-frying —
+              grill, bake or light-fry
+            </div>
+            <div class="rule">
+              <span class="yn y">DO</span> Eat protein at every meal (egg,
+              chicken, fish, dal, doi)
+            </div>
+            <div class="rule">
+              <span class="yn n">SKIP</span> Late-night eating — finish dinner
+              by ~9 pm
+            </div>
+          </div>
+        </div>
+
+        <div class="section-head" style="margin-top: 8px">
+          <h2 id="diet-day-title">Day 1</h2>
+          <p>
+            Pick a day below. You can follow the days in any order — just don't
+            eat the same day twice in a row.
+          </p>
+        </div>
+        <div class="week" style="padding: 14px 12px">
+          <div
+            class="wave"
+            id="diet-wave"
+            style="height: auto; align-items: stretch; gap: 5px"
+            role="tablist"
+            aria-label="Diet days"
+          ></div>
+        </div>
+
+        <div class="meals" id="meals" style="margin-top: 26px">
+          <!-- filled by JS -->
+        </div>
+      </section>
+
+      <!-- ============ GUIDE ============ -->
+      <section class="view" id="view-guide" role="tabpanel">
+        <div class="hero">
+          <span class="eyebrow">Read this first</span>
+          <h1>
+            Where you are, <span class="accent">where you're going.</span>
+          </h1>
+          <p class="lead">
+            The honest version. No magic, no shortcuts — just what works and
+            what to expect.
+          </p>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="sv">86</div>
+            <div class="sk">kg now</div>
+          </div>
+          <div class="stat">
+            <div class="sv">29.7</div>
+            <div class="sk">BMI (overweight)</div>
+          </div>
+          <div class="stat goal">
+            <div class="sv">68–71</div>
+            <div class="sk">kg target</div>
+          </div>
+          <div class="stat">
+            <div class="sv">4–6</div>
+            <div class="sk">months</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4><span class="num">01</span> How to use this</h4>
+          <p>
+            Open the <b>Workout</b> tab — it lands on today automatically and
+            shows your session. Do the moves in order. If you've never done one,
+            hit <b>Watch form</b> first; a beginner with bad form gets hurt, not
+            fit.
+          </p>
+          <p>
+            On gym days, finish with the optional cardio if you have gas left in
+            the tank. On home days (Thursday & Sunday) you just need a walk, a
+            little bodyweight work, and a good stretch — no equipment, 40
+            minutes tops.
+          </p>
+        </div>
+
+        <div class="card">
+          <h4><span class="num">02</span> The diet is the real fight</h4>
+          <p>
+            Your training is solid, but you can't out-train rice three times a
+            day with fried fish and ghee. Fat loss is won in the kitchen. Follow
+            the 7-day diet, keep portions honest, and you'll see the scale move
+            by week 3–4.
+          </p>
+          <p>
+            <b>Where to find the swaps:</b> oats, peanut butter, brown bread and
+            muesli at Shwapno, Agora, Meena Bazar or Daraz. Plain
+            <i>tok doi</i> from any local dairy. For chicken breast, ask the
+            bazar for <i>murgir buker mangsho</i>.
+          </p>
+        </div>
+
+        <div class="card">
+          <h4><span class="num">03</span> Eating around your gym time</h4>
+          <p>
+            You sit most of the day, so your base burn is low — that's exactly
+            why the plan has five active days.
+          </p>
+          <ul class="plain">
+            <li>
+              Gym at <b>4 pm</b>: eat a full lunch at 1–2 pm and you're set.
+            </li>
+            <li>
+              Gym at <b>6 pm</b>: keep lunch moderate, then have the banana +
+              nuts snack around 5 pm.
+            </li>
+            <li>
+              Never train on a fully empty stomach as a beginner — you'll feel
+              dizzy and weak.
+            </li>
+            <li>
+              Get protein in within an hour or two after training (eggs,
+              chicken, doi, or dal).
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4><span class="num">04</span> Getting stronger over time</h4>
+          <p>
+            Don't lift the same weight forever. When a set starts to feel easy,
+            add a little weight or one or two reps next time. That slow climb is
+            what changes your body.
+          </p>
+          <p>
+            Sleep 7–8 hours and rest properly on home days. Muscle is built
+            while you recover, not while you grind.
+          </p>
+        </div>
+
+        <div class="card pep">
+          <h4><span class="num">05</span> The honest part</h4>
+          <p>
+            The first 2–3 weeks will feel hard. Sore muscles, low energy, the
+            urge to quit — all normal. Your body just isn't used to this yet.
+          </p>
+          <p>
+            <b>Push through it.</b> By week 4 the routine stops feeling like a
+            punishment and starts feeling like yours. Show up on the bad days
+            especially — that's the whole game.
+          </p>
+        </div>
+
+        <footer class="site">
+          <p>
+            <b>One file, deploy anywhere.</b> Drag this onto Netlify Drop, push
+            it to GitHub Pages, or upload to any host. It also works offline
+            once loaded.
+          </p>
+          <p style="margin-top: 10px">
+            General fitness and nutrition information, not medical advice. If
+            you have any health condition or take medication, check with a
+            doctor before starting. Stop and rest if you feel sharp pain or
+            dizziness.
+          </p>
+        </footer>
+      </section>
+    </main>
+
+    <script>
+      /* ---------------- DATA ---------------- */
+      const yt = (name) =>
+        "https://www.youtube.com/results?search_query=" +
+        encodeURIComponent(name + " proper form technique tutorial");
+
+      const WEEK = [
+        {
+          id: 0,
+          key: "sun",
+          day: "Sunday",
+          abbr: "SUN",
+          type: "home",
+          focus: "Recovery",
+          sub: "Mobility & an easy walk",
+          dur: "~40 min",
+          intensity: 0.26,
+          ex: [
+            {
+              name: "Easy Walk",
+              target: "Cardio",
+              sets: null,
+              reps: "30 min",
+              rest: null,
+              cue: "Relaxed pace, just keep moving and clear your head.",
+            },
+            {
+              name: "Cat–Cow Flow",
+              target: "Spine mobility",
+              sets: 2,
+              reps: "10",
+              rest: null,
+              cue: "Move slowly with your breath, arch and round the back.",
+            },
+            {
+              name: "Bodyweight Squat",
+              target: "Legs",
+              sets: 2,
+              reps: "15",
+              rest: "45s",
+              cue: "Light and easy, just keep the knees tracking over the toes.",
+            },
+            {
+              name: "Bird-Dog",
+              target: "Core & balance",
+              sets: 2,
+              reps: "10 / side",
+              rest: "45s",
+              cue: "Opposite arm and leg out, stay slow and steady.",
+            },
+            {
+              name: "Plank",
+              target: "Core",
+              sets: 2,
+              reps: "30s",
+              rest: "45s",
+              cue: "Straight line head to heel, don't let the hips drop.",
+            },
+            {
+              name: "Deep Stretch / Foam Roll",
+              target: "Full body",
+              sets: null,
+              reps: "10–15 min",
+              rest: null,
+              cue: "Loosen tight spots, hold each stretch 20–30s and breathe.",
+            },
+          ],
+          note: "A true reset day. No gym, no pressure — light movement helps the soreness from Saturday fade faster.",
+        },
+        {
+          id: 1,
+          key: "mon",
+          day: "Monday",
+          abbr: "MON",
+          type: "gym",
+          focus: "Push",
+          sub: "Chest · Shoulders · Triceps",
+          dur: "~55 min",
+          intensity: 0.78,
+          ex: [
+            {
+              name: "Machine Chest Press",
+              target: "Chest",
+              sets: 3,
+              reps: "10–12",
+              rest: "75s",
+              cue: "Press smooth, stop just short of locking the elbows.",
+            },
+            {
+              name: "Incline Dumbbell Press",
+              target: "Upper chest",
+              sets: 3,
+              reps: "10–12",
+              rest: "75s",
+              cue: "Lower to chest level, control the way down.",
+            },
+            {
+              name: "Seated Shoulder Press",
+              target: "Shoulders",
+              sets: 3,
+              reps: "10–12",
+              rest: "75s",
+              cue: "Back supported, press straight overhead.",
+            },
+            {
+              name: "Dumbbell Lateral Raise",
+              target: "Side delts",
+              sets: 3,
+              reps: "12–15",
+              rest: "45s",
+              cue: "Light weight, lead with the elbows, no swinging.",
+            },
+            {
+              name: "Cable Triceps Pushdown",
+              target: "Triceps",
+              sets: 3,
+              reps: "12–15",
+              rest: "45s",
+              cue: "Elbows pinned to your sides, full squeeze at the bottom.",
+            },
+            {
+              name: "Push-ups (finisher)",
+              target: "Chest & core",
+              sets: 2,
+              reps: "max",
+              rest: "60s",
+              cue: "Body in a straight line, go as deep as you can.",
+            },
+          ],
+          note: "Optional finish: 10 min incline treadmill walk.",
+        },
+        {
+          id: 2,
+          key: "tue",
+          day: "Tuesday",
+          abbr: "TUE",
+          type: "gym",
+          focus: "Pull",
+          sub: "Back · Biceps",
+          dur: "~55 min",
+          intensity: 0.74,
+          ex: [
+            {
+              name: "Lat Pulldown",
+              target: "Lats",
+              sets: 3,
+              reps: "10–12",
+              rest: "75s",
+              cue: "Pull the bar to your upper chest, lead with the elbows.",
+            },
+            {
+              name: "Seated Cable Row",
+              target: "Mid-back",
+              sets: 3,
+              reps: "10–12",
+              rest: "75s",
+              cue: "Squeeze the shoulder blades, don't lean back too far.",
+            },
+            {
+              name: "One-Arm Dumbbell Row",
+              target: "Back",
+              sets: 3,
+              reps: "10–12 / side",
+              rest: "60s",
+              cue: "Flat back, row the dumbbell to your hip.",
+            },
+            {
+              name: "Cable Face Pull",
+              target: "Rear delts",
+              sets: 3,
+              reps: "12–15",
+              rest: "45s",
+              cue: "Pull the rope to your face, keep the elbows high.",
+            },
+            {
+              name: "Dumbbell Biceps Curl",
+              target: "Biceps",
+              sets: 3,
+              reps: "12",
+              rest: "45s",
+              cue: "No swinging, full range up and down.",
+            },
+            {
+              name: "Hammer Curl",
+              target: "Biceps & forearms",
+              sets: 3,
+              reps: "12",
+              rest: "45s",
+              cue: "Neutral grip (thumbs up), lower slowly.",
+            },
+          ],
+          note: "Optional finish: 10 min on the cycle.",
+        },
+        {
+          id: 3,
+          key: "wed",
+          day: "Wednesday",
+          abbr: "WED",
+          type: "gym",
+          focus: "Legs",
+          sub: "Quads · Hamstrings · Calves",
+          dur: "~60 min",
+          intensity: 1.0,
+          ex: [
+            {
+              name: "Goblet Squat",
+              target: "Quads & glutes",
+              sets: 3,
+              reps: "12",
+              rest: "90s",
+              cue: "Chest up, sit back, knees track over the toes.",
+            },
+            {
+              name: "Leg Press",
+              target: "Quads & glutes",
+              sets: 3,
+              reps: "12",
+              rest: "90s",
+              cue: "Don't lock the knees, control the depth.",
+            },
+            {
+              name: "Leg Extension",
+              target: "Quads",
+              sets: 3,
+              reps: "12–15",
+              rest: "60s",
+              cue: "Pause and squeeze at the top.",
+            },
+            {
+              name: "Lying Leg Curl",
+              target: "Hamstrings",
+              sets: 3,
+              reps: "12–15",
+              rest: "60s",
+              cue: "Control the lowering, don't let it slam.",
+            },
+            {
+              name: "Dumbbell Walking Lunge",
+              target: "Legs & glutes",
+              sets: 3,
+              reps: "10 / leg",
+              rest: "60s",
+              cue: "Long step, back knee just above the floor.",
+            },
+            {
+              name: "Standing Calf Raise",
+              target: "Calves",
+              sets: 4,
+              reps: "15–20",
+              rest: "45s",
+              cue: "Full stretch at the bottom, high up on the toes.",
+            },
+          ],
+          note: "The hardest day of the week. Eat a proper lunch beforehand and don't rush the rest periods.",
+        },
+        {
+          id: 4,
+          key: "thu",
+          day: "Thursday",
+          abbr: "THU",
+          type: "home",
+          focus: "Recovery",
+          sub: "Light home movement",
+          dur: "~45 min",
+          intensity: 0.32,
+          ex: [
+            {
+              name: "Brisk Walk",
+              target: "Cardio",
+              sets: null,
+              reps: "30–40 min",
+              rest: null,
+              cue: "Outside or on the spot — a pace where you can still talk.",
+            },
+            {
+              name: "Bodyweight Squat",
+              target: "Legs",
+              sets: 3,
+              reps: "15",
+              rest: "45s",
+              cue: "Slow and controlled, sit to full depth.",
+            },
+            {
+              name: "Push-ups (knee or full)",
+              target: "Chest",
+              sets: 3,
+              reps: "10",
+              rest: "45s",
+              cue: "Drop to your knees if full ones are too hard.",
+            },
+            {
+              name: "Glute Bridge",
+              target: "Glutes",
+              sets: 3,
+              reps: "15",
+              rest: "45s",
+              cue: "Squeeze the glutes hard at the top, hold a second.",
+            },
+            {
+              name: "Plank",
+              target: "Core",
+              sets: 3,
+              reps: "30s",
+              rest: "45s",
+              cue: "Straight line, brace the stomach, don't sag.",
+            },
+            {
+              name: "Full-body Stretch",
+              target: "Mobility",
+              sets: null,
+              reps: "10 min",
+              rest: null,
+              cue: "Hold each stretch 20–30s, breathe slowly.",
+            },
+          ],
+          note: "No equipment needed. This keeps you active between gym blocks without adding fatigue.",
+        },
+        {
+          id: 5,
+          key: "fri",
+          day: "Friday",
+          abbr: "FRI",
+          type: "gym",
+          focus: "Upper",
+          sub: "Full upper body",
+          dur: "~55 min",
+          intensity: 0.72,
+          ex: [
+            {
+              name: "Machine Chest Press or Push-ups",
+              target: "Chest",
+              sets: 3,
+              reps: "12",
+              rest: "75s",
+              cue: "Control both directions, no bouncing.",
+            },
+            {
+              name: "Assisted Pull-up or Lat Pulldown",
+              target: "Back",
+              sets: 3,
+              reps: "10–12",
+              rest: "75s",
+              cue: "Full hang to chin over the bar — use the assist machine.",
+            },
+            {
+              name: "Dumbbell Shoulder Press",
+              target: "Shoulders",
+              sets: 3,
+              reps: "10–12",
+              rest: "75s",
+              cue: "Don't arch the lower back, press tall.",
+            },
+            {
+              name: "Dumbbell Row",
+              target: "Back",
+              sets: 3,
+              reps: "12",
+              rest: "60s",
+              cue: "Row to the hip, squeeze the shoulder blade.",
+            },
+            {
+              name: "Dumbbell Biceps Curl",
+              target: "Biceps",
+              sets: 3,
+              reps: "12",
+              rest: "45s",
+              cue: "Slow, no momentum from the body.",
+            },
+            {
+              name: "Bench Triceps Dips",
+              target: "Triceps",
+              sets: 3,
+              reps: "12",
+              rest: "45s",
+              cue: "Hands on a bench, elbows back, lower to 90°.",
+            },
+          ],
+          note: "Optional finish: 15 min cardio of your choice.",
+        },
+        {
+          id: 6,
+          key: "sat",
+          day: "Saturday",
+          abbr: "SAT",
+          type: "gym",
+          focus: "Lower + Core",
+          sub: "Legs · Abs · Cardio",
+          dur: "~60 min",
+          intensity: 0.95,
+          ex: [
+            {
+              name: "Goblet or Barbell Squat",
+              target: "Legs",
+              sets: 3,
+              reps: "12",
+              rest: "90s",
+              cue: "Brace the core, drive up through the heels.",
+            },
+            {
+              name: "Dumbbell Romanian Deadlift",
+              target: "Hamstrings & glutes",
+              sets: 3,
+              reps: "10–12",
+              rest: "90s",
+              cue: "Soft knees, push the hips back, feel the hamstring stretch.",
+            },
+            {
+              name: "Leg Press",
+              target: "Quads",
+              sets: 3,
+              reps: "12",
+              rest: "75s",
+              cue: "Steady tempo, don't bounce out of the bottom.",
+            },
+            {
+              name: "Standing Calf Raise",
+              target: "Calves",
+              sets: 4,
+              reps: "15",
+              rest: "45s",
+              cue: "Pause at the top of every rep.",
+            },
+            {
+              name: "Lying Leg Raise",
+              target: "Lower abs",
+              sets: 3,
+              reps: "12",
+              rest: "45s",
+              cue: "Lower the legs slowly, keep the lower back flat.",
+            },
+            {
+              name: "Plank",
+              target: "Core",
+              sets: 3,
+              reps: "30–45s",
+              rest: "45s",
+              cue: "Tight everywhere, breathe normally.",
+            },
+            {
+              name: "Russian Twist",
+              target: "Obliques",
+              sets: 3,
+              reps: "20",
+              rest: "45s",
+              cue: "Rotate from the waist, touch the floor each side.",
+            },
+          ],
+          note: "Best fat-burn day — finish with 15–20 min steady cardio if you can.",
+        },
+      ];
+
+      const DIET = [
+        {
+          day: "Day 1",
+          weekday: "Mon",
+          type: "gym",
+          breakfast: {
+            t: "Power start",
+            items: [
+              "Oats cooked in water/milk with 1 sliced banana",
+              "2 boiled eggs",
+              "Black coffee, no sugar",
+            ],
+          },
+          lunch: {
+            t: "Grilled chicken plate",
+            items: [
+              "1 cup rice",
+              "Grilled chicken breast (lemon + garlic)",
+              "Mixed vegetable sabji",
+              "Thin dal",
+            ],
+          },
+          snack: {
+            t: "Pre-gym fuel",
+            items: ["1 banana", "8–10 almonds"],
+            note: "Great choice ~1 hr before a gym session.",
+          },
+          dinner: {
+            t: "Light & lean",
+            items: ["Grilled chicken", "Big mixed salad", "1 atta ruti"],
+          },
+        },
+        {
+          day: "Day 2",
+          weekday: "Tue",
+          type: "gym",
+          breakfast: {
+            t: "Omelette & roti",
+            items: [
+              "2-egg vegetable omelette (1 tsp oil)",
+              "1 atta ruti",
+              "Cucumber slices",
+            ],
+          },
+          lunch: {
+            t: "Fish & greens",
+            items: [
+              "1 cup rice",
+              "Rui or tilapia curry (less oil)",
+              "Lal shak (red spinach)",
+              "Onion–cucumber salad",
+            ],
+          },
+          snack: { t: "Fresh & simple", items: ["1 guava", "Green tea"] },
+          dinner: {
+            t: "Soup night",
+            items: ["Mixed vegetable soup", "2-egg omelette", "Side salad"],
+          },
+        },
+        {
+          day: "Day 3",
+          weekday: "Wed",
+          type: "gym",
+          breakfast: {
+            t: "Doi bowl",
+            items: [
+              "Plain tok doi",
+              "3 tbsp oats or muesli",
+              "1 chopped apple mixed in",
+            ],
+          },
+          lunch: {
+            t: "Roti & chicken",
+            items: [
+              "2 atta ruti",
+              "Chicken curry (less oil)",
+              "Okra (bhindi) sabji",
+            ],
+          },
+          snack: {
+            t: "Crunch",
+            items: ["Roasted chana (1 small bowl)", "1 apple"],
+          },
+          dinner: {
+            t: "Fish & veg",
+            items: [
+              "Grilled or baked fish",
+              "Sautéed vegetables (less oil)",
+              "½ cup rice",
+            ],
+          },
+        },
+        {
+          day: "Day 4",
+          weekday: "Thu",
+          type: "home",
+          breakfast: {
+            t: "Light khichuri",
+            items: [
+              "Moog-dal khichuri (less oil)",
+              "1 boiled egg",
+              "Side salad",
+            ],
+          },
+          lunch: {
+            t: "Egg curry plate",
+            items: [
+              "1 cup rice",
+              "Egg curry (2 eggs)",
+              "Lau (bottle gourd) curry",
+              "Dal",
+            ],
+          },
+          snack: {
+            t: "Protein bite",
+            items: ["Small bowl tok doi", "A few walnuts"],
+          },
+          dinner: {
+            t: "Dal & roti",
+            items: ["Thick dal", "1 atta ruti", "Stir-fried vegetables"],
+          },
+        },
+        {
+          day: "Day 5",
+          weekday: "Fri",
+          type: "gym",
+          breakfast: {
+            t: "Egg bhurji",
+            items: [
+              "Egg bhurji (2 eggs, minimal oil)",
+              "1 atta ruti",
+              "Tomato slices",
+            ],
+          },
+          lunch: {
+            t: "Lean beef day",
+            items: [
+              "1 cup rice",
+              "Lean beef bhuna (~100g, less oil)",
+              "Mixed vegetables",
+              "Salad",
+            ],
+            note: "Keep the beef portion small and trim the fat.",
+          },
+          snack: {
+            t: "Pre-gym fuel",
+            items: ["1 boiled egg", "Cucumber + a squeeze of lemon"],
+          },
+          dinner: {
+            t: "Stir-fry",
+            items: [
+              "Chicken–vegetable stir fry (capsicum, carrot, beans; less oil)",
+              "Small portion of rice",
+            ],
+          },
+        },
+        {
+          day: "Day 6",
+          weekday: "Sat",
+          type: "gym",
+          breakfast: {
+            t: "PB toast",
+            items: [
+              "2 slices brown bread + 1 tbsp peanut butter",
+              "1 banana",
+              "Green tea",
+            ],
+          },
+          lunch: {
+            t: "Grilled fish plate",
+            items: [
+              "1 cup rice",
+              "Grilled fish",
+              "Begun (eggplant) bhaji (less oil)",
+              "Dal",
+            ],
+          },
+          snack: {
+            t: "Light jhalmuri",
+            items: [
+              "1 bowl muri with chana, tomato, onion (little to no oil)",
+              "Green tea",
+            ],
+          },
+          dinner: {
+            t: "Eggs & veg",
+            items: ["2 boiled eggs", "Vegetable bhaji", "1 atta ruti"],
+          },
+        },
+        {
+          day: "Day 7",
+          weekday: "Sun",
+          type: "home",
+          breakfast: {
+            t: "Veg upma",
+            items: ["Vegetable suji upma (less oil)", "1 boiled egg"],
+          },
+          lunch: {
+            t: "Khichuri & chicken",
+            items: ["Light vegetable khichuri", "Grilled chicken", "Salad"],
+          },
+          snack: { t: "Tropical", items: ["Bowl of papaya", "5 cashews"] },
+          dinner: {
+            t: "Fish finish",
+            items: ["Grilled fish", "Big salad", "½ cup rice"],
+          },
+        },
+      ];
+
+      /* ---------------- ICONS ---------------- */
+      const icoBulb =
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V18h6v-1.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg>';
+      const icoInfo =
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>';
+      const icoPlay =
+        '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+
+      /* ---------------- RENDER ---------------- */
+      const $ = (s) => document.querySelector(s);
+
+      function renderToday() {
+        const todayIdx = new Date().getDay();
+        const d = WEEK.find((w) => w.id === todayIdx);
+        $("#hero-eyebrow").textContent =
+          d.type === "gym" ? "Today's session" : "Today's reset";
+        $("#hero-title").innerHTML =
+          d.type === "gym"
+            ? `Today you <span class="accent">${d.focus.toLowerCase()}.</span>`
+            : `Today you <span class="accent">recover.</span>`;
+        const card = $("#today-card");
+        card.classList.toggle("home", d.type === "home");
+        card.innerHTML = `
+    <div class="today-row">
+      <div style="flex:1;min-width:0">
+        <div class="today-tag">${d.day} · ${d.type === "gym" ? "Gym day" : "Home day"}</div>
+        <div class="today-focus">${d.focus}</div>
+        <div class="today-sub">${d.sub}</div>
+      </div>
+      <span class="badge ${d.type}">${d.type === "gym" ? "🏋 Gym" : "🏠 Home"}</span>
+    </div>
+    <div class="today-meta">
+      <div><b>${d.ex.length}</b>${d.type === "gym" ? "exercises" : "movements"}</div>
+      <div><b>${d.dur}</b>estimated</div>
+      <div><b>${d.type === "gym" ? "Equipment" : "No gear"}</b>${d.type === "gym" ? "needed" : "needed"}</div>
+    </div>
+    <button class="jump" id="jump-meals">See today's meals →</button>
+  `;
+        $("#jump-meals").addEventListener("click", () => {
+          switchView("diet");
+          selectDiet(
+            dietIndexForWeekday(d.weekday ?? abbrToWeekday(d.abbr)),
+            true,
+          );
+        });
+        return d.id;
+      }
+
+      function abbrToWeekday(abbr) {
+        const map = {
+          SUN: "Sun",
+          MON: "Mon",
+          TUE: "Tue",
+          WED: "Wed",
+          THU: "Thu",
+          FRI: "Fri",
+          SAT: "Sat",
+        };
+        return map[abbr];
+      }
+      function dietIndexForWeekday(wd) {
+        const i = DIET.findIndex((x) => x.weekday === wd);
+        return i < 0 ? 0 : i;
+      }
+
+      function buildWave() {
+        const wave = $("#wave");
+        const todayIdx = new Date().getDay();
+        // Monday-first display order
+        const order = [1, 2, 3, 4, 5, 6, 0];
+        wave.innerHTML = "";
+        order.forEach((id) => {
+          const d = WEEK.find((w) => w.id === id);
+          const btn = document.createElement("button");
+          btn.className = `day ${d.type}` + (d.id === todayIdx ? " today" : "");
+          btn.setAttribute("role", "tab");
+          btn.dataset.id = d.id;
+          const h = Math.round(20 + d.intensity * 78); // px height of the column
+          btn.innerHTML = `
+      <span class="pin">TODAY</span>
+      <div class="col" style="height:${h}px"></div>
+      <span class="dlabel">${d.abbr}</span>
+      <span class="dfocus">${d.focus}</span>
+    `;
+          btn.addEventListener("click", () => selectDay(d.id));
+          wave.appendChild(btn);
+        });
+      }
+
+      function selectDay(id) {
+        document.querySelectorAll("#wave .day").forEach((b) => {
+          b.classList.toggle("active", Number(b.dataset.id) === id);
+          b.setAttribute("aria-selected", Number(b.dataset.id) === id);
+        });
+        const d = WEEK.find((w) => w.id === id);
+        const det = $("#detail");
+        det.classList.toggle("home", d.type === "home");
+        const rows = d.ex
+          .map((e, i) => {
+            const repLine = e.sets ? `${e.sets} × ${e.reps}` : e.reps;
+            const restBlock = e.rest
+              ? `<div class="metric"><div class="k">Rest</div><div class="v muted">${e.rest}</div></div>`
+              : "";
+            return `
+      <div class="ex">
+        <div class="ex-top">
+          <div class="ex-n">${String(i + 1).padStart(2, "0")}</div>
+          <div class="ex-name">${e.name}</div>
+          <span class="chip">${e.target}</span>
+        </div>
+        <div class="ex-metrics">
+          <div class="metric"><div class="k">${e.sets ? "Sets × Reps" : "Duration"}</div><div class="v">${repLine}</div></div>
+          ${restBlock}
+        </div>
+        <div class="ex-cue">${icoInfo}<span>${e.cue}</span></div>
+        <a class="watch" href="${yt(e.name)}" target="_blank" rel="noopener">${icoPlay} Watch form</a>
+      </div>`;
+          })
+          .join("");
+
+        det.innerHTML = `
+    <div class="detail-head">
+      <span class="dnum">${d.type === "gym" ? "GYM" : "HOME"}</span>
+      <h3>${d.day} — ${d.focus}</h3>
+    </div>
+    <div class="detail-sub">${d.sub} · ${d.dur} · ${d.ex.length} ${d.type === "gym" ? "exercises" : "movements"}</div>
+    ${rows}
+    <div class="note">${d.type === "gym" ? icoInfo : icoBulb}<span>${d.note}</span></div>
+  `;
+        det.classList.remove("flash");
+        void det.offsetWidth;
+        det.classList.add("flash");
+      }
+
+      /* -------- diet rendering -------- */
+      function buildDietWave() {
+        const wave = $("#diet-wave");
+        wave.innerHTML = "";
+        const todayIdx = new Date().getDay();
+        const todayWd = abbrToWeekday(WEEK.find((w) => w.id === todayIdx).abbr);
+        DIET.forEach((d, i) => {
+          const btn = document.createElement("button");
+          btn.className =
+            `day ${d.type}` + (d.weekday === todayWd ? " today" : "");
+          btn.dataset.i = i;
+          btn.setAttribute("role", "tab");
+          btn.style.height = "auto";
+          btn.style.paddingTop = "22px";
+          btn.innerHTML = `
+      <span class="pin">TODAY</span>
+      <div class="col" style="height:14px;max-width:46px"></div>
+      <span class="dlabel">${d.weekday.toUpperCase()}</span>
+      <span class="dfocus">${d.day}</span>
+    `;
+          btn.addEventListener("click", () => selectDiet(i));
+          wave.appendChild(btn);
+        });
+      }
+
+      function mealCard(time, m) {
+        const note = m.note ? `<div class="mnote">${m.note}</div>` : "";
+        return `
+    <div class="meal">
+      <div class="mtime">${time}</div>
+      <h5>${m.t}</h5>
+      <ul>${m.items.map((x) => `<li>${x}</li>`).join("")}</ul>
+      ${note}
+    </div>`;
+      }
+
+      function selectDiet(i, fromJump) {
+        document.querySelectorAll("#diet-wave .day").forEach((b) => {
+          b.classList.toggle("active", Number(b.dataset.i) === i);
+          b.setAttribute("aria-selected", Number(b.dataset.i) === i);
+        });
+        const d = DIET[i];
+        $("#diet-day-title").textContent =
+          `${d.day} · ${d.weekday} (${d.type === "gym" ? "gym day" : "home day"})`;
+        $("#meals").innerHTML =
+          mealCard("Breakfast", d.breakfast) +
+          mealCard("Lunch", d.lunch) +
+          mealCard("Snack", d.snack) +
+          mealCard("Dinner", d.dinner);
+        if (fromJump) {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }
+
+      /* -------- view switching -------- */
+      function switchView(name) {
+        document.querySelectorAll("nav.tabs button").forEach((b) => {
+          const on = b.dataset.view === name;
+          b.setAttribute("aria-selected", on);
+        });
+        document.querySelectorAll(".view").forEach((v) => {
+          v.classList.toggle("active", v.id === "view-" + name);
+        });
+        window.scrollTo({ top: 0, behavior: "auto" });
+      }
+      document.querySelectorAll("nav.tabs button").forEach((b) => {
+        b.addEventListener("click", () => switchView(b.dataset.view));
+      });
+
+      /* -------- init -------- */
+      buildWave();
+      const startId = renderToday();
+      selectDay(startId);
+      buildDietWave();
+      const todayIdx = new Date().getDay();
+      selectDiet(
+        dietIndexForWeekday(
+          abbrToWeekday(WEEK.find((w) => w.id === todayIdx).abbr),
+        ),
+      );
+    </script>
+  </body>
+</html>
