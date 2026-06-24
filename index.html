@@ -41,21 +41,26 @@
         --body: "Inter", system-ui, sans-serif;
         --mono: "JetBrains Mono", ui-monospace, monospace;
       }
-
       * {
         box-sizing: border-box;
       }
-
       html {
         scroll-behavior: smooth;
       }
-
       body {
         margin: 0;
         color: var(--text);
         background:
-          radial-gradient(circle at 75% 5%, rgba(168, 85, 247, 0.24), transparent 32%),
-          radial-gradient(circle at 10% 15%, rgba(125, 211, 252, 0.12), transparent 28%),
+          radial-gradient(
+            circle at 75% 5%,
+            rgba(168, 85, 247, 0.24),
+            transparent 32%
+          ),
+          radial-gradient(
+            circle at 10% 15%,
+            rgba(125, 211, 252, 0.12),
+            transparent 28%
+          ),
           linear-gradient(115deg, rgba(168, 85, 247, 0.12), transparent 34%),
           linear-gradient(245deg, rgba(255, 79, 216, 0.09), transparent 36%),
           var(--bg);
@@ -64,7 +69,6 @@
         overflow-x: hidden;
         -webkit-font-smoothing: antialiased;
       }
-
       body::before {
         content: "";
         position: fixed;
@@ -73,24 +77,24 @@
         z-index: 0;
         background-image:
           linear-gradient(rgba(192, 132, 252, 0.045) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(192, 132, 252, 0.045) 1px, transparent 1px);
+          linear-gradient(
+            90deg,
+            rgba(192, 132, 252, 0.045) 1px,
+            transparent 1px
+          );
         background-size: 48px 48px;
         mask-image: linear-gradient(to bottom, black, transparent 80%);
       }
-
       button,
       input {
         font: inherit;
       }
-
       button {
         cursor: pointer;
       }
-
       a {
         color: inherit;
       }
-
       .shell {
         position: relative;
         z-index: 1;
@@ -98,7 +102,6 @@
         max-width: var(--maxw);
         margin: 0 auto;
       }
-
       .topbar {
         position: sticky;
         top: 0;
@@ -107,7 +110,6 @@
         background: rgba(9, 11, 15, 0.86);
         backdrop-filter: blur(18px);
       }
-
       .topbar .shell {
         min-height: 70px;
         display: flex;
@@ -115,7 +117,6 @@
         gap: 16px;
         min-width: 0;
       }
-
       .brand {
         display: flex;
         align-items: center;
@@ -123,7 +124,6 @@
         margin-right: auto;
         min-width: 190px;
       }
-
       .brand-mark {
         width: 38px;
         height: 38px;
@@ -136,26 +136,21 @@
           var(--panel-2);
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
       }
-
       .brand-mark svg {
         width: 22px;
         height: 22px;
       }
-
       .brand b {
         display: block;
         font-family: var(--display);
         font-size: 1rem;
         line-height: 1;
-        letter-spacing: 0;
       }
-
       .brand span {
         color: var(--soft);
         font-family: var(--mono);
         font-size: 0.68rem;
       }
-
       .tabs {
         display: flex;
         gap: 4px;
@@ -165,7 +160,6 @@
         border-radius: var(--radius);
         min-width: 0;
       }
-
       .tabs button {
         border: 0;
         color: var(--muted);
@@ -178,13 +172,11 @@
         font-weight: 700;
         text-transform: uppercase;
       }
-
       .tabs button:hover,
       .tabs button[aria-selected="true"] {
         color: #12051e;
         background: var(--green);
       }
-
       .profile-trigger {
         min-height: 44px;
         display: inline-flex;
@@ -194,7 +186,11 @@
         border-radius: var(--radius);
         color: var(--text);
         background:
-          linear-gradient(180deg, rgba(192, 132, 252, 0.16), rgba(168, 85, 247, 0.06)),
+          linear-gradient(
+            180deg,
+            rgba(192, 132, 252, 0.16),
+            rgba(168, 85, 247, 0.06)
+          ),
           rgba(255, 255, 255, 0.04);
         padding: 0 12px;
         font-family: var(--mono);
@@ -203,27 +199,36 @@
         text-transform: uppercase;
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
       }
-
       .mini-avatar,
       .avatar-large {
         position: relative;
         display: block;
         border-radius: 50%;
         background:
-          radial-gradient(circle at 50% 32%, rgba(255, 255, 255, 0.9) 0 8%, transparent 9%),
-          radial-gradient(circle at 50% 72%, rgba(192, 132, 252, 0.95) 0 21%, transparent 22%),
-          linear-gradient(145deg, rgba(168, 85, 247, 0.9), rgba(20, 8, 40, 0.98));
+          radial-gradient(
+            circle at 50% 32%,
+            rgba(255, 255, 255, 0.9) 0 8%,
+            transparent 9%
+          ),
+          radial-gradient(
+            circle at 50% 72%,
+            rgba(192, 132, 252, 0.95) 0 21%,
+            transparent 22%
+          ),
+          linear-gradient(
+            145deg,
+            rgba(168, 85, 247, 0.9),
+            rgba(20, 8, 40, 0.98)
+          );
         border: 1px solid rgba(219, 202, 255, 0.32);
         box-shadow:
           0 0 0 3px rgba(168, 85, 247, 0.1),
           0 0 28px rgba(168, 85, 247, 0.34);
       }
-
       .mini-avatar {
         width: 28px;
         height: 28px;
       }
-
       .mini-avatar::after,
       .avatar-large::after {
         content: "";
@@ -232,41 +237,63 @@
         border-radius: inherit;
         border: 1px solid rgba(255, 255, 255, 0.15);
       }
-
       .avatar-large {
         width: min(220px, 62vw);
         aspect-ratio: 1;
         margin: 0 auto 18px;
       }
-
       .avatar-large.stage-2,
       .mini-avatar.stage-2 {
         background:
-          radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.95) 0 8%, transparent 9%),
-          radial-gradient(circle at 50% 73%, rgba(125, 211, 252, 0.85) 0 20%, transparent 21%),
-          conic-gradient(from 210deg, rgba(168, 85, 247, 0.95), rgba(125, 211, 252, 0.85), rgba(20, 8, 40, 0.98), rgba(168, 85, 247, 0.95));
+          radial-gradient(
+            circle at 50% 30%,
+            rgba(255, 255, 255, 0.95) 0 8%,
+            transparent 9%
+          ),
+          radial-gradient(
+            circle at 50% 73%,
+            rgba(125, 211, 252, 0.85) 0 20%,
+            transparent 21%
+          ),
+          conic-gradient(
+            from 210deg,
+            rgba(168, 85, 247, 0.95),
+            rgba(125, 211, 252, 0.85),
+            rgba(20, 8, 40, 0.98),
+            rgba(168, 85, 247, 0.95)
+          );
       }
-
       .avatar-large.stage-3,
       .mini-avatar.stage-3 {
         background:
-          radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.95) 0 8%, transparent 9%),
-          radial-gradient(circle at 50% 74%, rgba(247, 211, 106, 0.92) 0 20%, transparent 21%),
-          conic-gradient(from 160deg, rgba(247, 211, 106, 0.95), rgba(255, 79, 216, 0.82), rgba(139, 92, 246, 0.98), rgba(247, 211, 106, 0.95));
+          radial-gradient(
+            circle at 50% 28%,
+            rgba(255, 255, 255, 0.95) 0 8%,
+            transparent 9%
+          ),
+          radial-gradient(
+            circle at 50% 74%,
+            rgba(247, 211, 106, 0.92) 0 20%,
+            transparent 21%
+          ),
+          conic-gradient(
+            from 160deg,
+            rgba(247, 211, 106, 0.95),
+            rgba(255, 79, 216, 0.82),
+            rgba(139, 92, 246, 0.98),
+            rgba(247, 211, 106, 0.95)
+          );
         box-shadow:
           0 0 0 3px rgba(247, 211, 106, 0.1),
           0 0 34px rgba(247, 211, 106, 0.34);
       }
-
       .view {
         display: none;
         padding-bottom: 72px;
       }
-
       .view.active {
         display: block;
       }
-
       .hero {
         min-height: calc(100svh - 70px);
         display: grid;
@@ -275,7 +302,6 @@
         align-items: center;
         padding: 42px 0 28px;
       }
-
       .eyebrow {
         display: inline-flex;
         align-items: center;
@@ -287,7 +313,6 @@
         letter-spacing: 0.12em;
         text-transform: uppercase;
       }
-
       .eyebrow::before {
         content: "";
         width: 8px;
@@ -295,7 +320,6 @@
         background: currentColor;
         border-radius: 2px;
       }
-
       h1,
       h2,
       h3,
@@ -303,7 +327,6 @@
       p {
         margin: 0;
       }
-
       h1 {
         margin-top: 14px;
         max-width: 760px;
@@ -312,11 +335,9 @@
         line-height: 0.9;
         font-weight: 900;
       }
-
       h1 span {
         display: block;
       }
-
       .lead {
         max-width: 64ch;
         margin-top: 18px;
@@ -324,14 +345,12 @@
         font-size: clamp(0.98rem, 2vw, 1.1rem);
         overflow-wrap: break-word;
       }
-
       .hero-actions {
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
         margin-top: 24px;
       }
-
       .btn {
         min-height: 42px;
         display: inline-flex;
@@ -350,48 +369,40 @@
           border-color 0.16s ease,
           background 0.16s ease;
       }
-
       .btn:hover {
         transform: translateY(-1px);
         border-color: rgba(255, 255, 255, 0.32);
       }
-
       .btn:disabled {
         cursor: not-allowed;
         opacity: 0.72;
         transform: none;
       }
-
       .btn.primary {
         color: #12051e;
         background: var(--green);
         border-color: var(--green);
       }
-
       .btn.small {
         min-height: 34px;
         padding: 0 10px;
         font-size: 0.82rem;
       }
-
       .btn svg {
         width: 17px;
         height: 17px;
       }
-
       .hero-board {
         position: relative;
         min-height: 440px;
         perspective: 1200px;
         overflow: hidden;
       }
-
       .hero > *,
       .detail-grid > *,
       .level-panel > * {
         min-width: 0;
       }
-
       .today-card {
         position: relative;
         z-index: 2;
@@ -405,7 +416,6 @@
         transform: rotateX(4deg) rotateY(-7deg);
         transform-style: preserve-3d;
       }
-
       .status-preview {
         position: relative;
         z-index: 3;
@@ -415,22 +425,23 @@
         border-radius: var(--radius);
         padding: 16px;
         background:
-          linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(5, 3, 10, 0.82)),
+          linear-gradient(
+            135deg,
+            rgba(168, 85, 247, 0.2),
+            rgba(5, 3, 10, 0.82)
+          ),
           rgba(16, 11, 29, 0.92);
         box-shadow: var(--shadow);
       }
-
       .status-preview h3 {
         font-family: var(--display);
         font-size: 1.18rem;
       }
-
       .status-bars {
         display: grid;
         gap: 9px;
         margin-top: 12px;
       }
-
       .status-row {
         display: grid;
         grid-template-columns: 96px minmax(0, 1fr) 34px;
@@ -442,22 +453,24 @@
         font-weight: 700;
         text-transform: uppercase;
       }
-
       .status-row i {
         height: 7px;
         border-radius: 999px;
         background: rgba(255, 255, 255, 0.08);
         overflow: hidden;
       }
-
       .status-row i::before {
         content: "";
         display: block;
         width: var(--w);
         height: 100%;
-        background: linear-gradient(90deg, var(--mana), var(--mana-2), var(--gold));
+        background: linear-gradient(
+          90deg,
+          var(--mana),
+          var(--mana-2),
+          var(--gold)
+        );
       }
-
       .today-card::after {
         content: "";
         position: absolute;
@@ -466,21 +479,18 @@
         border-radius: 6px;
         transform: translateZ(-36px);
       }
-
       .today-head {
         display: flex;
         align-items: start;
         justify-content: space-between;
         gap: 16px;
       }
-
       .today-head h2 {
         margin-top: 6px;
         font-family: var(--display);
         font-size: clamp(1.7rem, 4vw, 2.6rem);
         line-height: 0.95;
       }
-
       .badge {
         display: inline-flex;
         align-items: center;
@@ -496,19 +506,16 @@
         font-weight: 700;
         text-transform: uppercase;
       }
-
       .badge.rest {
         color: var(--blue);
         background: var(--blue-soft);
       }
-
       .today-meta {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 10px;
         margin-top: 22px;
       }
-
       .mini-stat,
       .stat,
       .exercise,
@@ -519,11 +526,9 @@
         border-radius: var(--radius);
         background: rgba(255, 255, 255, 0.045);
       }
-
       .mini-stat {
         padding: 12px;
       }
-
       .mini-stat span,
       .stat span {
         display: block;
@@ -533,7 +538,6 @@
         font-weight: 700;
         text-transform: uppercase;
       }
-
       .mini-stat b,
       .stat b {
         display: block;
@@ -542,7 +546,6 @@
         font-family: var(--display);
         font-size: 1.22rem;
       }
-
       .kinetic {
         position: absolute;
         right: -4%;
@@ -553,22 +556,25 @@
         transform-style: preserve-3d;
         opacity: 0.9;
       }
-
       .ring,
       .plate {
         position: absolute;
         border: 1px solid rgba(255, 255, 255, 0.18);
         transform-style: preserve-3d;
       }
-
       .ring {
         inset: 18%;
         border-radius: 50%;
-        background: conic-gradient(from 70deg, var(--green), var(--blue), var(--coral), var(--green));
+        background: conic-gradient(
+          from 70deg,
+          var(--green),
+          var(--blue),
+          var(--coral),
+          var(--green)
+        );
         mask: radial-gradient(circle, transparent 48%, black 50%);
         animation: spin 14s linear infinite;
       }
-
       .plate {
         width: 72px;
         height: 72px;
@@ -576,29 +582,24 @@
         background: linear-gradient(145deg, var(--panel-3), #0d1117);
         box-shadow: 0 22px 42px rgba(0, 0, 0, 0.28);
       }
-
       .plate.one {
         left: 14%;
         top: 46%;
         transform: translateZ(38px);
       }
-
       .plate.two {
         right: 14%;
         top: 30%;
         transform: translateZ(90px);
       }
-
       @keyframes spin {
         to {
           transform: rotate(360deg);
         }
       }
-
       .section {
         padding-top: 34px;
       }
-
       .section-head {
         display: flex;
         align-items: end;
@@ -606,19 +607,16 @@
         gap: 18px;
         margin-bottom: 16px;
       }
-
       .section-head h2 {
         font-family: var(--display);
         font-size: clamp(1.6rem, 4vw, 2.4rem);
         line-height: 1;
       }
-
       .section-head p {
         max-width: 64ch;
         margin-top: 8px;
         color: var(--muted);
       }
-
       .level-panel {
         display: grid;
         grid-template-columns: minmax(0, 1fr) auto;
@@ -627,25 +625,25 @@
         border: 1px solid var(--line-strong);
         border-radius: var(--radius);
         padding: 16px;
-        background: linear-gradient(120deg, rgba(66, 223, 145, 0.12), rgba(96, 165, 250, 0.08));
+        background: linear-gradient(
+          120deg,
+          rgba(66, 223, 145, 0.12),
+          rgba(96, 165, 250, 0.08)
+        );
       }
-
       .level-title {
         display: flex;
         align-items: center;
         gap: 10px;
         flex-wrap: wrap;
       }
-
       .level-title b {
         font-family: var(--display);
         font-size: 1.25rem;
       }
-
       .level-title span {
         color: var(--muted);
       }
-
       .meter {
         height: 8px;
         max-width: 420px;
@@ -655,21 +653,18 @@
         overflow: hidden;
         background: rgba(0, 0, 0, 0.2);
       }
-
       .meter i {
         display: block;
         height: 100%;
         width: 16.66%;
         background: linear-gradient(90deg, var(--green), var(--blue));
       }
-
       .level-actions {
         display: flex;
         gap: 8px;
         flex-wrap: wrap;
         justify-content: end;
       }
-
       .game-panel {
         display: grid;
         grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
@@ -679,23 +674,24 @@
         border-radius: var(--radius);
         padding: 16px;
         background:
-          linear-gradient(120deg, rgba(66, 223, 145, 0.16), rgba(255, 107, 95, 0.08)),
+          linear-gradient(
+            120deg,
+            rgba(66, 223, 145, 0.16),
+            rgba(255, 107, 95, 0.08)
+          ),
           rgba(255, 255, 255, 0.04);
       }
-
       .rank-title {
         display: flex;
         align-items: center;
         gap: 10px;
         flex-wrap: wrap;
       }
-
       .rank-title b {
         font-family: var(--display);
         font-size: clamp(1.5rem, 4vw, 2.2rem);
         line-height: 1;
       }
-
       .rank-title span {
         color: var(--gold);
         font-family: var(--mono);
@@ -703,7 +699,6 @@
         font-weight: 700;
         text-transform: uppercase;
       }
-
       .xp-bar {
         height: 12px;
         margin-top: 14px;
@@ -712,20 +707,22 @@
         overflow: hidden;
         background: rgba(0, 0, 0, 0.22);
       }
-
       .xp-bar i {
         display: block;
         height: 100%;
         width: 0;
-        background: linear-gradient(90deg, var(--green), var(--gold), var(--coral));
+        background: linear-gradient(
+          90deg,
+          var(--green),
+          var(--gold),
+          var(--coral)
+        );
       }
-
       .game-stats {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 8px;
       }
-
       .unlock-list {
         margin: 12px 0 0;
         padding: 0;
@@ -733,12 +730,10 @@
         display: grid;
         gap: 7px;
       }
-
       .unlock-list li {
         color: var(--muted);
         font-size: 0.88rem;
       }
-
       .week-tabs,
       .diet-tabs {
         display: grid;
@@ -746,7 +741,6 @@
         gap: 8px;
         margin: 18px 0;
       }
-
       .day-tab {
         min-height: 78px;
         border: 1px solid var(--line);
@@ -756,59 +750,49 @@
         padding: 10px;
         text-align: left;
       }
-
       .day-tab b {
         display: block;
         color: var(--text);
         font-family: var(--display);
         font-size: 1rem;
       }
-
       .day-tab span {
         display: block;
         margin-top: 5px;
         font-size: 0.76rem;
       }
-
       .day-tab[aria-selected="true"] {
         border-color: rgba(66, 223, 145, 0.62);
         background: var(--green-soft);
         color: var(--text);
       }
-
       .day-tab.rest[aria-selected="true"] {
         border-color: rgba(96, 165, 250, 0.62);
         background: var(--blue-soft);
       }
-
       .detail-grid {
         display: grid;
         grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
         gap: 16px;
         align-items: start;
       }
-
       .plan-card {
         padding: 18px;
       }
-
       .plan-card h3 {
         font-family: var(--display);
         font-size: 1.55rem;
         line-height: 1.05;
       }
-
       .plan-card p {
         margin-top: 8px;
         color: var(--muted);
       }
-
       .warmups {
         display: grid;
         gap: 9px;
         margin-top: 16px;
       }
-
       .warmup {
         display: grid;
         grid-template-columns: 34px minmax(0, 1fr);
@@ -819,7 +803,6 @@
         border-radius: var(--radius);
         background: rgba(0, 0, 0, 0.12);
       }
-
       .warmup b {
         width: 34px;
         height: 34px;
@@ -831,57 +814,48 @@
         font-family: var(--mono);
         font-size: 0.76rem;
       }
-
       .warmup span {
         color: var(--muted);
         font-size: 0.9rem;
       }
-
       .exercise-list {
         display: grid;
         gap: 12px;
       }
-
       .exercise {
         display: grid;
         grid-template-columns: minmax(0, 1fr);
         gap: 14px;
         padding: 14px;
       }
-
       .exercise.done {
         border-color: rgba(66, 223, 145, 0.42);
         background:
           linear-gradient(90deg, rgba(66, 223, 145, 0.12), transparent),
           rgba(255, 255, 255, 0.045);
       }
-
       .route-head {
         display: flex;
         align-items: start;
         justify-content: space-between;
         gap: 12px;
       }
-
       .reward {
         flex: 0 0 auto;
         color: var(--gold);
         border-color: rgba(242, 193, 78, 0.35);
         background: rgba(242, 193, 78, 0.1);
       }
-
       .exercise h4 {
         font-family: var(--display);
         font-size: 1.1rem;
       }
-
       .exercise .meta {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
         margin: 10px 0;
       }
-
       .pill {
         display: inline-flex;
         align-items: center;
@@ -896,12 +870,10 @@
         font-weight: 700;
         text-transform: uppercase;
       }
-
       .exercise p {
         color: var(--muted);
         font-size: 0.91rem;
       }
-
       .steps {
         margin: 12px 0 0;
         padding-left: 20px;
@@ -910,24 +882,20 @@
         gap: 6px;
         font-size: 0.9rem;
       }
-
       .exercise-actions {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
         margin-top: 12px;
       }
-
       .complete-btn {
         color: var(--green);
       }
-
       .complete-btn.done {
         color: #07110c;
         background: var(--green);
         border-color: var(--green);
       }
-
       .section-label {
         display: flex;
         align-items: center;
@@ -940,7 +908,6 @@
         letter-spacing: 0.12em;
         text-transform: uppercase;
       }
-
       .section-label::before {
         content: "";
         width: 8px;
@@ -948,7 +915,6 @@
         border-radius: 2px;
         background: currentColor;
       }
-
       .safety-note {
         margin-top: 14px;
         border-left: 3px solid var(--blue);
@@ -958,29 +924,24 @@
         background: var(--blue-soft);
         font-size: 0.9rem;
       }
-
       .stats {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 10px;
         margin: 18px 0;
       }
-
       .stat {
         padding: 14px;
       }
-
       .rule-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 12px;
         margin: 18px 0;
       }
-
       .rule-panel {
         padding: 14px;
       }
-
       .rule-panel h3 {
         display: flex;
         align-items: center;
@@ -988,24 +949,20 @@
         font-family: var(--display);
         font-size: 1.04rem;
       }
-
       .rule-panel p {
         margin-top: 8px;
         color: var(--muted);
         font-size: 0.91rem;
       }
-
       .meals {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 12px;
       }
-
       .meal {
         padding: 16px;
         overflow: hidden;
       }
-
       .meal-time {
         color: var(--green);
         font-family: var(--mono);
@@ -1013,13 +970,11 @@
         font-weight: 700;
         text-transform: uppercase;
       }
-
       .meal h3 {
         margin-top: 5px;
         font-family: var(--display);
         font-size: 1.14rem;
       }
-
       .meal ul {
         margin: 10px 0 0;
         padding: 0;
@@ -1027,14 +982,12 @@
         display: grid;
         gap: 6px;
       }
-
       .meal li {
         position: relative;
         padding-left: 15px;
         color: var(--muted);
         font-size: 0.91rem;
       }
-
       .meal li::before {
         content: "";
         position: absolute;
@@ -1045,7 +998,6 @@
         border-radius: 50%;
         background: var(--green);
       }
-
       .recipe {
         display: none;
         margin-top: 12px;
@@ -1054,21 +1006,17 @@
         color: var(--muted);
         font-size: 0.9rem;
       }
-
       .recipe.open {
         display: block;
       }
-
       .recipe b {
         color: var(--text);
       }
-
       .recipe h4 {
         margin: 12px 0 7px;
         font-family: var(--display);
         font-size: 0.98rem;
       }
-
       .recipe ol,
       .recipe ul {
         margin: 0;
@@ -1076,20 +1024,17 @@
         display: grid;
         gap: 6px;
       }
-
       .drink-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 12px;
         margin-top: 16px;
       }
-
       .footer-note {
         margin: 28px 0 0;
         color: var(--soft);
         font-size: 0.86rem;
       }
-
       .modal,
       .levelup {
         position: fixed;
@@ -1099,16 +1044,18 @@
         place-items: center;
         padding: 18px;
         background:
-          radial-gradient(circle at 50% 20%, rgba(168, 85, 247, 0.26), transparent 36%),
+          radial-gradient(
+            circle at 50% 20%,
+            rgba(168, 85, 247, 0.26),
+            transparent 36%
+          ),
           rgba(3, 1, 8, 0.82);
         backdrop-filter: blur(12px);
       }
-
       .modal.open,
       .levelup.open {
         display: grid;
       }
-
       .modal-card,
       .levelup-card {
         position: relative;
@@ -1125,7 +1072,6 @@
           0 0 80px rgba(168, 85, 247, 0.22);
         padding: 22px;
       }
-
       .modal-card::before,
       .levelup-card::before {
         content: "";
@@ -1135,7 +1081,6 @@
         border-radius: 6px;
         pointer-events: none;
       }
-
       .modal-close {
         position: absolute;
         right: 14px;
@@ -1150,14 +1095,12 @@
         font-size: 1.45rem;
         line-height: 1;
       }
-
       .profile-grid {
         display: grid;
         grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
         gap: 18px;
         align-items: stretch;
       }
-
       .avatar-card,
       .status-window {
         border: 1px solid var(--line);
@@ -1165,40 +1108,34 @@
         background: rgba(255, 255, 255, 0.045);
         padding: 18px;
       }
-
       .avatar-card {
         display: grid;
         align-content: center;
         text-align: center;
       }
-
       .avatar-card h2,
       .levelup-card h2 {
         font-family: var(--display);
         font-size: clamp(1.8rem, 5vw, 3rem);
         line-height: 0.95;
       }
-
       .avatar-card p,
       .levelup-card p {
         margin-top: 8px;
         color: var(--muted);
       }
-
       .profile-stats {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
         margin-top: 16px;
       }
-
       .status-stat {
         border: 1px solid var(--line);
         border-radius: var(--radius);
         padding: 12px;
         background: rgba(0, 0, 0, 0.16);
       }
-
       .status-stat span {
         display: block;
         color: var(--soft);
@@ -1207,7 +1144,6 @@
         font-weight: 700;
         text-transform: uppercase;
       }
-
       .status-stat b {
         display: block;
         margin-top: 4px;
@@ -1215,7 +1151,6 @@
         font-family: var(--display);
         font-size: 1.28rem;
       }
-
       .weight-row {
         display: flex;
         align-items: center;
@@ -1226,17 +1161,14 @@
         padding-top: 16px;
         color: var(--muted);
       }
-
       .weight-row label {
         font-weight: 800;
       }
-
       .weight-row div {
         display: flex;
         align-items: center;
         gap: 8px;
       }
-
       .weight-row input {
         width: 92px;
         min-height: 38px;
@@ -1247,25 +1179,20 @@
         padding: 0 10px;
         font-weight: 800;
       }
-
       .levelup {
         z-index: 90;
       }
-
       .levelup-card {
         width: min(620px, 100%);
         text-align: center;
         animation: systemOpen 0.42s ease both;
       }
-
       .levelup-card .profile-stats {
         text-align: left;
       }
-
       .levelup-card .btn {
         margin-top: 18px;
       }
-
       @keyframes systemOpen {
         from {
           opacity: 0;
@@ -1278,32 +1205,61 @@
           filter: none;
         }
       }
-
+      .warmup-section {
+        margin-top: 16px;
+      }
+      .warmup-item {
+        display: grid;
+        grid-template-columns: 34px minmax(0, 1fr);
+        gap: 10px;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(0, 0, 0, 0.12);
+        margin-bottom: 8px;
+      }
+      .warmup-item b {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        border-radius: 6px;
+        color: #07110c;
+        background: var(--green);
+        font-family: var(--mono);
+        font-size: 0.76rem;
+        flex-shrink: 0;
+      }
+      .warmup-item div strong {
+        color: var(--text);
+        font-size: 0.9rem;
+        display: block;
+      }
+      .warmup-item div span {
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
       @media (max-width: 920px) {
         .topbar .shell {
           align-items: stretch;
           flex-direction: column;
           padding: 12px 0;
         }
-
         .brand {
           width: 100%;
         }
-
         .tabs {
           width: 100%;
           overflow-x: auto;
         }
-
         .profile-trigger {
           width: 100%;
           justify-content: center;
         }
-
         .tabs button {
           flex: 1 0 auto;
         }
-
         .hero,
         .detail-grid,
         .level-panel,
@@ -1311,24 +1267,19 @@
         .profile-grid {
           grid-template-columns: 1fr;
         }
-
         .hero {
           min-height: auto;
         }
-
         .today-card {
           transform: none;
         }
-
         .hero-board {
           min-height: 360px;
         }
-
         .week-tabs,
         .diet-tabs {
           grid-template-columns: repeat(4, minmax(0, 1fr));
         }
-
         .stats,
         .rule-grid,
         .game-stats,
@@ -1337,41 +1288,33 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
-
       @media (max-width: 640px) {
         .shell {
           width: calc(100% - 20px);
-          max-width: var(--maxw);
         }
-
         h1 {
           font-size: clamp(2.15rem, 11vw, 3rem);
           line-height: 0.96;
         }
-
         .tabs {
           display: grid;
           grid-template-columns: repeat(4, minmax(0, 1fr));
           overflow: visible;
         }
-
         .tabs button {
           min-width: 0;
           padding: 0 8px;
           font-size: 0.66rem;
         }
-
         .hero-actions,
         .level-actions,
         .section-head {
           align-items: stretch;
           flex-direction: column;
         }
-
         .btn {
           width: 100%;
         }
-
         .today-meta,
         .week-tabs,
         .diet-tabs,
@@ -1383,16 +1326,13 @@
         .drink-grid {
           grid-template-columns: 1fr;
         }
-
         .exercise {
           grid-template-columns: 1fr;
         }
-
         .day-tab {
           min-height: 64px;
         }
       }
-
       @media (prefers-reduced-motion: reduce) {
         *,
         *::before,
@@ -1409,22 +1349,39 @@
       <div class="shell">
         <div class="brand" aria-label="Project 70">
           <div class="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
               <path d="M6 7v10M18 7v10M3 10v4M21 10v4M6 12h12" />
             </svg>
           </div>
-          <div>
-            <b>Project 70</b>
-            <span>86kg to lean 70kg</span>
-          </div>
+          <div><b>Project 70</b><span>86kg to lean 70kg</span></div>
         </div>
         <nav class="tabs" aria-label="Main views">
-          <button type="button" data-view="dashboard" aria-selected="true">Today</button>
-          <button type="button" data-view="training" aria-selected="false">Training</button>
-          <button type="button" data-view="diet" aria-selected="false">Diet</button>
-          <button type="button" data-view="guide" aria-selected="false">Guide</button>
+          <button type="button" data-view="dashboard" aria-selected="true">
+            Today
+          </button>
+          <button type="button" data-view="training" aria-selected="false">
+            Training
+          </button>
+          <button type="button" data-view="diet" aria-selected="false">
+            Diet
+          </button>
+          <button type="button" data-view="guide" aria-selected="false">
+            Guide
+          </button>
         </nav>
-        <button class="profile-trigger" id="profile-open" type="button" aria-label="Open hunter profile">
+        <button
+          class="profile-trigger"
+          id="profile-open"
+          type="button"
+          aria-label="Open hunter profile"
+        >
           <span class="mini-avatar" id="mini-avatar" aria-hidden="true"></span>
           <span>Profile</span>
         </button>
@@ -1436,17 +1393,45 @@
         <div class="shell hero">
           <div>
             <span class="eyebrow" id="today-eyebrow">Today's plan</span>
-            <h1><span>Arise,</span><span>complete quests,</span><span>forge a lean</span><span>shadow.</span></h1>
+            <h1>
+              <span>Arise,</span><span>complete quests,</span
+              ><span>forge a lean</span><span>shadow.</span>
+            </h1>
             <p class="lead">
-              Beginner-friendly quests for your Monday, Tuesday, Wednesday, Friday, and Saturday gym days. Thursday and Sunday become recovery dungeons so your body levels up without breaking down.
+              5 gym days, 2 recovery days. Each session runs 55 to 65 minutes
+              with a structured warm-up, main lifts, and a cardio finisher. The
+              plan targets 86kg down to 70kg through consistent training and a
+              Bangladesh-friendly halal diet.
             </p>
             <div class="hero-actions">
-              <button class="btn primary" type="button" data-view-link="training">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              <button
+                class="btn primary"
+                type="button"
+                data-view-link="training"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
                 Start training
               </button>
               <button class="btn" type="button" data-view-link="diet">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16M7 19V8a5 5 0 0 1 10 0v11M9 11h6"/></svg>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M4 19h16M7 19V8a5 5 0 0 1 10 0v11M9 11h6" />
+                </svg>
                 Today's meals
               </button>
             </div>
@@ -1469,45 +1454,65 @@
             <div>
               <span class="eyebrow">Training split</span>
               <h2>Five gym days, two recovery days.</h2>
-              <p>Every gym day begins with warmup rounds. The level button increases work slowly so you progress without jumping too hard.</p>
+              <p>
+                Every gym day starts with a 10-minute warm-up built for that
+                specific muscle group, then free-hand boosters, then main lifts,
+                then a cardio finisher. Do not skip the warm-up.
+              </p>
             </div>
           </div>
-
           <div class="level-panel">
             <div>
               <div class="level-title">
-                <b id="level-title">Level 1</b>
-                <span id="level-copy">Foundation pace</span>
+                <b id="level-title">Level 1</b
+                ><span id="level-copy">Foundation pace</span>
               </div>
-              <div class="meter" aria-hidden="true"><i id="level-meter"></i></div>
+              <div class="meter" aria-hidden="true">
+                <i id="level-meter"></i>
+              </div>
             </div>
             <div class="level-actions">
-              <button class="btn primary" id="upgrade-level" type="button">Upgrade 1 level</button>
+              <button class="btn primary" id="upgrade-level" type="button">
+                Upgrade 1 level
+              </button>
               <button class="btn" id="reset-level" type="button">Reset</button>
             </div>
           </div>
-
           <div class="game-panel" aria-label="Solo leveling progress">
             <div>
               <div class="rank-title">
-                <b id="rank-title">Hunter Level 1</b>
-                <span id="rank-name">Novice Hunter</span>
+                <b id="rank-title">Hunter Level 1</b
+                ><span id="rank-name">Novice Hunter</span>
               </div>
               <div class="xp-bar" aria-hidden="true"><i id="xp-meter"></i></div>
-              <p class="footer-note" id="xp-copy">Complete routes to gain EXP and unlock privileges.</p>
+              <p class="footer-note" id="xp-copy">
+                Complete routes to gain EXP and unlock privileges.
+              </p>
               <ul class="unlock-list" id="unlock-list"></ul>
             </div>
             <div class="game-stats">
-              <div class="mini-stat"><span>Total EXP</span><b id="total-xp">0</b></div>
-              <div class="mini-stat"><span>Today Burn</span><b id="today-cal">0</b></div>
-              <div class="mini-stat"><span>Done Today</span><b id="today-done">0</b></div>
+              <div class="mini-stat">
+                <span>Total EXP</span><b id="total-xp">0</b>
+              </div>
+              <div class="mini-stat">
+                <span>Today Burn</span><b id="today-cal">0</b>
+              </div>
+              <div class="mini-stat">
+                <span>Done Today</span><b id="today-done">0</b>
+              </div>
             </div>
             <div class="level-actions">
-              <button class="btn" id="reset-today" type="button">Clear today's ticks</button>
+              <button class="btn" id="reset-today" type="button">
+                Clear today's ticks
+              </button>
             </div>
           </div>
-
-          <div class="week-tabs" id="week-tabs" role="tablist" aria-label="Weekly training days"></div>
+          <div
+            class="week-tabs"
+            id="week-tabs"
+            role="tablist"
+            aria-label="Weekly training days"
+          ></div>
           <div class="detail-grid" id="training-detail"></div>
         </div>
       </section>
@@ -1518,47 +1523,70 @@
             <div>
               <span class="eyebrow">Halal diet</span>
               <h2>Cut weight without starving your muscle.</h2>
-              <p>Bangladesh friendly foods, pre and post workout meals, recipes, and easy workout drinks. Keep oil measured and protein present at every main meal.</p>
+              <p>
+                Bangladesh-friendly halal foods, full recipes with step-by-step
+                instructions, and pre and post-workout meals. Daily target:
+                1,900 calories, 120 to 150 g protein.
+              </p>
             </div>
           </div>
-
           <div class="stats">
-            <div class="stat"><span>Current</span><b>86kg</b></div>
-            <div class="stat"><span>Target</span><b>70kg</b></div>
+            <div class="stat"><span>Current</span><b>86 kg</b></div>
+            <div class="stat"><span>Target</span><b>70 kg</b></div>
             <div class="stat"><span>Protein</span><b>120-150g</b></div>
-            <div class="stat"><span>Calories</span><b>1900-2200</b></div>
+            <div class="stat"><span>Calories</span><b>1900</b></div>
           </div>
-
           <div class="rule-grid">
             <article class="rule-panel">
-              <h3>Deficit</h3>
-              <p>Aim to lose about 0.5-1kg per week. If weight is not moving for 2 weeks, reduce portions slightly or add walking.</p>
+              <h3>Calorie deficit</h3>
+              <p>
+                Aim for 500 to 750 kcal below maintenance per day. This gives
+                0.5 to 1 kg loss per week without losing muscle. If weight stops
+                dropping for 2 weeks, reduce rice portion slightly.
+              </p>
             </article>
             <article class="rule-panel">
-              <h3>Halal protein</h3>
-              <p>Eggs, fish, chicken, lean beef, dal, chana, peas, tok doi, milk, soy chunks, and tofu all fit well.</p>
+              <h3>Measure portions</h3>
+              <p>
+                1 cup cooked rice, 150 g chicken or fish, 2 tsp oil total per
+                day. Even clean food causes fat gain if you overeat. Use a
+                kitchen scale or measuring cup.
+              </p>
             </article>
             <article class="rule-panel">
-              <h3>Your oats</h3>
-              <p>Keep oats with milk or water. Add 1 tsp chia seeds for fiber, use banana or mango, and measure honey to 1 teaspoon when cutting.</p>
+              <h3>Protein every meal</h3>
+              <p>
+                Eggs, fish, chicken, dal, soya chunks, and boiled motor dal. Hit
+                120 to 150 g protein daily to preserve muscle while losing fat.
+                This is the single most important diet rule.
+              </p>
             </article>
           </div>
-
-          <div class="diet-tabs" id="diet-tabs" role="tablist" aria-label="Diet days"></div>
+          <div
+            class="diet-tabs"
+            id="diet-tabs"
+            role="tablist"
+            aria-label="Diet days"
+          ></div>
           <div class="section-head">
             <div>
               <h2 id="diet-title">Day meals</h2>
-              <p id="diet-note">Tap Recipe on any dish to see the preparation steps.</p>
+              <p id="diet-note">
+                Tap Recipe on any dish to see the full ingredients and
+                step-by-step cooking guide.
+              </p>
             </div>
           </div>
           <div class="meals" id="meals"></div>
-
           <div class="section">
             <div class="section-head">
               <div>
                 <span class="eyebrow">Workout drinks</span>
-                <h2>Easy options during training.</h2>
-                <p>Plain water is still the best default. These are simple alternatives when you sweat a lot or train in hot weather.</p>
+                <h2>Simple options during training.</h2>
+                <p>
+                  Plain water is the default. These are easy homemade drinks for
+                  hot weather or heavy sweat sessions.
+                </p>
               </div>
             </div>
             <div class="drink-grid" id="drinks"></div>
@@ -1570,40 +1598,100 @@
         <div class="shell section">
           <div class="section-head">
             <div>
-              <span class="eyebrow">Safety guide</span>
-              <h2>Simple rules that keep progress steady.</h2>
-              <p>This plan is educational fitness guidance. Stop any movement that causes sharp pain, and talk with a qualified clinician for personal medical issues.</p>
+              <span class="eyebrow">Rules and guide</span>
+              <h2>What actually makes progress happen.</h2>
+              <p>
+                Follow these rules consistently. Missing one session is fine.
+                Missing three in a row breaks the habit.
+              </p>
             </div>
           </div>
-
           <div class="rule-grid">
             <article class="rule-panel">
-              <h3>Lean, not bulky</h3>
-              <p>Train with control, keep a calorie deficit, and progress slowly. You will look leaner as fat drops and muscle stays.</p>
+              <h3>Progressive overload</h3>
+              <p>
+                When 3 sets of 12 reps feel easy, add 2 to 3 kg next session.
+                This is the most important training rule. Without it, your body
+                adapts and fat loss slows after 3 to 4 weeks.
+              </p>
             </article>
             <article class="rule-panel">
-              <h3>Pelvic floor truth</h3>
-              <p>Kegels can improve pelvic-floor control and may help sexual performance. No exercise reliably increases penis size, and aggressive stretching can injure you.</p>
+              <h3>Sleep 7 to 8 hours</h3>
+              <p>
+                Poor sleep raises hunger hormones directly. Studies show adding
+                1 to 2 hours of sleep reduces calorie intake by around 270 kcal
+                per day. Sleep is not optional for fat loss.
+              </p>
             </article>
             <article class="rule-panel">
-              <h3>Recovery</h3>
-              <p>Sleep 7-9 hours, walk daily, and keep one or two reps in reserve on most sets. Your joints will thank you later.</p>
+              <h3>Weekly weigh-in</h3>
+              <p>
+                Weigh yourself every Monday morning after waking up. Daily
+                weight fluctuates from water and food. The Monday number is the
+                one that counts. If it is not dropping after 2 weeks, reduce
+                rice at dinner.
+              </p>
+            </article>
+            <article class="rule-panel">
+              <h3>Drink 3.5 to 4 L water</h3>
+              <p>
+                Chia seeds and oats absorb a lot of water. Dehydration mimics
+                hunger and causes bloating. Drink plain water throughout the
+                day, not just during workouts.
+              </p>
+            </article>
+            <article class="rule-panel">
+              <h3>Oil limit: 2 tsp per day</h3>
+              <p>
+                Oil is pure fat and the easiest way to accidentally overshoot
+                your calorie limit. Buy a small measuring spoon. Use a maximum
+                of 2 tsp total across all your meals for the day.
+              </p>
+            </article>
+            <article class="rule-panel">
+              <h3>Why 5 exercises per day</h3>
+              <p>
+                Each exercise has 3 sets, giving 15+ working sets per session.
+                For a beginner, more volume than this causes soreness that stops
+                you showing up the next day. Quality over quantity builds the
+                habit first.
+              </p>
             </article>
           </div>
-
           <p class="footer-note">
-            Your BMI starts around 29.8 at 86kg and 5ft 7in. A realistic 16kg cut can take roughly 4-8 months depending on consistency, sleep, steps, and food tracking.
+            Your BMI starts around 29.8 at 86 kg and 5ft 7in. A realistic 16 kg
+            cut takes 4 to 8 months depending on consistency, sleep, steps, and
+            food tracking. Stop any movement that causes sharp joint pain. This
+            is educational fitness guidance, not medical advice.
           </p>
         </div>
       </section>
     </main>
 
-    <div class="modal" id="profile-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Hunter profile">
+    <div
+      class="modal"
+      id="profile-modal"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Hunter profile"
+    >
       <div class="modal-card">
-        <button class="modal-close" id="profile-close" type="button" aria-label="Close profile">×</button>
+        <button
+          class="modal-close"
+          id="profile-close"
+          type="button"
+          aria-label="Close profile"
+        >
+          ×
+        </button>
         <div class="profile-grid">
           <div class="avatar-card">
-            <div class="avatar-large" id="avatar-large" aria-hidden="true"></div>
+            <div
+              class="avatar-large"
+              id="avatar-large"
+              aria-hidden="true"
+            ></div>
             <h2 id="profile-rank">Novice Hunter</h2>
             <p id="profile-sub">Status window initialized.</p>
           </div>
@@ -1613,11 +1701,19 @@
             <div class="weight-row">
               <label for="current-weight">Current weight</label>
               <div>
-                <input id="current-weight" type="number" min="45" max="160" step="0.1" />
-                <span>kg</span>
+                <input
+                  id="current-weight"
+                  type="number"
+                  min="45"
+                  max="160"
+                  step="0.1"
+                /><span>kg</span>
               </div>
             </div>
-            <p class="footer-note" id="profile-note">Update weight after weekly weigh-in; avatar evolution uses hunter level and weight lost.</p>
+            <p class="footer-note" id="profile-note">
+              Update weight after your weekly Monday weigh-in. Avatar evolves as
+              you lose weight and gain hunter levels.
+            </p>
           </div>
         </div>
       </div>
@@ -1629,33 +1725,241 @@
         <h2>Level Up</h2>
         <p id="levelup-copy">Your status has increased.</p>
         <div class="profile-stats" id="levelup-stats"></div>
-        <button class="btn primary" id="levelup-close" type="button">Continue</button>
+        <button class="btn primary" id="levelup-close" type="button">
+          Continue
+        </button>
       </div>
     </div>
 
     <script>
-      const iconPlay = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
-      const iconImage = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m21 15-5-5L5 21"/><circle cx="8.5" cy="8.5" r="1.5"/></svg>';
+      const iconPlay =
+        '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+      const iconImage =
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m21 15-5-5L5 21"/><circle cx="8.5" cy="8.5" r="1.5"/></svg>';
 
-      const WARMUPS = [
-        ex("Incline Walk or Easy Cycle", "Warmup", "warmup", 1, "5 min", "30s", "Start easy, then reach a light sweat without getting tired.", ["Set treadmill incline to 3-6 or choose easy bike resistance.", "Keep shoulders relaxed and breathe steadily.", "Finish feeling warmer, not exhausted."], 1, 35),
-        ex("Joint Circles", "Mobility", "warmup", 1, "10 each way", "15s", "Prepare shoulders, hips, knees, and ankles before loading them.", ["Do arm circles forward and backward.", "Circle hips slowly both ways.", "Circle ankles and knees gently without forcing range."], 1, 18),
-        ex("Bodyweight Squat", "Leg prep", "warmup", 2, "10 reps", "30s", "Practice knee tracking and bracing before heavier lower-body work.", ["Stand shoulder-width with toes slightly out.", "Sit down as if reaching for a chair.", "Stand by pushing the floor away through the full foot."], 1, 24),
-        ex("Wall Push-up", "Upper prep", "warmup", 2, "10 reps", "30s", "Wake up chest, shoulders, triceps, and core.", ["Hands on wall at chest height.", "Keep body straight from head to heels.", "Lower slowly, then push away without shrugging."], 1, 20),
-        ex("Light Practice Set", "Skill", "warmup", 1, "12 reps", "45s", "Do one very easy set of your first main lift before work sets.", ["Use a very light weight or bodyweight.", "Move slowly and check the exact form cues.", "If anything feels painful, adjust before starting the real sets."], 1, 12)
-      ];
+      // ─── DATA: WARM-UPS PER DAY ───────────────────────────────────────────────
+      const WARMUPS_BY_DAY = {
+        1: {
+          // Monday - PUSH
+          label:
+            "Push day warm-up (10 min) - prepares chest and shoulder joints",
+          items: [
+            {
+              name: "Jumping jacks",
+              detail: "2 sets x 20 reps — raises heart rate and loosens joints",
+              xp: 8,
+              cal: 18,
+            },
+            {
+              name: "Arm circles",
+              detail:
+                "1 min forward, 1 min backward — warms shoulder joint fully",
+              xp: 6,
+              cal: 10,
+            },
+            {
+              name: "Incline push-ups (on bench)",
+              detail:
+                "2 sets x 10 reps — activates chest with low load before lifting",
+              xp: 10,
+              cal: 20,
+            },
+            {
+              name: "Shoulder rolls",
+              detail: "10 forward, 10 backward — prevents shoulder impingement",
+              xp: 6,
+              cal: 8,
+            },
+            {
+              name: "Treadmill walk",
+              detail:
+                "3 min at speed 5.0, incline 2.0 — full body warm-up to finish",
+              xp: 8,
+              cal: 22,
+            },
+          ],
+        },
+        2: {
+          // Tuesday - PULL
+          label:
+            "Pull day warm-up (10 min) - activates back muscles before pulling",
+          items: [
+            {
+              name: "Jumping jacks",
+              detail: "2 sets x 20 reps — raises heart rate",
+              xp: 8,
+              cal: 18,
+            },
+            {
+              name: "Band pull-aparts or towel rows",
+              detail:
+                "3 sets x 12 reps — activates rear shoulder and upper back",
+              xp: 10,
+              cal: 14,
+            },
+            {
+              name: "Bodyweight good mornings",
+              detail:
+                "2 sets x 10 reps — hands behind head, hinge forward at hips",
+              xp: 10,
+              cal: 16,
+            },
+            {
+              name: "Light lat pulldown (30% weight)",
+              detail: "2 sets x 10 reps — warms up the lats before loading",
+              xp: 10,
+              cal: 14,
+            },
+            {
+              name: "Stationary bike easy",
+              detail: "3 min at easy pace — full body warm-up",
+              xp: 8,
+              cal: 20,
+            },
+          ],
+        },
+        3: {
+          // Wednesday - LEGS
+          label: "Leg day warm-up (10 min) - opens hips and activates glutes",
+          items: [
+            {
+              name: "High knees",
+              detail:
+                "2 sets x 30 seconds — warms up hip flexors and raises heart rate",
+              xp: 10,
+              cal: 24,
+            },
+            {
+              name: "Bodyweight squats",
+              detail:
+                "2 sets x 15 reps — activates quads and glutes with zero load",
+              xp: 10,
+              cal: 20,
+            },
+            {
+              name: "Hip circles",
+              detail:
+                "10 clockwise, 10 anticlockwise each leg — opens hip joint",
+              xp: 8,
+              cal: 10,
+            },
+            {
+              name: "Leg swings (forward and side)",
+              detail: "10 swings each direction per leg — loosens hamstrings",
+              xp: 8,
+              cal: 12,
+            },
+            {
+              name: "Stationary bike easy",
+              detail: "3 min at easy pace — prepares knee and ankle joints",
+              xp: 8,
+              cal: 20,
+            },
+          ],
+        },
+        5: {
+          // Friday - UPPER MIX
+          label:
+            "Upper body warm-up (10 min) - targets full upper body before mixed session",
+          items: [
+            {
+              name: "Jumping jacks",
+              detail: "2 sets x 20 reps — full body activation",
+              xp: 8,
+              cal: 18,
+            },
+            {
+              name: "Push-ups (floor or on knees)",
+              detail: "2 sets x 8 reps — activates chest, shoulders, triceps",
+              xp: 10,
+              cal: 20,
+            },
+            {
+              name: "Wide arm circles",
+              detail: "1 min each direction — full shoulder joint warm-up",
+              xp: 6,
+              cal: 10,
+            },
+            {
+              name: "Band pull-aparts or towel rows",
+              detail:
+                "2 sets x 12 reps — activates upper back and rear shoulder",
+              xp: 10,
+              cal: 14,
+            },
+            {
+              name: "Row machine or treadmill",
+              detail:
+                "3 min at easy pace — gets blood moving through upper body",
+              xp: 8,
+              cal: 22,
+            },
+          ],
+        },
+        6: {
+          // Saturday - LOWER + HIIT
+          label:
+            "Lower body warm-up (10 min) - prepares legs and lungs for HIIT",
+          items: [
+            {
+              name: "High knees",
+              detail: "2 sets x 30 seconds — heart rate up immediately",
+              xp: 10,
+              cal: 24,
+            },
+            {
+              name: "Jumping jacks",
+              detail: "1 set x 20 reps — full body warm-up",
+              xp: 8,
+              cal: 18,
+            },
+            {
+              name: "Bodyweight lunges",
+              detail: "2 sets x 10 reps each leg — activates quads and glutes",
+              xp: 10,
+              cal: 20,
+            },
+            {
+              name: "Leg swings (forward and sideways)",
+              detail: "10 each direction per leg — loosens hip and hamstring",
+              xp: 8,
+              cal: 12,
+            },
+            {
+              name: "Stationary bike or light jog",
+              detail:
+                "3 min at easy pace — opens knees and ankles for heavy squats",
+              xp: 8,
+              cal: 20,
+            },
+          ],
+        },
+      };
 
-      const FREEHAND_BOOSTERS = [
-        ex("Jumping Jacks", "Free hand", "boost", 2, "30s", "30s", "A short heart-rate booster before lifting.", ["Start tall with feet together and arms by your sides.", "Jump feet out while arms move overhead.", "Land softly and keep the pace smooth."], 1.4, 32),
-        ex("High Knees March", "Free hand", "boost", 2, "30s", "30s", "Beginner cardio without needing equipment.", ["Stand tall and brace lightly.", "Drive one knee toward hip height, then switch.", "March fast first; jog only if joints feel good."], 1.3, 28),
-        ex("Mountain Climber Slow", "Free hand", "boost", 2, "20 each", "40s", "Core and conditioning with control.", ["Start in a high plank with hands under shoulders.", "Bring one knee toward chest without bouncing hips.", "Alternate sides slowly and stop if your lower back sags."], 1.5, 34)
-      ];
-
-      const HOME_WARMUPS = [
-        ex("Easy Room Walk", "Recovery", "warmup", 1, "3 min", "30s", "Bring blood flow up before pelvic-floor work.", ["Walk slowly around the room.", "Relax shoulders and jaw.", "Keep effort very easy."], 1, 12),
-        ex("Cat-cow Breathing", "Mobility", "warmup", 1, "8 reps", "30s", "Release spine and breathing tension.", ["Start on hands and knees.", "Inhale as the chest opens gently.", "Exhale as the back rounds gently."], 1, 10),
-        ex("Glute Bridge Prep", "Glutes", "warmup", 1, "10 reps", "30s", "Activate glutes so the pelvis is supported.", ["Lie on your back with knees bent.", "Push through heels and lift hips.", "Pause, lower slowly, and keep ribs down."], 1, 12)
-      ];
+      // ─── DATA: MAIN WEEK ─────────────────────────────────────────────────────
+      function ex(
+        name,
+        target,
+        sets,
+        reps,
+        rest,
+        cue,
+        steps,
+        difficulty,
+        calories,
+      ) {
+        return {
+          name,
+          target,
+          sets,
+          reps,
+          rest,
+          cue,
+          steps: steps || [],
+          difficulty: difficulty || 1,
+          calories: calories || 20,
+        };
+      }
 
       const WEEK = [
         {
@@ -1663,226 +1967,1424 @@
           day: "Monday",
           abbr: "Mon",
           type: "gym",
-          focus: "Push + light cardio",
-          duration: "55 min",
-          note: "Chest, shoulders, triceps, then an easy cardio finish.",
+          focus: "Push — Chest, Shoulders, Triceps",
+          duration: "60-65 min",
+          note: "Pushing movements only. Chest, shoulders, and triceps. Never work the same muscle group two days in a row.",
           exercises: [
-            ex("Machine Chest Press", "Chest", "press", 3, "10-12", "75s", "Shoulder blades back, wrists straight, stop before elbows flare too wide."),
-            ex("Seated Dumbbell Shoulder Press", "Shoulders", "press", 2, "10-12", "75s", "Brace your stomach and press without leaning backward."),
-            ex("Incline Push-up", "Chest", "pushup", 3, "8-12", "60s", "Hands on a bench, body straight, chest moves toward the bench."),
-            ex("Cable Triceps Pressdown", "Triceps", "pull", 2, "12-15", "45s", "Elbows stay pinned beside your ribs."),
-            ex("Treadmill Incline Walk", "Cardio", "walk", 1, "12-18 min", "-", "You should be able to speak short sentences.")
-          ]
+            ex(
+              "Dumbbell Chest Press (flat bench)",
+              "Chest",
+              3,
+              "10-12",
+              "60s",
+              "Lower dumbbells to chest level slowly, press straight up. Keep feet flat on the floor.",
+              [
+                "Sit on bench with a dumbbell in each hand.",
+                "Lie back and press dumbbells above your chest, arms extended.",
+                "Lower slowly until elbows are at 90 degrees.",
+                "Press back up. Slow down beats fast up.",
+              ],
+              1.2,
+              32,
+            ),
+            ex(
+              "Incline Dumbbell Press",
+              "Upper chest",
+              3,
+              "10",
+              "60s",
+              "Set bench to 30 to 45 degrees. Targets upper chest and front shoulder.",
+              [
+                "Adjust bench to 30 to 45 degree angle.",
+                "Press dumbbells from upper chest upward.",
+                "Lower slowly under control.",
+                "Do not flare elbows too wide.",
+              ],
+              1.2,
+              30,
+            ),
+            ex(
+              "Chest Fly (machine or dumbbell)",
+              "Chest",
+              2,
+              "12-15",
+              "45s",
+              "Focus on squeezing your chest at the center. Slow movement matters more than weight here.",
+              [
+                "If using dumbbells, lie flat and open arms wide with soft elbow bend.",
+                "Bring hands together over chest like hugging a barrel.",
+                "Squeeze chest at the top for 1 second.",
+                "Open slowly.",
+              ],
+              1.0,
+              24,
+            ),
+            ex(
+              "Seated Shoulder Press (machine or dumbbell)",
+              "Shoulders",
+              3,
+              "10-12",
+              "60s",
+              "Keep back straight against the pad. Press directly upward. Do not lean back.",
+              [
+                "Sit tall with back supported.",
+                "Press dumbbells from shoulder height straight up.",
+                "Do not lock elbows fully at the top.",
+                "Lower to shoulder height and repeat.",
+              ],
+              1.2,
+              28,
+            ),
+            ex(
+              "Tricep Rope Pushdown (cable)",
+              "Triceps",
+              3,
+              "12-15",
+              "45s",
+              "Keep elbows locked to your sides throughout. Only your forearms move.",
+              [
+                "Stand at cable machine with rope attachment at chest height.",
+                "Grip rope, elbows pinned to ribs.",
+                "Push rope down until arms are straight.",
+                "Let rope come back up slowly.",
+              ],
+              1.0,
+              22,
+            ),
+          ],
+          finisher: {
+            name: "Incline Treadmill Walk",
+            detail:
+              "15 min — speed 4.5 to 5.0 km/h, incline 6 to 8. Walk briskly. Do not hold the rails or you lose the calorie burn effect.",
+            xp: 28,
+            cal: 120,
+          },
         },
         {
           id: 2,
           day: "Tuesday",
           abbr: "Tue",
           type: "gym",
-          focus: "Pull + core",
-          duration: "55 min",
-          note: "Back and biceps with beginner core work.",
+          focus: "Pull — Back, Biceps",
+          duration: "60-65 min",
+          note: "Pulling movements. Back and biceps. After a push day, these muscles are fresh and ready.",
           exercises: [
-            ex("Lat Pulldown", "Back", "pull", 3, "10-12", "75s", "Pull elbows down to your ribs; do not yank with your neck."),
-            ex("Seated Cable Row", "Back", "row", 3, "10-12", "75s", "Sit tall and squeeze shoulder blades gently at the finish."),
-            ex("Dumbbell Biceps Curl", "Biceps", "curl", 2, "12", "45s", "Keep elbows quiet and lower the weight slowly."),
-            ex("Face Pull", "Rear delts", "pull", 2, "12-15", "45s", "Pull toward your nose with thumbs slightly back."),
-            ex("Dead Bug", "Core", "floor", 3, "6 each side", "40s", "Lower opposite arm and leg while your lower back stays flat.")
-          ]
+            ex(
+              "Lat Pulldown (machine)",
+              "Back",
+              3,
+              "10-12",
+              "60s",
+              "Pull bar to your collarbone, lean slightly back. Do not yank with your neck.",
+              [
+                "Sit at lat pulldown with thighs under the pad.",
+                "Grip bar wider than shoulder width.",
+                "Pull bar down to collarbone while squeezing shoulder blades together.",
+                "Let bar rise slowly under control.",
+              ],
+              1.2,
+              30,
+            ),
+            ex(
+              "Seated Cable Row",
+              "Back",
+              3,
+              "10-12",
+              "60s",
+              "Sit tall, pull handle to your belly button. Hold the squeeze for 1 second at the end.",
+              [
+                "Sit upright at cable row machine.",
+                "Pull handle toward belly button, not chest.",
+                "Squeeze shoulder blades together at the end.",
+                "Let arms extend forward slowly.",
+              ],
+              1.2,
+              28,
+            ),
+            ex(
+              "One-Arm Dumbbell Row",
+              "Back",
+              3,
+              "10 each",
+              "60s",
+              "Rest one knee on a bench. Pull weight up to your hip, not your shoulder.",
+              [
+                "Place one knee and same-side hand on a bench.",
+                "Hold dumbbell in opposite hand, arm hanging.",
+                "Pull dumbbell up toward hip.",
+                "Lower slowly. Complete all reps on one side then switch.",
+              ],
+              1.2,
+              30,
+            ),
+            ex(
+              "Face Pull (cable)",
+              "Rear delts",
+              3,
+              "12-15",
+              "45s",
+              "Pull rope toward your forehead with thumbs slightly back. Great for posture.",
+              [
+                "Set cable to forehead height with rope attachment.",
+                "Pull rope toward your face, elbows high.",
+                "Squeeze rear delts at the end of the movement.",
+                "Control the return.",
+              ],
+              1.0,
+              22,
+            ),
+            ex(
+              "Dumbbell Bicep Curl",
+              "Biceps",
+              3,
+              "12",
+              "45s",
+              "Alternate arms. Keep body still, no swinging. Lower the weight slowly.",
+              [
+                "Stand with a dumbbell in each hand.",
+                "Curl one arm up, keeping elbow pinned to ribs.",
+                "Squeeze bicep at the top.",
+                "Lower slowly. Switch arms.",
+              ],
+              1.0,
+              20,
+            ),
+          ],
+          finisher: {
+            name: "Stationary Bike",
+            detail:
+              "15 min at moderate pace — mid resistance level. Keep a steady rhythm.",
+            xp: 24,
+            cal: 100,
+          },
         },
         {
           id: 3,
           day: "Wednesday",
           abbr: "Wed",
           type: "gym",
-          focus: "Legs + glutes",
-          duration: "60 min",
-          note: "Lower body strength without crushing your knees or lower back.",
+          focus: "Legs + Abs",
+          duration: "65 min",
+          note: "Lower body and core. Highest calorie-burning session of the week. Do not skip this day.",
           exercises: [
-            ex("Goblet Squat", "Quads", "squat", 3, "10-12", "90s", "Hold the weight close, knees track over toes, chest stays proud."),
-            ex("Leg Press", "Quads", "squat", 3, "12", "90s", "Feet shoulder width; do not lock knees hard at the top."),
-            ex("Dumbbell Romanian Deadlift", "Hamstrings", "hinge", 3, "10", "90s", "Soft knees, push hips back, spine neutral."),
-            ex("Glute Bridge", "Glutes", "floor", 3, "12-15", "60s", "Pause one second at the top and squeeze glutes."),
-            ex("Standing Calf Raise", "Calves", "calf", 2, "15", "45s", "Full stretch at the bottom, full pause at the top.")
-          ]
+            ex(
+              "Goblet Squat (hold 1 dumbbell at chest)",
+              "Quads",
+              3,
+              "10-12",
+              "90s",
+              "Hold weight close to chest. Sit back deep like lowering into a chair. Knees track over toes.",
+              [
+                "Hold one dumbbell vertically at your chest.",
+                "Feet shoulder-width, toes slightly out.",
+                "Lower down slowly until thighs are parallel or below.",
+                "Push through full foot to stand.",
+              ],
+              1.3,
+              36,
+            ),
+            ex(
+              "Leg Press Machine",
+              "Quads",
+              4,
+              "10-12",
+              "60s",
+              "Feet shoulder-width. Do not lock knees at the top. Control the weight down.",
+              [
+                "Set a weight you can do 12 reps with.",
+                "Feet shoulder-width on the platform.",
+                "Lower platform toward chest slowly.",
+                "Push away through full foot. Do not snap knees straight at top.",
+              ],
+              1.3,
+              40,
+            ),
+            ex(
+              "Romanian Deadlift (dumbbells)",
+              "Hamstrings",
+              3,
+              "10",
+              "60s",
+              "Push hips backward with slight bend in knees. Feel the hamstring stretch at the bottom.",
+              [
+                "Hold dumbbells in front of thighs.",
+                "Hinge at hips, pushing them back.",
+                "Lower dumbbells along your legs.",
+                "Feel hamstring stretch, then drive hips forward to stand.",
+              ],
+              1.3,
+              36,
+            ),
+            ex(
+              "Seated Leg Curl (machine)",
+              "Hamstrings",
+              2,
+              "12-15",
+              "45s",
+              "Squeeze hamstring at the bottom of the movement. Control the return up.",
+              [
+                "Sit at machine with pad on lower legs.",
+                "Curl legs downward under the seat.",
+                "Squeeze at the bottom.",
+                "Return slowly.",
+              ],
+              1.0,
+              26,
+            ),
+            ex(
+              "Standing Calf Raise",
+              "Calves",
+              3,
+              "15",
+              "45s",
+              "Rise fully on tiptoes. Lower slowly for a full stretch at the bottom.",
+              [
+                "Stand on the edge of a step or flat floor.",
+                "Rise on tiptoes as high as possible.",
+                "Pause at the top.",
+                "Lower heel down past neutral for full stretch.",
+              ],
+              1.0,
+              20,
+            ),
+          ],
+          abs: [
+            ex(
+              "Plank Hold",
+              "Core",
+              3,
+              "30-45s",
+              "45s",
+              "Squeeze glutes and abs. Keep a straight line from head to heels. Breathe.",
+              [
+                "Start in push-up position on forearms.",
+                "Body straight from head to heels.",
+                "Squeeze abs and glutes.",
+                "Breathe normally. Stop if your back sags.",
+              ],
+              1.0,
+              14,
+            ),
+            ex(
+              "Crunches or Hanging Knee Raises",
+              "Core",
+              2,
+              "12-15",
+              "45s",
+              "Pull knees toward chest using core muscles only. Not momentum.",
+              [
+                "For crunches: lie on back, curl upper body toward knees.",
+                "For knee raises: hang from a bar and pull knees to chest.",
+                "Control the descent.",
+                "Never use momentum.",
+              ],
+              1.0,
+              18,
+            ),
+          ],
+          finisher: {
+            name: "Elliptical Trainer",
+            detail:
+              "15 min at steady fast pace. The elliptical is easier on knees after a heavy leg session.",
+            xp: 24,
+            cal: 110,
+          },
         },
         {
           id: 4,
           day: "Thursday",
           abbr: "Thu",
           type: "home",
-          focus: "Recovery + pelvic floor",
+          focus: "Active Recovery",
           duration: "35 min",
-          note: "Easy recovery only. This helps performance and control; it is not a penis enlargement routine.",
+          note: "No gym. Walk 10,000 steps, stretch, and hydrate. Muscles grow during rest, not during the workout.",
           exercises: [
-            ex("Pelvic Floor Finder", "Technique", "kegel", 1, "5 reps", "30s", "Learn the correct muscle without over-squeezing.", ["Sit or lie down and relax belly, thighs, and glutes.", "Imagine stopping urine and stopping gas at the same time.", "Lift gently for 1 second, then fully let go.", "Do not regularly stop urine midstream; use that only to understand the muscle."], 1, 8),
-            ex("Slow Kegel Holds", "Pelvic floor", "kegel", 3, "8 reps", "45s", "Build control with full relaxation between reps.", ["Gently squeeze and lift the pelvic floor.", "Hold 3 seconds while breathing normally.", "Relax fully for 5 seconds before the next rep.", "Stop the set if you feel pelvic pressure, pain, or cramping."], 1.2, 10),
-            ex("Quick Flicks", "Pelvic floor", "kegel", 2, "10 reps", "45s", "Train fast contraction and release.", ["Squeeze the pelvic floor quickly for 1 second.", "Release completely for 2 seconds.", "Keep belly, thighs, and butt relaxed.", "The release matters as much as the squeeze."], 1.2, 8),
-            ex("Reverse Kegels", "Relaxation", "kegel", 2, "6 breaths", "45s", "Practice relaxing the pelvic floor instead of gripping all day.", ["Inhale into belly and ribs.", "Imagine the pelvic floor gently softening downward.", "Do not push hard or strain.", "Exhale and stay relaxed."], 1, 8),
-            ex("Bridge With Gentle Kegel", "Coordination", "kegel", 2, "8 reps", "45s", "Coordinate glutes and pelvic floor without clenching.", ["Lie on your back with knees bent.", "Before lifting hips, do a gentle 30-40% Kegel.", "Lift hips, pause 1 second, then lower.", "Fully relax the pelvic floor at the bottom."], 1.4, 22),
-            ex("Hip Flexor Stretch Breathing", "Mobility", "kegel", 2, "30s each", "30s", "Reduce tension around hips and pelvis.", ["Half-kneel with one foot forward.", "Squeeze the back-side glute lightly.", "Breathe slowly and relax the pelvic floor on every inhale.", "Switch sides."], 1, 10),
-            ex("Easy Walk", "Blood flow", "walk", 1, "15-25 min", "-", "Keep it relaxed. This is recovery, not exhaustion.", ["Walk at a pace where you can speak easily.", "Keep steps light and shoulders relaxed.", "Finish feeling better than when you started."], 1, 80)
-          ]
+            ex(
+              "Walk 10,000 steps",
+              "Recovery",
+              1,
+              "30-45 min",
+              "-",
+              "Walk at a pace where you can speak easily. No need to sweat.",
+              [
+                "Walk outside or in place.",
+                "Aim for 10,000 steps throughout the day.",
+                "Keep pace easy and comfortable.",
+                "This keeps blood flowing to your recovering muscles.",
+              ],
+              1.0,
+              80,
+            ),
+            ex(
+              "Dynamic Stretching",
+              "Mobility",
+              1,
+              "10 min",
+              "-",
+              "Leg swings, hip circles, arm circles, shoulder rolls. Loosen everything.",
+              [
+                "Swing each leg forward and backward 10 times.",
+                "Do hip circles 10 each direction.",
+                "Roll shoulders forward and backward.",
+                "Gentle only. Never force range of motion.",
+              ],
+              1.0,
+              20,
+            ),
+            ex(
+              "Deep Breathing or Light Yoga",
+              "Recovery",
+              1,
+              "10 min",
+              "-",
+              "Slow breaths. Relax the nervous system. Help digestion and sleep quality.",
+              [
+                "Sit or lie comfortably.",
+                "Inhale for 4 counts.",
+                "Hold for 4 counts.",
+                "Exhale for 4 counts. Repeat 10 times.",
+              ],
+              1.0,
+              10,
+            ),
+          ],
         },
         {
           id: 5,
           day: "Friday",
           abbr: "Fri",
           type: "gym",
-          focus: "Upper body balance",
-          duration: "55 min",
-          note: "A balanced upper day so push and pull grow together.",
+          focus: "Upper Body Mix",
+          duration: "60-65 min",
+          note: "Balanced upper day. Both push and pull muscles so they grow together. Fresh muscles after Thursday rest.",
           exercises: [
-            ex("Assisted Pull-up or Pulldown", "Back", "pull", 3, "8-10", "90s", "Use assistance. Think chest up and elbows down."),
-            ex("Dumbbell Bench Press", "Chest", "press", 3, "10", "75s", "Lower under control and keep feet planted."),
-            ex("One-arm Dumbbell Row", "Back", "row", 3, "10 each", "75s", "Row toward your hip; avoid twisting your torso."),
-            ex("Dumbbell Lateral Raise", "Shoulders", "raise", 2, "12-15", "45s", "Raise to shoulder height with soft elbows."),
-            ex("Cable Wood Chop", "Core", "rotate", 2, "10 each", "45s", "Rotate through the upper body while hips stay stable.")
-          ]
+            ex(
+              "Incline Dumbbell Press",
+              "Upper chest",
+              3,
+              "10",
+              "60s",
+              "Bench at 30 degrees. Targets upper chest and front shoulder.",
+              [
+                "Set bench to 30 degree incline.",
+                "Press dumbbells from upper chest upward.",
+                "Lower slowly under control.",
+                "Do not arch lower back off the bench.",
+              ],
+              1.2,
+              30,
+            ),
+            ex(
+              "Single-Arm Dumbbell Row",
+              "Back",
+              3,
+              "10 each",
+              "60s",
+              "Rest one knee on bench. Pull weight up to your hip. Avoid twisting torso.",
+              [
+                "One knee and hand on bench for support.",
+                "Hold dumbbell in the other hand.",
+                "Pull toward your hip.",
+                "Lower fully before the next rep.",
+              ],
+              1.2,
+              28,
+            ),
+            ex(
+              "Dumbbell Lateral Raise",
+              "Shoulders",
+              3,
+              "12",
+              "45s",
+              "Raise arms out sideways to shoulder height. Use light weight. Focus on form.",
+              [
+                "Hold light dumbbells by your sides.",
+                "Raise arms out like wings to shoulder height.",
+                "Soft elbow bend throughout.",
+                "Lower slowly. Heavy weight here is wrong form.",
+              ],
+              1.0,
+              22,
+            ),
+            ex(
+              "Push-ups (floor or on knees)",
+              "Chest",
+              2,
+              "to failure",
+              "45s",
+              "Go until you cannot do another clean rep. Stop before form breaks.",
+              [
+                "Start in high plank or knees position.",
+                "Lower chest to just above the floor.",
+                "Push back up with body straight.",
+                "Stop the set when hips start to sag.",
+              ],
+              1.0,
+              24,
+            ),
+            ex(
+              "Tricep Bench Dip",
+              "Triceps",
+              2,
+              "10",
+              "45s",
+              "Hands on bench behind you. Lower until elbows reach 90 degrees.",
+              [
+                "Sit on bench edge, hands gripping the edge beside hips.",
+                "Slide hips off bench.",
+                "Lower by bending elbows to 90 degrees.",
+                "Push back up.",
+              ],
+              1.0,
+              22,
+            ),
+          ],
+          finisher: {
+            name: "Incline Treadmill Walk",
+            detail:
+              "20 min — speed 4.8 km/h, incline 7. This is the longest cardio finisher of the week. Pace yourself.",
+            xp: 34,
+            cal: 140,
+          },
         },
         {
           id: 6,
           day: "Saturday",
           abbr: "Sat",
           type: "gym",
-          focus: "Lower + conditioning",
-          duration: "60 min",
-          note: "Legs, core, and a short sweat finish for fat loss.",
+          focus: "Lower Body + HIIT",
+          duration: "65 min",
+          note: "Legs and core, then HIIT to maximise calorie burn before the weekend rest. Highest-intensity session.",
           exercises: [
-            ex("Box Squat", "Legs", "squat", 3, "10", "90s", "Sit back to the box lightly, then stand strong."),
-            ex("Dumbbell Step-up", "Glutes", "lunge", 2, "8 each", "75s", "Use a low box and drive through the full foot."),
-            ex("Seated Leg Curl", "Hamstrings", "hinge", 3, "12", "60s", "Control the return; no snapping the pad back."),
-            ex("Plank", "Core", "plank", 3, "25-40s", "45s", "Ribs down, glutes lightly squeezed, breathe slowly."),
-            ex("Bike Intervals", "Conditioning", "bike", 1, "8 rounds", "30s", "20 seconds moderate-hard, 70 seconds easy.")
-          ]
+            ex(
+              "Goblet Squat",
+              "Quads",
+              3,
+              "12",
+              "60s",
+              "Same movement as Wednesday. Try to go slightly deeper this week.",
+              [
+                "Hold dumbbell at chest.",
+                "Squat deep and controlled.",
+                "Keep chest up throughout.",
+                "Push through full foot to stand.",
+              ],
+              1.3,
+              36,
+            ),
+            ex(
+              "Dumbbell Romanian Deadlift",
+              "Hamstrings",
+              3,
+              "10",
+              "60s",
+              "Focus on the hamstring stretch at the bottom. Hips push back.",
+              [
+                "Soft knees throughout the movement.",
+                "Push hips backward as you lower.",
+                "Feel hamstring stretch.",
+                "Drive hips forward to return.",
+              ],
+              1.3,
+              34,
+            ),
+            ex(
+              "Leg Extensions (machine)",
+              "Quads",
+              2,
+              "12-15",
+              "45s",
+              "Squeeze quad at the top of each rep. Control the return down.",
+              [
+                "Sit at machine with pad on shin.",
+                "Extend legs until straight.",
+                "Squeeze quad hard at the top.",
+                "Lower slowly.",
+              ],
+              1.0,
+              26,
+            ),
+            ex(
+              "Standing Calf Raises",
+              "Calves",
+              3,
+              "15",
+              "45s",
+              "Slow and controlled. Feel the full range each rep.",
+              [
+                "Rise fully on tiptoes.",
+                "Pause at top.",
+                "Lower heel slowly.",
+                "Full stretch at the bottom.",
+              ],
+              1.0,
+              20,
+            ),
+            ex(
+              "Plank Hold",
+              "Core",
+              3,
+              "40s",
+              "45s",
+              "5 seconds longer than Wednesday to track your progress over time.",
+              [
+                "High plank or forearm plank.",
+                "Straight line from head to heels.",
+                "Abs and glutes squeezed.",
+                "Breathe slowly and steadily.",
+              ],
+              1.0,
+              16,
+            ),
+          ],
+          finisher: {
+            name: "HIIT Bike or Rower",
+            detail:
+              "15 min — 30 seconds all-out hard effort, then 60 seconds easy recovery. Repeat 7 to 8 rounds. This burns the most calories of any finisher this week.",
+            xp: 38,
+            cal: 160,
+          },
         },
         {
           id: 0,
           day: "Sunday",
           abbr: "Sun",
           type: "home",
-          focus: "Gym off",
-          duration: "25-35 min",
-          note: "Full rest is allowed. Add only gentle walking, stretching, and pelvic-floor relaxation if you feel fresh.",
+          focus: "Full Rest",
+          duration: "Rest day",
+          note: "Gym is closed. Sleep 7 to 8 hours. Meal prep for the week ahead. Your body rebuilds muscle tissue during this rest.",
           exercises: [
-            ex("Easy Walk", "Recovery", "walk", 1, "15-30 min", "-", "Nasal breathing pace. No need to chase sweat.", ["Walk after a meal or in the evening.", "Keep effort easy enough for conversation.", "Stop early if legs feel heavy from Saturday."], 1, 70),
-            ex("Box Breathing", "Stress", "kegel", 3, "4 breaths", "30s", "Relax the nervous system before pelvic-floor work.", ["Inhale for 4 counts.", "Hold for 4 counts.", "Exhale for 4 counts.", "Hold empty for 4 counts."], 1, 6),
-            ex("Long Kegel Holds", "Pelvic floor", "kegel", 2, "6 reps", "60s", "A slightly longer but still gentle control drill.", ["Squeeze and lift at 40-60% effort.", "Hold 5 seconds while breathing.", "Relax 8-10 seconds before the next rep.", "Never force a max squeeze."], 1.3, 8),
-            ex("Seated Quick Flicks", "Pelvic floor", "kegel", 2, "8 reps", "45s", "Practice fast control in a seated position.", ["Sit tall on a chair.", "Squeeze for 1 second.", "Release for 2-3 seconds.", "Keep stomach, thighs, and glutes relaxed."], 1.2, 7),
-            ex("Reverse Kegel Breathing", "Relaxation", "kegel", 2, "8 breaths", "45s", "Balance strengthening with relaxation.", ["Place one hand on belly.", "Inhale and soften the pelvic floor.", "Imagine the sit bones widening gently.", "Exhale without clenching."], 1, 7),
-            ex("Happy Baby Breathing", "Mobility", "kegel", 2, "45s", "30s", "Relax inner thighs and pelvic floor.", ["Lie on your back and hold behind thighs or feet.", "Keep lower back comfortable.", "Breathe slowly into belly and relax the pelvis.", "Stop if hips or back feel irritated."], 1, 8),
-            ex("Child Pose Relaxation", "Mobility", "kegel", 2, "45s", "30s", "Finish with calm breathing and release.", ["Kneel and sit hips back as comfortable.", "Reach arms forward or rest them by your sides.", "Take slow breaths and let the pelvic floor relax.", "Come up slowly."], 1, 8)
-          ]
-        }
+            ex(
+              "Light Walk",
+              "Recovery",
+              1,
+              "20-30 min",
+              "-",
+              "Easy pace only. No targets. Just move gently and enjoy the rest day.",
+              [
+                "Walk outside or around the house.",
+                "Easy enough for comfortable conversation.",
+                "Stop early if legs feel heavy from Saturday.",
+                "This is not cardio. It is active recovery.",
+              ],
+              1.0,
+              60,
+            ),
+            ex(
+              "Meal Prep",
+              "Nutrition",
+              1,
+              "30-45 min",
+              "-",
+              "Prepare chicken, boil eggs, soak dal. Preparation makes clean eating easy all week.",
+              [
+                "Boil 6 to 8 eggs for the week.",
+                "Cook a batch of chicken breast to portion.",
+                "Soak motor dal or chana for the next day.",
+                "Portion rice into cups so it is ready to cook.",
+              ],
+              1.0,
+              20,
+            ),
+            ex(
+              "Sleep 7 to 8 hours",
+              "Recovery",
+              1,
+              "Tonight",
+              "-",
+              "This is the most important recovery action. Sleep is when fat loss and muscle building happen.",
+              [
+                "Aim to sleep before midnight.",
+                "Keep room cool and dark.",
+                "Avoid phone screens 30 minutes before bed.",
+                "Poor sleep directly increases hunger the next day.",
+              ],
+              1.0,
+              0,
+            ),
+          ],
+        },
       ];
 
+      // ─── DATA: DIET ──────────────────────────────────────────────────────────
+      function diet(weekday, type, meals) {
+        return { weekday, type, meals };
+      }
+      function meal(time, title, items, steps) {
+        return { time, title, items, steps };
+      }
+      function drink(title, items, steps) {
+        return { title, items, steps };
+      }
+
       const DIET = [
-        diet("Mon", "Gym day", [
-          meal("Breakfast", "Oats banana power bowl", ["50g oats", "200ml milk or water", "1 banana", "2 boiled eggs", "1 tsp chia seeds", "1 tsp honey", "Cinnamon or cardamom"], ["Boil eggs for 8-10 minutes, cool, and peel.", "Cook oats with milk or water for 4-5 minutes until thick.", "Stir in chia seeds and wait 2 minutes so they soften.", "Slice banana on top and add honey.", "Eat eggs on the side for protein."]),
-          meal("Pre-workout", "Banana and black coffee", ["1 banana", "1 cup black coffee or tea", "Optional tiny pinch salt if sweating"], ["Eat banana 45-75 minutes before gym.", "Drink coffee or tea without sugar.", "If caffeine bothers your stomach, use plain tea or water."]),
-          meal("Post-workout", "Chicken rice recovery plate", ["120-150g halal chicken", "1 cup cooked rice", "1 bowl thin dal", "Cucumber, onion, lemon", "Garlic, ginger, chili, turmeric", "1 tsp oil"], ["Marinate chicken with garlic, ginger, lemon, chili, turmeric, and salt for 10 minutes.", "Cook chicken in 1 tsp oil until done.", "Serve with measured rice and dal.", "Add cucumber-onion-lemon salad for volume."]),
-          meal("Dinner", "Fish and vegetables", ["120-150g rui or tilapia", "Mixed vegetables", "1 atta ruti", "Tomato, garlic, turmeric, chili", "1-2 tsp oil"], ["Season fish with turmeric, chili, garlic, and salt.", "Cook tomato gravy with measured oil.", "Simmer fish gently until cooked.", "Serve with vegetables and one ruti."])
+        diet("Mon", "Gym day — Push", [
+          meal(
+            "7:30 AM",
+            "Morning drink: chia lemon water",
+            [
+              "1 tbsp chia seeds",
+              "1 glass warm water (250 ml)",
+              "Juice of half a fresh lemon",
+            ],
+            [
+              "Pour room-temperature water into a glass. Add the chia seeds.",
+              "Let them soak for 15 minutes. They expand into a gel texture.",
+              "Add warm water and squeeze in the lemon juice.",
+              "Stir well and drink immediately.",
+              "Wait 20 minutes before eating breakfast.",
+            ],
+          ),
+          meal(
+            "8:00 AM",
+            "Breakfast: masala oats with boiled eggs",
+            [
+              "4 tbsp rolled oats (Quaker or Manna)",
+              "Half cup water",
+              "1 small onion finely chopped",
+              "1 green chili finely chopped",
+              "Pinch of salt and turmeric (holud)",
+              "2 whole eggs",
+              "1 cup green tea no sugar",
+            ],
+            [
+              "Dry-roast oats in a pan on medium heat for 1 minute, stirring constantly.",
+              "Add half a cup of water. Stir in salt, turmeric, chopped onion, and green chili.",
+              "Simmer on low heat for 3 to 4 minutes until thick. Remove from heat.",
+              "Boil eggs separately: boiling water, 9 minutes on medium heat for hard-boiled.",
+              "Peel eggs, sprinkle with salt and black pepper. Serve beside the oats.",
+              "Brew green tea with no sugar and drink while eating.",
+            ],
+          ),
+          meal(
+            "11:00 AM",
+            "Snack: motor chaat (spiced yellow pea salad)",
+            [
+              "Half cup dry yellow motor dal",
+              "1 small cucumber finely chopped",
+              "1 medium tomato finely chopped",
+              "Half small onion finely chopped",
+              "Small handful fresh coriander",
+              "Juice of half a lemon",
+              "Pinch of salt, black pepper, cumin powder",
+            ],
+            [
+              "Soak motor dal in water for 30 minutes to shorten boiling time.",
+              "Boil motor dal with pinch of salt and turmeric for 15 to 20 minutes until soft but not mushy.",
+              "Drain all water completely. Let peas cool for 5 minutes.",
+              "Mix cooled peas with cucumber, tomato, onion, and coriander in a bowl.",
+              "Squeeze lemon juice over everything. Add salt, black pepper, and cumin powder.",
+              "Mix well and eat immediately. No oil needed.",
+            ],
+          ),
+          meal(
+            "1:30 PM",
+            "Lunch: rice with chicken or fish and vegetables",
+            [
+              "1 cup cooked rice",
+              "150 g chicken breast or local fish (Rui, Katla, or Telapia)",
+              "1 tsp mustard oil or soybean oil",
+              "1 medium onion chopped",
+              "1 tsp ginger-garlic paste",
+              "Half tsp cumin (jeera) powder",
+              "Half tsp turmeric (holud)",
+              "1 green chili",
+              "1 large bowl mixed vegetables: patal, lau, spinach, or pumpkin",
+              "Salt to taste",
+            ],
+            [
+              "Cut chicken into bite-sized cubes or fish into pieces.",
+              "Heat exactly 1 tsp oil in pan on medium heat. Add chopped onion, fry 3 minutes until slightly golden.",
+              "Add ginger-garlic paste, cumin, turmeric, and green chili. Stir 1 minute.",
+              "Add chicken or fish. Cook on medium heat 12 to 15 minutes, stirring every 2 minutes.",
+              "Add vegetables in last 5 minutes and stir. They should be firm not mushy.",
+              "Serve with 1 measured cup of rice.",
+            ],
+          ),
+          meal(
+            "4:00 PM (30 min before gym)",
+            "Pre-workout: banana and black coffee",
+            [
+              "1 medium Shobri or Champa banana",
+              "1 cup strong black coffee no sugar no milk",
+            ],
+            [
+              "Eat banana first. Gives muscles quick carbohydrates to fuel the workout.",
+              "Drink the black coffee 20 to 30 minutes before gym.",
+              "If training at 6 PM, shift this to 5:30 PM.",
+              "Caffeine increases fat used as fuel during exercise.",
+            ],
+          ),
+          meal(
+            "Within 30 min after gym",
+            "Post-workout: egg whites or soybeans",
+            [
+              "Option A: 3 egg whites, 1 small onion, 1 green chili, 1 drop oil",
+              "Option B: 50 g dry soya chunks (badi), 1 tsp mustard oil, onion, ginger-garlic, cumin, chili powder",
+            ],
+            [
+              "Option A egg white omelet: crack 3 eggs, separate whites, discard yolks.",
+              "Add chopped onion and chili to whites. Heat pan with 1 drop oil.",
+              "Cook on medium heat 2 to 3 minutes each side until set.",
+              "Option B soya bhuna: boil 50 g dry soya chunks in water 5 minutes until soft.",
+              "Drain completely and squeeze out all excess water with your hands.",
+              "Heat 1 tsp oil, add onion, fry golden. Add ginger-garlic, cumin, chili. Stir 1 minute. Add soya. Stir-fry 8 minutes.",
+            ],
+          ),
+          meal(
+            "8:30 PM",
+            "Dinner: roti with grilled protein and salad",
+            [
+              "1 handmade whole-wheat red atta roti",
+              "100 to 150 g grilled fish or chicken OR 1 bowl clear dal soup",
+              "1 medium cucumber sliced",
+              "1 medium tomato sliced",
+              "Juice of half a lemon",
+              "Pinch of salt and black pepper",
+            ],
+            [
+              "For roti: mix red atta flour with water to form soft dough. Roll flat. Cook on dry pan 1 to 2 minutes each side until light char spots appear.",
+              "For grilled protein: season with salt, turmeric, cumin. Cook on pan with half tsp oil on medium heat. Fish 3 to 4 min each side. Chicken 6 to 7 min each side.",
+              "For salad: slice cucumber and tomato. Squeeze lemon over them. Add salt and pepper.",
+              "Eat dinner at least 2 hours before sleeping.",
+            ],
+          ),
         ]),
-        diet("Tue", "Gym day", [
-          meal("Breakfast", "Egg roti plate", ["2 eggs", "1 atta ruti", "Onion, tomato, chili, coriander", "Cucumber slices", "1 tsp oil"], ["Whisk eggs with chopped onion, tomato, chili, and coriander.", "Cook on low heat with 1 tsp oil.", "Warm the ruti.", "Serve with cucumber and tomato."]),
-          meal("Pre-workout", "Tok doi fruit bowl", ["1 small bowl plain tok doi", "1 apple or guava", "1 tsp chia seeds", "5-8 peanuts"], ["Chop fruit into small pieces.", "Mix fruit and chia into tok doi.", "Wait 5 minutes if you want thicker texture.", "Top with peanuts.", "Eat 60-90 minutes before training."]),
-          meal("Post-workout", "Soy chunk bhuna", ["40-50g dry soy chunks", "1 cup cooked rice", "Lal shak or spinach", "Onion, garlic, ginger, cumin", "1 tsp oil"], ["Soak soy chunks in hot water for 10 minutes.", "Squeeze water out well.", "Cook onion, garlic, ginger, and spices in 1 tsp oil.", "Add soy chunks and cook until coated, then serve with rice and greens."]),
-          meal("Dinner", "Dal soup and eggs", ["1 bowl thick dal", "2 boiled eggs", "Lemon", "Cumin, garlic, chili", "Large salad"], ["Boil dal until soft and thick.", "Temper garlic, cumin, and chili with minimal oil or dry roast spices.", "Add lemon at the end.", "Eat with boiled eggs and salad."])
+        diet("Tue", "Gym day — Pull", [
+          meal(
+            "7:30 AM",
+            "Morning drink: chia lemon water",
+            [
+              "1 tbsp chia seeds",
+              "1 glass warm water",
+              "Juice of half a lemon",
+            ],
+            [
+              "Soak chia seeds in room-temperature water for 15 minutes.",
+              "Add warm water and lemon juice. Stir and drink.",
+              "Wait 20 minutes before breakfast.",
+            ],
+          ),
+          meal(
+            "8:00 AM",
+            "Breakfast: masala oats with boiled eggs",
+            [
+              "4 tbsp rolled oats",
+              "Half cup water",
+              "1 small onion chopped",
+              "1 green chili",
+              "Pinch salt and turmeric",
+              "2 boiled eggs",
+              "1 cup green tea no sugar",
+            ],
+            [
+              "Dry-roast oats 1 minute on medium heat.",
+              "Add water, salt, turmeric, onion, chili. Simmer 3 to 4 minutes until thick.",
+              "Boil eggs 9 minutes. Peel and serve with oats.",
+              "Brew green tea with no sugar.",
+            ],
+          ),
+          meal(
+            "11:00 AM",
+            "Snack: motor chaat",
+            [
+              "Half cup boiled motor dal",
+              "Cucumber, tomato, onion, coriander",
+              "Lemon juice, salt, black pepper, cumin powder",
+            ],
+            [
+              "Boil motor dal 15 to 20 minutes until soft.",
+              "Drain fully. Let cool 5 minutes.",
+              "Mix with chopped vegetables and lemon juice.",
+              "No oil needed.",
+            ],
+          ),
+          meal(
+            "1:30 PM",
+            "Lunch: soy chunk bhuna with rice",
+            [
+              "50 g dry soya chunks (badi)",
+              "1 cup cooked rice",
+              "Spinach or lal shak",
+              "1 tsp mustard oil",
+              "Onion, ginger-garlic, cumin, chili, turmeric",
+            ],
+            [
+              "Soak soya chunks in hot water 10 minutes. Drain and squeeze out all water.",
+              "Heat 1 tsp oil. Fry onion until golden. Add ginger-garlic, cumin, chili, turmeric. Stir 1 minute.",
+              "Add soya chunks. Stir-fry 8 to 10 minutes until flavored.",
+              "Serve with 1 cup rice and cooked spinach on the side.",
+            ],
+          ),
+          meal(
+            "4:00 PM (30 min before gym)",
+            "Pre-workout: banana and black coffee",
+            ["1 medium banana", "1 cup black coffee no sugar"],
+            ["Eat banana then drink coffee 30 minutes before gym."],
+          ),
+          meal(
+            "Within 30 min after gym",
+            "Post-workout: egg white omelet or soya",
+            ["3 egg whites", "OR 50 g dry soya chunks boiled"],
+            [
+              "Cook egg white omelet with onion and chili in 1 drop oil.",
+              "OR boil soya chunks 5 minutes, drain, stir-fry with spices in 1 tsp oil.",
+              "Eat within 30 minutes of finishing gym.",
+            ],
+          ),
+          meal(
+            "8:30 PM",
+            "Dinner: dal soup and eggs",
+            [
+              "1 bowl thick masoor or moong dal",
+              "2 boiled eggs",
+              "Lemon",
+              "Cumin, garlic, chili",
+              "Large salad (cucumber, tomato)",
+            ],
+            [
+              "Boil dal until thick and soft.",
+              "Temper garlic, cumin, and chili with minimal oil or dry roast spices.",
+              "Squeeze lemon at the end.",
+              "Eat with boiled eggs and salad.",
+            ],
+          ),
         ]),
-        diet("Wed", "Gym day", [
-          meal("Breakfast", "Mango oats bowl", ["50g oats", "150-200ml milk or water", "Small mango portion", "1 tsp chia seeds", "1 boiled egg"], ["Cook oats until soft.", "Let it cool for 2 minutes.", "Stir in chia seeds.", "Add chopped mango on top.", "Eat boiled egg beside it for protein."]),
-          meal("Pre-workout", "Potato salt snack", ["1 small boiled potato", "Lemon", "Tiny pinch salt", "Black pepper or chili"], ["Boil potato until soft.", "Cool and cut into pieces.", "Add lemon, pepper, and a tiny pinch of salt.", "Eat 45-75 minutes before leg training."]),
-          meal("Post-workout", "Beef or chicken roti", ["120g lean halal beef or chicken", "2 atta ruti", "Bhindi or mixed sabji", "Tomato, garlic, ginger", "1 tsp oil"], ["Trim visible fat from meat.", "Cook garlic, ginger, tomato, and spices with 1 tsp oil.", "Add meat and cook until tender.", "Serve with ruti and vegetables."]),
-          meal("Dinner", "Light khichuri", ["Moong dal", "Small rice portion", "Vegetables", "Grilled fish or egg", "Turmeric, ginger, cumin"], ["Wash dal and rice.", "Use more dal and vegetables than rice.", "Cook soft with turmeric, ginger, and cumin.", "Serve with fish or egg for extra protein."])
+        diet("Wed", "Gym day — Legs", [
+          meal(
+            "7:30 AM",
+            "Morning drink: chia lemon water",
+            [
+              "1 tbsp chia seeds",
+              "1 glass warm water",
+              "Juice of half a lemon",
+            ],
+            [
+              "Soak chia seeds 15 minutes. Add warm water and lemon. Stir and drink.",
+            ],
+          ),
+          meal(
+            "8:00 AM",
+            "Breakfast: masala oats with boiled eggs",
+            [
+              "4 tbsp rolled oats",
+              "Half cup water",
+              "Onion, green chili, salt, turmeric",
+              "2 boiled eggs",
+              "1 cup green tea no sugar",
+            ],
+            [
+              "Dry-roast oats 1 minute. Add water and spices. Simmer 3 to 4 minutes.",
+              "Boil eggs 9 minutes. Serve with oats and green tea.",
+            ],
+          ),
+          meal(
+            "11:00 AM",
+            "Snack: motor chaat",
+            [
+              "Half cup boiled motor dal",
+              "Cucumber, tomato, onion, coriander, lemon",
+            ],
+            [
+              "Boil motor dal, drain, cool. Mix with chopped vegetables and lemon. No oil.",
+            ],
+          ),
+          meal(
+            "1:30 PM",
+            "Lunch: chicken or fish with rice and vegetables",
+            [
+              "150 g chicken breast or local fish",
+              "1 cup cooked rice",
+              "1 tsp mustard oil",
+              "Onion, ginger-garlic, cumin, turmeric, chili",
+              "Mixed vegetables: patal, lau, spinach",
+            ],
+            [
+              "Heat 1 tsp oil. Fry onion until golden. Add spices.",
+              "Add chicken or fish. Cook 12 to 15 minutes on medium heat.",
+              "Add vegetables last 5 minutes.",
+              "Serve with 1 measured cup rice.",
+            ],
+          ),
+          meal(
+            "4:00 PM (30 min before gym)",
+            "Pre-workout: banana and black coffee",
+            ["1 medium banana", "1 cup black coffee no sugar"],
+            ["Eat banana then coffee. Shift to 5:30 PM if training at 6 PM."],
+          ),
+          meal(
+            "Within 30 min after gym",
+            "Post-workout: egg whites or soybeans",
+            ["3 egg whites", "OR 50 g dry soya chunks"],
+            [
+              "Cook egg white omelet with onion and chili.",
+              "OR boil soya chunks and stir-fry with spices.",
+            ],
+          ),
+          meal(
+            "8:30 PM",
+            "Dinner: roti with grilled protein and salad",
+            [
+              "1 red atta roti",
+              "100 to 150 g grilled fish or chicken",
+              "Cucumber, tomato, lemon salad",
+            ],
+            [
+              "Cook roti on dry pan.",
+              "Grill protein with minimal oil and spices.",
+              "Eat with fresh salad. At least 2 hours before bed.",
+            ],
+          ),
         ]),
         diet("Thu", "Recovery day", [
-          meal("Breakfast", "Chana and eggs", ["Small bowl boiled chana", "1-2 boiled eggs", "Onion, cucumber, lemon", "Chili, coriander", "Tea without sugar"], ["Soak chana overnight.", "Boil until soft.", "Mix with onion, cucumber, lemon, chili, and coriander.", "Eat with eggs for protein."]),
-          meal("Lunch", "Fish rice plate", ["1 cup cooked rice", "Fish curry", "Bottle gourd or green papaya curry", "Salad"], ["Cook fish curry with little oil.", "Make vegetable curry watery and light.", "Plate vegetables first, then rice and fish.", "Stop adding rice once full."]),
-          meal("Snack", "Peas or motor bowl", ["Boiled motor or peas", "Cucumber", "Lemon", "Black pepper", "Chili"], ["Boil peas until tender.", "Drain water.", "Mix with cucumber, lemon, pepper, and chili.", "Eat slowly as a high-fiber snack."]),
-          meal("Dinner", "Roti dal dinner", ["1-2 atta ruti", "Thick dal", "Vegetable bhaji", "Lemon"], ["Cook dal thick so it keeps you full.", "Cook vegetables with minimal oil.", "Warm ruti.", "Add lemon to dal before eating."])
+          meal(
+            "7:30 AM",
+            "Morning drink: chia lemon water",
+            [
+              "1 tbsp chia seeds",
+              "1 glass warm water",
+              "Juice of half a lemon",
+            ],
+            ["Soak chia seeds 15 minutes. Add warm water and lemon. Drink."],
+          ),
+          meal(
+            "8:00 AM",
+            "Breakfast: masala oats with boiled eggs",
+            [
+              "4 tbsp rolled oats",
+              "Onion, chili, salt, turmeric",
+              "2 boiled eggs",
+              "1 cup green tea",
+            ],
+            [
+              "Dry-roast oats, add water and spices, simmer 3 to 4 minutes.",
+              "Serve with boiled eggs and green tea.",
+            ],
+          ),
+          meal(
+            "11:00 AM",
+            "Snack: motor chaat or fresh fruit",
+            [
+              "Half cup boiled motor dal",
+              "Cucumber, tomato, onion, lemon",
+              "OR 1 guava or apple",
+            ],
+            [
+              "Option A: motor chaat with no oil.",
+              "Option B: eat a piece of fresh fruit for lighter recovery-day snack.",
+            ],
+          ),
+          meal(
+            "1:30 PM",
+            "Lunch: fish rice plate",
+            [
+              "1 cup cooked rice",
+              "150 g fish curry cooked with minimal oil",
+              "1 bowl mixed vegetables (bottle gourd or green papaya)",
+              "Fresh salad",
+            ],
+            [
+              "Cook fish curry with 1 tsp oil and spices.",
+              "Make vegetable curry light and watery.",
+              "Plate vegetables first, then rice and fish.",
+              "Eat slowly.",
+            ],
+          ),
+          meal(
+            "4:00 PM",
+            "Snack: tok doi with fruit",
+            [
+              "1 small bowl plain tok doi (low-fat sour yogurt)",
+              "1 guava or apple",
+              "1 tsp chia seeds",
+              "5 to 8 almonds (katha badam)",
+            ],
+            [
+              "Chop fruit into pieces.",
+              "Mix fruit and chia seeds into tok doi.",
+              "Wait 5 minutes for texture.",
+              "Top with almonds. No sweetener.",
+            ],
+          ),
+          meal(
+            "8:30 PM",
+            "Dinner: roti dal dinner",
+            [
+              "1 to 2 atta roti",
+              "1 bowl thick dal",
+              "Mixed vegetable bhaji with minimal oil",
+              "Lemon",
+            ],
+            [
+              "Cook dal thick so it keeps you full.",
+              "Cook vegetables with minimal oil.",
+              "Warm roti on dry pan.",
+              "Add lemon to dal before eating.",
+            ],
+          ),
         ]),
-        diet("Fri", "Gym day", [
-          meal("Breakfast", "Peanut banana toast", ["2 slices brown bread", "1 tbsp peanut butter", "1 banana", "Tea or coffee without sugar"], ["Toast bread.", "Spread peanut butter thinly.", "Add banana slices or eat banana separately.", "Use one slice if weight loss stalls."]),
-          meal("Pre-workout", "Dates and milk", ["1-2 dates", "200ml low-fat milk or tea"], ["Drink milk or tea 45-75 minutes before training.", "Eat 1 date first.", "Use the second date only if energy is low.", "Avoid adding sugar."]),
-          meal("Post-workout", "Chicken vegetable stir fry", ["150g halal chicken", "Capsicum, carrot, beans", "Small rice portion", "Garlic, ginger", "1 tsp oil"], ["Cut chicken into small pieces.", "Heat pan, add 1 tsp oil, garlic, and ginger.", "Cook chicken until done.", "Add vegetables and stir fry until bright, then serve with small rice."]),
-          meal("Dinner", "Egg curry plate", ["2 eggs", "1 atta ruti", "Tomato, onion, garlic", "Large salad", "1 tsp oil"], ["Boil eggs and peel.", "Cook onion, tomato, garlic, chili, and spices with 1 tsp oil.", "Add eggs and simmer 3-4 minutes.", "Serve with ruti and salad."])
+        diet("Fri", "Gym day — Upper Mix", [
+          meal(
+            "7:30 AM",
+            "Morning drink: chia lemon water",
+            [
+              "1 tbsp chia seeds",
+              "1 glass warm water",
+              "Juice of half a lemon",
+            ],
+            ["Soak chia seeds 15 minutes. Add warm water and lemon. Drink."],
+          ),
+          meal(
+            "8:00 AM",
+            "Breakfast: masala oats with boiled eggs",
+            [
+              "4 tbsp rolled oats",
+              "Onion, chili, salt, turmeric",
+              "2 boiled eggs",
+              "1 cup green tea",
+            ],
+            [
+              "Dry-roast oats, add water and spices, simmer 3 to 4 minutes.",
+              "Serve with boiled eggs and green tea.",
+            ],
+          ),
+          meal(
+            "11:00 AM",
+            "Snack: motor chaat",
+            [
+              "Half cup boiled motor dal",
+              "Cucumber, tomato, onion, coriander, lemon",
+            ],
+            [
+              "Boil motor dal, drain, cool. Mix with chopped vegetables and lemon. No oil.",
+            ],
+          ),
+          meal(
+            "1:30 PM",
+            "Lunch: chicken stir-fry with rice",
+            [
+              "150 g chicken breast",
+              "1 cup cooked rice",
+              "Capsicum, patal, or spinach",
+              "1 tsp mustard oil",
+              "Garlic, ginger, chili, cumin, turmeric",
+            ],
+            [
+              "Cut chicken into small pieces.",
+              "Heat 1 tsp oil. Add garlic and ginger. Cook until fragrant.",
+              "Add chicken. Cook on medium heat until done, 12 minutes.",
+              "Add vegetables. Stir-fry 3 minutes until bright.",
+              "Serve with 1 cup rice.",
+            ],
+          ),
+          meal(
+            "4:00 PM (30 min before gym)",
+            "Pre-workout: banana and black coffee",
+            ["1 medium banana", "1 cup black coffee no sugar"],
+            ["Eat banana then coffee. Shift to 5:30 PM if training at 6 PM."],
+          ),
+          meal(
+            "Within 30 min after gym",
+            "Post-workout: egg whites or soybeans",
+            ["3 egg whites OR 50 g dry soya chunks"],
+            [
+              "Cook egg white omelet with onion and chili in 1 drop oil.",
+              "OR boil soya chunks and stir-fry with spices in 1 tsp oil.",
+            ],
+          ),
+          meal(
+            "8:30 PM",
+            "Dinner: egg curry with roti and salad",
+            [
+              "2 boiled eggs",
+              "1 atta roti",
+              "Tomato, onion, garlic, chili, cumin",
+              "Large cucumber and tomato salad",
+              "1 tsp oil",
+            ],
+            [
+              "Boil eggs and peel.",
+              "Cook onion, tomato, garlic, chili, and spices with 1 tsp oil.",
+              "Add eggs and simmer 3 to 4 minutes.",
+              "Serve with roti and fresh salad.",
+            ],
+          ),
         ]),
-        diet("Sat", "Gym day", [
-          meal("Breakfast", "Doi oats crunch", ["Plain tok doi", "40g oats", "1 tsp chia seeds", "Guava or apple", "5 almonds"], ["Put tok doi in a bowl.", "Mix in oats and chia seeds.", "Let sit 10 minutes for softer texture.", "Add chopped fruit.", "Top with almonds."]),
-          meal("Pre-workout", "Boiled potato and tea", ["1 small potato", "Tea or coffee without sugar", "Lemon", "Tiny pinch salt"], ["Boil potato until soft.", "Cut and season with lemon and tiny salt.", "Drink tea or coffee without sugar.", "Eat 45-75 minutes before training."]),
-          meal("Post-workout", "Grilled fish rice", ["120-150g fish", "1 cup cooked rice", "Dal", "Vegetables", "Lemon, garlic, chili, turmeric"], ["Rub fish with lemon, garlic, chili, turmeric, and salt.", "Brush pan lightly with oil.", "Cook fish until flaky.", "Serve with rice, dal, and vegetables."]),
-          meal("Dinner", "Chicken soup", ["Chicken pieces", "Carrot, cabbage, beans or papaya", "Ginger, garlic, pepper", "1 atta ruti if hungry"], ["Boil chicken with ginger, garlic, pepper, and salt.", "Add vegetables and cook until soft.", "Keep the soup broth-heavy.", "Add one ruti only if still hungry."])
+        diet("Sat", "Gym day — Lower + HIIT", [
+          meal(
+            "7:30 AM",
+            "Morning drink: chia lemon water",
+            [
+              "1 tbsp chia seeds",
+              "1 glass warm water",
+              "Juice of half a lemon",
+            ],
+            ["Soak chia seeds 15 minutes. Add warm water and lemon. Drink."],
+          ),
+          meal(
+            "8:00 AM",
+            "Breakfast: oat and tok doi bowl",
+            [
+              "4 tbsp rolled oats",
+              "1 small bowl plain tok doi",
+              "1 tsp chia seeds",
+              "1 guava or apple",
+              "5 almonds",
+            ],
+            [
+              "Put tok doi in a bowl.",
+              "Mix in oats and chia seeds.",
+              "Let sit 10 minutes for softer texture.",
+              "Add chopped fruit on top.",
+              "Top with almonds. No sweetener.",
+            ],
+          ),
+          meal(
+            "11:00 AM",
+            "Snack: motor chaat",
+            [
+              "Half cup boiled motor dal",
+              "Cucumber, tomato, onion, coriander, lemon",
+            ],
+            [
+              "Boil motor dal, drain, cool. Mix with chopped vegetables and lemon. No oil.",
+            ],
+          ),
+          meal(
+            "1:30 PM",
+            "Lunch: grilled fish with rice and dal",
+            [
+              "150 g Rui, Katla, or Telapia fish",
+              "1 cup cooked rice",
+              "1 bowl thin dal",
+              "Mixed vegetables",
+              "Lemon, garlic, chili, turmeric",
+            ],
+            [
+              "Season fish with lemon, garlic, chili, turmeric, and salt.",
+              "Brush pan lightly with half tsp oil.",
+              "Cook fish on medium heat 3 to 4 minutes each side until flaky.",
+              "Serve with rice, dal, and vegetables.",
+            ],
+          ),
+          meal(
+            "4:00 PM (30 min before gym)",
+            "Pre-workout: banana and black coffee",
+            ["1 medium banana", "1 cup black coffee no sugar"],
+            [
+              "Eat banana then coffee. This is the highest-intensity workout day. Fuel properly.",
+            ],
+          ),
+          meal(
+            "Within 30 min after gym",
+            "Post-workout: egg whites or soybeans",
+            ["3 egg whites OR 50 g dry soya chunks"],
+            [
+              "Cook egg white omelet with onion and chili.",
+              "OR boil soya chunks and stir-fry with spices.",
+            ],
+          ),
+          meal(
+            "8:30 PM",
+            "Dinner: chicken soup",
+            [
+              "150 g chicken pieces",
+              "Carrot, cabbage, beans or green papaya",
+              "Ginger, garlic, black pepper, salt",
+              "1 atta roti if still hungry",
+            ],
+            [
+              "Boil chicken with ginger, garlic, pepper, and salt.",
+              "Add vegetables and cook until soft.",
+              "Keep soup broth-heavy, not thick.",
+              "Add roti only if still hungry after the soup.",
+            ],
+          ),
         ]),
-        diet("Sun", "Gym off", [
-          meal("Breakfast", "Vegetable suji upma", ["Suji", "Mixed vegetables", "1 boiled egg", "Chili, onion, salt", "1 tsp oil"], ["Toast suji lightly in a dry pan.", "Cook onion and vegetables with 1 tsp oil.", "Add water and suji slowly while stirring.", "Serve with boiled egg."]),
-          meal("Lunch", "Light chicken khichuri", ["Moong dal", "Small rice portion", "Chicken pieces", "Vegetables", "Salad"], ["Wash dal and rice.", "Cook dal-heavy khichuri with vegetables.", "Add chicken pieces for protein.", "Serve with salad and skip ghee or use a tiny amount."]),
-          meal("Snack", "Papaya and yogurt", ["Papaya bowl", "Plain tok doi", "1 tsp chia seeds", "Optional cinnamon"], ["Cut papaya into cubes.", "Add plain tok doi.", "Mix in chia seeds and wait 5 minutes.", "Sprinkle cinnamon if you like.", "Keep it unsweetened."]),
-          meal("Dinner", "Fish salad plate", ["Grilled fish", "Cucumber, tomato, onion, carrot", "Lemon, pepper", "Half cup rice if needed"], ["Grill or pan-cook fish with spices.", "Make a large salad with lemon and pepper.", "Eat salad first, then fish.", "Add half cup rice only if hungry."])
-        ])
+        diet("Sun", "Rest day", [
+          meal(
+            "7:30 AM",
+            "Morning drink: chia lemon water",
+            [
+              "1 tbsp chia seeds",
+              "1 glass warm water",
+              "Juice of half a lemon",
+            ],
+            ["Soak chia seeds 15 minutes. Add warm water and lemon. Drink."],
+          ),
+          meal(
+            "8:00 AM",
+            "Breakfast: vegetable suji (semolina) upma",
+            [
+              "Suji (semolina)",
+              "Mixed vegetables (onion, carrot, peas)",
+              "1 boiled egg",
+              "Chili, salt",
+              "1 tsp oil",
+            ],
+            [
+              "Toast suji lightly in a dry pan for 1 to 2 minutes.",
+              "Heat 1 tsp oil. Cook onion and vegetables until soft.",
+              "Add water slowly while stirring. Add toasted suji.",
+              "Stir and cook 4 to 5 minutes until thick.",
+              "Serve with boiled egg.",
+            ],
+          ),
+          meal(
+            "12:00 PM",
+            "Lunch: light chicken khichuri",
+            [
+              "Moong dal",
+              "Small rice portion (less rice, more dal)",
+              "Chicken pieces",
+              "Vegetables",
+              "Large salad",
+            ],
+            [
+              "Wash dal and rice together.",
+              "Cook dal-heavy khichuri with more dal than rice.",
+              "Add chicken pieces for protein.",
+              "Serve with large salad. Skip ghee.",
+            ],
+          ),
+          meal(
+            "4:00 PM",
+            "Snack: papaya and tok doi",
+            [
+              "Papaya bowl",
+              "Plain tok doi",
+              "1 tsp chia seeds",
+              "Optional cinnamon",
+            ],
+            [
+              "Cut papaya into cubes.",
+              "Add plain tok doi.",
+              "Mix in chia seeds. Wait 5 minutes.",
+              "Sprinkle cinnamon if you like. Keep it unsweetened.",
+            ],
+          ),
+          meal(
+            "8:00 PM",
+            "Dinner: fish salad plate",
+            [
+              "Grilled fish (any local variety)",
+              "Large salad: cucumber, tomato, onion, carrot",
+              "Lemon, black pepper",
+              "Half cup rice only if still hungry",
+            ],
+            [
+              "Grill or pan-cook fish with minimal oil and spices.",
+              "Make a large salad with lemon and black pepper.",
+              "Eat salad first, then fish.",
+              "Add half cup rice only if genuinely hungry.",
+            ],
+          ),
+          meal(
+            "Meal prep for the week",
+            "Sunday prep guide",
+            [
+              "6 to 8 eggs for boiling",
+              "Batch of chicken breast",
+              "Motor dal for soaking",
+              "Portion rice into measuring cups",
+            ],
+            [
+              "Boil 6 to 8 eggs. Store in fridge for the week.",
+              "Cook a batch of chicken breast. Portion into 150 g servings.",
+              "Soak motor dal tonight for quick cooking Monday.",
+              "Portion rice into cups ready to cook.",
+              "This 30 minutes saves you 30 minutes every day.",
+            ],
+          ),
+        ]),
       ];
 
       const DRINKS = [
-        drink("Lemon Salt Water", ["500ml clean water", "1-2 tbsp lemon juice", "Tiny pinch salt", "Optional 1 tsp honey on hard leg days"], ["Pour water into a bottle.", "Add lemon juice and a tiny pinch of salt.", "Shake well.", "Sip during training; do not make it too salty."]),
-        drink("Coconut Water", ["1 small bottle fresh coconut water", "Optional squeeze of lemon"], ["Buy fresh coconut water when possible.", "Keep portion moderate because it has calories.", "Sip after warmup or after training in hot weather.", "Use plain water for normal sessions."]),
-        drink("Light Homemade ORS", ["500ml clean water", "1 level tsp sugar or honey", "Tiny pinch salt", "Lemon juice"], ["Use this only when sweating heavily.", "Mix water, sugar or honey, salt, and lemon.", "Shake until dissolved.", "Avoid extra sugar because it can slow fat loss."])
+        drink(
+          "Lemon Salt Water",
+          [
+            "500 ml clean water",
+            "1 to 2 tbsp fresh lemon juice",
+            "Tiny pinch of salt",
+            "Optional 1 tsp honey on hard leg days",
+          ],
+          [
+            "Pour water into a bottle.",
+            "Add lemon juice and a tiny pinch of salt.",
+            "Shake well.",
+            "Sip during training. Do not make it too salty.",
+            "Use only plain water for normal sessions.",
+          ],
+        ),
+        drink(
+          "Black Coffee Pre-Workout",
+          ["1 cup black coffee", "No sugar", "No milk"],
+          [
+            "Brew strong black coffee.",
+            "Drink 20 to 30 minutes before gym.",
+            "Caffeine increases fat used as fuel during exercise.",
+            "Maximum 1 to 2 cups per day. More causes anxiety and disrupts sleep.",
+          ],
+        ),
+        drink(
+          "Homemade Electrolyte Water",
+          [
+            "500 ml clean water",
+            "1 level tsp sugar or honey",
+            "Tiny pinch of salt",
+            "Juice of half a lemon",
+          ],
+          [
+            "Use this only when sweating heavily or training in very hot weather.",
+            "Mix water, sugar or honey, salt, and lemon.",
+            "Shake until dissolved.",
+            "Sip during or after training.",
+            "Avoid on light sessions as the sugar adds calories.",
+          ],
+        ),
       ];
 
+      // ─── ENGINE ──────────────────────────────────────────────────────────────
       let level = Number(localStorage.getItem("project70-level") || 1);
       let selectedDay = new Date().getDay();
       let selectedDiet = dietIndexForToday();
       const PLAYER_KEY = "project70-player";
 
-      function ex(name, target, pose, sets, reps, rest, cue, steps = [], difficulty = 1, calories = 10) {
-        return { name, target, pose, sets, reps, rest, cue, steps, difficulty, calories };
-      }
-
-      function diet(weekday, type, meals) {
-        return { weekday, type, meals };
-      }
-
-      function meal(time, title, items, steps) {
-        return { time, title, items, steps };
-      }
-
-      function $(selector) {
-        return document.querySelector(selector);
-      }
-
-      function drink(title, items, steps) {
-        return { title, items, steps };
+      function $(sel) {
+        return document.querySelector(sel);
       }
 
       function yt(name) {
-        return "https://www.youtube.com/results?search_query=" + encodeURIComponent(name + " beginner proper form");
+        return (
+          "https://www.youtube.com/results?search_query=" +
+          encodeURIComponent(name + " beginner proper form")
+        );
       }
-
       function imageSearch(name) {
-        return "https://www.google.com/search?tbm=isch&q=" + encodeURIComponent(name + " exercise proper form real photo");
+        return (
+          "https://www.google.com/search?tbm=isch&q=" +
+          encodeURIComponent(name + " exercise proper form")
+        );
       }
-
       function dateKey(date = new Date()) {
-        const y = date.getFullYear();
-        const m = String(date.getMonth() + 1).padStart(2, "0");
-        const d = String(date.getDate()).padStart(2, "0");
+        const y = date.getFullYear(),
+          m = String(date.getMonth() + 1).padStart(2, "0"),
+          d = String(date.getDate()).padStart(2, "0");
         return `${y}-${m}-${d}`;
       }
-
       function weekKey(date = new Date()) {
-        const d = new Date(date);
-        const mondayOffset = (d.getDay() + 6) % 7;
-        d.setDate(d.getDate() - mondayOffset);
+        const d = new Date(date),
+          offset = (d.getDay() + 6) % 7;
+        d.setDate(d.getDate() - offset);
         d.setHours(0, 0, 0, 0);
         return dateKey(d);
       }
-
       function completedKey() {
         return `project70-completed-${weekKey()}`;
       }
-
       function rewardedKey() {
         return `project70-rewarded-${weekKey()}`;
       }
-
       function getJson(key, fallback) {
         try {
           return JSON.parse(localStorage.getItem(key)) || fallback;
@@ -1890,50 +3392,49 @@
           return fallback;
         }
       }
-
       function setJson(key, value) {
         localStorage.setItem(key, JSON.stringify(value));
       }
 
       function getPlayer() {
-        const player = getJson(PLAYER_KEY, {});
+        const p = getJson(PLAYER_KEY, {});
         return {
-          totalXp: Number(player.totalXp) || 0,
-          totalCalories: Number(player.totalCalories) || 0,
-          currentWeight: Number(player.currentWeight) || 86,
-          targetWeight: Number(player.targetWeight) || 70,
-          age: Number(player.age) || 24,
-          height: player.height || "5ft 7in"
+          totalXp: Number(p.totalXp) || 0,
+          totalCalories: Number(p.totalCalories) || 0,
+          currentWeight: Number(p.currentWeight) || 86,
+          targetWeight: Number(p.targetWeight) || 70,
+          age: Number(p.age) || 24,
+          height: p.height || "5ft 7in",
         };
       }
-
-      function savePlayer(player) {
-        setJson(PLAYER_KEY, player);
+      function savePlayer(p) {
+        setJson(PLAYER_KEY, p);
       }
-
       function getCompleted() {
         return getJson(completedKey(), {});
       }
-
-      function saveCompleted(completed) {
-        setJson(completedKey(), completed);
+      function saveCompleted(c) {
+        setJson(completedKey(), c);
       }
-
       function getRewarded() {
         return getJson(rewardedKey(), {});
       }
-
-      function saveRewarded(rewarded) {
-        setJson(rewardedKey(), rewarded);
+      function saveRewarded(r) {
+        setJson(rewardedKey(), r);
       }
 
       function routeReward(item, tuned, category) {
         const sets = Number(tuned.sets) || 1;
-        const base = category === "training" ? 14 : category === "boost" ? 10 : 6;
-        const difficultyScale = 1 + (level - 1) * 0.18;
-        const xp = Math.round((base + sets * 5 + (item.difficulty || 1) * 12) * difficultyScale);
-        const calories = Math.round((item.calories || 10) * (1 + (level - 1) * 0.09));
-        return { xp, calories };
+        const base =
+          category === "training" ? 14 : category === "boost" ? 10 : 6;
+        const scale = 1 + (level - 1) * 0.18;
+        const xp = Math.round(
+          (base + sets * 5 + (item.difficulty || 1) * 12) * scale,
+        );
+        const cal = Math.round(
+          (item.calories || 10) * (1 + (level - 1) * 0.09),
+        );
+        return { xp, cal };
       }
 
       function hunterStats(totalXp) {
@@ -1945,12 +3446,14 @@
           "Form Keeper",
           "Fat-loss Raider",
           "Lean Shadow",
-          "Discipline Monarch"
+          "Discipline Monarch",
         ];
         return {
           hunterLevel,
           progress,
-          rank: ranks[Math.min(ranks.length - 1, Math.floor((hunterLevel - 1) / 2))]
+          rank: ranks[
+            Math.min(ranks.length - 1, Math.floor((hunterLevel - 1) / 2))
+          ],
         };
       }
 
@@ -1958,20 +3461,22 @@
         const player = getPlayer();
         const stats = hunterStats(player.totalXp);
         const lost = Math.max(0, 86 - player.currentWeight);
-        const completedToday = Object.values(getCompleted()).filter((item) => item.date === dateKey()).length;
+        const todayDone = Object.values(getCompleted()).filter(
+          (i) => i.date === dateKey(),
+        ).length;
         return {
           Strength: Math.round(8 + level * 4 + stats.hunterLevel * 1.8),
-          Stamina: Math.round(9 + player.totalCalories / 220 + completedToday * 1.2),
+          Stamina: Math.round(9 + player.totalCalories / 220 + todayDone * 1.2),
           Endurance: Math.round(7 + stats.hunterLevel * 2 + lost * 1.5),
           Agility: Math.round(6 + level * 2.2 + lost),
           Discipline: Math.round(10 + player.totalXp / 120),
-          IQ: Math.round(7 + Math.min(18, stats.hunterLevel * 1.4))
+          IQ: Math.round(7 + Math.min(18, stats.hunterLevel * 1.4)),
         };
       }
 
       function avatarStage() {
         const player = getPlayer();
-        const hunterLevel = hunterStats(player.totalXp).hunterLevel;
+        const { hunterLevel } = hunterStats(player.totalXp);
         const lost = Math.max(0, 86 - player.currentWeight);
         if (hunterLevel >= 8 || lost >= 10) return 3;
         if (hunterLevel >= 4 || lost >= 5) return 2;
@@ -1979,27 +3484,36 @@
       }
 
       function statusCards(attrs) {
-        return Object.entries(attrs).map(([name, value]) => `
-          <div class="status-stat">
-            <span>${name}</span>
-            <b>${value}</b>
-          </div>
-        `).join("");
+        return Object.entries(attrs)
+          .map(
+            ([name, value]) =>
+              `<div class="status-stat"><span>${name}</span><b>${value}</b></div>`,
+          )
+          .join("");
       }
-
       function statusBars(attrs) {
-        return Object.entries(attrs).map(([name, value]) => {
-          const width = Math.min(100, Math.max(8, value * 2));
-          return `<div class="status-row"><span>${name}</span><i style="--w:${width}%"></i><b>${value}</b></div>`;
-        }).join("");
+        return Object.entries(attrs)
+          .map(([name, value]) => {
+            const w = Math.min(100, Math.max(8, value * 2));
+            return `<div class="status-row"><span>${name}</span><i style="--w:${w}%"></i><b>${value}</b></div>`;
+          })
+          .join("");
       }
 
       function unlockedPrivileges(hunterLevel) {
-        const list = ["Level 1: Daily quests unlocked"];
-        if (hunterLevel >= 2) list.push("Level 2: Add chia seeds to oats or yogurt 4x/week");
-        if (hunterLevel >= 3) list.push("Level 3: One halal flex meal per week, portion controlled");
-        if (hunterLevel >= 5) list.push("Level 5: Recovery token - swap one booster for stretching");
-        if (hunterLevel >= 8) list.push("Level 8: New title unlocked - Lean Hunter");
+        const list = ["Level 1: Daily quests unlocked. Training split active."];
+        if (hunterLevel >= 2)
+          list.push("Level 2: Add chia seeds to oats or yogurt 4x/week");
+        if (hunterLevel >= 3)
+          list.push(
+            "Level 3: One halal flex meal per week, portion controlled",
+          );
+        if (hunterLevel >= 5)
+          list.push(
+            "Level 5: Recovery token — swap one booster for stretching",
+          );
+        if (hunterLevel >= 8)
+          list.push("Level 8: New title unlocked — Lean Hunter");
         return list;
       }
 
@@ -2007,17 +3521,22 @@
         const player = getPlayer();
         const completed = getCompleted();
         const today = dateKey();
-        const todayRecords = Object.values(completed).filter((item) => item.date === today);
-        const todayCalories = todayRecords.reduce((sum, item) => sum + item.calories, 0);
+        const todayRecs = Object.values(completed).filter(
+          (i) => i.date === today,
+        );
+        const todayCal = todayRecs.reduce((s, i) => s + i.calories, 0);
         const stats = hunterStats(player.totalXp);
         $("#rank-title").textContent = `Hunter Level ${stats.hunterLevel}`;
         $("#rank-name").textContent = stats.rank;
         $("#xp-meter").style.width = `${(stats.progress / 250) * 100}%`;
-        $("#xp-copy").textContent = `${stats.progress}/250 EXP to the next hunter level. Weekly ticks reset every Monday; EXP never resets.`;
+        $("#xp-copy").textContent =
+          `${stats.progress}/250 EXP to next hunter level. Weekly ticks reset every Monday. EXP never resets.`;
         $("#total-xp").textContent = player.totalXp;
-        $("#today-cal").textContent = `${todayCalories}`;
-        $("#today-done").textContent = todayRecords.length;
-        $("#unlock-list").innerHTML = unlockedPrivileges(stats.hunterLevel).map((item) => `<li>${item}</li>`).join("");
+        $("#today-cal").textContent = `${todayCal}`;
+        $("#today-done").textContent = todayRecs.length;
+        $("#unlock-list").innerHTML = unlockedPrivileges(stats.hunterLevel)
+          .map((i) => `<li>${i}</li>`)
+          .join("");
         renderProfile();
         renderStatusPreview();
       }
@@ -2025,11 +3544,8 @@
       function renderStatusPreview() {
         const attrs = statusAttributes();
         const stats = hunterStats(getPlayer().totalXp);
-        $("#status-preview").innerHTML = `
-          <span class="eyebrow">Status</span>
-          <h3>${stats.rank}</h3>
-          <div class="status-bars">${statusBars(attrs)}</div>
-        `;
+        $("#status-preview").innerHTML =
+          `<span class="eyebrow">Status</span><h3>${stats.rank}</h3><div class="status-bars">${statusBars(attrs)}</div>`;
       }
 
       function renderProfile() {
@@ -2038,38 +3554,34 @@
         const attrs = statusAttributes();
         const stage = avatarStage();
         const lost = Math.max(0, 86 - player.currentWeight).toFixed(1);
-        document.querySelectorAll(".mini-avatar, .avatar-large").forEach((avatar) => {
-          avatar.classList.remove("stage-2", "stage-3");
-          if (stage > 1) avatar.classList.add(`stage-${stage}`);
+        document.querySelectorAll(".mini-avatar,.avatar-large").forEach((a) => {
+          a.classList.remove("stage-2", "stage-3");
+          if (stage > 1) a.classList.add(`stage-${stage}`);
         });
         $("#profile-rank").textContent = stats.rank;
-        $("#profile-sub").textContent = `Age ${player.age} · ${player.height} · ${player.currentWeight}kg current · ${lost}kg lost`;
+        $("#profile-sub").textContent =
+          `Age ${player.age} · ${player.height} · ${player.currentWeight}kg current · ${lost}kg lost`;
         $("#profile-stats").innerHTML = statusCards({
           Level: stats.hunterLevel,
           Weight: `${player.currentWeight}kg`,
           Target: `${player.targetWeight}kg`,
           "Total EXP": player.totalXp,
-          ...attrs
+          ...attrs,
         });
-        const weightInput = $("#current-weight");
-        if (document.activeElement !== weightInput) {
-          weightInput.value = player.currentWeight;
-        }
+        const inp = $("#current-weight");
+        if (document.activeElement !== inp) inp.value = player.currentWeight;
       }
 
       function showLevelUp(beforeAttrs, afterAttrs) {
         const stats = hunterStats(getPlayer().totalXp);
-        $("#levelup-copy").textContent = `You reached Hunter Level ${stats.hunterLevel}. Status has increased.`;
-        const gains = Object.entries(afterAttrs).map(([name, value]) => {
-          const before = beforeAttrs[name] || 0;
-          const diff = value - before;
-          return `
-            <div class="status-stat">
-              <span>${name}</span>
-              <b>${value}${diff > 0 ? ` (+${diff})` : ""}</b>
-            </div>
-          `;
-        }).join("");
+        $("#levelup-copy").textContent =
+          `You reached Hunter Level ${stats.hunterLevel}. Status has increased.`;
+        const gains = Object.entries(afterAttrs)
+          .map(([name, value]) => {
+            const diff = value - (beforeAttrs[name] || 0);
+            return `<div class="status-stat"><span>${name}</span><b>${value}${diff > 0 ? ` (+${diff})` : ""}</b></div>`;
+          })
+          .join("");
         $("#levelup-stats").innerHTML = gains;
         $("#levelup").classList.add("open");
         $("#levelup").setAttribute("aria-hidden", "false");
@@ -2079,17 +3591,17 @@
         const labels = [
           "Foundation pace",
           "Add 1-2 reps where possible",
-          "Add a little time to cardio/core",
-          "Add one set to first main lift",
+          "Add time to cardio finisher",
+          "Add 1 set to first main lift",
           "Extra volume on main lifts",
-          "Max beginner dungeon"
+          "Max beginner dungeon",
         ];
         return labels[level - 1] || labels[0];
       }
 
       function adjusted(exercise, index) {
-        let sets = exercise.sets;
-        let reps = exercise.reps;
+        let sets = exercise.sets,
+          reps = exercise.reps;
         if (level >= 4 && index === 0 && sets > 1) sets += 1;
         if (level >= 5 && index <= 2 && sets > 1) sets += 1;
         if (level >= 6 && exercise.target !== "Cardio" && sets > 1) sets += 1;
@@ -2097,23 +3609,43 @@
         return { sets, reps };
       }
 
-      function bumpReps(value, levelValue) {
-        if (value.includes("min")) {
-          if (levelValue >= 3) return value.replace(/(\d+)-(\d+) min/, (_, a, b) => `${Number(a) + levelValue - 2}-${Number(b) + levelValue} min`);
-          return value;
-        }
-        if (value.includes("rounds")) return levelValue >= 4 ? `${8 + levelValue - 3} rounds` : value;
-        if (value.includes("each")) return levelValue >= 3 ? value.replace(/\d+/, (n) => String(Number(n) + 1)) : value;
-        if (value.includes("-")) return value.replace(/(\d+)-(\d+)/, (_, a, b) => `${Number(a) + levelValue - 1}-${Number(b) + levelValue - 1}`);
-        if (/^\d+$/.test(value)) return String(Number(value) + levelValue - 1);
-        if (value.includes("s")) return value.replace(/\d+/, (n) => String(Number(n) + (levelValue - 1) * 5));
+      function bumpReps(value, lv) {
+        if (value.includes("min"))
+          return lv >= 3
+            ? value.replace(
+                /(\d+)-(\d+) min/,
+                (_, a, b) => `${Number(a) + lv - 2}-${Number(b) + lv} min`,
+              )
+            : value;
+        if (value.includes("rounds"))
+          return lv >= 4 ? `${8 + lv - 3} rounds` : value;
+        if (value.includes("each"))
+          return lv >= 3
+            ? value.replace(/\d+/, (n) => String(Number(n) + 1))
+            : value;
+        if (value.includes("-"))
+          return value.replace(
+            /(\d+)-(\d+)/,
+            (_, a, b) => `${Number(a) + lv - 1}-${Number(b) + lv - 1}`,
+          );
+        if (/^\d+$/.test(value)) return String(Number(value) + lv - 1);
+        if (value.includes("s"))
+          return value.replace(/\d+/, (n) => String(Number(n) + (lv - 1) * 5));
         return value;
       }
 
       function renderToday() {
-        const day = WEEK.find((item) => item.id === selectedDay) || WEEK[0];
-        const questCount = (day.type === "gym" ? WARMUPS.length + FREEHAND_BOOSTERS.length : HOME_WARMUPS.length) + day.exercises.length;
-        $("#today-eyebrow").textContent = day.type === "gym" ? "Today's gym session" : "Today's recovery";
+        const day = WEEK.find((d) => d.id === selectedDay) || WEEK[0];
+        const warmupCount = WARMUPS_BY_DAY[day.id]
+          ? WARMUPS_BY_DAY[day.id].items.length
+          : 0;
+        const questCount =
+          warmupCount +
+          (day.exercises || []).length +
+          (day.abs || []).length +
+          (day.finisher ? 1 : 0);
+        $("#today-eyebrow").textContent =
+          day.type === "gym" ? "Today's gym session" : "Today's recovery";
         $("#today-card").innerHTML = `
           <div class="today-head">
             <div>
@@ -2128,7 +3660,7 @@
             <div class="mini-stat"><span>Level</span><b>${level}/6</b></div>
             <div class="mini-stat"><span>Quests</span><b>${questCount}</b></div>
           </div>
-          <div class="safety-note">${day.type === "gym" ? "Start with the warmup rounds before your first lift." : "Keep recovery easy. Better consistency beats overdoing one area."}</div>
+          <div class="safety-note">${day.type === "gym" ? "Complete the warm-up before your first lift. It prepares the exact muscles you are about to train." : "Keep recovery easy. Active rest is better than no movement, but do not push intensity."}</div>
         `;
       }
 
@@ -2145,132 +3677,206 @@
 
       function renderWeekTabs() {
         const order = [1, 2, 3, 4, 5, 6, 0];
-        $("#week-tabs").innerHTML = order.map((id) => {
-          const day = WEEK.find((item) => item.id === id);
-          return `<button class="day-tab ${day.type === "home" ? "rest" : ""}" type="button" role="tab" data-day="${day.id}" aria-selected="${day.id === selectedDay}">
-            <b>${day.abbr}</b>
-            <span>${day.focus}</span>
+        $("#week-tabs").innerHTML = order
+          .map((id) => {
+            const day = WEEK.find((d) => d.id === id);
+            return `<button class="day-tab ${day.type === "home" ? "rest" : ""}" type="button" role="tab" data-day="${day.id}" aria-selected="${day.id === selectedDay}">
+            <b>${day.abbr}</b><span>${day.focus.split("—")[0].trim()}</span>
           </button>`;
-        }).join("");
-        document.querySelectorAll("#week-tabs button").forEach((button) => {
-          button.addEventListener("click", () => {
-            selectedDay = Number(button.dataset.day);
+          })
+          .join("");
+        document.querySelectorAll("#week-tabs button").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            selectedDay = Number(btn.dataset.day);
             renderAll();
-            window.scrollTo({ top: $("#view-training").offsetTop, behavior: "smooth" });
+            window.scrollTo({
+              top: $("#view-training").offsetTop,
+              behavior: "smooth",
+            });
           });
         });
       }
 
-      function renderTrainingDetail() {
-        const day = WEEK.find((item) => item.id === selectedDay);
-        const warmups = day.type === "gym" ? WARMUPS : HOME_WARMUPS;
-        const boosterRoutes = day.type === "gym" ? FREEHAND_BOOSTERS : [];
-        const allRoutes = [
-          { label: "Warmup route", category: "warmup", items: warmups },
-          { label: "Free hand boost", category: "boost", items: boosterRoutes },
-          { label: day.type === "gym" ? "Training route" : "Recovery route", category: "training", items: day.exercises }
-        ].filter((group) => group.items.length);
-        const routeHtml = allRoutes.map((group) => `
-          <div class="section-label">${group.label}</div>
-          ${group.items.map((item, index) => routeCard(day, item, index, group.category)).join("")}
-        `).join("");
-
-        $("#training-detail").innerHTML = `
-          <aside class="plan-card">
-            <span class="eyebrow">${day.type === "gym" ? "Quest rules" : "Recovery rules"}</span>
-            <h3>${day.day}: ${day.focus}</h3>
-            <p>${day.duration}. ${day.note}</p>
-            <div class="safety-note">${day.type === "home" ? "Pelvic-floor work should feel gentle. Fully relax between reps and avoid painful stretching. These drills can help control and performance, not size." : "Complete warmup first, then free hand boosters, then lifting. Use a weight that leaves 1-2 reps in reserve."}</div>
-            <div class="safety-note">Weekly check marks reset automatically when a new Monday begins. Your EXP, hunter level, calories, and unlocks stay saved.</div>
-          </aside>
-          <div class="exercise-list">${routeHtml}</div>
-        `;
-        bindCompletionButtons();
+      function warmupCard(dayId, item, index) {
+        const id = `wu-${dayId}-${index}`;
+        const completed = getCompleted();
+        const done = Boolean(completed[id]);
+        return `<article class="exercise ${done ? "done" : ""}">
+          <div>
+            <div class="route-head">
+              <h4>W${index + 1} — ${item.name}</h4>
+              <span class="pill reward">${done ? "Claimed" : `+${item.xp} EXP · ${item.cal} cal`}</span>
+            </div>
+            <div class="meta"><span class="pill">Warm-up</span></div>
+            <p>${item.detail}</p>
+            <div class="exercise-actions">
+              <button class="btn small complete-btn ${done ? "done" : ""}" type="button" data-id="${id}" data-xp="${item.xp}" data-calories="${item.cal}" data-name="${item.name}" ${done ? "disabled" : ""}>${done ? "✓ Complete" : "Mark complete"}</button>
+              <a class="btn small" href="${yt(item.name)}" target="_blank" rel="noopener">${iconPlay} Watch form</a>
+              <a class="btn small" href="${imageSearch(item.name)}" target="_blank" rel="noopener">${iconImage} Form images</a>
+            </div>
+          </div>
+        </article>`;
       }
 
-      function routeCard(day, item, index, category) {
-        const tuned = category === "training" && day.type === "gym" ? adjusted(item, index) : { sets: item.sets, reps: item.reps };
+      function mainExCard(day, item, index, category) {
+        const tuned =
+          category === "training" && day.type === "gym"
+            ? adjusted(item, index)
+            : { sets: item.sets, reps: item.reps };
         const reward = routeReward(item, tuned, category);
         const id = `${day.id}-${category}-${index}`;
         const completed = getCompleted();
         const rewarded = getRewarded();
         const done = Boolean(completed[id]);
         const alreadyRewarded = Boolean(rewarded[id]);
-        const steps = item.steps && item.steps.length ? item.steps : [
-          "Set up slowly and check your posture.",
-          item.cue,
-          "Stop if sharp pain appears and reduce the difficulty."
-        ];
-        return `
-          <article class="exercise ${done ? "done" : ""}">
-            <div>
-              <div class="route-head">
-                <h4>${String(index + 1).padStart(2, "0")} - ${item.name}</h4>
-                <span class="pill reward">${alreadyRewarded ? "Reward claimed" : `+${reward.xp} EXP · ${reward.calories} cal`}</span>
-              </div>
-              <div class="meta">
-                <span class="pill">${item.target}</span>
-                <span class="pill">${tuned.sets} set${tuned.sets > 1 ? "s" : ""} x ${tuned.reps}</span>
-                <span class="pill">Rest ${item.rest}</span>
-              </div>
-              <p>${item.cue}</p>
-              <ol class="steps">${steps.map((step) => `<li>${step}</li>`).join("")}</ol>
-              <div class="exercise-actions">
-                <button class="btn small complete-btn ${done ? "done" : ""}" type="button" data-id="${id}" data-xp="${reward.xp}" data-calories="${reward.calories}" data-name="${item.name}" ${done ? "disabled" : ""}>${done ? "✓ Complete" : "Mark complete"}</button>
-                <a class="btn small" href="${yt(item.name)}" target="_blank" rel="noopener">${iconPlay} Watch form</a>
-                <a class="btn small" href="${imageSearch(item.name)}" target="_blank" rel="noopener">${iconImage} Real form images</a>
-              </div>
+        const steps =
+          item.steps && item.steps.length
+            ? item.steps
+            : [
+                "Set up slowly and check posture.",
+                item.cue,
+                "Stop if sharp pain occurs.",
+              ];
+        return `<article class="exercise ${done ? "done" : ""}">
+          <div>
+            <div class="route-head">
+              <h4>${String(index + 1).padStart(2, "0")} — ${item.name}</h4>
+              <span class="pill reward">${alreadyRewarded ? "Reward claimed" : `+${reward.xp} EXP · ${reward.cal} cal`}</span>
             </div>
-          </article>
+            <div class="meta">
+              <span class="pill">${item.target}</span>
+              <span class="pill">${tuned.sets} set${tuned.sets > 1 ? "s" : ""} x ${tuned.reps}</span>
+              <span class="pill">Rest ${item.rest}</span>
+            </div>
+            <p>${item.cue}</p>
+            <ol class="steps">${steps.map((s) => `<li>${s}</li>`).join("")}</ol>
+            <div class="exercise-actions">
+              <button class="btn small complete-btn ${done ? "done" : ""}" type="button" data-id="${id}" data-xp="${reward.xp}" data-calories="${reward.cal}" data-name="${item.name}" ${done ? "disabled" : ""}>${done ? "✓ Complete" : "Mark complete"}</button>
+              <a class="btn small" href="${yt(item.name)}" target="_blank" rel="noopener">${iconPlay} Watch form</a>
+              <a class="btn small" href="${imageSearch(item.name)}" target="_blank" rel="noopener">${iconImage} Form images</a>
+            </div>
+          </div>
+        </article>`;
+      }
+
+      function finisherCard(day) {
+        if (!day.finisher) return "";
+        const f = day.finisher;
+        const id = `${day.id}-finisher`;
+        const completed = getCompleted();
+        const rewarded = getRewarded();
+        const done = Boolean(completed[id]);
+        const alreadyRewarded = Boolean(rewarded[id]);
+        return `<article class="exercise ${done ? "done" : ""}">
+          <div>
+            <div class="route-head">
+              <h4>Cardio Finisher — ${f.name}</h4>
+              <span class="pill reward">${alreadyRewarded ? "Reward claimed" : `+${f.xp} EXP · ${f.cal} cal`}</span>
+            </div>
+            <div class="meta"><span class="pill">Cardio</span></div>
+            <p>${f.detail}</p>
+            <div class="exercise-actions">
+              <button class="btn small complete-btn ${done ? "done" : ""}" type="button" data-id="${id}" data-xp="${f.xp}" data-calories="${f.cal}" data-name="${f.name}" ${done ? "disabled" : ""}>${done ? "✓ Complete" : "Mark complete"}</button>
+              <a class="btn small" href="${yt(f.name)}" target="_blank" rel="noopener">${iconPlay} Watch form</a>
+              <a class="btn small" href="${imageSearch(f.name)}" target="_blank" rel="noopener">${iconImage} Form images</a>
+            </div>
+          </div>
+        </article>`;
+      }
+
+      function renderTrainingDetail() {
+        const day = WEEK.find((d) => d.id === selectedDay);
+        const warmups = WARMUPS_BY_DAY[day.id];
+        let html = "";
+
+        if (warmups) {
+          html += `<div class="section-label">Warm-up route — 10 min</div>`;
+          html += `<div class="safety-note" style="margin-bottom:12px">${warmups.label}</div>`;
+          html += warmups.items
+            .map((item, i) => warmupCard(day.id, item, i))
+            .join("");
+        }
+
+        if (day.type === "gym") {
+          html += `<div class="section-label">Main exercises</div>`;
+          html += (day.exercises || [])
+            .map((item, i) => mainExCard(day, item, i, "training"))
+            .join("");
+          if (day.abs && day.abs.length) {
+            html += `<div class="section-label">Core and abs</div>`;
+            html += day.abs
+              .map((item, i) => mainExCard(day, item, i, "abs"))
+              .join("");
+          }
+          html += `<div class="section-label">Cardio finisher</div>`;
+          html += finisherCard(day);
+        } else {
+          html += `<div class="section-label">Recovery route</div>`;
+          html += (day.exercises || [])
+            .map((item, i) => mainExCard(day, item, i, "training"))
+            .join("");
+        }
+
+        $("#training-detail").innerHTML = `
+          <aside class="plan-card">
+            <span class="eyebrow">${day.type === "gym" ? "Quest rules" : "Recovery rules"}</span>
+            <h3>${day.day}: ${day.focus}</h3>
+            <p>${day.duration}. ${day.note}</p>
+            <div class="safety-note">${day.type === "home" ? "Keep recovery easy. No heavy lifting or intense cardio today. Your muscles rebuild during this rest." : "Start with the warm-up. It prepares the exact muscles you are training today. Skipping it increases injury risk."}</div>
+            <div class="safety-note">Weekly check marks reset automatically every Monday. Your EXP, hunter level, and unlocks never reset.</div>
+          </aside>
+          <div class="exercise-list">${html}</div>
         `;
+        bindCompletionButtons();
       }
 
       function bindCompletionButtons() {
-        document.querySelectorAll(".complete-btn:not([disabled])").forEach((button) => {
-          button.addEventListener("click", () => {
-            const completed = getCompleted();
-            const rewarded = getRewarded();
-            const id = button.dataset.id;
-            if (completed[id]) return;
-            const xp = Number(button.dataset.xp);
-            const calories = Number(button.dataset.calories);
-            completed[id] = {
-              name: button.dataset.name,
-              xp,
-              calories,
-              date: dateKey()
-            };
-            saveCompleted(completed);
-            if (!rewarded[id]) {
-              const player = getPlayer();
-              const beforeLevel = hunterStats(player.totalXp).hunterLevel;
-              const beforeAttrs = statusAttributes();
-              player.totalXp += xp;
-              player.totalCalories += calories;
-              savePlayer(player);
-              rewarded[id] = true;
-              saveRewarded(rewarded);
-              const afterLevel = hunterStats(player.totalXp).hunterLevel;
-              const afterAttrs = statusAttributes();
-              if (afterLevel > beforeLevel) {
-                setTimeout(() => showLevelUp(beforeAttrs, afterAttrs), 50);
+        document
+          .querySelectorAll(".complete-btn:not([disabled])")
+          .forEach((btn) => {
+            btn.addEventListener("click", () => {
+              const completed = getCompleted();
+              const rewarded = getRewarded();
+              const id = btn.dataset.id;
+              if (completed[id]) return;
+              const xp = Number(btn.dataset.xp);
+              const calories = Number(btn.dataset.calories);
+              completed[id] = {
+                name: btn.dataset.name,
+                xp,
+                calories,
+                date: dateKey(),
+              };
+              saveCompleted(completed);
+              if (!rewarded[id]) {
+                const player = getPlayer();
+                const beforeLevel = hunterStats(player.totalXp).hunterLevel;
+                const beforeAttrs = statusAttributes();
+                player.totalXp += xp;
+                player.totalCalories += calories;
+                savePlayer(player);
+                rewarded[id] = true;
+                saveRewarded(rewarded);
+                const afterLevel = hunterStats(player.totalXp).hunterLevel;
+                const afterAttrs = statusAttributes();
+                if (afterLevel > beforeLevel)
+                  setTimeout(() => showLevelUp(beforeAttrs, afterAttrs), 50);
               }
-            }
-            renderAll();
+              renderAll();
+            });
           });
-        });
       }
 
       function renderDietTabs() {
-        $("#diet-tabs").innerHTML = DIET.map((day, index) => `
-          <button class="day-tab ${day.type.includes("off") || day.type.includes("Recovery") ? "rest" : ""}" type="button" role="tab" data-diet="${index}" aria-selected="${index === selectedDiet}">
-            <b>${day.weekday}</b>
-            <span>${day.type}</span>
-          </button>
-        `).join("");
-        document.querySelectorAll("#diet-tabs button").forEach((button) => {
-          button.addEventListener("click", () => {
-            selectedDiet = Number(button.dataset.diet);
+        $("#diet-tabs").innerHTML = DIET.map(
+          (day, index) => `
+          <button class="day-tab ${day.type.includes("Rest") ? "rest" : ""}" type="button" role="tab" data-diet="${index}" aria-selected="${index === selectedDiet}">
+            <b>${day.weekday}</b><span>${day.type.split("—")[0].trim()}</span>
+          </button>`,
+        ).join("");
+        document.querySelectorAll("#diet-tabs button").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            selectedDiet = Number(btn.dataset.diet);
             renderDiet();
           });
         });
@@ -2278,51 +3884,64 @@
 
       function renderDiet() {
         const day = DIET[selectedDiet];
-        $("#diet-title").textContent = `${day.weekday} - ${day.type}`;
-        document.querySelectorAll("#diet-tabs button").forEach((button) => {
-          button.setAttribute("aria-selected", Number(button.dataset.diet) === selectedDiet);
+        $("#diet-title").textContent = `${day.weekday} — ${day.type}`;
+        document.querySelectorAll("#diet-tabs button").forEach((btn) => {
+          btn.setAttribute(
+            "aria-selected",
+            Number(btn.dataset.diet) === selectedDiet,
+          );
         });
-        $("#meals").innerHTML = day.meals.map((item, index) => `
+        $("#meals").innerHTML = day.meals
+          .map(
+            (item, index) => `
           <article class="meal">
             <span class="meal-time">${item.time}</span>
             <h3>${item.title}</h3>
-            <ul>${item.items.map((food) => `<li>${food}</li>`).join("")}</ul>
+            <ul>${item.items.map((f) => `<li>${f}</li>`).join("")}</ul>
             <button class="btn small recipe-toggle" type="button" data-recipe="${index}">Recipe</button>
             <div class="recipe" id="recipe-${index}">
               <h4>Ingredients</h4>
-              <ul>${item.items.map((food) => `<li>${food}</li>`).join("")}</ul>
+              <ul>${item.items.map((f) => `<li>${f}</li>`).join("")}</ul>
               <h4>Step by step</h4>
-              <ol>${item.steps.map((step) => `<li>${step}</li>`).join("")}</ol>
+              <ol>${item.steps.map((s) => `<li>${s}</li>`).join("")}</ol>
             </div>
-          </article>
-        `).join("");
-        document.querySelectorAll("#meals .recipe-toggle").forEach((button) => {
-          button.addEventListener("click", () => {
-            const panel = $(`#recipe-${button.dataset.recipe}`);
+          </article>`,
+          )
+          .join("");
+        document.querySelectorAll("#meals .recipe-toggle").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const panel = $(`#recipe-${btn.dataset.recipe}`);
             panel.classList.toggle("open");
+            btn.textContent = panel.classList.contains("open")
+              ? "Hide recipe"
+              : "Recipe";
           });
         });
       }
 
       function renderDrinks() {
-        $("#drinks").innerHTML = DRINKS.map((item, index) => `
+        $("#drinks").innerHTML = DRINKS.map(
+          (item, index) => `
           <article class="meal">
             <span class="meal-time">Workout drink</span>
             <h3>${item.title}</h3>
-            <ul>${item.items.map((drinkItem) => `<li>${drinkItem}</li>`).join("")}</ul>
+            <ul>${item.items.map((i) => `<li>${i}</li>`).join("")}</ul>
             <button class="btn small recipe-toggle" type="button" data-drink="${index}">Recipe</button>
             <div class="recipe" id="drink-${index}">
               <h4>Ingredients</h4>
-              <ul>${item.items.map((drinkItem) => `<li>${drinkItem}</li>`).join("")}</ul>
+              <ul>${item.items.map((i) => `<li>${i}</li>`).join("")}</ul>
               <h4>Step by step</h4>
-              <ol>${item.steps.map((step) => `<li>${step}</li>`).join("")}</ol>
+              <ol>${item.steps.map((s) => `<li>${s}</li>`).join("")}</ol>
             </div>
-          </article>
-        `).join("");
-        document.querySelectorAll("#drinks [data-drink]").forEach((button) => {
-          button.addEventListener("click", () => {
-            const panel = $(`#drink-${button.dataset.drink}`);
+          </article>`,
+        ).join("");
+        document.querySelectorAll("#drinks [data-drink]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const panel = $(`#drink-${btn.dataset.drink}`);
             panel.classList.toggle("open");
+            btn.textContent = panel.classList.contains("open")
+              ? "Hide recipe"
+              : "Recipe";
           });
         });
       }
@@ -2330,17 +3949,21 @@
       function dietIndexForToday() {
         const names = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
         const today = names[new Date().getDay()];
-        const index = DIET.findIndex((item) => item.weekday === today);
+        const index = DIET.findIndex((d) => d.weekday === today);
         return index < 0 ? 0 : index;
       }
 
       function switchView(view) {
-        document.querySelectorAll(".view").forEach((panel) => {
-          panel.classList.toggle("active", panel.id === `view-${view}`);
-        });
-        document.querySelectorAll(".tabs button").forEach((button) => {
-          button.setAttribute("aria-selected", button.dataset.view === view);
-        });
+        document
+          .querySelectorAll(".view")
+          .forEach((p) =>
+            p.classList.toggle("active", p.id === `view-${view}`),
+          );
+        document
+          .querySelectorAll(".tabs button")
+          .forEach((btn) =>
+            btn.setAttribute("aria-selected", btn.dataset.view === view),
+          );
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
 
@@ -2355,13 +3978,17 @@
         renderDrinks();
       }
 
-      document.querySelectorAll(".tabs button").forEach((button) => {
-        button.addEventListener("click", () => switchView(button.dataset.view));
-      });
-
-      document.querySelectorAll("[data-view-link]").forEach((button) => {
-        button.addEventListener("click", () => switchView(button.dataset.viewLink));
-      });
+      // ─── EVENT BINDINGS ──────────────────────────────────────────────────────
+      document
+        .querySelectorAll(".tabs button")
+        .forEach((btn) =>
+          btn.addEventListener("click", () => switchView(btn.dataset.view)),
+        );
+      document
+        .querySelectorAll("[data-view-link]")
+        .forEach((btn) =>
+          btn.addEventListener("click", () => switchView(btn.dataset.viewLink)),
+        );
 
       $("#upgrade-level").addEventListener("click", () => {
         if (level >= 6) return;
@@ -2369,50 +3996,43 @@
         localStorage.setItem("project70-level", String(level));
         renderAll();
       });
-
       $("#reset-level").addEventListener("click", () => {
         level = 1;
         localStorage.setItem("project70-level", "1");
         renderAll();
       });
-
       $("#reset-today").addEventListener("click", () => {
         const today = dateKey();
         const completed = getCompleted();
-        const removed = Object.entries(completed).filter(([, item]) => item.date === today);
+        const removed = Object.entries(completed).filter(
+          ([, i]) => i.date === today,
+        );
         if (!removed.length) return;
-        removed.forEach(([id, item]) => {
-          delete completed[id];
-        });
+        removed.forEach(([id]) => delete completed[id]);
         saveCompleted(completed);
         renderAll();
       });
-
       $("#profile-open").addEventListener("click", () => {
         renderProfile();
         $("#profile-modal").classList.add("open");
         $("#profile-modal").setAttribute("aria-hidden", "false");
       });
-
       $("#profile-close").addEventListener("click", () => {
         $("#profile-modal").classList.remove("open");
         $("#profile-modal").setAttribute("aria-hidden", "true");
       });
-
-      $("#profile-modal").addEventListener("click", (event) => {
-        if (event.target.id === "profile-modal") {
+      $("#profile-modal").addEventListener("click", (e) => {
+        if (e.target.id === "profile-modal") {
           $("#profile-modal").classList.remove("open");
           $("#profile-modal").setAttribute("aria-hidden", "true");
         }
       });
-
       $("#levelup-close").addEventListener("click", () => {
         $("#levelup").classList.remove("open");
         $("#levelup").setAttribute("aria-hidden", "true");
       });
-
-      $("#current-weight").addEventListener("change", (event) => {
-        const value = Number(event.target.value);
+      $("#current-weight").addEventListener("change", (e) => {
+        const value = Number(e.target.value);
         if (!value || value < 45 || value > 160) return;
         const player = getPlayer();
         player.currentWeight = Number(value.toFixed(1));
