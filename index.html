@@ -1012,6 +1012,12 @@
       .recipe b {
         color: var(--text);
       }
+      .recipe-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 2px 0 14px;
+      }
       .recipe h4 {
         margin: 12px 0 7px;
         font-family: var(--display);
@@ -1560,6 +1566,72 @@
                 120 to 150 g protein daily to preserve muscle while losing fat.
                 This is the single most important diet rule.
               </p>
+            </article>
+          </div>
+          <div class="section-head" style="margin-top: 8px">
+            <div>
+              <span class="eyebrow">Food rules</span>
+              <h2>What helps the cut vs what stalls it.</h2>
+              <p>
+                These two lists apply every single day, gym or rest. When
+                unsure about a food, check the right column first.
+              </p>
+            </div>
+          </div>
+          <div class="meals">
+            <article class="meal">
+              <span class="meal-time">Eat freely</span>
+              <h3>Staples that support fat loss</h3>
+              <ul>
+                <li>
+                  Chicken breast, fish (rui, katla, telapia, pangas), eggs
+                </li>
+                <li>Soya chunks (badi), dal, motor dal, chickpeas</li>
+                <li>
+                  Vegetables: lau, patal, spinach, pumpkin, papaya, cucumber,
+                  tomato
+                </li>
+                <li>Whole-wheat red atta roti instead of white bread or maida</li>
+                <li>Rolled oats, chia seeds, plain unsweetened tok doi</li>
+                <li>Whole fruit: banana, guava, apple, papaya — not juice</li>
+                <li>Green tea and black coffee, no sugar, no milk</li>
+                <li>
+                  1 measured cup of rice per meal is fine. Portion control
+                  matters more than banning rice completely.
+                </li>
+              </ul>
+            </article>
+            <article class="meal">
+              <span class="meal-time">Limit or avoid</span>
+              <h3>Foods that quietly stall progress</h3>
+              <ul>
+                <li>
+                  White bread, burger buns, bakery pastry — refined flour,
+                  low fiber, easy to overeat
+                </li>
+                <li>
+                  Coke, Sprite, Mojo, Fanta, packaged juice (Frutika and
+                  similar) — pure liquid sugar, zero fullness
+                </li>
+                <li>
+                  Diet Coke / Coke Zero — not a fat burner. Fine once in a
+                  while, but daily use keeps sugar cravings alive
+                </li>
+                <li>
+                  Deep fried snacks: singara, samosa, piyaju, fried chicken,
+                  fries
+                </li>
+                <li>
+                  Mishti and condensed-milk sweets: roshogolla, gulab jamun,
+                  chomchom
+                </li>
+                <li>
+                  Sugary milk tea (cha) with sugar and condensed milk — swap
+                  for green tea or black tea, no sugar
+                </li>
+                <li>Packaged chips, biscuits, namkeen</li>
+                <li>Alcohol — not halal, also pure empty calories</li>
+              </ul>
             </article>
           </div>
           <div
@@ -2610,11 +2682,11 @@
       function diet(weekday, type, meals) {
         return { weekday, type, meals };
       }
-      function meal(time, title, items, steps) {
-        return { time, title, items, steps };
+      function meal(time, title, items, steps, info) {
+        return { time, title, items, steps, info: info || {} };
       }
-      function drink(title, items, steps) {
-        return { title, items, steps };
+      function drink(title, items, steps, info) {
+        return { title, items, steps, info: info || {} };
       }
 
       const DIET = [
@@ -2623,131 +2695,190 @@
             "7:30 AM",
             "Morning drink: chia lemon water",
             [
-              "1 tbsp chia seeds",
-              "1 glass warm water (250 ml)",
-              "Juice of half a fresh lemon",
+              "1 tbsp (about 12 g) whole chia seeds",
+              "250 ml room-temperature water, for soaking",
+              "200 ml warm water (not boiling), to finish",
+              "Juice of half a fresh lemon (about 1.5 tbsp)",
             ],
             [
-              "Pour room-temperature water into a glass. Add the chia seeds.",
-              "Let them soak for 15 minutes. They expand into a gel texture.",
-              "Add warm water and squeeze in the lemon juice.",
-              "Stir well and drink immediately.",
-              "Wait 20 minutes before eating breakfast.",
+              "Measure the chia seeds with an actual tablespoon rather than guessing — too much makes the drink gluey and unpleasant on an empty stomach.",
+              "Pour the 250 ml of room-temperature water into a glass and tip in the chia seeds. Stir hard for about 10 seconds right after adding them so they spread out instead of clumping into one wet lump at the bottom.",
+              "Leave the glass untouched for 15 minutes. The seeds swell to roughly ten times their dry size and turn the water into a loose, translucent gel — that gel is what slows digestion and keeps you full, so don't skip the wait.",
+              "While it soaks, halve the lemon and roll each half firmly against the counter under your palm for a few seconds. This breaks the inner membranes and gets noticeably more juice out than squeezing it cold.",
+              "Once the 15 minutes are done, top the glass with the 200 ml of warm water — warm, not hot, since boiling water destroys some of the lemon's vitamin C.",
+              "Squeeze in the lemon juice and stir from the bottom up, because the chia gel settles and the lemon otherwise just floats on top.",
+              "Drink it slowly over 4 to 5 minutes on a completely empty stomach, then wait at least 20 minutes before starting breakfast.",
             ],
+            {
+              prep: "15 min (mostly soaking)",
+              cook: "0 min",
+              serves: "1",
+              tip: "If the gel texture bothers you, drink it through a wide straw — it removes the 'frog egg' sensation most beginners complain about. Never swallow dry chia seeds without liquid; they keep absorbing water afterward.",
+            },
           ),
           meal(
             "8:00 AM",
             "Breakfast: masala oats with boiled eggs",
             [
-              "4 tbsp rolled oats (Quaker or Manna)",
-              "Half cup water",
-              "1 small onion finely chopped",
-              "1 green chili finely chopped",
-              "Pinch of salt and turmeric (holud)",
+              "4 tbsp (about 40 g) rolled oats — Quaker or Pran/Manna",
+              "120 ml water",
+              "1 small onion, finely diced (about 40 g)",
+              "1 green chili, finely sliced (deseed for less heat)",
+              "Pinch of salt",
+              "1/4 tsp turmeric powder (holud)",
               "2 whole eggs",
-              "1 cup green tea no sugar",
+              "1 cup green tea, no sugar",
             ],
             [
-              "Dry-roast oats in a pan on medium heat for 1 minute, stirring constantly.",
-              "Add half a cup of water. Stir in salt, turmeric, chopped onion, and green chili.",
-              "Simmer on low heat for 3 to 4 minutes until thick. Remove from heat.",
-              "Boil eggs separately: boiling water, 9 minutes on medium heat for hard-boiled.",
-              "Peel eggs, sprinkle with salt and black pepper. Serve beside the oats.",
-              "Brew green tea with no sugar and drink while eating.",
+              "Set a small dry pan over medium heat and tip in the rolled oats with no oil. Toast for 60 to 90 seconds, stirring constantly so nothing catches — they're ready when they smell faintly nutty and turn one shade darker.",
+              "Pour in the 120 ml of water right away; it will hiss and bubble. Scrape the bottom of the pan with your spoon to lift off any toasted oats stuck there.",
+              "Add the salt, turmeric, diced onion, and sliced chili. The turmeric should dissolve into a pale yellow within seconds — break up any clumps with the back of the spoon.",
+              "Turn the heat down to low and simmer for 3 to 4 minutes, stirring every 30 seconds. Pull it off the heat once the oats coat the back of the spoon but still slide off slowly — it thickens a little more as it cools.",
+              "While the oats simmer, bring a separate small pot of water to a full boil. Lower the 2 eggs in gently with a spoon rather than dropping them, so the shells don't crack.",
+              "Set a timer for exactly 9 minutes from when the water returns to a boil, for a firm yolk that isn't chalky.",
+              "Transfer the eggs straight into a bowl of cold water for 2 minutes — this stops the cooking and makes the shells peel away cleanly instead of tearing the white.",
+              "Peel, halve lengthwise, and season the cut side with a pinch of salt and black pepper.",
+              "Plate the oats, lay the egg halves beside them, and brew the green tea separately, steeping no more than 2 minutes so it doesn't turn bitter.",
             ],
+            {
+              prep: "5 min",
+              cook: "10 min",
+              serves: "1",
+              tip: "Toasting the dry oats before any liquid goes in is the step most people skip — it's what gives this porridge a savory, almost biryani-like aroma instead of tasting like wallpaper paste.",
+            },
           ),
           meal(
             "11:00 AM",
             "Snack: motor chaat (spiced yellow pea salad)",
             [
-              "Half cup dry yellow motor dal",
-              "1 small cucumber finely chopped",
-              "1 medium tomato finely chopped",
-              "Half small onion finely chopped",
-              "Small handful fresh coriander",
+              "100 g (about half cup) dry yellow split peas (motor dal)",
+              "1 small cucumber, finely diced",
+              "1 medium tomato, finely diced, seeds scraped out",
+              "Half a small onion, finely diced",
+              "Small handful fresh coriander leaves, chopped",
               "Juice of half a lemon",
-              "Pinch of salt, black pepper, cumin powder",
+              "Pinch each of salt, black pepper, and roasted cumin (jeera) powder",
             ],
             [
-              "Soak motor dal in water for 30 minutes to shorten boiling time.",
-              "Boil motor dal with pinch of salt and turmeric for 15 to 20 minutes until soft but not mushy.",
-              "Drain all water completely. Let peas cool for 5 minutes.",
-              "Mix cooled peas with cucumber, tomato, onion, and coriander in a bowl.",
-              "Squeeze lemon juice over everything. Add salt, black pepper, and cumin powder.",
-              "Mix well and eat immediately. No oil needed.",
+              "Rinse the dry motor dal under running water until it runs clear, then soak in plenty of water for at least 30 minutes. This shortens the boil time and helps the peas cook evenly instead of bursting outside while staying hard in the middle.",
+              "Drain and move to a pot with fresh water covering the peas by about 2 inches, plus a pinch each of salt and turmeric. Bring to a boil, then drop to a steady simmer.",
+              "Cook for 15 to 20 minutes. Start checking at the 12-minute mark by pressing a pea between two fingers — it should mash easily but still hold its shape, not turn to mush.",
+              "Drain in a sieve and shake out every drop of water you can. Spread the peas on a plate for 5 minutes to air-cool — mixing warm peas with raw vegetables wilts everything and turns the salad watery.",
+              "In a mixing bowl, combine the cooled peas with the diced cucumber, tomato, onion, and coriander.",
+              "Squeeze the lemon juice over the top, then add the salt, black pepper, and cumin powder.",
+              "Toss with a spoon, lifting from the bottom of the bowl, until every pea is coated. Taste and adjust lemon or salt — it should taste bright and tangy, not flat.",
+              "Eat within 30 minutes of mixing, since the cucumber and tomato keep releasing water the longer it sits.",
             ],
+            {
+              prep: "30 min soak + 10 min chop",
+              cook: "20 min",
+              serves: "1",
+              tip: "Toast whole cumin seeds in a dry pan for 30 seconds and crush them with the back of a spoon — it's far more fragrant than jar cumin powder that's been sitting on a shelf for months.",
+            },
           ),
           meal(
             "1:30 PM",
             "Lunch: rice with chicken or fish and vegetables",
             [
-              "1 cup cooked rice",
-              "150 g chicken breast or local fish (Rui, Katla, or Telapia)",
-              "1 tsp mustard oil or soybean oil",
-              "1 medium onion chopped",
+              "1 level cup cooked rice",
+              "150 g chicken breast or local fish (rui, katla, or telapia), cut into bite-size pieces",
+              "1 tsp mustard oil or soybean oil — measured, not guessed",
+              "1 medium onion, sliced",
               "1 tsp ginger-garlic paste",
-              "Half tsp cumin (jeera) powder",
-              "Half tsp turmeric (holud)",
-              "1 green chili",
-              "1 large bowl mixed vegetables: patal, lau, spinach, or pumpkin",
+              "1/2 tsp cumin (jeera) powder",
+              "1/2 tsp turmeric (holud)",
+              "1 green chili, slit",
+              "1 large bowl mixed vegetables: patal, lau, spinach, or pumpkin, roughly chopped",
               "Salt to taste",
             ],
             [
-              "Cut chicken into bite-sized cubes or fish into pieces.",
-              "Heat exactly 1 tsp oil in pan on medium heat. Add chopped onion, fry 3 minutes until slightly golden.",
-              "Add ginger-garlic paste, cumin, turmeric, and green chili. Stir 1 minute.",
-              "Add chicken or fish. Cook on medium heat 12 to 15 minutes, stirring every 2 minutes.",
-              "Add vegetables in last 5 minutes and stir. They should be firm not mushy.",
-              "Serve with 1 measured cup of rice.",
+              "Pat the chicken or fish pieces dry with a paper towel first — wet protein steams instead of browning, and browning is where the flavor comes from.",
+              "Heat the 1 tsp of oil in a pan over medium heat until it shimmers, then add the sliced onion. Fry for 3 minutes, stirring occasionally, until the edges turn light golden — this is the base flavor of the whole dish, so don't rush it with high heat.",
+              "Add the ginger-garlic paste, cumin, turmeric, and slit green chili. Stir constantly for about 1 minute until the raw paste smell fades into a toasted, fragrant one. If it starts sticking, splash in a tablespoon of water.",
+              "Add the chicken or fish and stir to coat every piece in the spice base. Cook on medium heat for 12 to 15 minutes, stirring every 2 minutes, until chicken is opaque all the way through or fish flakes apart easily with a fork.",
+              "Add the chopped vegetables in the last 5 minutes only, stirring them through the gravy. They should finish firm with a slight bite, not collapsed and mushy.",
+              "Taste the gravy and adjust salt. Plate the 1 measured cup of rice first, then spoon the chicken or fish and vegetables beside or over it.",
             ],
+            {
+              prep: "10 min",
+              cook: "20 min",
+              serves: "1",
+              tip: "Measure the oil with an actual teaspoon, not a 'glug from the bottle.' A careless glug is usually 3 to 4 tsp, which can quietly cost 100 to 150 extra calories without you ever noticing.",
+            },
           ),
           meal(
             "4:00 PM (30 min before gym)",
             "Pre-workout: banana and black coffee",
             [
-              "1 medium Shobri or Champa banana",
-              "1 cup strong black coffee no sugar no milk",
+              "1 medium ripe banana (Shobri or Champa variety)",
+              "1 cup (200 ml) freshly brewed strong black coffee — no sugar, no milk",
             ],
             [
-              "Eat banana first. Gives muscles quick carbohydrates to fuel the workout.",
-              "Drink the black coffee 20 to 30 minutes before gym.",
-              "If training at 6 PM, shift this to 5:30 PM.",
-              "Caffeine increases fat used as fuel during exercise.",
+              "Pick a banana with a few brown spots on the skin rather than one that's still green — slightly riper fruit has more readily available sugar, exactly what you want for quick energy before lifting.",
+              "Peel and eat the banana on its own, chewing slowly, about 30 minutes before your first warm-up move.",
+              "Brew the coffee strong — roughly 2 tablespoons of ground coffee per cup if using a press or moka pot, or your instant coffee's 'strong cup' measurement — and let it brew the full recommended time so the caffeine actually extracts.",
+              "Drink it black within the same 20 to 30 minute pre-workout window. Sip rather than gulp; downing it fast on a near-empty stomach is what usually causes the jittery feeling people blame on coffee.",
+              "If you're training at 6 PM instead of 4 PM, shift this entire step to 5:30 PM so the caffeine peak — about 30 to 45 minutes after drinking — lines up with your warm-up, not your cool-down.",
             ],
+            {
+              prep: "5 min",
+              cook: "0 min",
+              serves: "1",
+              tip: "Stop at one cup. A second cup doesn't double the fat-burning effect — it mostly raises evening anxiety and risks pushing your bedtime past 11 PM, which costs more fat loss through bad sleep than the extra caffeine could ever add.",
+            },
           ),
           meal(
             "Within 30 min after gym",
-            "Post-workout: egg whites or soybeans",
+            "Post-workout: egg white omelet or soya bhuna",
             [
-              "Option A: 3 egg whites, 1 small onion, 1 green chili, 1 drop oil",
-              "Option B: 50 g dry soya chunks (badi), 1 tsp mustard oil, onion, ginger-garlic, cumin, chili powder",
+              "Option A — egg white omelet: 3 eggs, 1 small onion (finely chopped), 1 green chili (finely chopped), 1 drop (about 1/4 tsp) oil, pinch of salt",
+              "Option B — soya bhuna: 50 g dry soya chunks (badi), 1 tsp mustard oil, 1 small onion (sliced), 1/2 tsp ginger-garlic paste, 1/4 tsp cumin powder, 1/4 tsp chili powder, pinch of turmeric, salt to taste",
             ],
             [
-              "Option A egg white omelet: crack 3 eggs, separate whites, discard yolks.",
-              "Add chopped onion and chili to whites. Heat pan with 1 drop oil.",
-              "Cook on medium heat 2 to 3 minutes each side until set.",
-              "Option B soya bhuna: boil 50 g dry soya chunks in water 5 minutes until soft.",
-              "Drain completely and squeeze out all excess water with your hands.",
-              "Heat 1 tsp oil, add onion, fry golden. Add ginger-garlic, cumin, chili. Stir 1 minute. Add soya. Stir-fry 8 minutes.",
+              "Option A: Crack the 3 eggs into a bowl and separate the whites from the yolks — tip the yolk between the two half-shells, letting the white drip into the bowl below, or use a clean hand. Save or discard the yolks.",
+              "Whisk the whites briskly for about 20 seconds until frothy and pale, then stir in the chopped onion, chili, and salt.",
+              "Heat a non-stick pan over medium-low heat and wipe in just a drop of oil with a paper towel. Pour in the egg whites and leave undisturbed for about 90 seconds until the edges turn opaque and start lifting from the pan.",
+              "Fold in half with a spatula and cook another minute per side until no liquid white remains. Serve immediately — egg whites turn rubbery if they sit too long.",
+              "Option B: Boil the dry soya chunks in water for 5 minutes until they puff up and roughly double in size, then drain.",
+              "Once cool enough to handle, squeeze each handful firmly between your palms to push out as much water as possible — this matters more than the spices, since soggy chunks taste bland no matter what.",
+              "Heat the 1 tsp mustard oil until it shimmers and loses its raw sharp smell (30 to 45 seconds), then fry the sliced onion for 3 to 4 minutes until golden at the edges.",
+              "Add the ginger-garlic paste, cumin, chili powder, and turmeric. Stir constantly for a full minute until the raw smell turns toasted and fragrant.",
+              "Add the squeezed soya chunks and stir-fry for 8 to 10 minutes, turning every minute so each piece browns rather than steams in its own moisture. Season with salt and serve hot.",
             ],
+            {
+              prep: "5 min",
+              cook: "8-10 min",
+              serves: "1",
+              tip: "Whichever option you pick, eat it within 30 minutes of finishing your last set — that's the window your muscles use protein most efficiently to start repairing.",
+            },
           ),
           meal(
             "8:30 PM",
             "Dinner: roti with grilled protein and salad",
             [
               "1 handmade whole-wheat red atta roti",
-              "100 to 150 g grilled fish or chicken OR 1 bowl clear dal soup",
-              "1 medium cucumber sliced",
-              "1 medium tomato sliced",
+              "100 to 150 g grilled fish or chicken, OR 1 bowl clear dal soup",
+              "1 medium cucumber, sliced",
+              "1 medium tomato, sliced",
               "Juice of half a lemon",
               "Pinch of salt and black pepper",
+              "1/2 tsp oil, for grilling protein",
             ],
             [
-              "For roti: mix red atta flour with water to form soft dough. Roll flat. Cook on dry pan 1 to 2 minutes each side until light char spots appear.",
-              "For grilled protein: season with salt, turmeric, cumin. Cook on pan with half tsp oil on medium heat. Fish 3 to 4 min each side. Chicken 6 to 7 min each side.",
-              "For salad: slice cucumber and tomato. Squeeze lemon over them. Add salt and pepper.",
-              "Eat dinner at least 2 hours before sleeping.",
+              "For the roti: mix the red atta flour with water gradually, a splash at a time, kneading until you get a soft, non-sticky dough — it should feel like an earlobe when you pinch it. Rest it for 10 minutes under a damp cloth.",
+              "Divide into a ball, dust with dry flour, and roll out flat and even with a rolling pin, rotating a quarter turn between rolls so it stays round.",
+              "Cook on a dry, hot pan with no oil for 1 to 2 minutes per side, pressing lightly with a spatula, until light brown char spots appear and it puffs slightly.",
+              "For the grilled protein: pat the fish or chicken dry, then rub with salt, turmeric, and cumin on both sides.",
+              "Heat the pan with 1/2 tsp oil on medium heat. Cook fish 3 to 4 minutes per side until it flakes apart with a fork; cook chicken 6 to 7 minutes per side until the thickest part shows no pink and juices run clear.",
+              "For the salad: slice the cucumber and tomato, arrange on a plate, squeeze the lemon juice over the top, and season with salt and pepper.",
+              "Plate the roti, protein, and salad together. Eat at least 2 hours before you plan to sleep so digestion doesn't interfere with rest.",
             ],
+            {
+              prep: "15 min",
+              cook: "15 min",
+              serves: "1",
+              tip: "Resting the roti dough for even 10 minutes relaxes the gluten and makes it roll out round instead of tearing at the edges — don't go straight from kneading to rolling.",
+            },
           ),
         ]),
         diet("Tue", "Gym day — Pull", [
@@ -2755,99 +2886,169 @@
             "7:30 AM",
             "Morning drink: chia lemon water",
             [
-              "1 tbsp chia seeds",
-              "1 glass warm water",
-              "Juice of half a lemon",
+              "1 tbsp (about 12 g) whole chia seeds",
+              "250 ml room-temperature water, for soaking",
+              "200 ml warm water (not boiling), to finish",
+              "Juice of half a fresh lemon",
             ],
             [
-              "Soak chia seeds in room-temperature water for 15 minutes.",
-              "Add warm water and lemon juice. Stir and drink.",
-              "Wait 20 minutes before breakfast.",
+              "Measure the chia seeds with a tablespoon rather than guessing. Pour the 250 ml room-temperature water into a glass and stir in the seeds hard for 10 seconds so they don't clump into one wet lump.",
+              "Leave untouched for 15 minutes until they swell into a translucent gel — this is what slows digestion and keeps you full, so don't rush it.",
+              "Top with the 200 ml warm water and the lemon juice, then stir from the bottom up since the gel settles.",
+              "Drink slowly over 4 to 5 minutes on a completely empty stomach. Wait at least 20 minutes before breakfast.",
             ],
+            {
+              prep: "15 min (mostly soaking)",
+              cook: "0 min",
+              serves: "1",
+              tip: "Drink through a wide straw if the texture bothers you — it removes the 'frog egg' sensation most beginners notice on the first try.",
+            },
           ),
           meal(
             "8:00 AM",
             "Breakfast: masala oats with boiled eggs",
             [
-              "4 tbsp rolled oats",
-              "Half cup water",
-              "1 small onion chopped",
-              "1 green chili",
-              "Pinch salt and turmeric",
-              "2 boiled eggs",
-              "1 cup green tea no sugar",
+              "4 tbsp (about 40 g) rolled oats",
+              "120 ml water",
+              "1 small onion, finely chopped",
+              "1 green chili, finely sliced",
+              "Pinch of salt and turmeric (holud)",
+              "2 whole eggs",
+              "1 cup green tea, no sugar",
             ],
             [
-              "Dry-roast oats 1 minute on medium heat.",
-              "Add water, salt, turmeric, onion, chili. Simmer 3 to 4 minutes until thick.",
-              "Boil eggs 9 minutes. Peel and serve with oats.",
-              "Brew green tea with no sugar.",
+              "Dry-toast the oats in a pan on medium heat for 60 to 90 seconds, stirring constantly, until they smell faintly nutty and turn a shade darker.",
+              "Pour in the 120 ml water, then stir in the salt, turmeric, onion, and chili. Drop the heat to low and simmer 3 to 4 minutes until it thickens and coats the back of a spoon.",
+              "Boil the eggs in a separate pot for exactly 9 minutes from a full boil, then plunge into cold water for 2 minutes before peeling — this keeps the yolk firm and the shell easy to remove.",
+              "Plate the oats with the peeled, halved eggs on the side, seasoned with a pinch of salt and black pepper. Brew the green tea separately for no more than 2 minutes so it doesn't turn bitter.",
             ],
+            {
+              prep: "5 min",
+              cook: "10 min",
+              serves: "1",
+              tip: "Toasting the dry oats before any liquid goes in is what gives this its savory aroma instead of tasting like plain porridge.",
+            },
           ),
           meal(
             "11:00 AM",
-            "Snack: motor chaat",
+            "Snack: motor chaat (spiced yellow pea salad)",
             [
-              "Half cup boiled motor dal",
-              "Cucumber, tomato, onion, coriander",
-              "Lemon juice, salt, black pepper, cumin powder",
+              "100 g (about half cup) dry yellow split peas (motor dal)",
+              "1 small cucumber, finely diced",
+              "1 medium tomato, finely diced",
+              "Small handful coriander, chopped",
+              "Juice of half a lemon",
+              "Pinch each of salt, black pepper, and roasted cumin powder",
             ],
             [
-              "Boil motor dal 15 to 20 minutes until soft.",
-              "Drain fully. Let cool 5 minutes.",
-              "Mix with chopped vegetables and lemon juice.",
-              "No oil needed.",
+              "Soak the dal in water for 30 minutes, then boil in fresh water with a pinch of salt and turmeric for 15 to 20 minutes until a pea mashes easily between your fingers but still holds its shape.",
+              "Drain thoroughly and spread on a plate to air-cool for 5 minutes — mixing warm peas with raw vegetables turns the salad watery.",
+              "Toss the cooled peas with the cucumber, tomato, and coriander, then add the lemon juice, salt, pepper, and cumin powder.",
+              "Mix well, lifting from the bottom of the bowl, and eat within 30 minutes while the vegetables are still crisp.",
             ],
+            {
+              prep: "30 min soak + 10 min chop",
+              cook: "20 min",
+              serves: "1",
+              tip: "No oil is needed here — the lemon juice and roasted cumin do all the flavor work, which is exactly what makes this snack so cheap on calories.",
+            },
           ),
           meal(
             "1:30 PM",
-            "Lunch: soy chunk bhuna with rice",
+            "Lunch: soy chunk bhuna with rice and spinach",
             [
               "50 g dry soya chunks (badi)",
-              "1 cup cooked rice",
-              "Spinach or lal shak",
+              "1 level cup cooked rice",
+              "1 large handful spinach or lal shak, washed and chopped",
               "1 tsp mustard oil",
-              "Onion, ginger-garlic, cumin, chili, turmeric",
+              "1 small onion, sliced",
+              "1/2 tsp ginger-garlic paste",
+              "1/4 tsp each cumin powder, chili powder, turmeric",
+              "Salt to taste",
             ],
             [
-              "Soak soya chunks in hot water 10 minutes. Drain and squeeze out all water.",
-              "Heat 1 tsp oil. Fry onion until golden. Add ginger-garlic, cumin, chili, turmeric. Stir 1 minute.",
-              "Add soya chunks. Stir-fry 8 to 10 minutes until flavored.",
-              "Serve with 1 cup rice and cooked spinach on the side.",
+              "Boil the dry soya chunks in water for 8 to 10 minutes until soft all the way through — bite one in half to check there's no dry, chalky center left.",
+              "Drain and squeeze each handful firmly between your palms over the sink until almost no water drips out. This single step decides whether the bhuna tastes meaty and well-spiced or watery and bland.",
+              "Heat the mustard oil in a pan over medium heat until it shimmers and loses its raw sharp smell, about 30 to 45 seconds. Fry the sliced onion for 3 to 4 minutes until soft and golden at the edges.",
+              "Add the ginger-garlic paste, cumin, chili powder, and turmeric. Stir constantly for about a minute until the smell turns toasted, not raw — splash in water if it sticks.",
+              "Add the squeezed soya chunks and stir-fry for 8 to 10 minutes, turning every minute so each piece browns from direct pan contact instead of sitting in liquid.",
+              "In a separate small pan, wilt the spinach for 2 to 3 minutes with a pinch of salt and garlic, just until it collapses and turns deep green — stop there, since overcooked spinach turns bitter and grey.",
+              "Plate the rice, spoon the soya bhuna beside it, and serve the wilted spinach on the side.",
             ],
+            {
+              prep: "10 min",
+              cook: "20 min",
+              serves: "1",
+              tip: "If the bhuna looks dry halfway through cooking, that's normal for soya chunks — add a splash of water instead of more oil to loosen it.",
+            },
           ),
           meal(
             "4:00 PM (30 min before gym)",
             "Pre-workout: banana and black coffee",
-            ["1 medium banana", "1 cup black coffee no sugar"],
-            ["Eat banana then drink coffee 30 minutes before gym."],
+            [
+              "1 medium ripe banana",
+              "1 cup (200 ml) strong black coffee, no sugar, no milk",
+            ],
+            [
+              "Eat the banana on its own, chewing slowly, about 30 minutes before your warm-up — a slightly spotted, riper banana digests faster than a green one.",
+              "Brew the coffee strong and drink it black within the same 20 to 30 minute window, sipping rather than gulping to avoid jitters.",
+              "Shift this to 5:30 PM if your session starts at 6 PM, so the caffeine peak lines up with your warm-up.",
+            ],
+            {
+              prep: "5 min",
+              cook: "0 min",
+              serves: "1",
+              tip: "Stick to one cup — a second adds more anxiety and sleep disruption than fat-burning benefit.",
+            },
           ),
           meal(
             "Within 30 min after gym",
-            "Post-workout: egg white omelet or soya",
-            ["3 egg whites", "OR 50 g dry soya chunks boiled"],
+            "Post-workout: egg white omelet or soya bhuna",
             [
-              "Cook egg white omelet with onion and chili in 1 drop oil.",
-              "OR boil soya chunks 5 minutes, drain, stir-fry with spices in 1 tsp oil.",
-              "Eat within 30 minutes of finishing gym.",
+              "Option A: 3 eggs (whites only), 1 small onion, 1 green chili, 1 drop oil, pinch salt",
+              "Option B: 50 g dry soya chunks, 1 tsp mustard oil, onion, ginger-garlic, cumin, chili powder",
             ],
+            [
+              "Option A: separate the egg whites from the yolks, whisk for 20 seconds until frothy, stir in the chopped onion and chili, then cook in a non-stick pan over medium-low heat with just a drop of oil for about 90 seconds per side until fully set.",
+              "Option B: boil the soya chunks 5 minutes, drain, squeeze out all the water, then stir-fry in the mustard oil with onion, ginger-garlic, cumin, and chili powder for 8 to 10 minutes until browned.",
+              "Eat whichever option within 30 minutes of finishing your last set, while your muscles are most receptive to the protein.",
+            ],
+            {
+              prep: "5 min",
+              cook: "8-10 min",
+              serves: "1",
+              tip: "Keep the heat medium-low for the egg whites specifically — on high heat they go rubbery almost instantly since they have no fat to buffer the heat.",
+            },
           ),
           meal(
             "8:30 PM",
             "Dinner: dal soup and eggs",
             [
-              "1 bowl thick masoor or moong dal",
-              "2 boiled eggs",
-              "Lemon",
-              "Cumin, garlic, chili",
-              "Large salad (cucumber, tomato)",
+              "1 cup dry masoor (red lentil) or moong dal, rinsed",
+              "600 ml water",
+              "2 eggs",
+              "1 tsp lemon juice",
+              "1/2 tsp cumin seeds",
+              "2 cloves garlic, sliced",
+              "1 green chili",
+              "Pinch turmeric and salt",
+              "Large salad: 1 cucumber + 1 tomato, sliced",
             ],
             [
-              "Boil dal until thick and soft.",
-              "Temper garlic, cumin, and chili with minimal oil or dry roast spices.",
-              "Squeeze lemon at the end.",
-              "Eat with boiled eggs and salad.",
+              "Rinse the dal until the water runs mostly clear — this washes off surface starch that would otherwise make it foam over while boiling.",
+              "Add the dal to a pot with the 600 ml water and a pinch of turmeric. Bring to a boil uncovered, skimming off the white foam that rises in the first few minutes.",
+              "Partially cover and simmer for 15 to 20 minutes (masoor) or 20 to 25 minutes (moong), stirring occasionally, until the lentils fall apart into a thick, porridge-like soup. Add a splash of hot water if it thickens before the dal is fully soft.",
+              "Meanwhile, boil the eggs 9 minutes from a full boil, cool in cold water for 2 minutes, then peel.",
+              "For the tempering, heat a dry pan over medium heat, add the cumin seeds, and let them sizzle for about 20 seconds until fragrant. Add the sliced garlic and chili and fry 30 to 45 seconds until the garlic turns light golden — watch closely, it burns fast and turns bitter past that point.",
+              "Tip the whole tempering into the simmered dal and stir through. Season with salt, then squeeze in the lemon juice right before serving so the citrus stays bright instead of cooking off.",
+              "Halve the boiled eggs into the bowl of dal and serve with the cucumber-tomato salad on the side.",
             ],
+            {
+              prep: "5 min",
+              cook: "25 min",
+              serves: "1",
+              tip: "This dal is meant to be thick enough to eat like a stew, not a thin soup — that's what makes it filling enough for dinner without extra rice.",
+            },
           ),
         ]),
         diet("Wed", "Gym day — Legs", [
@@ -2855,85 +3056,166 @@
             "7:30 AM",
             "Morning drink: chia lemon water",
             [
-              "1 tbsp chia seeds",
-              "1 glass warm water",
-              "Juice of half a lemon",
+              "1 tbsp (about 12 g) whole chia seeds",
+              "250 ml room-temperature water, for soaking",
+              "200 ml warm water (not boiling), to finish",
+              "Juice of half a fresh lemon",
             ],
             [
-              "Soak chia seeds 15 minutes. Add warm water and lemon. Stir and drink.",
+              "Stir the chia seeds into the 250 ml room-temperature water hard for 10 seconds right away so they don't clump into one wet lump.",
+              "Leave untouched for 15 minutes until they swell into a translucent gel — this is what slows digestion and keeps you full through the morning.",
+              "Top with the 200 ml warm water and lemon juice, stirring from the bottom up since the gel settles.",
+              "Drink slowly on a completely empty stomach, then wait at least 20 minutes before breakfast — today is your heaviest leg session, so let this fully settle first.",
             ],
+            {
+              prep: "15 min (mostly soaking)",
+              cook: "0 min",
+              serves: "1",
+              tip: "Drink through a wide straw if the gel texture bothers you — it removes the 'frog egg' sensation most beginners notice on the first try.",
+            },
           ),
           meal(
             "8:00 AM",
             "Breakfast: masala oats with boiled eggs",
             [
-              "4 tbsp rolled oats",
-              "Half cup water",
-              "Onion, green chili, salt, turmeric",
-              "2 boiled eggs",
-              "1 cup green tea no sugar",
+              "4 tbsp (about 40 g) rolled oats",
+              "120 ml water",
+              "1 small onion, finely chopped",
+              "1 green chili, finely sliced",
+              "Pinch of salt and turmeric (holud)",
+              "2 whole eggs",
+              "1 cup green tea, no sugar",
             ],
             [
-              "Dry-roast oats 1 minute. Add water and spices. Simmer 3 to 4 minutes.",
-              "Boil eggs 9 minutes. Serve with oats and green tea.",
+              "Dry-toast the oats in a pan on medium heat for 60 to 90 seconds, stirring constantly, until they smell nutty and turn a shade darker.",
+              "Add the 120 ml water, salt, turmeric, onion, and chili. Drop the heat to low and simmer 3 to 4 minutes, stirring every 30 seconds, until it thickens enough to coat the back of a spoon.",
+              "Boil the eggs separately for exactly 9 minutes from a full boil, then cool in cold water for 2 minutes before peeling so the shell comes away cleanly.",
+              "Plate the oats with the peeled, halved eggs seasoned with salt and pepper. Brew the green tea for no more than 2 minutes so it doesn't turn bitter.",
             ],
+            {
+              prep: "5 min",
+              cook: "10 min",
+              serves: "1",
+              tip: "Eat this breakfast a little earlier than usual on leg day if you can — heavy squats and leg press on a very full stomach feel uncomfortable.",
+            },
           ),
           meal(
             "11:00 AM",
-            "Snack: motor chaat",
+            "Snack: motor chaat (spiced yellow pea salad)",
             [
-              "Half cup boiled motor dal",
-              "Cucumber, tomato, onion, coriander, lemon",
+              "100 g (about half cup) dry yellow split peas (motor dal)",
+              "1 small cucumber, finely diced",
+              "1 medium tomato, finely diced",
+              "Small handful coriander, chopped",
+              "Juice of half a lemon",
+              "Pinch each of salt, black pepper, and roasted cumin powder",
             ],
             [
-              "Boil motor dal, drain, cool. Mix with chopped vegetables and lemon. No oil.",
+              "Soak the dal 30 minutes, then boil in fresh water with a pinch of salt and turmeric for 15 to 20 minutes until a pea mashes easily but still holds its shape.",
+              "Drain thoroughly and air-cool on a plate for 5 minutes so it doesn't turn the salad watery when mixed with the raw vegetables.",
+              "Toss the cooled peas with cucumber, tomato, and coriander, then add the lemon juice, salt, pepper, and cumin powder.",
+              "Mix well and eat within 30 minutes while everything is still crisp. No oil needed.",
             ],
+            {
+              prep: "30 min soak + 10 min chop",
+              cook: "20 min",
+              serves: "1",
+              tip: "Crush your own roasted cumin seeds with the back of a spoon instead of using old jar powder — it makes a noticeable difference here.",
+            },
           ),
           meal(
             "1:30 PM",
             "Lunch: chicken or fish with rice and vegetables",
             [
-              "150 g chicken breast or local fish",
-              "1 cup cooked rice",
-              "1 tsp mustard oil",
-              "Onion, ginger-garlic, cumin, turmeric, chili",
-              "Mixed vegetables: patal, lau, spinach",
+              "1 level cup cooked rice",
+              "150 g chicken breast or local fish (rui, katla, or telapia), cut into bite-size pieces",
+              "1 tsp mustard oil — measured, not guessed",
+              "1 medium onion, sliced",
+              "1 tsp ginger-garlic paste",
+              "1/2 tsp cumin (jeera) powder",
+              "1/2 tsp turmeric (holud)",
+              "1 green chili, slit",
+              "1 large bowl mixed vegetables: patal, lau, or spinach, roughly chopped",
+              "Salt to taste",
             ],
             [
-              "Heat 1 tsp oil. Fry onion until golden. Add spices.",
-              "Add chicken or fish. Cook 12 to 15 minutes on medium heat.",
-              "Add vegetables last 5 minutes.",
-              "Serve with 1 measured cup rice.",
+              "Pat the chicken or fish dry — wet protein steams instead of browning, and browning is where the flavor comes from.",
+              "Heat the oil over medium heat until it shimmers, then fry the sliced onion for 3 minutes until the edges turn light golden.",
+              "Add the ginger-garlic paste, cumin, turmeric, and chili. Stir for about a minute until the raw smell turns toasted and fragrant.",
+              "Add the chicken or fish and cook on medium heat for 12 to 15 minutes, stirring every 2 minutes, until chicken shows no pink in the thickest piece or fish flakes apart easily.",
+              "Stir in the vegetables for the last 5 minutes only, so they finish firm rather than mushy.",
+              "Taste and adjust salt, then plate the measured cup of rice with the chicken or fish and vegetables alongside.",
             ],
+            {
+              prep: "10 min",
+              cook: "20 min",
+              serves: "1",
+              tip: "Today's session burns the most calories of the week, so don't under-eat at lunch trying to 'save room' — your legs need the fuel to perform.",
+            },
           ),
           meal(
             "4:00 PM (30 min before gym)",
             "Pre-workout: banana and black coffee",
-            ["1 medium banana", "1 cup black coffee no sugar"],
-            ["Eat banana then coffee. Shift to 5:30 PM if training at 6 PM."],
+            [
+              "1 medium ripe banana",
+              "1 cup (200 ml) strong black coffee, no sugar, no milk",
+            ],
+            [
+              "Eat the banana on its own about 30 minutes before your warm-up, chewing slowly.",
+              "Brew the coffee strong and drink it black in the same window, sipping rather than gulping.",
+              "Shift this whole step to 5:30 PM if you're training at 6 PM instead of 4 PM.",
+            ],
+            {
+              prep: "5 min",
+              cook: "0 min",
+              serves: "1",
+              tip: "Caffeine genuinely helps you push a heavier squat — this is one of the few supplements with solid evidence behind it, so don't skip it on leg day.",
+            },
           ),
           meal(
             "Within 30 min after gym",
-            "Post-workout: egg whites or soybeans",
-            ["3 egg whites", "OR 50 g dry soya chunks"],
+            "Post-workout: egg white omelet or soya bhuna",
             [
-              "Cook egg white omelet with onion and chili.",
-              "OR boil soya chunks and stir-fry with spices.",
+              "Option A: 3 eggs (whites only), 1 small onion, 1 green chili, 1 drop oil, pinch salt",
+              "Option B: 50 g dry soya chunks, 1 tsp mustard oil, onion, ginger-garlic, cumin, chili powder",
             ],
+            [
+              "Option A: whisk the separated egg whites for 20 seconds until frothy, stir in the chopped onion and chili, then cook in a non-stick pan over medium-low heat with a single drop of oil, about 90 seconds per side until fully set.",
+              "Option B: boil the soya chunks 5 minutes, drain, squeeze out all the water by hand, then stir-fry in the mustard oil with onion, ginger-garlic, cumin, and chili powder for 8 to 10 minutes until browned and dry-fried looking.",
+              "Eat whichever option within 30 minutes of finishing your last set, while your legs are most receptive to repairing.",
+            ],
+            {
+              prep: "5 min",
+              cook: "8-10 min",
+              serves: "1",
+              tip: "Your legs took the biggest hit today — don't skip this meal even if you feel too tired to cook; the omelet option takes under 5 minutes start to finish.",
+            },
           ),
           meal(
             "8:30 PM",
             "Dinner: roti with grilled protein and salad",
             [
-              "1 red atta roti",
+              "1 handmade whole-wheat red atta roti",
               "100 to 150 g grilled fish or chicken",
-              "Cucumber, tomato, lemon salad",
+              "1 medium cucumber, sliced",
+              "1 medium tomato, sliced",
+              "Juice of half a lemon",
+              "Pinch of salt and black pepper",
+              "1/2 tsp oil, for grilling",
             ],
             [
-              "Cook roti on dry pan.",
-              "Grill protein with minimal oil and spices.",
-              "Eat with fresh salad. At least 2 hours before bed.",
+              "Knead the red atta flour with water, a splash at a time, until you get a soft, non-sticky dough. Rest 10 minutes under a damp cloth, then roll out flat and even.",
+              "Cook the roti on a dry, hot pan with no oil, 1 to 2 minutes per side, until light char spots appear and it puffs slightly.",
+              "Rub the fish or chicken with salt, turmeric, and cumin, then cook in a pan with 1/2 tsp oil on medium heat — fish 3 to 4 minutes per side until it flakes apart, chicken 6 to 7 minutes per side until no pink remains.",
+              "Slice the cucumber and tomato, squeeze lemon juice over them, and season with salt and pepper.",
+              "Plate everything together and eat at least 2 hours before bed so your legs can properly recover overnight.",
             ],
+            {
+              prep: "15 min",
+              cook: "15 min",
+              serves: "1",
+              tip: "Resting the roti dough for 10 minutes before rolling is what keeps it from tearing at the edges — don't skip straight from kneading to rolling.",
+            },
           ),
         ]),
         diet("Thu", "Recovery day", [
@@ -2941,86 +3223,144 @@
             "7:30 AM",
             "Morning drink: chia lemon water",
             [
-              "1 tbsp chia seeds",
-              "1 glass warm water",
-              "Juice of half a lemon",
+              "1 tbsp (about 12 g) whole chia seeds",
+              "250 ml room-temperature water, for soaking",
+              "200 ml warm water (not boiling), to finish",
+              "Juice of half a fresh lemon",
             ],
-            ["Soak chia seeds 15 minutes. Add warm water and lemon. Drink."],
+            [
+              "Stir the chia seeds into the 250 ml room-temperature water hard for 10 seconds so they spread out instead of clumping.",
+              "Leave for 15 minutes until they swell into a translucent gel.",
+              "Top with the warm water and lemon juice, stirring from the bottom up.",
+              "Drink slowly on an empty stomach. Wait 20 minutes before breakfast.",
+            ],
+            {
+              prep: "15 min (mostly soaking)",
+              cook: "0 min",
+              serves: "1",
+              tip: "Recovery day or not, this drink stays on the menu every single morning — consistency is what makes it actually do anything for your metabolism.",
+            },
           ),
           meal(
             "8:00 AM",
             "Breakfast: masala oats with boiled eggs",
             [
-              "4 tbsp rolled oats",
-              "Onion, chili, salt, turmeric",
-              "2 boiled eggs",
-              "1 cup green tea",
+              "4 tbsp (about 40 g) rolled oats",
+              "120 ml water",
+              "1 small onion, finely chopped",
+              "1 green chili, finely sliced",
+              "Pinch of salt and turmeric",
+              "2 whole eggs",
+              "1 cup green tea, no sugar",
             ],
             [
-              "Dry-roast oats, add water and spices, simmer 3 to 4 minutes.",
-              "Serve with boiled eggs and green tea.",
+              "Dry-toast the oats on medium heat for 60 to 90 seconds until they smell nutty, then add the water, salt, turmeric, onion, and chili.",
+              "Simmer on low for 3 to 4 minutes, stirring every 30 seconds, until thick enough to coat the back of a spoon.",
+              "Boil the eggs separately for 9 minutes from a full boil, cool in cold water 2 minutes, then peel.",
+              "Plate the oats with the eggs on the side and brew the green tea for under 2 minutes.",
             ],
+            {
+              prep: "5 min",
+              cook: "10 min",
+              serves: "1",
+              tip: "Same breakfast as your gym days on purpose — recovery days don't need extra carbs, just consistent protein.",
+            },
           ),
           meal(
             "11:00 AM",
             "Snack: motor chaat or fresh fruit",
             [
-              "Half cup boiled motor dal",
-              "Cucumber, tomato, onion, lemon",
-              "OR 1 guava or apple",
+              "Option A: 100 g (about half cup) dry yellow split peas (motor dal), cucumber, tomato, onion, lemon",
+              "Option B: 1 medium guava or apple",
             ],
             [
-              "Option A: motor chaat with no oil.",
-              "Option B: eat a piece of fresh fruit for lighter recovery-day snack.",
+              "Option A: soak the motor dal 30 minutes, boil 15 to 20 minutes until a pea mashes easily but holds its shape, then drain fully and air-cool 5 minutes before mixing with the chopped vegetables, lemon juice, salt, and pepper. No oil needed.",
+              "Option B: wash the guava or apple thoroughly under running water — guava skin is eaten, so scrub it gently with your fingers to remove any grit. Pat dry, slice into wedges, and eat slowly.",
+              "Either option keeps today's snack lighter than your gym-day version, since you're not about to train.",
             ],
+            {
+              prep: "30 min soak (Option A) or 2 min (Option B)",
+              cook: "20 min (Option A) or 0 min (Option B)",
+              serves: "1",
+              tip: "Rotate between the two options through the week so you're not eating the same chaat every single day — variety makes the plan easier to stick to long-term.",
+            },
           ),
           meal(
             "1:30 PM",
             "Lunch: fish rice plate",
             [
-              "1 cup cooked rice",
-              "150 g fish curry cooked with minimal oil",
-              "1 bowl mixed vegetables (bottle gourd or green papaya)",
-              "Fresh salad",
+              "150 g local fish (rui, katla, telapia, or pangas), cut into pieces",
+              "1 tsp mustard or soybean oil",
+              "1 small onion, sliced",
+              "1/2 tsp ginger-garlic paste",
+              "1/4 tsp turmeric, 1/4 tsp cumin powder, 1 green chili",
+              "1 cup bottle gourd (lau) or green papaya, peeled and cubed",
+              "1 level cup cooked rice",
+              "Fresh salad: cucumber and tomato, sliced, with lemon",
             ],
             [
-              "Cook fish curry with 1 tsp oil and spices.",
-              "Make vegetable curry light and watery.",
-              "Plate vegetables first, then rice and fish.",
-              "Eat slowly.",
+              "Pat the fish dry and rub lightly with salt and a pinch of turmeric. Set aside for 10 minutes to let it season through.",
+              "Heat the oil in a pan over medium heat and fry the sliced onion for 3 minutes until soft and translucent — for a fish curry you want it pale, not deep golden the way a chicken bhuna would be.",
+              "Add the ginger-garlic paste, remaining turmeric, cumin, and chili. Stir 30 to 45 seconds until fragrant.",
+              "Pour in about 1 cup of water and bring to a gentle simmer, then carefully lower in the fish pieces and the cubed bottle gourd or papaya — don't stir roughly with a spoon or the fish will break apart, just shake the pan gently instead.",
+              "Simmer uncovered on low-medium for 10 to 12 minutes until the fish is cooked through and the vegetables are soft but still holding their shape. The curry should look light and watery (jhol style), not thick — that's correct for a recovery-day meal with minimal oil.",
+              "Season with salt and taste the broth before plating.",
+              "Plate the vegetables and curry first, then the rice, with the fresh cucumber-tomato salad on the side. Eat slowly without rushing — today has no workout to fuel, so there's no need to overeat.",
             ],
+            {
+              prep: "15 min",
+              cook: "15 min",
+              serves: "1",
+              tip: "Resist the urge to add more oil if the curry looks thin — bottle gourd and green papaya release their own water as they cook, so a watery jhol is exactly how this dish should look.",
+            },
           ),
           meal(
             "4:00 PM",
             "Snack: tok doi with fruit",
             [
-              "1 small bowl plain tok doi (low-fat sour yogurt)",
+              "1 small bowl (about 150 g) plain tok doi (unsweetened sour yogurt)",
               "1 guava or apple",
               "1 tsp chia seeds",
               "5 to 8 almonds (katha badam)",
             ],
             [
-              "Chop fruit into pieces.",
-              "Mix fruit and chia seeds into tok doi.",
-              "Wait 5 minutes for texture.",
-              "Top with almonds. No sweetener.",
+              "If the tok doi has separated in the fridge with a watery layer on top, stir it briskly first to bring it back to a smooth, even consistency.",
+              "Wash and chop the fruit into small bite-size cubes, keeping the skin on if it's a soft apple for extra fiber.",
+              "Stir the chia seeds into the tok doi, then fold in the chopped fruit.",
+              "Let it sit for 5 minutes — this short wait is what turns plain yogurt with fruit into a properly textured snack, as the chia softens slightly.",
+              "Roughly crush the almonds between your fingers and scatter them on top just before eating, so they stay crunchy instead of going soft in the yogurt.",
             ],
+            {
+              prep: "8 min (includes 5 min rest)",
+              cook: "0 min",
+              serves: "1",
+              tip: "If the tok doi tastes too sour for you, let the fruit do the balancing — don't reach for honey or sugar, since that's exactly the kind of 'healthy snack' that quietly adds up calories.",
+            },
           ),
           meal(
             "8:30 PM",
             "Dinner: roti dal dinner",
             [
-              "1 to 2 atta roti",
-              "1 bowl thick dal",
-              "Mixed vegetable bhaji with minimal oil",
-              "Lemon",
+              "1 to 2 whole-wheat atta roti",
+              "1 cup dry masoor or moong dal, rinsed",
+              "1 cup mixed seasonal vegetables (potato, pumpkin, or cabbage), chopped",
+              "1/2 to 1 tsp oil total",
+              "Garlic, cumin, turmeric, chili, salt, lemon",
             ],
             [
-              "Cook dal thick so it keeps you full.",
-              "Cook vegetables with minimal oil.",
-              "Warm roti on dry pan.",
-              "Add lemon to dal before eating.",
+              "Boil the rinsed dal in about 3 cups water with a pinch of turmeric for 20 to 25 minutes, stirring occasionally and topping up with hot water if it dries out, until it breaks down into a thick, porridge-like consistency.",
+              "Temper a few cumin seeds and sliced garlic in a barely-oiled pan for 30 to 45 seconds until golden, then stir the whole tempering into the dal. Season with salt.",
+              "For the bhaji, heat 1/2 tsp oil, add a pinch of turmeric and the chopped vegetables, cover, and cook on low-medium for 10 to 12 minutes, stirring occasionally, until soft. Finish with salt and a pinch of chili powder.",
+              "Knead the atta into a soft dough, rest 10 minutes under a damp cloth, roll flat, and cook on a dry pan 1 to 2 minutes per side until lightly charred and puffed.",
+              "Squeeze fresh lemon juice into the dal right before serving so it stays bright instead of cooking off.",
+              "Plate the roti, dal, and bhaji together.",
             ],
+            {
+              prep: "10 min",
+              cook: "25 min",
+              serves: "1",
+              tip: "Cook the dal thick enough that a spoon almost stands up in it — a thin, watery dal at dinner leaves you hungry again within the hour.",
+            },
           ),
         ]),
         diet("Fri", "Gym day — Upper Mix", [
@@ -3028,86 +3368,172 @@
             "7:30 AM",
             "Morning drink: chia lemon water",
             [
-              "1 tbsp chia seeds",
-              "1 glass warm water",
-              "Juice of half a lemon",
+              "1 tbsp (about 12 g) whole chia seeds",
+              "250 ml room-temperature water, for soaking",
+              "200 ml warm water (not boiling), to finish",
+              "Juice of half a fresh lemon",
             ],
-            ["Soak chia seeds 15 minutes. Add warm water and lemon. Drink."],
+            [
+              "Stir the chia seeds into the 250 ml room-temperature water hard for 10 seconds so they don't clump.",
+              "Leave for 15 minutes until they swell into a translucent gel.",
+              "Top with the warm water and lemon juice, stirring from the bottom up.",
+              "Drink slowly on an empty stomach. Wait 20 minutes before breakfast — you've now done this 5 days straight, which is exactly the kind of repetition that makes a habit stick.",
+            ],
+            {
+              prep: "15 min (mostly soaking)",
+              cook: "0 min",
+              serves: "1",
+              tip: "Drink through a wide straw if the gel texture still bothers you after a few tries.",
+            },
           ),
           meal(
             "8:00 AM",
             "Breakfast: masala oats with boiled eggs",
             [
-              "4 tbsp rolled oats",
-              "Onion, chili, salt, turmeric",
-              "2 boiled eggs",
-              "1 cup green tea",
+              "4 tbsp (about 40 g) rolled oats",
+              "120 ml water",
+              "1 small onion, finely chopped",
+              "1 green chili, finely sliced",
+              "Pinch of salt and turmeric",
+              "2 whole eggs",
+              "1 cup green tea, no sugar",
             ],
             [
-              "Dry-roast oats, add water and spices, simmer 3 to 4 minutes.",
-              "Serve with boiled eggs and green tea.",
+              "Dry-toast the oats on medium heat for 60 to 90 seconds until they smell nutty, then stir in the water, salt, turmeric, onion, and chili.",
+              "Simmer on low for 3 to 4 minutes, stirring every 30 seconds, until thick.",
+              "Boil the eggs separately for 9 minutes from a full boil, cool 2 minutes in cold water, then peel.",
+              "Plate the oats with the eggs and brew the green tea for under 2 minutes.",
             ],
+            {
+              prep: "5 min",
+              cook: "10 min",
+              serves: "1",
+              tip: "After Thursday's rest day, your appetite may be slightly lower this morning — eat the full portion anyway, since today's upper session needs the fuel.",
+            },
           ),
           meal(
             "11:00 AM",
-            "Snack: motor chaat",
+            "Snack: motor chaat (spiced yellow pea salad)",
             [
-              "Half cup boiled motor dal",
-              "Cucumber, tomato, onion, coriander, lemon",
+              "100 g (about half cup) dry yellow split peas (motor dal)",
+              "1 small cucumber, finely diced",
+              "1 medium tomato, finely diced",
+              "Small handful coriander, chopped",
+              "Juice of half a lemon",
+              "Pinch each of salt, black pepper, and roasted cumin powder",
             ],
             [
-              "Boil motor dal, drain, cool. Mix with chopped vegetables and lemon. No oil.",
+              "Soak the dal 30 minutes, then boil 15 to 20 minutes in fresh water with a pinch of salt and turmeric until a pea mashes easily but holds its shape.",
+              "Drain fully and air-cool 5 minutes before mixing with the cucumber, tomato, and coriander.",
+              "Add the lemon juice, salt, pepper, and cumin powder, toss well, and eat within 30 minutes.",
             ],
+            {
+              prep: "30 min soak + 10 min chop",
+              cook: "20 min",
+              serves: "1",
+              tip: "No oil needed — the lemon and roasted cumin carry the whole flavor.",
+            },
           ),
           meal(
             "1:30 PM",
             "Lunch: chicken stir-fry with rice",
             [
-              "150 g chicken breast",
-              "1 cup cooked rice",
-              "Capsicum, patal, or spinach",
+              "150 g chicken breast, sliced into thin strips",
+              "1 level cup cooked rice",
+              "1 cup capsicum, patal, or spinach, sliced",
               "1 tsp mustard oil",
-              "Garlic, ginger, chili, cumin, turmeric",
+              "2 cloves garlic, minced",
+              "1 tsp ginger, minced",
+              "1 green chili, sliced",
+              "1/4 tsp cumin powder, 1/4 tsp turmeric",
+              "Salt to taste",
             ],
             [
-              "Cut chicken into small pieces.",
-              "Heat 1 tsp oil. Add garlic and ginger. Cook until fragrant.",
-              "Add chicken. Cook on medium heat until done, 12 minutes.",
-              "Add vegetables. Stir-fry 3 minutes until bright.",
-              "Serve with 1 cup rice.",
+              "Slice the chicken into thin, even strips against the grain — cutting across the muscle fibers like this is what makes stir-fried chicken tender instead of chewy.",
+              "Heat the oil in a wide pan or wok over fairly high heat until it just shimmers.",
+              "Add the minced garlic and ginger and stir constantly for about 20 seconds only — they burn fast on high heat.",
+              "Add the chicken strips, spreading them in as close to a single layer as your pan allows (a crowded pan makes chicken steam instead of sear). Let them sit undisturbed for 60 to 90 seconds before the first stir, so they pick up color.",
+              "Stir-fry for 10 to 12 minutes total on medium-high heat, turning every minute or two, until no pink remains in the thickest piece.",
+              "Add the cumin, turmeric, and chili, stir for 30 seconds, then add the sliced vegetables.",
+              "Keep the heat high and stir-fry for just 3 minutes — the vegetables should stay bright in color and slightly crisp, not wilted and grey, which is the entire point of a stir-fry over a slow curry.",
+              "Season with salt and serve immediately over the measured cup of rice while everything is still hot and crisp.",
             ],
+            {
+              prep: "10 min",
+              cook: "15 min",
+              serves: "1",
+              tip: "Don't walk away from the pan during a stir-fry — it lives or dies on timing. Add the vegetables only once the chicken is basically done, or they'll overcook waiting around.",
+            },
           ),
           meal(
             "4:00 PM (30 min before gym)",
             "Pre-workout: banana and black coffee",
-            ["1 medium banana", "1 cup black coffee no sugar"],
-            ["Eat banana then coffee. Shift to 5:30 PM if training at 6 PM."],
+            [
+              "1 medium ripe banana",
+              "1 cup (200 ml) strong black coffee, no sugar, no milk",
+            ],
+            [
+              "Eat the banana on its own about 30 minutes before your warm-up.",
+              "Brew the coffee strong and drink it black in the same window, sipping rather than gulping.",
+              "Shift this to 5:30 PM if training at 6 PM.",
+            ],
+            {
+              prep: "5 min",
+              cook: "0 min",
+              serves: "1",
+              tip: "Today's session is the longest cardio finisher of the week (20 minutes) — make sure you actually drink the full cup, not half of it.",
+            },
           ),
           meal(
             "Within 30 min after gym",
-            "Post-workout: egg whites or soybeans",
-            ["3 egg whites OR 50 g dry soya chunks"],
+            "Post-workout: egg white omelet or soya bhuna",
             [
-              "Cook egg white omelet with onion and chili in 1 drop oil.",
-              "OR boil soya chunks and stir-fry with spices in 1 tsp oil.",
+              "Option A: 3 eggs (whites only), 1 small onion, 1 green chili, 1 drop oil, pinch salt",
+              "Option B: 50 g dry soya chunks, 1 tsp mustard oil, onion, ginger-garlic, cumin, chili powder",
             ],
+            [
+              "Option A: whisk the separated egg whites 20 seconds until frothy, stir in the onion and chili, then cook in a non-stick pan over medium-low heat with a single drop of oil, about 90 seconds per side until fully set.",
+              "Option B: boil the soya chunks 5 minutes, drain, squeeze out the water by hand, then stir-fry in the mustard oil with onion, ginger-garlic, cumin, and chili powder for 8 to 10 minutes until browned.",
+              "Eat within 30 minutes of finishing your last set.",
+            ],
+            {
+              prep: "5 min",
+              cook: "8-10 min",
+              serves: "1",
+              tip: "If you're genuinely too tired to cook after a long session, Option A takes under 5 minutes start to finish — that's the whole point of keeping it that simple.",
+            },
           ),
           meal(
             "8:30 PM",
             "Dinner: egg curry with roti and salad",
             [
-              "2 boiled eggs",
-              "1 atta roti",
-              "Tomato, onion, garlic, chili, cumin",
-              "Large cucumber and tomato salad",
+              "2 eggs",
               "1 tsp oil",
+              "1 small onion, finely chopped",
+              "1 medium tomato, finely chopped",
+              "2 cloves garlic, minced",
+              "1 green chili",
+              "1/4 tsp cumin powder, 1/4 tsp turmeric",
+              "Salt to taste",
+              "1 atta roti",
+              "Large cucumber and tomato salad with lemon",
             ],
             [
-              "Boil eggs and peel.",
-              "Cook onion, tomato, garlic, chili, and spices with 1 tsp oil.",
-              "Add eggs and simmer 3 to 4 minutes.",
-              "Serve with roti and fresh salad.",
+              "Boil the eggs 9 minutes from a full boil, cool in cold water 2 minutes, then peel. Use a knife to score 2 to 3 shallow slits along each egg without cutting all the way through — this lets the curry soak in rather than just coat the surface.",
+              "Heat the oil in a pan over medium heat, add the chopped onion, and fry 3 to 4 minutes until soft and lightly golden.",
+              "Add the garlic, chili, cumin, and turmeric, stirring 30 to 45 seconds until fragrant.",
+              "Add the chopped tomato and cook, mashing it lightly with the back of a spoon, for 4 to 5 minutes until it breaks down into a thick, jammy base and the oil just starts to separate at the edges — that's the sign the masala is properly cooked, not just heated through.",
+              "Add about 1/4 cup water to loosen into a sauce, bring to a simmer, then gently lower in the scored boiled eggs.",
+              "Simmer 3 to 4 minutes, occasionally spooning the sauce over the top of the eggs so the slits soak it up, then season with salt.",
+              "Cook the roti on a dry, hot pan, 1 to 2 minutes per side, while the curry simmers.",
+              "Plate the egg curry with the roti and a large fresh cucumber-tomato salad dressed with lemon.",
             ],
+            {
+              prep: "10 min",
+              cook: "15 min",
+              serves: "1",
+              tip: "Scoring the boiled eggs before they go into the curry is a small step that makes a real difference — it's what actually gets the masala flavor into the egg instead of leaving it just sitting on the surface.",
+            },
           ),
         ]),
         diet("Sat", "Gym day — Lower + HIIT", [
@@ -3115,90 +3541,167 @@
             "7:30 AM",
             "Morning drink: chia lemon water",
             [
-              "1 tbsp chia seeds",
-              "1 glass warm water",
-              "Juice of half a lemon",
+              "1 tbsp (about 12 g) whole chia seeds",
+              "250 ml room-temperature water, for soaking",
+              "200 ml warm water (not boiling), to finish",
+              "Juice of half a fresh lemon",
             ],
-            ["Soak chia seeds 15 minutes. Add warm water and lemon. Drink."],
+            [
+              "Stir the chia seeds into the room-temperature water hard for 10 seconds so they don't clump.",
+              "Leave for 15 minutes until they swell into a translucent gel.",
+              "Top with the warm water and lemon juice, stirring from the bottom up.",
+              "Drink slowly on an empty stomach and wait 20 minutes before breakfast — today is your highest-intensity day, so start it properly.",
+            ],
+            {
+              prep: "15 min (mostly soaking)",
+              cook: "0 min",
+              serves: "1",
+              tip: "Drink through a wide straw if the texture still bothers you.",
+            },
           ),
           meal(
             "8:00 AM",
             "Breakfast: oat and tok doi bowl",
             [
-              "4 tbsp rolled oats",
-              "1 small bowl plain tok doi",
+              "4 tbsp (about 40 g) rolled oats",
+              "1 small bowl (about 150 g) plain tok doi",
               "1 tsp chia seeds",
               "1 guava or apple",
-              "5 almonds",
+              "5 almonds (katha badam)",
             ],
             [
-              "Put tok doi in a bowl.",
-              "Mix in oats and chia seeds.",
-              "Let sit 10 minutes for softer texture.",
-              "Add chopped fruit on top.",
-              "Top with almonds. No sweetener.",
+              "Spoon the tok doi into a bowl and stir briskly if it has separated in the fridge, until smooth.",
+              "Stir in the dry rolled oats and chia seeds directly — no cooking needed today. The yogurt's moisture and a short rest do the softening work instead.",
+              "Let the bowl sit for 10 minutes at room temperature. The oats soften from crunchy to a pleasant chewy texture and the chia starts to gel slightly — this is what turns it from 'yogurt with raw oats' into an actual bowl you'd want to eat.",
+              "While it sits, wash and chop the guava or apple into small cubes.",
+              "Once the 10 minutes are up, fold the chopped fruit into the bowl or layer it on top.",
+              "Roughly crush the almonds with the back of a spoon and scatter them on right before eating, so they stay crunchy against the soft oats.",
+              "Eat as is — no honey or sugar needed.",
             ],
+            {
+              prep: "12 min (includes 10 min rest)",
+              cook: "0 min",
+              serves: "1",
+              tip: "This is basically a same-day version of overnight oats — for an even softer texture, mix the tok doi, oats, and chia the night before and refrigerate, adding the fruit and almonds fresh in the morning.",
+            },
           ),
           meal(
             "11:00 AM",
-            "Snack: motor chaat",
+            "Snack: motor chaat (spiced yellow pea salad)",
             [
-              "Half cup boiled motor dal",
-              "Cucumber, tomato, onion, coriander, lemon",
+              "100 g (about half cup) dry yellow split peas (motor dal)",
+              "1 small cucumber, finely diced",
+              "1 medium tomato, finely diced",
+              "Small handful coriander, chopped",
+              "Juice of half a lemon",
+              "Pinch each of salt, black pepper, and roasted cumin powder",
             ],
             [
-              "Boil motor dal, drain, cool. Mix with chopped vegetables and lemon. No oil.",
+              "Soak the dal 30 minutes, then boil 15 to 20 minutes in fresh water with a pinch of salt and turmeric until a pea mashes easily but holds its shape.",
+              "Drain fully and air-cool 5 minutes before mixing with the cucumber, tomato, and coriander.",
+              "Add the lemon juice, salt, pepper, and cumin powder, toss well, and eat within 30 minutes.",
             ],
+            {
+              prep: "30 min soak + 10 min chop",
+              cook: "20 min",
+              serves: "1",
+              tip: "No oil needed — the lemon and roasted cumin carry the whole flavor.",
+            },
           ),
           meal(
             "1:30 PM",
             "Lunch: grilled fish with rice and dal",
             [
-              "150 g Rui, Katla, or Telapia fish",
-              "1 cup cooked rice",
-              "1 bowl thin dal",
-              "Mixed vegetables",
-              "Lemon, garlic, chili, turmeric",
+              "150 g rui, katla, or telapia fish (one fillet or steak)",
+              "Juice of half a lemon",
+              "2 cloves garlic, minced",
+              "1 green chili, minced",
+              "1/4 tsp turmeric",
+              "Salt to taste",
+              "1/2 tsp oil",
+              "1 level cup cooked rice",
+              "1 bowl thin dal (moong or masoor)",
+              "1 cup mixed vegetables, lightly cooked",
             ],
             [
-              "Season fish with lemon, garlic, chili, turmeric, and salt.",
-              "Brush pan lightly with half tsp oil.",
-              "Cook fish on medium heat 3 to 4 minutes each side until flaky.",
-              "Serve with rice, dal, and vegetables.",
+              "Pat the fish completely dry with a paper towel — this is the single most important step for getting a proper sear instead of a soggy mess that sticks to the pan.",
+              "Mix the lemon juice, minced garlic, chili, turmeric, and a pinch of salt into a quick marinade. Rub it over the fish and let it sit for 10 minutes only — any longer and the acidic lemon starts to break down the flesh and turn it mushy.",
+              "Heat a non-stick pan over medium heat and brush on just 1/2 tsp of oil with a pastry brush or paper towel — a thin, even film, not a puddle.",
+              "Lay the fish in the hot pan and don't move it for the first 3 to 4 minutes, letting a proper crust form. It's ready to flip once the edges turn opaque and it releases easily from the pan with a spatula.",
+              "Flip once, gently, and cook the other side another 3 to 4 minutes until the fish flakes apart easily when pressed with a fork.",
+              "While the fish grills, warm a thin, soupy dal (not thick, since this is meant to be a lighter side) and steam the mixed vegetables until just tender.",
+              "Plate the rice, fish, dal, and vegetables together, with any extra lemon squeezed over the fish right before eating.",
             ],
+            {
+              prep: "10 min marinade + 10 min prep",
+              cook: "10 min",
+              serves: "1",
+              tip: "Don't flip grilled fish more than once — every extra flip is a chance for it to fall apart, and a fillet that's been poked at on the pan never sears properly.",
+            },
           ),
           meal(
             "4:00 PM (30 min before gym)",
             "Pre-workout: banana and black coffee",
-            ["1 medium banana", "1 cup black coffee no sugar"],
             [
-              "Eat banana then coffee. This is the highest-intensity workout day. Fuel properly.",
+              "1 medium ripe banana",
+              "1 cup (200 ml) strong black coffee, no sugar, no milk",
             ],
+            [
+              "Eat the banana on its own about 30 minutes before your warm-up.",
+              "Brew the coffee strong and drink it black in the same window.",
+              "This is your highest-intensity day of the week (HIIT finisher included) — don't skip either part of this step.",
+            ],
+            {
+              prep: "5 min",
+              cook: "0 min",
+              serves: "1",
+              tip: "Fuel properly today specifically — under-fueling before a HIIT finisher is how beginners end up dizzy halfway through the intervals.",
+            },
           ),
           meal(
             "Within 30 min after gym",
-            "Post-workout: egg whites or soybeans",
-            ["3 egg whites OR 50 g dry soya chunks"],
+            "Post-workout: egg white omelet or soya bhuna",
             [
-              "Cook egg white omelet with onion and chili.",
-              "OR boil soya chunks and stir-fry with spices.",
+              "Option A: 3 eggs (whites only), 1 small onion, 1 green chili, 1 drop oil, pinch salt",
+              "Option B: 50 g dry soya chunks, 1 tsp mustard oil, onion, ginger-garlic, cumin, chili powder",
             ],
+            [
+              "Option A: whisk the separated egg whites 20 seconds until frothy, stir in the onion and chili, then cook in a non-stick pan over medium-low heat with a single drop of oil, about 90 seconds per side until fully set.",
+              "Option B: boil the soya chunks 5 minutes, drain, squeeze out the water by hand, then stir-fry in the mustard oil with onion, ginger-garlic, cumin, and chili powder for 8 to 10 minutes until browned.",
+              "Eat within 30 minutes of finishing the HIIT finisher, when your body is most ready to use the protein.",
+            ],
+            {
+              prep: "5 min",
+              cook: "8-10 min",
+              serves: "1",
+              tip: "You'll likely be more depleted after today's HIIT than any other day — this is not the meal to skip or shrink.",
+            },
           ),
           meal(
             "8:30 PM",
             "Dinner: chicken soup",
             [
-              "150 g chicken pieces",
-              "Carrot, cabbage, beans or green papaya",
-              "Ginger, garlic, black pepper, salt",
-              "1 atta roti if still hungry",
+              "150 g chicken pieces (bone-in for more flavor, or boneless)",
+              "1 cup mixed carrot, cabbage, beans, or green papaya, chopped",
+              "1 inch ginger, sliced",
+              "3 cloves garlic, sliced",
+              "Black pepper and salt to taste",
+              "1 atta roti, only if still genuinely hungry",
             ],
             [
-              "Boil chicken with ginger, garlic, pepper, and salt.",
-              "Add vegetables and cook until soft.",
-              "Keep soup broth-heavy, not thick.",
-              "Add roti only if still hungry after the soup.",
+              "Place the chicken in a pot with about 700 ml to 1 liter of water, the sliced ginger and garlic, and a pinch of salt. Bring to a boil and skim off any grey foam that rises in the first few minutes — this keeps the broth clear instead of cloudy.",
+              "Reduce to a gentle simmer and cook 15 to 20 minutes (boneless) or 25 to 30 minutes (bone-in) until the chicken is fully tender and shreds easily with a fork.",
+              "Add the chopped vegetables and simmer another 8 to 10 minutes until soft but not falling apart.",
+              "Season generously with black pepper and adjust salt — pepper does most of the flavor work here, since this soup deliberately stays light after a hard training day rather than using heavy spice.",
+              "Taste the broth — it should be light and broth-heavy, almost like a clear soup, not a thick curry. Top up with a little hot water if it has reduced too much.",
+              "Ladle into a bowl. Only warm a roti on the side if you're still genuinely hungry after finishing the soup, not out of habit.",
             ],
+            {
+              prep: "5 min",
+              cook: "30 min",
+              serves: "1",
+              tip: "This is your hardest training day of the week, so don't be surprised if you're hungrier tonight than usual — that's exactly what the optional roti is there for, not a sign you're doing something wrong.",
+            },
           ),
         ]),
         diet("Sun", "Rest day", [
@@ -3206,95 +3709,160 @@
             "7:30 AM",
             "Morning drink: chia lemon water",
             [
-              "1 tbsp chia seeds",
-              "1 glass warm water",
-              "Juice of half a lemon",
+              "1 tbsp (about 12 g) whole chia seeds",
+              "250 ml room-temperature water, for soaking",
+              "200 ml warm water (not boiling), to finish",
+              "Juice of half a fresh lemon",
             ],
-            ["Soak chia seeds 15 minutes. Add warm water and lemon. Drink."],
+            [
+              "Stir the chia seeds into the room-temperature water hard for 10 seconds so they don't clump.",
+              "Leave for 15 minutes until they swell into a translucent gel.",
+              "Top with the warm water and lemon juice, stirring from the bottom up.",
+              "Drink slowly on an empty stomach and wait 20 minutes before breakfast — full week done, keep the streak going.",
+            ],
+            {
+              prep: "15 min (mostly soaking)",
+              cook: "0 min",
+              serves: "1",
+              tip: "Drink through a wide straw if the gel texture bothers you.",
+            },
           ),
           meal(
             "8:00 AM",
             "Breakfast: vegetable suji (semolina) upma",
             [
-              "Suji (semolina)",
-              "Mixed vegetables (onion, carrot, peas)",
+              "Half cup (about 80 g) suji (semolina)",
+              "1 cup mixed vegetables (onion, carrot, peas), finely diced",
               "1 boiled egg",
-              "Chili, salt",
+              "1 green chili, chopped",
+              "Salt to taste",
               "1 tsp oil",
+              "1 cup water",
+              "Optional: a few mustard seeds or curry leaves",
             ],
             [
-              "Toast suji lightly in a dry pan for 1 to 2 minutes.",
-              "Heat 1 tsp oil. Cook onion and vegetables until soft.",
-              "Add water slowly while stirring. Add toasted suji.",
-              "Stir and cook 4 to 5 minutes until thick.",
-              "Serve with boiled egg.",
+              "Dry-roast the suji in a pan over medium heat for 2 to 3 minutes, stirring constantly, until it turns very lightly golden and smells toasted. Don't let it brown deeply — that turns bitter. Tip it into a bowl and set aside; this step is what keeps the upma from turning gluey later.",
+              "Heat the oil in the same pan. If using mustard seeds, add them now and let them pop for about 10 seconds.",
+              "Add the diced onion and cook 2 to 3 minutes until softened, then add the carrot and peas. Cook another 3 to 4 minutes, stirring, until just tender, not mushy. Stir in the chopped chili.",
+              "Pour in the 1 cup of water and bring to a gentle boil, then season with salt.",
+              "Lower the heat and slowly sprinkle in the toasted suji with one hand while stirring continuously with the other. This is the step that prevents lumps — dumping it all in at once is exactly how upma turns into one dense clump.",
+              "Keep stirring for 1 to 2 minutes until the mixture thickens and pulls cleanly away from the sides of the pan. Cover and let it steam off the heat for 2 minutes.",
+              "Fluff with a fork before serving. Boil the egg separately for 9 minutes, peel, halve, and serve alongside, seasoned with a pinch of salt and pepper.",
             ],
+            {
+              prep: "10 min",
+              cook: "10 min",
+              serves: "1",
+              tip: "Adding the suji slowly while stirring nonstop is the one technique that separates fluffy upma from a single dense lump — don't rush this part even if it feels slow.",
+            },
           ),
           meal(
             "12:00 PM",
             "Lunch: light chicken khichuri",
             [
-              "Moong dal",
-              "Small rice portion (less rice, more dal)",
-              "Chicken pieces",
-              "Vegetables",
-              "Large salad",
+              "1/3 cup rice",
+              "2/3 cup moong dal (deliberately more dal than rice)",
+              "100 to 120 g chicken pieces",
+              "1 small onion, sliced",
+              "1/2 tsp ginger-garlic paste",
+              "1/4 tsp turmeric, 1/4 tsp cumin powder",
+              "1 cup mixed vegetables (potato, carrot, beans), chopped",
+              "1 tsp oil, salt to taste",
+              "Large fresh salad, for the side",
             ],
             [
-              "Wash dal and rice together.",
-              "Cook dal-heavy khichuri with more dal than rice.",
-              "Add chicken pieces for protein.",
-              "Serve with large salad. Skip ghee.",
+              "Wash the rice and moong dal together under running water until it runs mostly clear, then drain.",
+              "Dry-roast the drained dal in a dry pan over medium heat for 2 to 3 minutes until it smells lightly toasted and turns a shade darker — a classic khichuri step that deepens the flavor before it's even boiled.",
+              "Heat the oil in a pot, fry the sliced onion until soft and light golden (about 3 minutes), then add the ginger-garlic paste, turmeric, and cumin, stirring 1 minute until fragrant.",
+              "Add the chicken pieces and sear 3 to 4 minutes per side until lightly browned on the outside — it doesn't need to be cooked through yet.",
+              "Add the toasted rice, dal, and chopped vegetables, stirring everything to coat in the spice base.",
+              "Pour in about 3 cups of water (more than you'd use for plain rice, since khichuri should end up soft and porridge-like, not separate grains). Bring to a boil, then reduce to a simmer.",
+              "Cover partially and cook 20 to 25 minutes, stirring every 5 minutes so nothing sticks at the bottom, until the rice and dal have completely broken down and the chicken is fork-tender. Add hot water if it dries out before everything softens.",
+              "Season with salt and skip the traditional finishing ghee — that's the one swap that keeps this version light enough for a rest-day lunch.",
+              "Serve in a bowl with a large fresh salad of cucumber, tomato, and onion on the side.",
             ],
+            {
+              prep: "10 min",
+              cook: "30 min",
+              serves: "1",
+              tip: "Because there's deliberately more dal than rice here, this khichuri runs naturally lower in carbs and higher in protein than the festival version — don't flip that ratio even if it tastes 'better' with more rice.",
+            },
           ),
           meal(
             "4:00 PM",
             "Snack: papaya and tok doi",
             [
-              "Papaya bowl",
-              "Plain tok doi",
+              "1 cup ripe papaya, cubed",
+              "1 small bowl (about 150 g) plain tok doi",
               "1 tsp chia seeds",
-              "Optional cinnamon",
+              "Pinch of cinnamon, optional",
             ],
             [
-              "Cut papaya into cubes.",
-              "Add plain tok doi.",
-              "Mix in chia seeds. Wait 5 minutes.",
-              "Sprinkle cinnamon if you like. Keep it unsweetened.",
+              "Peel the papaya, scoop out the seeds, and cut the flesh into small, even cubes. Ripe papaya should give slightly under gentle pressure, similar to a ripe mango.",
+              "Spoon the tok doi into a bowl, stirring first if it has separated in the fridge.",
+              "Add the papaya cubes and chia seeds, folding gently so the papaya doesn't break down into mush.",
+              "Let it rest 5 minutes so the chia seeds soften slightly and start absorbing some of the yogurt's moisture.",
+              "Sprinkle a pinch of cinnamon on top if you like — it adds warmth without adding any sugar.",
+              "Eat right away while the papaya still has texture; it softens further and gets watery the longer it sits in the yogurt.",
             ],
+            {
+              prep: "8 min (includes 5 min rest)",
+              cook: "0 min",
+              serves: "1",
+              tip: "Papaya is one of the easiest fruits to digest, which is part of why it pairs so well with tok doi on a rest day when your body is focused on recovery, not tough digestion.",
+            },
           ),
           meal(
             "8:00 PM",
             "Dinner: fish salad plate",
             [
-              "Grilled fish (any local variety)",
+              "150 g any local fish fillet (rui, katla, telapia, or pangas)",
+              "1/2 tsp oil",
+              "Salt, black pepper, squeeze of lemon, for the fish",
               "Large salad: cucumber, tomato, onion, carrot",
-              "Lemon, black pepper",
-              "Half cup rice only if still hungry",
+              "Lemon juice and black pepper, for the salad",
+              "Half cup rice, only if still hungry",
             ],
             [
-              "Grill or pan-cook fish with minimal oil and spices.",
-              "Make a large salad with lemon and black pepper.",
-              "Eat salad first, then fish.",
-              "Add half cup rice only if genuinely hungry.",
+              "Pat the fish dry and season both sides with salt, black pepper, and a squeeze of lemon. Let it sit 5 to 10 minutes.",
+              "Heat a pan over medium heat with the oil brushed thin across the surface.",
+              "Grill or pan-cook the fish 3 to 4 minutes per side until it flakes easily with a fork and is opaque all the way through. Avoid pressing down on it with the spatula — that squeezes out moisture and dries it out.",
+              "While the fish cooks, thinly slice the cucumber, tomato, and onion, and grate the carrot. Toss together in a large bowl.",
+              "Dress the salad with a generous squeeze of lemon juice and a good crack of black pepper — no oil needed in the dressing since the fish already carries some.",
+              "Plate the salad first, filling most of the plate, then place the fish on top or beside it.",
+              "Eat the salad first, then the fish, slowly. Only add a measured half cup of rice afterward if you're still genuinely hungry, not out of habit — this is meant to be your lightest meal of the week, heading into a fresh training week tomorrow.",
             ],
+            {
+              prep: "10 min",
+              cook: "8 min",
+              serves: "1",
+              tip: "Building the plate 'salad first, protein second, carbs last and optional' is a simple trick that controls portions naturally without needing to count anything.",
+            },
           ),
           meal(
             "Meal prep for the week",
             "Sunday prep guide",
             [
-              "6 to 8 eggs for boiling",
-              "Batch of chicken breast",
-              "Motor dal for soaking",
-              "Portion rice into measuring cups",
+              "6 to 8 eggs, for boiling",
+              "600 to 750 g chicken breast, for batch-cooking",
+              "200 g dry motor dal, for soaking",
+              "Rice, portioned into measuring cups",
             ],
             [
-              "Boil 6 to 8 eggs. Store in fridge for the week.",
-              "Cook a batch of chicken breast. Portion into 150 g servings.",
-              "Soak motor dal tonight for quick cooking Monday.",
-              "Portion rice into cups ready to cook.",
-              "This 30 minutes saves you 30 minutes every day.",
+              "Bring a large pot of water to a rolling boil and gently lower in the eggs with a spoon. Boil exactly 9 minutes from the moment the water returns to a full boil, then transfer immediately to a bowl of cold water for 5 minutes before peeling. Store in a sealed container in the fridge — they keep well for up to 5 days, peeled or unpeeled.",
+              "Pat the chicken breast batch dry and season simply with salt, turmeric, and a little cumin. Grill, bake, or pan-sear it in batches until cooked through with no pink and clear juices.",
+              "Let the chicken cool fully on a rack before portioning — packing it away hot traps steam inside the container and makes it soggy by the next day.",
+              "Once cool, slice or cube the chicken and divide into roughly 150 g portions, using a kitchen scale if you have one or your palm size as a rough guide. Store in separate containers or sealed bags in the fridge or freezer.",
+              "Rinse the dry motor dal and leave it soaking in a bowl of water in the fridge overnight — by Monday morning it's already halfway cooked, cutting your 11 AM snack prep time in half.",
+              "If you prefer reheating over cooking daily, cook a batch of rice and portion it into 1-cup containers so a single lunch is always grab-and-go.",
+              "Spend a final 5 minutes laying out tomorrow's ingredients on the counter or fridge door, so Monday morning isn't the first time you're hunting for the ginger-garlic paste.",
             ],
+            {
+              prep: "10 min active + overnight soak",
+              cook: "30 min",
+              serves: "Whole week",
+              tip: "This entire block takes about 30 to 40 minutes once you're doing it weekly, and it's the single biggest reason people actually stay consistent with a diet plan — cooking from zero every day is what causes people to quit, not the food itself.",
+            },
           ),
         ]),
       ];
@@ -3305,26 +3873,39 @@
           [
             "500 ml clean water",
             "1 to 2 tbsp fresh lemon juice",
-            "Tiny pinch of salt",
-            "Optional 1 tsp honey on hard leg days",
+            "Tiny pinch of salt (a 1/8 tsp or less)",
+            "Optional 1 tsp honey, only on hard leg or HIIT days",
           ],
           [
-            "Pour water into a bottle.",
-            "Add lemon juice and a tiny pinch of salt.",
-            "Shake well.",
-            "Sip during training. Do not make it too salty.",
-            "Use only plain water for normal sessions.",
+            "Pour the 500 ml of water into a bottle with a tight lid.",
+            "Squeeze in the lemon juice — roll the lemon against the counter first to get more juice out before cutting it.",
+            "Add the tiny pinch of salt. Less is more here — you're topping up the sodium you sweat out, not making seawater. If you can taste the salt distinctly, you've added too much.",
+            "On Wednesday or Saturday (your heaviest leg and HIIT sessions), stir in 1 tsp of honey for a little extra quick energy. Skip the honey on lighter days like push or pull.",
+            "Close the bottle and shake well until everything is dissolved.",
+            "Sip steadily throughout training rather than chugging it all at once — small sips every few minutes keep you hydrated without the sloshing, bloated feeling a big gulp causes mid-set.",
           ],
+          {
+            prep: "3 min",
+            cook: "0 min",
+            serves: "1 bottle",
+            tip: "Use only plain water for an average session — this drink is specifically for your hardest, sweatiest days, not a daily default.",
+          },
         ),
         drink(
           "Black Coffee Pre-Workout",
-          ["1 cup black coffee", "No sugar", "No milk"],
+          ["1 cup (200 ml) strong black coffee", "No sugar", "No milk"],
           [
-            "Brew strong black coffee.",
-            "Drink 20 to 30 minutes before gym.",
-            "Caffeine increases fat used as fuel during exercise.",
-            "Maximum 1 to 2 cups per day. More causes anxiety and disrupts sleep.",
+            "Use about 2 tablespoons of ground coffee per cup if brewing with a press or moka pot, or your instant coffee's strongest recommended measurement.",
+            "Brew or steep for the full recommended time so the caffeine actually extracts — a rushed, weak cup won't give you the same effect.",
+            "Drink it black, no sugar or milk, 20 to 30 minutes before you start your warm-up. This timing matters: caffeine peaks in your blood roughly 30 to 45 minutes after drinking, so too early or too late and you miss the window during your actual lifts.",
+            "Sip rather than gulp, especially if your stomach is mostly empty — drinking it too fast is what usually causes the jittery feeling people blame on the coffee itself.",
           ],
+          {
+            prep: "5 min",
+            cook: "0 min",
+            serves: "1",
+            tip: "Cap it at 1 to 2 cups a day total, counting this one. Going beyond that mostly adds anxiety and disrupts sleep, which costs you more recovery than the extra caffeine could ever add in fat burned.",
+          },
         ),
         drink(
           "Homemade Electrolyte Water",
@@ -3335,12 +3916,17 @@
             "Juice of half a lemon",
           ],
           [
-            "Use this only when sweating heavily or training in very hot weather.",
-            "Mix water, sugar or honey, salt, and lemon.",
-            "Shake until dissolved.",
-            "Sip during or after training.",
-            "Avoid on light sessions as the sugar adds calories.",
+            "Reserve this one specifically for sessions where you're sweating heavily or training in genuinely hot, humid weather — not as an everyday drink.",
+            "Pour the water into a bottle, then add the sugar or honey, the pinch of salt, and the lemon juice.",
+            "Shake vigorously for about 20 seconds until the sugar and salt have fully dissolved — undissolved sugar just sinks to the bottom and you'll get an overly sweet last sip.",
+            "Sip during or right after training, while you're still actively replacing what you sweated out.",
           ],
+          {
+            prep: "3 min",
+            cook: "0 min",
+            serves: "1 bottle",
+            tip: "Skip this on a normal, light session — the added sugar is only worth it when you're genuinely losing a lot of fluid through sweat, otherwise it's just extra calories with no real benefit.",
+          },
         ),
       ];
 
@@ -3900,10 +4486,16 @@
             <ul>${item.items.map((f) => `<li>${f}</li>`).join("")}</ul>
             <button class="btn small recipe-toggle" type="button" data-recipe="${index}">Recipe</button>
             <div class="recipe" id="recipe-${index}">
+              <div class="recipe-meta">
+                ${item.info.prep ? `<span class="pill">Prep ${item.info.prep}</span>` : ""}
+                ${item.info.cook ? `<span class="pill">Cook ${item.info.cook}</span>` : ""}
+                ${item.info.serves ? `<span class="pill">Serves ${item.info.serves}</span>` : ""}
+              </div>
               <h4>Ingredients</h4>
               <ul>${item.items.map((f) => `<li>${f}</li>`).join("")}</ul>
-              <h4>Step by step</h4>
+              <h4>Method</h4>
               <ol>${item.steps.map((s) => `<li>${s}</li>`).join("")}</ol>
+              ${item.info.tip ? `<div class="safety-note"><b>Chef's tip:</b> ${item.info.tip}</div>` : ""}
             </div>
           </article>`,
           )
@@ -3928,10 +4520,16 @@
             <ul>${item.items.map((i) => `<li>${i}</li>`).join("")}</ul>
             <button class="btn small recipe-toggle" type="button" data-drink="${index}">Recipe</button>
             <div class="recipe" id="drink-${index}">
+              <div class="recipe-meta">
+                ${item.info.prep ? `<span class="pill">Prep ${item.info.prep}</span>` : ""}
+                ${item.info.cook ? `<span class="pill">Cook ${item.info.cook}</span>` : ""}
+                ${item.info.serves ? `<span class="pill">Serves ${item.info.serves}</span>` : ""}
+              </div>
               <h4>Ingredients</h4>
               <ul>${item.items.map((i) => `<li>${i}</li>`).join("")}</ul>
-              <h4>Step by step</h4>
+              <h4>Method</h4>
               <ol>${item.steps.map((s) => `<li>${s}</li>`).join("")}</ol>
+              ${item.info.tip ? `<div class="safety-note"><b>Chef's tip:</b> ${item.info.tip}</div>` : ""}
             </div>
           </article>`,
         ).join("");
