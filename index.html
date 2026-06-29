@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -946,6 +946,10 @@
         background: var(--blue-soft);
         font-size: 0.9rem;
       }
+      .safety-note.alt {
+        border-left-color: var(--gold);
+        background: rgba(247, 211, 106, 0.12);
+      }
       .stats {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1552,40 +1556,43 @@
               <span class="eyebrow">Halal diet</span>
               <h2>Cut weight without starving your muscle.</h2>
               <p>
-                Bangladesh-friendly halal foods, full recipes with step-by-step
-                instructions, and pre and post-workout meals. Daily target:
-                1,900 calories, 120 to 150 g protein.
+                Bangladesh-friendly halal foods, a 2-meal-rotation system, full
+                recipes with step-by-step instructions, and pre and
+                post-workout meals. Daily target: 1,800-2,000 calories, 120
+                to 170 g protein, max 1 to 1.5 tsp oil per cooked meal.
               </p>
             </div>
           </div>
           <div class="stats">
             <div class="stat"><span>Current</span><b>86 kg</b></div>
             <div class="stat"><span>Target</span><b>70 kg</b></div>
-            <div class="stat"><span>Protein</span><b>120-150g</b></div>
-            <div class="stat"><span>Calories</span><b>1900</b></div>
+            <div class="stat"><span>Protein</span><b>120-170g</b></div>
+            <div class="stat"><span>Calories</span><b>1800-2000</b></div>
           </div>
           <div class="rule-grid">
             <article class="rule-panel">
               <h3>Calorie deficit</h3>
               <p>
-                Aim for 500 to 750 kcal below maintenance per day. This gives
-                0.5 to 1 kg loss per week without losing muscle. If weight stops
-                dropping for 2 weeks, reduce rice portion slightly.
+                Aim for about 500 kcal below maintenance per day (≈1.4-2.0 g
+                protein per kg bodyweight). This gives roughly 0.5 kg loss per
+                week without losing muscle. If weight stops dropping for 2
+                weeks, reduce rice portion slightly.
               </p>
             </article>
             <article class="rule-panel">
               <h3>Measure portions</h3>
               <p>
-                1 cup cooked rice, 150 g chicken or fish, 2 tsp oil total per
-                day. Even clean food causes fat gain if you overeat. Use a
-                kitchen scale or measuring cup.
+                100 g cooked rice, 100-150 g chicken or fish, 1 to 1.5 tsp oil
+                per cooked meal (mustard or olive oil), no deep frying. Even
+                clean food causes fat gain if you overeat — use a kitchen
+                scale or measuring cup.
               </p>
             </article>
             <article class="rule-panel">
               <h3>Protein every meal</h3>
               <p>
                 Eggs, fish, chicken, dal, soya chunks, and boiled motor dal. Hit
-                120 to 150 g protein daily to preserve muscle while losing fat.
+                120 to 170 g protein daily to preserve muscle while losing fat.
                 This is the single most important diet rule.
               </p>
             </article>
@@ -1735,11 +1742,12 @@
               </p>
             </article>
             <article class="rule-panel">
-              <h3>Oil limit: 2 tsp per day</h3>
+              <h3>Oil limit: 1 to 1.5 tsp per meal</h3>
               <p>
                 Oil is pure fat and the easiest way to accidentally overshoot
                 your calorie limit. Buy a small measuring spoon. Use a maximum
-                of 2 tsp total across all your meals for the day.
+                of 1 to 1.5 tsp (mustard or olive oil) per cooked meal, and
+                avoid deep frying completely.
               </p>
             </article>
             <article class="rule-panel">
@@ -1749,6 +1757,21 @@
                 For a beginner, more volume than this causes soreness that stops
                 you showing up the next day. Quality over quantity builds the
                 habit first.
+              </p>
+            </article>
+            <article class="rule-panel">
+              <h3>Pelvic floor: how long, and is it forever?</h3>
+              <p>
+                Weeks 1-2: you're just learning to find and feel the right
+                muscle — progress feels invisible, that's normal. Weeks 3-6:
+                holds get noticeably easier and stop needing full
+                concentration. By week 6-12 most people notice real
+                improvements in control and performance. After that, the
+                muscle plateaus on the basic squeeze — which is why there are
+                4 different moves (slow holds, quick flicks, relaxation, and
+                a bridge) instead of 1. Long-term, keep doing 2-3 short
+                sessions a week for life, the same way you'd keep brushing
+                your teeth — it's maintenance, not a phase you graduate from.
               </p>
             </article>
           </div>
@@ -1832,6 +1855,62 @@
         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m21 15-5-5L5 21"/><circle cx="8.5" cy="8.5" r="1.5"/></svg>';
       const iconTarget =
         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg>';
+
+      // ─── DATA: NO-EQUIPMENT SWAPS ──────────────────────────────────────────────
+      // Plain-language swap for each gym exercise, for days you train at home
+      // or the gym is closed/crowded. Keyed by the exact exercise name.
+      const NO_EQUIPMENT_ALT = {
+        "Dumbbell Chest Press (flat bench)":
+          "No dumbbells or bench? Just do regular push-ups on the floor. Same chest muscles, zero equipment.",
+        "Incline Dumbbell Press":
+          "No incline bench? Rest your feet on a low step or chair and do push-ups with your hands on the floor — this hits the same upper-chest area.",
+        "Chest Fly (machine or dumbbell)":
+          "No machine? Do wide push-ups — hands placed wider than your shoulders. It stretches and squeezes the chest in a similar way.",
+        "Seated Shoulder Press (machine or dumbbell)":
+          "No dumbbells? Fill a backpack with books and press it overhead, or do pike push-ups (hips lifted high, head pointing toward the floor).",
+        "Tricep Rope Pushdown (cable)":
+          "No cable machine? Do chair dips instead — hands on the edge of a sturdy chair behind you, lower your hips down, then push back up.",
+        "Lat Pulldown (machine)":
+          "No machine? Loop a towel or resistance band over a sturdy door top or railing and pull it down toward your chest, leaning back slightly.",
+        "Seated Cable Row":
+          "No cable machine? Use the same towel/band pull as above, or try inverted rows — lie under a sturdy table, grab the edge, and pull your chest up to it.",
+        "One-Arm Dumbbell Row":
+          "No dumbbell? Use a full water bottle, a bag of rice, or a backpack with a few books in it.",
+        "Face Pull (cable)":
+          "No cable? Loop a resistance band around a door handle at face height and pull it toward your face, keeping your elbows high.",
+        "Dumbbell Bicep Curl":
+          "No dumbbells? Curl a full water bottle or a bag of rice/lentils — exactly the same movement.",
+        "Goblet Squat (hold 1 dumbbell at chest)":
+          "No dumbbell? Hold a bag of rice or a loaded backpack at your chest, or just squat with bodyweight only and go a little deeper to make it harder.",
+        "Goblet Squat":
+          "No dumbbell? Hold a bag of rice or a loaded backpack at your chest, or just squat with bodyweight only and go a little deeper to make it harder.",
+        "Leg Press Machine":
+          "No machine? Do extra bodyweight squats or walking lunges instead — same leg muscles, no machine needed.",
+        "Romanian Deadlift (dumbbells)":
+          "No dumbbells? Hold two full water bottles or two bags of rice, one in each hand.",
+        "Seated Leg Curl (machine)":
+          "No machine? Do glute bridges instead (lie on your back, push your hips up) — it works the hamstrings in a similar way.",
+        "Standing Calf Raise":
+          "No equipment needed for this one — just stand on the edge of a step. Hold a bag of rice in each hand only if it starts feeling too easy.",
+        "Crunches or Hanging Knee Raises":
+          "No pull-up bar? Just do the floor crunches instead — same result, no bar needed.",
+        "Single-Arm Dumbbell Row":
+          "No dumbbell? Use a full water bottle, a bag of rice, or a backpack with books.",
+        "Dumbbell Lateral Raise":
+          "No dumbbells? Hold two full water bottles and raise them out to your sides like wings.",
+        "Push-ups (floor or on knees)":
+          "Already equipment-free! If it's too hard, just drop down to your knees instead of staying on your toes.",
+        "Tricep Bench Dip":
+          "No bench? Use a sturdy chair, a low table, or even the edge of a bed.",
+        "Leg Extensions (machine)":
+          "No machine? Do extra bodyweight squats or step-ups onto a low step or stair instead.",
+        "Dumbbell Romanian Deadlift":
+          "No dumbbells? Hold two full water bottles or two bags of rice, one in each hand.",
+        "Standing Calf Raises":
+          "No equipment needed — stand on the edge of a step. Add a bag of rice in each hand once it feels too easy.",
+        "Plank Hold":
+          "Already equipment-free — this one just needs floor space, nothing else.",
+      };
 
       // ─── DATA: WARM-UPS PER DAY ───────────────────────────────────────────────
       const WARMUPS_BY_DAY = {
@@ -2066,7 +2145,625 @@
           focus: "Push — Chest, Shoulders, Triceps",
           duration: "60-65 min",
           note: "Pushing movements only. Chest, shoulders, and triceps. Never work the same muscle group two days in a row.",
+          finisher: {
+            name: "Incline Treadmill Walk",
+            detail:
+              "15 min — speed 4.5 to 5.0 km/h, incline 6 to 8. Walk briskly. Do not hold the rails or you lose the calorie burn effect.",
+            xp: 28,
+            cal: 120,
+          },
+        },
+        {
+          id: 2,
+          day: "Tuesday",
+          abbr: "Tue",
+          type: "gym",
+          focus: "Pull — Back, Biceps",
+          duration: "60-65 min",
+          note: "Pulling movements. Back and biceps. After a push day, these muscles are fresh and ready.",
+          finisher: {
+            name: "Stationary Bike",
+            detail:
+              "15 min at moderate pace — mid resistance level. Keep a steady rhythm.",
+            xp: 24,
+            cal: 100,
+          },
+        },
+        {
+          id: 3,
+          day: "Wednesday",
+          abbr: "Wed",
+          type: "gym",
+          focus: "Legs + Abs",
+          duration: "65 min",
+          note: "Lower body and core. Highest calorie-burning session of the week. Do not skip this day.",
+          finisher: {
+            name: "Elliptical Trainer",
+            detail:
+              "15 min at steady fast pace. The elliptical is easier on knees after a heavy leg session.",
+            xp: 24,
+            cal: 110,
+          },
+        },
+        {
+          id: 4,
+          day: "Thursday",
+          abbr: "Thu",
+          type: "home",
+          focus: "Active Recovery",
+          duration: "40-45 min",
+          note: "No gym. Walk 10,000 steps, stretch, and hydrate. Muscles grow during rest, not during the workout.",
           exercises: [
+            ex(
+              "Walk 10,000 steps",
+              "Recovery",
+              1,
+              "30-45 min",
+              "-",
+              "Walk at a pace where you can speak easily. No need to sweat.",
+              [
+                "Walk outside or in place.",
+                "Aim for 10,000 steps throughout the day.",
+                "Keep pace easy and comfortable.",
+                "This keeps blood flowing to your recovering muscles.",
+              ],
+              1.0,
+              80,
+            ),
+            ex(
+              "Dynamic Stretching",
+              "Mobility",
+              1,
+              "10 min",
+              "-",
+              "Leg swings, hip circles, arm circles, shoulder rolls. Loosen everything.",
+              [
+                "Swing each leg forward and backward 10 times.",
+                "Do hip circles 10 each direction.",
+                "Roll shoulders forward and backward.",
+                "Gentle only. Never force range of motion.",
+              ],
+              1.0,
+              20,
+            ),
+            ex(
+              "Deep Breathing or Light Yoga",
+              "Recovery",
+              1,
+              "10 min",
+              "-",
+              "Slow breaths. Relax the nervous system. Help digestion and sleep quality.",
+              [
+                "Sit or lie comfortably.",
+                "Inhale for 4 counts.",
+                "Hold for 4 counts.",
+                "Exhale for 4 counts. Repeat 10 times.",
+              ],
+              1.0,
+              10,
+            ),
+          ],
+        },
+        {
+          id: 5,
+          day: "Friday",
+          abbr: "Fri",
+          type: "gym",
+          focus: "Upper Body Mix",
+          duration: "60-65 min",
+          note: "Balanced upper day. Both push and pull muscles so they grow together. Fresh muscles after Thursday rest.",
+          finisher: {
+            name: "Incline Treadmill Walk",
+            detail:
+              "20 min — speed 4.8 km/h, incline 7. This is the longest cardio finisher of the week. Pace yourself.",
+            xp: 34,
+            cal: 140,
+          },
+        },
+        {
+          id: 6,
+          day: "Saturday",
+          abbr: "Sat",
+          type: "gym",
+          focus: "Lower Body + HIIT",
+          duration: "65 min",
+          note: "Legs and core, then HIIT to maximise calorie burn before the weekend rest. Highest-intensity session.",
+          finisher: {
+            name: "HIIT Bike or Rower",
+            detail:
+              "15 min — 30 seconds all-out hard effort, then 60 seconds easy recovery. Repeat 7 to 8 rounds. This burns the most calories of any finisher this week.",
+            xp: 38,
+            cal: 160,
+          },
+        },
+        {
+          id: 0,
+          day: "Sunday",
+          abbr: "Sun",
+          type: "home",
+          focus: "Full Rest",
+          duration: "Rest day",
+          note: "Gym is closed. Sleep 7 to 8 hours. Meal prep for the week ahead. Your body rebuilds muscle tissue during this rest.",
+          exercises: [
+            ex(
+              "Light Walk",
+              "Recovery",
+              1,
+              "20-30 min",
+              "-",
+              "Easy pace only. No targets. Just move gently and enjoy the rest day.",
+              [
+                "Walk outside or around the house.",
+                "Easy enough for comfortable conversation.",
+                "Stop early if legs feel heavy from Saturday.",
+                "This is not cardio. It is active recovery.",
+              ],
+              1.0,
+              60,
+            ),
+            ex(
+              "Meal Prep",
+              "Nutrition",
+              1,
+              "30-45 min",
+              "-",
+              "Prepare chicken, boil eggs, soak dal. Preparation makes clean eating easy all week.",
+              [
+                "Boil 6 to 8 eggs for the week.",
+                "Cook a batch of chicken breast to portion.",
+                "Soak motor dal or chana for the next day.",
+                "Portion rice into cups so it is ready to cook.",
+              ],
+              1.0,
+              20,
+            ),
+            ex(
+              "Sleep 7 to 8 hours",
+              "Recovery",
+              1,
+              "Tonight",
+              "-",
+              "This is the most important recovery action. Sleep is when fat loss and muscle building happen.",
+              [
+                "Aim to sleep before midnight.",
+                "Keep room cool and dark.",
+                "Avoid phone screens 30 minutes before bed.",
+                "Poor sleep directly increases hunger the next day.",
+              ],
+              1.0,
+              0,
+            ),
+          ],
+        },
+      ];
+
+      // ─── DATA: PELVIC FLOOR PROGRAM ────────────────────────────────────────────
+      // 3 phases tied to the same Level (1-6) you use for the main lifts.
+      // Thursday and Sunday each get a DIFFERENT set of moves, and the whole
+      // set changes again every time you level up — so this never stays
+      // the same routine forever.
+      const PELVIC_PROGRAM = [
+        {
+          label: "Foundation & Control",
+          levelRange: "Level 1-2",
+          thu: [
+            ex(
+              "Pelvic Floor Finder + Slow Holds",
+              "Pelvic floor",
+              3,
+              "10 reps × 5s hold",
+              "30s",
+              "The foundation move. Squeeze the muscle you'd use to pause urine flow or hold in gas, hold, then let go fully. Master this first — every later move builds on it.",
+              [
+                "First, find the right muscle (only needs doing once, ever): next time you urinate, try pausing the flow for one second. That muscle is your pelvic floor. Don't make a habit of stopping urine flow regularly — this is only to learn the feeling.",
+                "Sit or lie down with an empty bladder. Breathe normally — never hold your breath during a rep.",
+                "Squeeze and lift that muscle as if holding in gas. Hold for 5 seconds. Keep your glutes, abs, and thighs relaxed — if your stomach or backside tightens, you're using the wrong muscles.",
+                "Release completely and rest 5 to 10 seconds before the next rep. The release matters as much as the squeeze.",
+                "10 reps, rest 30 seconds, repeat for 3 sets.",
+              ],
+              1.0,
+              6,
+            ),
+            ex(
+              "Reverse Kegels (Relaxation Breaths)",
+              "Pelvic floor",
+              2,
+              "8 breaths",
+              "30s",
+              "The opposite skill — learning to fully relax the pelvic floor instead of just squeezing it. A muscle that only knows how to clench causes just as many problems as a weak one.",
+              [
+                "Lie down or sit with your belly soft and relaxed.",
+                "Inhale into your belly and imagine the pelvic floor gently dropping or releasing downward as you breathe in.",
+                "Exhale and let everything settle back to neutral, with no squeezing at all.",
+                "Repeat slowly for 8 breaths. If it feels confusing at first, that's normal — it usually clicks after a week or two.",
+              ],
+              1.0,
+              4,
+            ),
+            ex(
+              "Glute Bridge (Basic)",
+              "Glutes",
+              3,
+              "12 reps",
+              "30s",
+              "Plain glute bridge, no pelvic floor squeeze yet — this phase is about learning the movement pattern cleanly before combining it with anything else.",
+              [
+                "Lie on your back, knees bent, feet flat on the floor close to your hips.",
+                "Push through your heels and lift your hips up until your body forms a straight line from knees to shoulders.",
+                "Squeeze your glutes hard at the top for 1 second.",
+                "Lower slowly and fully relax at the bottom before the next rep.",
+              ],
+              1.0,
+              12,
+            ),
+            ex(
+              "Deep Squat Hold",
+              "Hips & pelvic region",
+              3,
+              "30s hold",
+              "30s",
+              "An easy hip-opener that improves blood flow to the pelvic region. No strength needed — just hang out down there and breathe.",
+              [
+                "Stand with feet shoulder-width apart, toes slightly turned out.",
+                "Sit down into a deep squat, heels flat on the floor, until your hips are below your knees.",
+                "Rest your elbows lightly against the inside of your knees for balance if needed.",
+                "Breathe slowly and hold the position for 30 seconds. Stand up if your knees or lower back complain.",
+              ],
+              1.0,
+              8,
+            ),
+          ],
+          sun: [
+            ex(
+              "Slow Kegel Holds",
+              "Pelvic floor",
+              3,
+              "10 reps × 5s hold",
+              "30s",
+              "Same foundational squeeze-and-hold from Thursday. Doing it on both days every week — not just one — is what actually builds control over time.",
+              [
+                "Sit or lie comfortably with an empty bladder. Breathe normally throughout.",
+                "Squeeze and lift the pelvic floor as if holding in gas. Hold for 5 seconds.",
+                "Keep your glutes, abs, and thighs relaxed the entire time — only the pelvic floor should be working.",
+                "Release completely for 5 to 10 seconds before the next rep.",
+                "10 reps per set, 3 sets, 30 seconds rest between sets.",
+              ],
+              1.0,
+              6,
+            ),
+            ex(
+              "Quick Flicks",
+              "Pelvic floor",
+              2,
+              "15 reps",
+              "30s",
+              "Fast squeeze-and-release reps. Trains the muscle to react instantly — useful for a sudden cough, sneeze, or jump, not just slow holds.",
+              [
+                "Sit tall or stand comfortably.",
+                "Squeeze quickly for about 1 second, then release immediately.",
+                "Keep a steady rhythm: squeeze, release, squeeze, release.",
+                "Breathe normally the entire time.",
+              ],
+              1.0,
+              5,
+            ),
+            ex(
+              "Clamshells",
+              "Hips & glutes",
+              2,
+              "15 reps each side",
+              "30s",
+              "A new one for this phase. Targets the small hip muscles that support pelvic stability — different muscle angle than anything else in this program.",
+              [
+                "Lie on your side, knees bent about 90 degrees, feet stacked together.",
+                "Keeping your feet touching, open your top knee upward like a clamshell, without rolling your hips back.",
+                "Pause for a second at the top, then lower slowly.",
+                "Do all reps on one side, then switch.",
+              ],
+              1.0,
+              10,
+            ),
+            ex(
+              "Cat-Cow Pelvic Tilts",
+              "Spine & pelvis mobility",
+              2,
+              "10 reps",
+              "20s",
+              "Gentle mobility for the pelvis and lower back — gets the whole region moving instead of just squeezing in place.",
+              [
+                "Start on your hands and knees.",
+                "Inhale, drop your belly, and tilt your pelvis so your tailbone lifts (cow).",
+                "Exhale, round your spine, and tuck your tailbone under (cat).",
+                "Move slowly between the two positions, following your breath.",
+              ],
+              1.0,
+              6,
+            ),
+          ],
+        },
+        {
+          label: "Build Strength & Speed",
+          levelRange: "Level 3-4",
+          thu: [
+            ex(
+              "Slow Kegel Holds (Long Holds)",
+              "Pelvic floor",
+              3,
+              "10 reps × 8s hold",
+              "30s",
+              "Same move as before, longer hold. Once 5-second holds feel easy, 8 seconds is the next honest step — not a brand new exercise, just more time under tension.",
+              [
+                "Sit or lie comfortably with an empty bladder.",
+                "Squeeze and lift the pelvic floor, and hold for 8 seconds this time instead of 5.",
+                "Keep glutes, abs, and thighs relaxed throughout — breathe normally, don't hold your breath.",
+                "Release fully for 8 to 10 seconds before the next rep.",
+              ],
+              1.2,
+              7,
+            ),
+            ex(
+              "Quick Flicks (Faster Pace)",
+              "Pelvic floor",
+              3,
+              "20 reps",
+              "30s",
+              "Same quick-flick pattern, more reps and a quicker rhythm than the Foundation phase — building speed and stamina in the fast-twitch fibers.",
+              [
+                "Stand or sit tall.",
+                "Squeeze and release as fast and cleanly as you can, almost like a fast pulse.",
+                "Don't let the squeezes blur into one long hold — each one should fully release before the next.",
+                "20 reps per set, 3 sets.",
+              ],
+              1.2,
+              6,
+            ),
+            ex(
+              "Bridge with Pelvic Floor Engagement",
+              "Glutes & pelvic floor",
+              3,
+              "12 reps",
+              "30s",
+              "Now that the basic bridge and basic squeeze both feel easy on their own, combine them — this is the actual goal of all the isolated work so far.",
+              [
+                "Lie on your back, knees bent, feet flat close to your hips.",
+                "Gently squeeze your pelvic floor first, then push through your heels to lift your hips.",
+                "Hold 2 seconds at the top, squeezing glutes and pelvic floor together.",
+                "Lower slowly and fully relax everything at the bottom.",
+              ],
+              1.2,
+              14,
+            ),
+            ex(
+              "Bird Dog with Pelvic Floor Engagement",
+              "Core, hips & pelvic floor",
+              3,
+              "8 reps each side",
+              "30s",
+              "A new exercise for this phase. Adds balance and core control on top of the pelvic floor squeeze — closer to how your body actually uses these muscles day to day.",
+              [
+                "Start on hands and knees, back flat like a tabletop.",
+                "Gently squeeze your pelvic floor, then extend one arm forward and the opposite leg back at the same time.",
+                "Hold for 2 seconds, keeping your hips level and not rotating.",
+                "Return to start and switch sides.",
+              ],
+              1.3,
+              12,
+            ),
+          ],
+          sun: [
+            ex(
+              "Reverse Kegels (Extended Breaths)",
+              "Pelvic floor",
+              3,
+              "10 breaths",
+              "30s",
+              "Same relaxation skill, slightly longer set — by now you should recognize the release sensation quickly, so a few more reps builds it into a habit.",
+              [
+                "Sit or lie with your belly soft and relaxed.",
+                "Inhale and let the pelvic floor gently drop or release downward.",
+                "Exhale back to neutral with no squeezing.",
+                "Repeat for 10 breaths instead of 8.",
+              ],
+              1.2,
+              5,
+            ),
+            ex(
+              "Standing Kegel Holds",
+              "Pelvic floor",
+              3,
+              "10 reps × 6s hold",
+              "30s",
+              "A new variation for this phase — doing the same squeeze while standing is genuinely harder than lying or sitting, since gravity adds real load.",
+              [
+                "Stand tall with feet hip-width apart.",
+                "Squeeze and lift the pelvic floor for 6 seconds, keeping your knees soft and your weight even on both feet.",
+                "Release fully for 6 to 8 seconds before the next rep.",
+                "If you feel your hips or glutes taking over, slow down and refocus on the pelvic floor only.",
+              ],
+              1.2,
+              7,
+            ),
+            ex(
+              "Single-Leg Glute Bridge",
+              "Glutes & pelvic floor",
+              2,
+              "8 reps each side",
+              "30s",
+              "A harder version of the basic bridge from the last phase — one leg now carries the full load, which demands more pelvic and core stability to keep your hips level.",
+              [
+                "Lie on your back, knees bent, feet flat.",
+                "Lift one foot off the floor, knee bent toward your chest.",
+                "Push through the other heel to lift your hips, keeping them level — no twisting.",
+                "Lower slowly, then switch legs after all reps on one side.",
+              ],
+              1.3,
+              13,
+            ),
+            ex(
+              "Side-Lying Leg Raise",
+              "Hips & pelvic stability",
+              2,
+              "15 reps each side",
+              "30s",
+              "A new hip-stability exercise. Strengthens the muscles along the side of your hip that help keep your pelvis level when walking, running, or standing on one leg.",
+              [
+                "Lie on your side, legs stacked and straight, head resting on your arm.",
+                "Lift your top leg straight up, keeping it in line with your body — don't let it drift forward.",
+                "Lower slowly without letting it touch down hard.",
+                "Complete all reps, then switch sides.",
+              ],
+              1.2,
+              9,
+            ),
+          ],
+        },
+        {
+          label: "Real-World Integration",
+          levelRange: "Level 5-6",
+          thu: [
+            ex(
+              "Quick Flicks During Marching",
+              "Pelvic floor + coordination",
+              3,
+              "20 reps",
+              "30s",
+              "This is the real test — can you still control the pelvic floor while your body is moving, not just sitting still? That's the entire point of this phase.",
+              [
+                "Stand tall and start marching in place, lifting your knees to about hip height.",
+                "While marching, add a quick pelvic floor squeeze-and-release with every other step.",
+                "Keep your breathing normal and your upper body relaxed.",
+                "20 total flicks, then rest.",
+              ],
+              1.4,
+              16,
+            ),
+            ex(
+              "Wall Sit with Pelvic Floor Hold",
+              "Legs & pelvic floor",
+              3,
+              "30s hold",
+              "30s",
+              "Combines a real isometric leg exercise with a sustained pelvic floor squeeze — training the muscle to stay engaged under genuine physical effort.",
+              [
+                "Lean your back against a wall and slide down until your knees are bent around 90 degrees.",
+                "Once in position, squeeze and hold your pelvic floor for the full 30 seconds.",
+                "Breathe normally — don't hold your breath just because your legs are working hard.",
+                "Slide back up slowly when the 30 seconds is done.",
+              ],
+              1.4,
+              18,
+            ),
+            ex(
+              "Hip Thrust",
+              "Glutes & pelvic floor",
+              3,
+              "12 reps",
+              "45s",
+              "A bigger, more advanced glute movement than the basic bridge — more range of motion, more load on the same muscles you've been training all along.",
+              [
+                "Sit on the floor with your upper back against a couch or low bench, knees bent, feet flat.",
+                "Squeeze your pelvic floor, then drive through your heels to lift your hips until your body is in a straight line from shoulders to knees.",
+                "Squeeze your glutes hard at the top for 1 to 2 seconds.",
+                "Lower with control and fully relax before the next rep.",
+              ],
+              1.4,
+              16,
+            ),
+            ex(
+              "Dead Bug with Pelvic Floor Engagement",
+              "Core & pelvic floor",
+              3,
+              "8 reps each side",
+              "30s",
+              "Trains the pelvic floor to stay active while your limbs move independently — a more advanced coordination challenge than Bird Dog from the last phase.",
+              [
+                "Lie on your back, arms reaching toward the ceiling, knees bent at 90 degrees above your hips.",
+                "Gently squeeze your pelvic floor, then slowly lower one arm and the opposite leg toward the floor without arching your lower back.",
+                "Return to the start and switch sides.",
+                "Move slowly — this is about control, not speed.",
+              ],
+              1.4,
+              14,
+            ),
+          ],
+          sun: [
+            ex(
+              "Long Kegel Holds",
+              "Pelvic floor",
+              3,
+              "8 reps × 10s hold",
+              "30s",
+              "The longest hold in the whole program. By this phase you've built up from 5 to 8 to 10 seconds — each step has been small on purpose.",
+              [
+                "Sit or lie comfortably.",
+                "Squeeze and lift the pelvic floor and hold for the full 10 seconds, breathing normally throughout.",
+                "Release completely for 10 seconds before the next rep.",
+                "8 reps per set, 3 sets. Quality over speed — don't rush the hold just to finish faster.",
+              ],
+              1.4,
+              8,
+            ),
+            ex(
+              "Squat Hold with Pelvic Floor Engagement",
+              "Legs & pelvic floor",
+              3,
+              "20s hold",
+              "30s",
+              "Combines the Deep Squat Hold from phase 1 with an active pelvic floor squeeze — functional strength plus pelvic control at the same time.",
+              [
+                "Sit down into a comfortable squat, heels flat, knees tracking over your toes.",
+                "Once settled, squeeze and hold your pelvic floor for the full 20 seconds.",
+                "Keep breathing normally — this is a hold, not a strain.",
+                "Stand up slowly when finished.",
+              ],
+              1.3,
+              14,
+            ),
+            ex(
+              "Bridge March",
+              "Glutes, core & pelvic floor",
+              3,
+              "10 reps each side",
+              "30s",
+              "An advanced step up from Single-Leg Glute Bridge — you stay lifted the entire time while alternating legs, which demands continuous pelvic and core control.",
+              [
+                "Lie on your back, knees bent, feet flat, and lift into a bridge position.",
+                "Without lowering your hips, lift one knee toward your chest, then lower that foot back down.",
+                "Immediately repeat with the other leg, keeping your hips level and lifted the whole time.",
+                "That's marching in a bridge — continue alternating for all reps.",
+              ],
+              1.4,
+              16,
+            ),
+            ex(
+              "Standing Marching with Kegel",
+              "Pelvic floor + balance",
+              3,
+              "20 reps",
+              "30s",
+              "The most functional move in the whole program — holding pelvic floor engagement while balancing on one leg at a time, which is close to how these muscles get used in everyday life and sport.",
+              [
+                "Stand tall, holding onto a wall or chair lightly for balance if needed.",
+                "Squeeze your pelvic floor, then lift one knee to hip height and hold for 2 seconds.",
+                "Lower and switch legs, keeping the pelvic floor gently engaged throughout.",
+                "Continue alternating for 20 total reps.",
+              ],
+              1.4,
+              16,
+            ),
+          ],
+        },
+      ];
+
+      // ─── DATA: MAIN GYM PROGRAM ─────────────────────────────────────────────────
+      // Same idea as PELVIC_PROGRAM: 3 phases tied to your Level (1-6). The
+      // exercises for every gym day change as you level up, instead of doing
+      // the exact same 5 lifts forever with just slightly more reps.
+      const MAIN_PROGRAM = [
+        {
+          label: "Foundation",
+          levelRange: "Level 1-2",
+          mon: [
             ex(
               "Dumbbell Chest Press (flat bench)",
               "Chest",
@@ -2148,23 +2845,7 @@
               22,
             ),
           ],
-          finisher: {
-            name: "Incline Treadmill Walk",
-            detail:
-              "15 min — speed 4.5 to 5.0 km/h, incline 6 to 8. Walk briskly. Do not hold the rails or you lose the calorie burn effect.",
-            xp: 28,
-            cal: 120,
-          },
-        },
-        {
-          id: 2,
-          day: "Tuesday",
-          abbr: "Tue",
-          type: "gym",
-          focus: "Pull — Back, Biceps",
-          duration: "60-65 min",
-          note: "Pulling movements. Back and biceps. After a push day, these muscles are fresh and ready.",
-          exercises: [
+          tue: [
             ex(
               "Lat Pulldown (machine)",
               "Back",
@@ -2246,23 +2927,7 @@
               20,
             ),
           ],
-          finisher: {
-            name: "Stationary Bike",
-            detail:
-              "15 min at moderate pace — mid resistance level. Keep a steady rhythm.",
-            xp: 24,
-            cal: 100,
-          },
-        },
-        {
-          id: 3,
-          day: "Wednesday",
-          abbr: "Wed",
-          type: "gym",
-          focus: "Legs + Abs",
-          duration: "65 min",
-          note: "Lower body and core. Highest calorie-burning session of the week. Do not skip this day.",
-          exercises: [
+          wed: [
             ex(
               "Goblet Squat (hold 1 dumbbell at chest)",
               "Quads",
@@ -2344,134 +3009,7 @@
               20,
             ),
           ],
-          abs: [
-            ex(
-              "Plank Hold",
-              "Core",
-              3,
-              "30-45s",
-              "45s",
-              "Squeeze glutes and abs. Keep a straight line from head to heels. Breathe.",
-              [
-                "Start in push-up position on forearms.",
-                "Body straight from head to heels.",
-                "Squeeze abs and glutes.",
-                "Breathe normally. Stop if your back sags.",
-              ],
-              1.0,
-              14,
-            ),
-            ex(
-              "Crunches or Hanging Knee Raises",
-              "Core",
-              2,
-              "12-15",
-              "45s",
-              "Pull knees toward chest using core muscles only. Not momentum.",
-              [
-                "For crunches: lie on back, curl upper body toward knees.",
-                "For knee raises: hang from a bar and pull knees to chest.",
-                "Control the descent.",
-                "Never use momentum.",
-              ],
-              1.0,
-              18,
-            ),
-          ],
-          finisher: {
-            name: "Elliptical Trainer",
-            detail:
-              "15 min at steady fast pace. The elliptical is easier on knees after a heavy leg session.",
-            xp: 24,
-            cal: 110,
-          },
-        },
-        {
-          id: 4,
-          day: "Thursday",
-          abbr: "Thu",
-          type: "home",
-          focus: "Active Recovery",
-          duration: "35 min",
-          note: "No gym. Walk 10,000 steps, stretch, and hydrate. Muscles grow during rest, not during the workout.",
-          exercises: [
-            ex(
-              "Walk 10,000 steps",
-              "Recovery",
-              1,
-              "30-45 min",
-              "-",
-              "Walk at a pace where you can speak easily. No need to sweat.",
-              [
-                "Walk outside or in place.",
-                "Aim for 10,000 steps throughout the day.",
-                "Keep pace easy and comfortable.",
-                "This keeps blood flowing to your recovering muscles.",
-              ],
-              1.0,
-              80,
-            ),
-            ex(
-              "Dynamic Stretching",
-              "Mobility",
-              1,
-              "10 min",
-              "-",
-              "Leg swings, hip circles, arm circles, shoulder rolls. Loosen everything.",
-              [
-                "Swing each leg forward and backward 10 times.",
-                "Do hip circles 10 each direction.",
-                "Roll shoulders forward and backward.",
-                "Gentle only. Never force range of motion.",
-              ],
-              1.0,
-              20,
-            ),
-            ex(
-              "Deep Breathing or Light Yoga",
-              "Recovery",
-              1,
-              "10 min",
-              "-",
-              "Slow breaths. Relax the nervous system. Help digestion and sleep quality.",
-              [
-                "Sit or lie comfortably.",
-                "Inhale for 4 counts.",
-                "Hold for 4 counts.",
-                "Exhale for 4 counts. Repeat 10 times.",
-              ],
-              1.0,
-              10,
-            ),
-            ex(
-              "Kegel Exercises (pelvic floor)",
-              "Pelvic floor",
-              3,
-              "10-15 reps",
-              "30s",
-              "Squeeze the muscles you'd use to stop urine flow or hold in gas, hold briefly, then relax fully. Glutes, abs, and thighs stay still throughout.",
-              [
-                "First learn the right muscle: next time you urinate, try stopping the flow halfway through, just once. The muscles that do that are your pelvic floor — don't make a habit of stopping urine flow regularly, this is only to learn the feeling.",
-                "Sit or lie down comfortably with an empty bladder. Breathe normally and never hold your breath during the reps.",
-                "Squeeze and lift the pelvic floor muscles as if holding in gas, hold for 5 seconds, keeping your glutes, abs, and thighs relaxed — if your stomach or backside is tensing, you're using the wrong muscles.",
-                "Release completely for 5 to 10 seconds. The full relax phase matters as much as the squeeze — a pelvic floor that stays tense all the time causes its own issues.",
-                "That's 1 rep. Do 10 to 15 reps per set, 3 sets spread across the day works well (morning, afternoon, evening).",
-                "After 2 to 3 weeks of consistency, increase the hold to 8 to 10 seconds before progressing further. More reps per session beats squeezing harder.",
-              ],
-              1.0,
-              5,
-            ),
-          ],
-        },
-        {
-          id: 5,
-          day: "Friday",
-          abbr: "Fri",
-          type: "gym",
-          focus: "Upper Body Mix",
-          duration: "60-65 min",
-          note: "Balanced upper day. Both push and pull muscles so they grow together. Fresh muscles after Thursday rest.",
-          exercises: [
+          fri: [
             ex(
               "Incline Dumbbell Press",
               "Upper chest",
@@ -2553,23 +3091,7 @@
               22,
             ),
           ],
-          finisher: {
-            name: "Incline Treadmill Walk",
-            detail:
-              "20 min — speed 4.8 km/h, incline 7. This is the longest cardio finisher of the week. Pace yourself.",
-            xp: 34,
-            cal: 140,
-          },
-        },
-        {
-          id: 6,
-          day: "Saturday",
-          abbr: "Sat",
-          type: "gym",
-          focus: "Lower Body + HIIT",
-          duration: "65 min",
-          note: "Legs and core, then HIIT to maximise calorie burn before the weekend rest. Highest-intensity session.",
-          exercises: [
+          sat: [
             ex(
               "Goblet Squat",
               "Quads",
@@ -2651,90 +3173,940 @@
               16,
             ),
           ],
-          finisher: {
-            name: "HIIT Bike or Rower",
-            detail:
-              "15 min — 30 seconds all-out hard effort, then 60 seconds easy recovery. Repeat 7 to 8 rounds. This burns the most calories of any finisher this week.",
-            xp: 38,
-            cal: 160,
-          },
         },
         {
-          id: 0,
-          day: "Sunday",
-          abbr: "Sun",
-          type: "home",
-          focus: "Full Rest",
-          duration: "Rest day",
-          note: "Gym is closed. Sleep 7 to 8 hours. Meal prep for the week ahead. Your body rebuilds muscle tissue during this rest.",
-          exercises: [
+          label: "Build Strength",
+          levelRange: "Level 3-4",
+          mon: [
             ex(
-              "Light Walk",
-              "Recovery",
-              1,
-              "20-30 min",
-              "-",
-              "Easy pace only. No targets. Just move gently and enjoy the rest day.",
+              "Flat Dumbbell Bench Press (heavier)",
+              "Chest",
+              4,
+              "8-10",
+              "75s",
+              "Same flat press as Foundation, but heavier weight and lower reps. The last 2 reps of each set should need real effort.",
               [
-                "Walk outside or around the house.",
-                "Easy enough for comfortable conversation.",
-                "Stop early if legs feel heavy from Saturday.",
-                "This is not cardio. It is active recovery.",
+                "Sit on the bench with a heavier pair of dumbbells than you used at lower levels.",
+                "Lie back and press the dumbbells above your chest.",
+                "Lower under control until your elbows reach 90 degrees.",
+                "Press back up — the last 2 reps of each set should feel genuinely hard.",
               ],
-              1.0,
-              60,
+              1.3,
+              36,
             ),
             ex(
-              "Kegel Exercises (pelvic floor)",
-              "Pelvic floor",
+              "Decline Push-up",
+              "Lower chest & triceps",
               3,
-              "10-15 reps",
-              "30s",
-              "Squeeze the muscles you'd use to stop urine flow or hold in gas, hold briefly, then relax fully. Glutes, abs, and thighs stay still throughout.",
+              "12-15",
+              "60s",
+              "Feet elevated on a step or low bench. This shifts more of the work onto your lower chest and triceps than a flat push-up.",
               [
-                "Sit or lie down comfortably with an empty bladder. Breathe normally and never hold your breath during the reps.",
-                "Squeeze and lift the pelvic floor muscles as if holding in gas, hold for 5 seconds, keeping glutes, abs, and thighs relaxed — if your stomach or backside is tensing, you're using the wrong muscles.",
-                "Release completely for 5 to 10 seconds. The full relax phase matters as much as the squeeze.",
-                "That's 1 rep. Do 10 to 15 reps per set, 3 sets spread across the day.",
-                "Stay consistent for 2 to 3 weeks before judging results — pelvic floor strength, like any muscle, responds to weeks of repetition, not one big session.",
+                "Place your feet on a step, bench, or chair behind you.",
+                "Hands on the floor, slightly wider than shoulder width.",
+                "Lower your chest toward the floor with control.",
+                "Push back up to a straight-arm position.",
               ],
-              1.0,
-              5,
+              1.2,
+              26,
             ),
             ex(
-              "Meal Prep",
-              "Nutrition",
-              1,
-              "30-45 min",
-              "-",
-              "Prepare chicken, boil eggs, soak dal. Preparation makes clean eating easy all week.",
+              "Cable Chest Fly (standing)",
+              "Chest",
+              3,
+              "12-15",
+              "45s",
+              "A standing cable keeps tension on your chest through the entire range, unlike a dumbbell fly which goes slack at the top.",
               [
-                "Boil 6 to 8 eggs for the week.",
-                "Cook a batch of chicken breast to portion.",
-                "Soak motor dal or chana for the next day.",
-                "Portion rice into cups so it is ready to cook.",
+                "Stand between two cable stacks set to chest height.",
+                "Hold a handle in each hand, arms slightly bent.",
+                "Bring your hands together in front of your chest in a hugging motion.",
+                "Open back out slowly, feeling a stretch across your chest.",
               ],
-              1.0,
+              1.1,
+              24,
+            ),
+            ex(
+              "Arnold Press",
+              "Shoulders",
+              3,
+              "10",
+              "60s",
+              "A rotating shoulder press — palms face you at the bottom, face forward at the top. Hits more of the shoulder than a standard press.",
+              [
+                "Hold dumbbells at shoulder height, palms facing you.",
+                "Press up while rotating your palms to face forward at the top.",
+                "Reverse the rotation as you lower back down.",
+                "Keep the movement smooth, not jerky.",
+              ],
+              1.2,
+              28,
+            ),
+            ex(
+              "Overhead Dumbbell Tricep Extension",
+              "Triceps",
+              3,
+              "12",
+              "45s",
+              "Stretches the triceps more than a pushdown because your arms are overhead instead of at your sides.",
+              [
+                "Hold one dumbbell with both hands above your head, arms straight.",
+                "Lower it slowly behind your head by bending only at the elbows.",
+                "Keep your upper arms still — only your forearms move.",
+                "Press back up to straight arms.",
+              ],
+              1.1,
+              22,
+            ),
+          ],
+          tue: [
+            ex(
+              "Band-Assisted Pull-up",
+              "Back",
+              3,
+              "6-8",
+              "75s",
+              "A real step toward a full pull-up. The band takes some of your bodyweight so you can practice the motion with good form.",
+              [
+                "Loop a resistance band over the pull-up bar and place one foot or knee in the loop.",
+                "Grip the bar slightly wider than shoulder width.",
+                "Pull your chest up toward the bar, leading with your elbows.",
+                "Lower under control — don't just drop down.",
+              ],
+              1.3,
+              32,
+            ),
+            ex(
+              "Bent-Over Dumbbell Row (both arms)",
+              "Back",
+              3,
+              "10",
+              "60s",
+              "Both arms at once instead of one at a time — more core and lower-back stability needed to hold the position.",
+              [
+                "Hold a dumbbell in each hand, hinge forward at the hips with a flat back.",
+                "Let the dumbbells hang at arm's length.",
+                "Pull both elbows back, squeezing your shoulder blades together.",
+                "Lower with control without rounding your back.",
+              ],
+              1.3,
+              30,
+            ),
+            ex(
+              "Chest-Supported Row",
+              "Back",
+              3,
+              "10-12",
+              "60s",
+              "Resting your chest on an incline bench removes any chance of cheating with your lower back — it's all back muscle.",
+              [
+                "Lie face-down on an incline bench holding a dumbbell in each hand.",
+                "Let your arms hang straight down.",
+                "Pull both elbows back, squeezing your shoulder blades.",
+                "Lower slowly back to the start.",
+              ],
+              1.2,
+              28,
+            ),
+            ex(
+              "Reverse Cable Fly",
+              "Rear delts",
+              3,
+              "12-15",
+              "45s",
+              "Same rear-delt target as Face Pull, different angle — keeps the muscle guessing instead of doing the identical motion every week.",
+              [
+                "Stand between two cables set above shoulder height.",
+                "Cross your arms and grab the opposite handles.",
+                "Pull your arms out and back in a wide arc, squeezing your shoulder blades.",
+                "Return slowly to the start.",
+              ],
+              1.1,
+              22,
+            ),
+            ex(
+              "Hammer Curl",
+              "Biceps & forearms",
+              3,
+              "12",
+              "45s",
+              "Palms face each other instead of up — shifts some of the work to your forearms as well as your biceps.",
+              [
+                "Stand holding a dumbbell in each hand, palms facing your body.",
+                "Curl one arm up keeping your palm facing in the whole way.",
+                "Squeeze at the top, then lower slowly.",
+                "Switch arms and repeat.",
+              ],
+              1.1,
               20,
             ),
+          ],
+          wed: [
             ex(
-              "Sleep 7 to 8 hours",
-              "Recovery",
-              1,
-              "Tonight",
-              "-",
-              "This is the most important recovery action. Sleep is when fat loss and muscle building happen.",
+              "Bulgarian Split Squat",
+              "Quads & glutes",
+              3,
+              "10 each leg",
+              "75s",
+              "One leg does almost all the work here — much harder than a regular squat at the same weight, and great for fixing side-to-side imbalances.",
               [
-                "Aim to sleep before midnight.",
-                "Keep room cool and dark.",
-                "Avoid phone screens 30 minutes before bed.",
-                "Poor sleep directly increases hunger the next day.",
+                "Stand a long step in front of a bench, rest the top of one foot on it behind you.",
+                "Lower straight down on your front leg until the back knee nearly touches the floor.",
+                "Push through your front foot to stand back up.",
+                "Complete all reps, then switch legs.",
+              ],
+              1.4,
+              38,
+            ),
+            ex(
+              "Walking Lunge (weighted)",
+              "Quads & glutes",
+              3,
+              "10 each leg",
+              "75s",
+              "Now holding dumbbells — the same lunge pattern a beginner does with bodyweight, but loaded.",
+              [
+                "Hold a dumbbell in each hand at your sides.",
+                "Step forward into a lunge, back knee dropping toward the floor.",
+                "Push through your front foot to step into the next lunge.",
+                "Keep alternating legs as you walk forward.",
+              ],
+              1.3,
+              34,
+            ),
+            ex(
+              "Stiff-Leg Deadlift",
+              "Hamstrings",
+              3,
+              "10",
+              "60s",
+              "Knees stay almost straight here, unlike a Romanian deadlift's soft bend — puts more stretch directly on the hamstrings.",
+              [
+                "Hold dumbbells in front of your thighs, knees only very slightly bent.",
+                "Hinge at your hips, lowering the dumbbells along your legs.",
+                "Stop when you feel a deep hamstring stretch.",
+                "Drive your hips forward to stand back up.",
+              ],
+              1.3,
+              34,
+            ),
+            ex(
+              "Lying Leg Curl (machine)",
+              "Hamstrings",
+              3,
+              "10-12",
+              "60s",
+              "Lying instead of seated changes the angle on your hamstrings — a useful variation, not a harder or easier version.",
+              [
+                "Lie face down on the machine with the pad against the back of your ankles.",
+                "Curl your heels up toward your glutes.",
+                "Squeeze at the top for 1 second.",
+                "Lower slowly back to the start.",
+              ],
+              1.1,
+              26,
+            ),
+            ex(
+              "Seated Calf Raise",
+              "Calves",
+              3,
+              "15",
+              "45s",
+              "A seated calf raise targets a slightly different part of the calf than standing — keep both versions in rotation.",
+              [
+                "Sit at the machine with the pads on your thighs and the balls of your feet on the platform.",
+                "Rise up onto your toes as high as you can.",
+                "Pause at the top.",
+                "Lower your heels down for a full stretch.",
               ],
               1.0,
-              0,
+              18,
+            ),
+          ],
+          fri: [
+            ex(
+              "Flat Dumbbell Press",
+              "Chest",
+              3,
+              "10",
+              "60s",
+              "A flat bench angle instead of incline — works the middle of your chest instead of the upper portion.",
+              [
+                "Lie flat on a bench holding a dumbbell in each hand.",
+                "Press them straight up above your chest.",
+                "Lower under control until your elbows hit about 90 degrees.",
+                "Press back up.",
+              ],
+              1.2,
+              30,
+            ),
+            ex(
+              "Chest-Supported Dumbbell Row",
+              "Back",
+              3,
+              "10-12",
+              "60s",
+              "Same idea as Tuesday's version — lying face-down removes any lower-back cheating from the row.",
+              [
+                "Lie face-down on an incline bench with a dumbbell in each hand.",
+                "Let your arms hang straight down.",
+                "Pull both elbows back, squeezing your shoulder blades together.",
+                "Lower slowly.",
+              ],
+              1.2,
+              28,
+            ),
+            ex(
+              "Cable Lateral Raise",
+              "Shoulders",
+              3,
+              "12-15",
+              "45s",
+              "A cable keeps tension on your shoulder the whole way up and down, unlike a dumbbell which goes slack at the bottom.",
+              [
+                "Stand sideways to a low cable pulley, handle in the hand farthest from the machine.",
+                "Raise your arm out to the side until it reaches shoulder height.",
+                "Pause briefly at the top.",
+                "Lower slowly and repeat.",
+              ],
+              1.1,
+              22,
+            ),
+            ex(
+              "Decline Push-up",
+              "Lower chest & shoulders",
+              3,
+              "12-15",
+              "45s",
+              "Feet elevated this time instead of flat on the floor — a small change that shifts the emphasis and keeps push-ups from getting stale.",
+              [
+                "Place your feet on a step or low chair behind you.",
+                "Hands on the floor a bit wider than shoulder width.",
+                "Lower your chest toward the floor.",
+                "Push back up to straight arms.",
+              ],
+              1.2,
+              26,
+            ),
+            ex(
+              "Overhead Tricep Extension",
+              "Triceps",
+              3,
+              "12",
+              "45s",
+              "Same triceps stretch-focused move from Monday's Build phase — repeated here since Friday already mixes push and pull.",
+              [
+                "Hold one dumbbell with both hands overhead, arms straight.",
+                "Lower it behind your head by bending only your elbows.",
+                "Keep your upper arms still.",
+                "Press back up to straight arms.",
+              ],
+              1.1,
+              22,
+            ),
+          ],
+          sat: [
+            ex(
+              "Bulgarian Split Squat",
+              "Quads & glutes",
+              3,
+              "10 each leg",
+              "60s",
+              "Same single-leg challenge as Wednesday's Build phase — Saturday keeps the pace a little quicker since a HIIT finisher follows.",
+              [
+                "Rest the top of one foot on a bench behind you, standing a long step in front of it.",
+                "Lower straight down until your back knee nearly touches the floor.",
+                "Push through your front foot to stand.",
+                "Switch legs after completing all reps.",
+              ],
+              1.4,
+              38,
+            ),
+            ex(
+              "Single-Leg Romanian Deadlift",
+              "Hamstrings & balance",
+              3,
+              "8 each leg",
+              "60s",
+              "Balancing on one leg adds a real stability challenge on top of the hamstring stretch.",
+              [
+                "Stand on one leg holding a dumbbell in the opposite hand.",
+                "Hinge forward at the hips, letting your free leg extend back for balance.",
+                "Lower the dumbbell toward the floor, feeling the hamstring stretch.",
+                "Drive your hips forward to stand back up, then switch legs.",
+              ],
+              1.4,
+              34,
+            ),
+            ex(
+              "Walking Lunge",
+              "Quads & glutes",
+              3,
+              "10 each leg",
+              "60s",
+              "Same pattern as Wednesday's Build-phase lunge — moving instead of standing in place makes your legs and balance work harder.",
+              [
+                "Step forward into a lunge, back knee dropping toward the floor.",
+                "Push through your front foot to step forward into the next lunge.",
+                "Keep your torso upright throughout.",
+                "Continue alternating legs.",
+              ],
+              1.3,
+              32,
+            ),
+            ex(
+              "Seated Calf Raise",
+              "Calves",
+              3,
+              "15",
+              "45s",
+              "Same seated variation as Wednesday — calves respond well to being hit from a couple of different angles each week.",
+              [
+                "Sit with the pads on your thighs and your toes on the platform.",
+                "Rise onto your toes as high as you can.",
+                "Pause at the top.",
+                "Lower for a full stretch.",
+              ],
+              1.0,
+              18,
+            ),
+            ex(
+              "Side Plank",
+              "Obliques & core",
+              3,
+              "30s each side",
+              "45s",
+              "A side-on hold instead of a front plank — targets the obliques along the sides of your core.",
+              [
+                "Lie on your side, prop yourself up on one forearm, elbow under your shoulder.",
+                "Lift your hips so your body forms a straight line.",
+                "Hold, keeping your hips from sagging toward the floor.",
+                "Switch sides after the hold.",
+              ],
+              1.1,
+              14,
             ),
           ],
         },
+        {
+          label: "Advanced",
+          levelRange: "Level 5-6",
+          mon: [
+            ex(
+              "Weighted Dip or Close-Grip Push-up",
+              "Chest & triceps",
+              4,
+              "8-10",
+              "75s",
+              "The most advanced push move in this program. Use a dip station with added weight if available, or close-grip push-ups as the bodyweight version.",
+              [
+                "If using a dip station: add light weight via a belt or hold a dumbbell between your feet.",
+                "Lower your body until your elbows reach about 90 degrees.",
+                "Press back up to straight arms.",
+                "Bodyweight version: hands close together under your chest for push-ups, same depth and control.",
+              ],
+              1.4,
+              40,
+            ),
+            ex(
+              "Single-Arm Dumbbell Press",
+              "Chest & core",
+              3,
+              "8 each side",
+              "60s",
+              "Pressing one side at a time forces your core to fight rotation — a genuinely harder version of a regular press.",
+              [
+                "Lie on a bench holding one dumbbell at shoulder height.",
+                "Press it straight up while keeping your hips and shoulders square — don't let your body twist.",
+                "Lower under control.",
+                "Complete all reps before switching sides.",
+              ],
+              1.3,
+              32,
+            ),
+            ex(
+              "Single-Arm Cable Fly",
+              "Chest",
+              3,
+              "10 each side",
+              "45s",
+              "One arm at a time, which exposes any strength imbalance between your left and right side.",
+              [
+                "Stand side-on to a cable machine set at chest height.",
+                "Hold the handle in the hand farther from the machine.",
+                "Bring your arm across your body in a hugging motion, squeezing your chest.",
+                "Return slowly, then switch sides after all reps.",
+              ],
+              1.2,
+              24,
+            ),
+            ex(
+              "Push Press",
+              "Shoulders",
+              3,
+              "8",
+              "75s",
+              "Uses a small leg dip and drive to help push more weight overhead than a strict press — teaches your whole body to work together.",
+              [
+                "Hold dumbbells at shoulder height, feet hip-width apart.",
+                "Dip your knees slightly, then drive up explosively, pressing the dumbbells overhead as your legs straighten.",
+                "Lower the dumbbells back to shoulder height with control.",
+                "Reset your stance between reps if needed.",
+              ],
+              1.4,
+              34,
+            ),
+            ex(
+              "Skull Crusher",
+              "Triceps",
+              3,
+              "10-12",
+              "45s",
+              "Lying down with the weight moving toward your forehead — a more advanced triceps stretch than the standing pushdown.",
+              [
+                "Lie on a bench holding dumbbells above your chest, arms straight.",
+                "Bend only at the elbows, lowering the weights toward your forehead.",
+                "Keep your upper arms still and vertical throughout.",
+                "Press back up to straight arms.",
+              ],
+              1.2,
+              26,
+            ),
+          ],
+          tue: [
+            ex(
+              "Full Pull-up",
+              "Back",
+              3,
+              "5-8",
+              "90s",
+              "The real version, no band assistance. If you can't yet complete clean reps, drop back to the Band-Assisted Pull-up for a few more weeks first.",
+              [
+                "Grip the bar slightly wider than shoulder width, hands facing away from you.",
+                "Pull your chest up toward the bar without kicking your legs.",
+                "Lower yourself under control, all the way to a full arm extension.",
+                "Reset and repeat.",
+              ],
+              1.4,
+              38,
+            ),
+            ex(
+              "Single-Arm Row (Pendlay-style)",
+              "Back",
+              3,
+              "8 each side",
+              "60s",
+              "Each rep starts from a dead stop on the floor instead of staying tense the whole set — builds explosive pulling strength.",
+              [
+                "Hinge forward with a flat back, dumbbell on the floor below your shoulder.",
+                "Pull it up to your hip in one strong motion.",
+                "Lower it all the way back to the floor and let it fully rest before the next rep.",
+                "Switch sides after completing all reps.",
+              ],
+              1.3,
+              30,
+            ),
+            ex(
+              "Single-Arm Lat Pulldown",
+              "Back",
+              3,
+              "10 each side",
+              "60s",
+              "Removes the ability to favor your stronger side — each side has to do its own full share of the work.",
+              [
+                "Attach a single handle to the lat pulldown cable.",
+                "Sit and grip the handle with one hand, arm extended overhead.",
+                "Pull your elbow down toward your hip, squeezing your back.",
+                "Control the return, then switch sides.",
+              ],
+              1.2,
+              28,
+            ),
+            ex(
+              "Face Pull with External Rotation",
+              "Rear delts & rotator cuff",
+              3,
+              "12-15",
+              "45s",
+              "Adds a small rotation at the end of the pull, which targets the rotator cuff muscles that a plain Face Pull mostly skips.",
+              [
+                "Set the cable to face height with a rope attachment.",
+                "Pull the rope toward your face, elbows high.",
+                "At the end of the pull, rotate your hands so your knuckles point toward the ceiling.",
+                "Reverse slowly back to the start.",
+              ],
+              1.2,
+              24,
+            ),
+            ex(
+              "Incline Dumbbell Curl",
+              "Biceps",
+              3,
+              "10-12",
+              "45s",
+              "Lying back on an incline bench stretches the biceps more at the bottom of the curl than standing does.",
+              [
+                "Lie back on an incline bench, a dumbbell in each hand, arms hanging straight down.",
+                "Curl both arms up without swinging your shoulders forward.",
+                "Squeeze at the top.",
+                "Lower slowly, feeling the stretch at the bottom.",
+              ],
+              1.2,
+              22,
+            ),
+          ],
+          wed: [
+            ex(
+              "Front-Loaded Squat",
+              "Quads",
+              4,
+              "8-10",
+              "90s",
+              "Holding the weight at your chest/shoulders instead of low forces a more upright torso and demands more from your quads directly.",
+              [
+                "Hold two dumbbells at shoulder height, elbows pointing forward.",
+                "Squat down keeping your chest tall and elbows up.",
+                "Go as deep as your mobility allows, knees tracking over your toes.",
+                "Drive through your full foot to stand.",
+              ],
+              1.4,
+              42,
+            ),
+            ex(
+              "Single-Leg Romanian Deadlift",
+              "Hamstrings & balance",
+              3,
+              "8 each leg",
+              "75s",
+              "Same balance-and-stretch challenge from Saturday's Build phase — by this level you should be moving it with control, not wobbling through it.",
+              [
+                "Stand on one leg holding a dumbbell in the opposite hand.",
+                "Hinge forward, letting your free leg extend back.",
+                "Lower the dumbbell toward the floor, then drive your hips forward to return.",
+                "Switch legs after all reps.",
+              ],
+              1.4,
+              36,
+            ),
+            ex(
+              "Walking Lunge with Overhead Reach",
+              "Quads, glutes & shoulders",
+              3,
+              "10 each leg",
+              "75s",
+              "Adding an overhead reach to the lunge challenges your balance and core stability on top of your legs.",
+              [
+                "Hold a light dumbbell in each hand.",
+                "Step forward into a lunge while raising both dumbbells overhead.",
+                "Lower the dumbbells as you push through your front foot to step forward.",
+                "Continue alternating legs.",
+              ],
+              1.3,
+              34,
+            ),
+            ex(
+              "Nordic Curl Progression (assisted)",
+              "Hamstrings",
+              3,
+              "6-8",
+              "75s",
+              "The hardest hamstring exercise in this program. Use your hands on the floor in front of you for as much assistance as you need — even a couple inches of controlled lowering builds real strength.",
+              [
+                "Kneel on a cushion with your ankles anchored under something sturdy or held by a partner.",
+                "Lower your torso forward as slowly as you can, using your hands to catch yourself when needed.",
+                "Push back up using your hands for assistance, then your hamstrings as they get stronger.",
+                "Stop the set once you can no longer control the lowering.",
+              ],
+              1.5,
+              30,
+            ),
+            ex(
+              "Calf Raise Drop Set",
+              "Calves",
+              3,
+              "15 then 15 more",
+              "45s",
+              "Do a normal set, rest only 10 seconds instead of the usual 45, then immediately do another set without changing weight — a real finisher for stubborn calves.",
+              [
+                "Perform a normal set of 15 standing calf raises.",
+                "Rest only 10 seconds.",
+                "Immediately perform another 15 reps at the same weight.",
+                "Take the full 45 second rest after this combined set, then repeat for all 3 sets.",
+              ],
+              1.3,
+              24,
+            ),
+          ],
+          fri: [
+            ex(
+              "Archer Push-up",
+              "Chest & triceps",
+              3,
+              "6 each side",
+              "75s",
+              "Shifting your weight toward one arm while the other stays nearly straight — a bodyweight way to load one side harder, similar to a single-arm press.",
+              [
+                "Start in a wide push-up position, hands further apart than shoulder width.",
+                "Lower toward one hand, bending that elbow while the other arm stays mostly straight.",
+                "Push back up to the start.",
+                "Alternate sides each rep.",
+              ],
+              1.4,
+              34,
+            ),
+            ex(
+              "Renegade Row",
+              "Back & core",
+              3,
+              "8 each side",
+              "60s",
+              "Rowing a dumbbell while holding a plank position — your core has to fight rotation the entire time, not just your back.",
+              [
+                "Get into a push-up position with a dumbbell in each hand.",
+                "Row one dumbbell up to your hip without rotating your hips.",
+                "Lower it back down and place your hand flat.",
+                "Switch sides, alternating for all reps.",
+              ],
+              1.4,
+              32,
+            ),
+            ex(
+              "Lean-Away Cable Lateral Raise",
+              "Shoulders",
+              3,
+              "10-12 each side",
+              "45s",
+              "Leaning away from the cable increases the range of motion and tension on your shoulder compared to standing straight.",
+              [
+                "Stand beside a low cable pulley and hold the handle in the far hand.",
+                "Lean your upper body away from the machine, holding onto something stable if needed.",
+                "Raise your arm out to the side to shoulder height.",
+                "Lower slowly, then switch sides after all reps.",
+              ],
+              1.2,
+              24,
+            ),
+            ex(
+              "Diamond Push-up",
+              "Triceps & chest",
+              3,
+              "10-12",
+              "45s",
+              "Hands close together in a diamond shape under your chest shifts most of the work onto your triceps.",
+              [
+                "Get into a push-up position with your thumbs and index fingers touching, forming a diamond.",
+                "Lower your chest toward your hands.",
+                "Push back up to straight arms.",
+                "Keep your elbows close to your body throughout.",
+              ],
+              1.3,
+              28,
+            ),
+            ex(
+              "Weighted Dip",
+              "Triceps & chest",
+              3,
+              "8-10",
+              "60s",
+              "Same advanced dip from Monday's Advanced phase — Friday repeats it since this is your second push-focused day of the week.",
+              [
+                "Add light weight via a dip belt, or hold a dumbbell between your feet.",
+                "Lower your body until your elbows reach about 90 degrees.",
+                "Press back up to straight arms.",
+                "If a dip station isn't available, use close-grip push-ups instead.",
+              ],
+              1.3,
+              30,
+            ),
+          ],
+          sat: [
+            ex(
+              "Jump Squat",
+              "Quads & power",
+              3,
+              "10",
+              "60s",
+              "Explosive — you leave the ground at the top of each rep. This is genuinely higher impact, so land soft and skip it if your knees complain.",
+              [
+                "Stand with feet shoulder-width apart.",
+                "Squat down to about the same depth as a regular squat.",
+                "Explode upward, leaving the ground briefly.",
+                "Land softly with bent knees and go straight into the next rep.",
+              ],
+              1.4,
+              40,
+            ),
+            ex(
+              "Single-Leg Deadlift to Balance",
+              "Hamstrings & balance",
+              3,
+              "8 each leg",
+              "60s",
+              "Similar hinge pattern to the Single-Leg RDL, but focused on holding a stable balanced position at the bottom rather than just touching and returning.",
+              [
+                "Stand on one leg, dumbbell in the opposite hand.",
+                "Hinge forward, reaching the dumbbell toward the floor while your free leg lifts behind you.",
+                "Pause for 1 to 2 seconds at the bottom, balanced.",
+                "Return to standing, then switch legs.",
+              ],
+              1.4,
+              34,
+            ),
+            ex(
+              "Lateral Lunge",
+              "Quads, glutes & inner thigh",
+              3,
+              "10 each side",
+              "60s",
+              "Stepping sideways instead of forward or backward works your legs from a completely different angle than every other lunge in this program.",
+              [
+                "Stand tall, feet together.",
+                "Step one foot wide to the side, bending that knee and pushing your hips back.",
+                "Keep your other leg straight.",
+                "Push off the bent leg to return to standing, then switch sides.",
+              ],
+              1.3,
+              32,
+            ),
+            ex(
+              "Calf Raise + Hop",
+              "Calves & power",
+              3,
+              "12",
+              "45s",
+              "Adds a small hop at the top of the raise — more explosive than a standard calf raise, similar to the jump in Jump Squats.",
+              [
+                "Stand on the edge of a step.",
+                "Rise onto your toes, then push off into a small hop.",
+                "Land softly back on the edge of the step.",
+                "Lower your heels for a brief stretch before the next rep.",
+              ],
+              1.2,
+              22,
+            ),
+            ex(
+              "Plank with Shoulder Taps",
+              "Core & shoulders",
+              3,
+              "16 taps",
+              "45s",
+              "A regular plank with a twist — lifting one hand to tap the opposite shoulder forces your core to resist rotation.",
+              [
+                "Start in a high plank, hands under your shoulders.",
+                "Lift one hand and tap the opposite shoulder, keeping your hips still.",
+                "Place it back down and repeat with the other hand.",
+                "Keep alternating, fighting the urge to rock side to side.",
+              ],
+              1.3,
+              20,
+            ),
+          ],
+        },
+      ];
+
+      const MAIN_PROGRAM_ABS = [
+        [
+          ex(
+            "Plank Hold",
+            "Core",
+            3,
+            "30-45s",
+            "45s",
+            "Squeeze glutes and abs. Keep a straight line from head to heels. Breathe.",
+            [
+              "Start in push-up position on forearms.",
+              "Body straight from head to heels.",
+              "Squeeze abs and glutes.",
+              "Breathe normally. Stop if your back sags.",
+            ],
+            1.0,
+            14,
+          ),
+          ex(
+            "Crunches or Hanging Knee Raises",
+            "Core",
+            2,
+            "12-15",
+            "45s",
+            "Pull knees toward chest using core muscles only. Not momentum.",
+            [
+              "For crunches: lie on back, curl upper body toward knees.",
+              "For knee raises: hang from a bar and pull knees to chest.",
+              "Control the descent.",
+              "Never use momentum.",
+            ],
+            1.0,
+            18,
+          ),
+        ],
+        [
+          ex(
+            "Side Plank",
+            "Obliques",
+            3,
+            "30s each side",
+            "45s",
+            "Targets the sides of your core, which a front plank barely touches.",
+            [
+              "Lie on your side, prop up on one forearm, elbow under shoulder.",
+              "Lift your hips so your body forms a straight line.",
+              "Hold steady without letting your hips sag.",
+              "Switch sides after the hold.",
+            ],
+            1.1,
+            14,
+          ),
+          ex(
+            "Bicycle Crunch",
+            "Core & obliques",
+            3,
+            "20 each side",
+            "45s",
+            "Adds rotation on top of a normal crunch, hitting your obliques as well as your central abs.",
+            [
+              "Lie on your back, hands lightly behind your head, knees bent.",
+              "Bring one knee toward your chest while rotating to touch it with the opposite elbow.",
+              "Switch sides in a smooth pedaling motion.",
+              "Keep your lower back pressed into the floor throughout.",
+            ],
+            1.2,
+            18,
+          ),
+        ],
+        [
+          ex(
+            "Weighted Plank",
+            "Core",
+            3,
+            "45-60s hold",
+            "45s",
+            "Same plank position, but with a light plate or backpack on your back — by this level, time alone isn't enough of a challenge.",
+            [
+              "Get into a forearm plank position.",
+              "Have a light weight plate or a backpack placed gently on your upper back.",
+              "Hold the position, keeping your hips level and not sagging.",
+              "Remove the weight carefully at the end of the hold.",
+            ],
+            1.3,
+            20,
+          ),
+          ex(
+            "Weighted Russian Twist",
+            "Obliques",
+            3,
+            "16 each side",
+            "45s",
+            "Holding a weight while rotating adds real resistance compared to a bodyweight twist.",
+            [
+              "Sit on the floor, knees bent, leaning back slightly, holding a light dumbbell or plate with both hands.",
+              "Lift your feet slightly off the floor for more challenge, or keep them down if that's too hard.",
+              "Rotate the weight to touch the floor beside one hip.",
+              "Rotate to the other side, alternating for all reps.",
+            ],
+            1.3,
+            20,
+          ),
+        ],
       ];
 
       // ─── DATA: DIET ──────────────────────────────────────────────────────────
@@ -2748,1182 +4120,294 @@
         return { title, items, steps, info: info || {} };
       }
 
+      const GYM_DAY_MEALS = [
+        meal(
+          "7:30 AM",
+          "Hydration: chia lemon water",
+          ["500 ml water", "1 tsp chia seeds", "Juice of half a lemon"],
+          [
+            "Pour the water into a glass.",
+            "Stir in the chia seeds right away for about 10 seconds so they don't clump together at the bottom.",
+            "Squeeze in the lemon juice and stir again.",
+            "Drink slowly on an empty stomach, first thing after waking up.",
+          ],
+          {
+            prep: "3 min",
+            cook: "0 min",
+            serves: "1",
+            kcal: 60,
+            tip: "This is mostly water — it just helps with fullness and digestion before breakfast. Nothing complicated here.",
+          },
+        ),
+        meal(
+          "8:00 AM",
+          "Breakfast: masala oats with boiled eggs",
+          [
+            "50 g rolled oats (dry)",
+            "½ cup (120 ml) low-fat or skim milk",
+            "Pinch of cinnamon or basic masala spice",
+            "2 whole eggs, boiled",
+            "1 cup green tea or black tea, no sugar",
+          ],
+          [
+            "Boil the 2 eggs for 9 minutes from a full boil, then cool in cold water for 2 minutes before peeling.",
+            "In a small pot, heat the milk and stir in the oats and a pinch of cinnamon or masala spice.",
+            "Simmer on low for 4 to 5 minutes, stirring now and then, until thick and soft.",
+            "Plate the oats with the boiled eggs on the side and brew the tea separately.",
+          ],
+          {
+            prep: "5 min",
+            cook: "8 min",
+            serves: "1",
+            kcal: 400,
+            tip: "Roughly: oats 190 kcal, eggs 140 kcal, milk 70 kcal. This is your biggest breakfast of the week — eat it fully, you'll need the energy for training.",
+          },
+        ),
+        meal(
+          "11:00 AM",
+          "Snack: motor chaat (yellow pea salad)",
+          [
+            "50 g dry yellow split peas (motor dal), boiled",
+            "Cucumber, diced",
+            "Tomato, diced",
+            "Onion, diced",
+            "Juice of half a lemon",
+            "Pinch of cumin",
+          ],
+          [
+            "Soak the dal for 30 minutes, then boil in fresh water for 15 to 20 minutes until soft but not mushy.",
+            "Drain well and let it cool for 5 minutes.",
+            "Mix in the cucumber, tomato, and onion.",
+            "Add the lemon juice and cumin, stir, and eat within 30 minutes.",
+          ],
+          {
+            prep: "30 min soak + 10 min chop",
+            cook: "20 min",
+            serves: "1",
+            kcal: 200,
+            tip: "No oil needed at all here — the lemon and cumin do all the work.",
+          },
+        ),
+        meal(
+          "1:30 PM",
+          "Lunch: rice with chicken or fish and vegetables",
+          [
+            "150 g cooked rice",
+            "120 g grilled chicken breast OR 150 g fish",
+            "200 g mixed vegetables, cooked with 1 tsp oil",
+          ],
+          [
+            "Season the chicken or fish with salt, turmeric, and a little chili, then grill or pan-cook until fully done.",
+            "Cook the mixed vegetables in a pan with the measured 1 tsp oil until just tender, not mushy.",
+            "Measure out the rice (150 g cooked, about 1 level cup) so you don't overserve yourself.",
+            "Plate the rice, protein, and vegetables together.",
+          ],
+          {
+            prep: "10 min",
+            cook: "20 min",
+            serves: "1",
+            kcal: 550,
+            tip: "This is your biggest meal of the day, which makes sense — it's fueling the rest of your gym session.",
+          },
+        ),
+        meal(
+          "4:00 PM",
+          "Pre-workout: banana and black coffee",
+          ["1 banana (about 100 g)", "1 cup black coffee, no sugar"],
+          [
+            "Eat the banana on its own about 30 minutes before training.",
+            "Brew the coffee strong and drink it black in the same window.",
+          ],
+          {
+            prep: "5 min",
+            cook: "0 min",
+            serves: "1",
+            kcal: 100,
+            tip: "Simple and fast — quick energy plus a caffeine boost for focus, without weighing down your stomach before lifting.",
+          },
+        ),
+        meal(
+          "6:00 PM",
+          "Post-workout: egg whites or soya bhuna",
+          [
+            "Option A: egg white omelet (3 egg whites + a handful of spinach)",
+            "Option B: soya bhuna (50 g dried soya chunks, cooked)",
+          ],
+          [
+            "Option A: whisk the 3 egg whites with chopped spinach, then cook on a lightly oiled non-stick pan until just set.",
+            "Option B: boil the soya chunks for 5 minutes, drain, squeeze the water out firmly, then sauté with a little onion, tomato, and spices until browned. (This is what 'soya bhuna' means — soya cooked like a light meat curry.)",
+            "Eat whichever option within 30 minutes of finishing your workout — this is when your muscles absorb protein best.",
+          ],
+          {
+            prep: "5 min",
+            cook: "8 min",
+            serves: "1",
+            kcal: 150,
+            tip: "Pick whichever is faster for you that day — both options do the same job of feeding your muscles after training.",
+          },
+        ),
+        meal(
+          "8:30 PM",
+          "Dinner: roti with grilled fish or chicken and salad",
+          [
+            "2 whole-wheat roti (about 50 g each)",
+            "100 to 120 g grilled fish or chicken",
+            "100 g tomato-cucumber salad",
+          ],
+          [
+            "Knead the atta into a soft dough, rest 10 minutes, then roll out and cook on a dry, hot pan, 1 to 2 minutes per side.",
+            "Season the fish or chicken with salt, turmeric, and a little chili, then grill or pan-cook with minimal oil.",
+            "Slice the tomato and cucumber for the salad.",
+            "Plate everything together. Try to eat at least 2 hours before bed.",
+          ],
+          {
+            prep: "15 min",
+            cook: "15 min",
+            serves: "1",
+            kcal: 450,
+            tip: "Total for the whole day comes to about 1,910 kcal — right inside your 1,800 to 2,000 kcal target.",
+          },
+        ),
+      ];
+
+      const RECOVERY_DAY_MEALS = [
+        meal(
+          "7:30 AM",
+          "Hydration: chia lemon water",
+          ["500 ml water", "1 tsp chia seeds", "Juice of half a lemon"],
+          [
+            "Pour the water into a glass and stir in the chia seeds right away.",
+            "Squeeze in the lemon juice and stir again.",
+            "Drink slowly on an empty stomach.",
+          ],
+          {
+            prep: "3 min",
+            cook: "0 min",
+            serves: "1",
+            kcal: 60,
+            tip: "Same drink every morning, gym day or not — it's a small habit, not a big task.",
+          },
+        ),
+        meal(
+          "8:00 AM",
+          "Breakfast: masala oats with boiled eggs (smaller portion)",
+          [
+            "40 g rolled oats (dry)",
+            "½ cup (120 ml) low-fat milk",
+            "Pinch of cinnamon",
+            "2 whole eggs, boiled",
+          ],
+          [
+            "Boil the eggs for 9 minutes from a full boil, then cool in cold water for 2 minutes before peeling.",
+            "Heat the milk, stir in the oats and cinnamon, and simmer 4 minutes until thick.",
+            "Plate the oats with the eggs on the side.",
+          ],
+          {
+            prep: "5 min",
+            cook: "8 min",
+            serves: "1",
+            kcal: 380,
+            tip: "Slightly smaller than your gym-day breakfast — you're not training today, so you don't need quite as much fuel this early.",
+          },
+        ),
+        meal(
+          "11:00 AM",
+          "Snack: motor chaat or fresh fruit",
+          [
+            "Option A: same motor chaat as gym days (50 g motor dal, boiled, with cucumber/tomato/onion/lemon)",
+            "Option B: 1 guava or apple (about 100 g) + a small handful of almonds",
+          ],
+          [
+            "Option A: follow the same steps as the gym-day motor chaat.",
+            "Option B: wash the fruit, slice it, and eat it slowly with the almonds on the side.",
+            "Either option works — pick whichever you have ready at home.",
+          ],
+          {
+            prep: "2-30 min depending on option",
+            cook: "0-20 min depending on option",
+            serves: "1",
+            kcal: 200,
+            tip: "Rotate between the two so you don't get bored eating the same snack every single day.",
+          },
+        ),
+        meal(
+          "1:30 PM",
+          "Lunch: light fish curry with rice and lau",
+          [
+            "100 g fish, cut into pieces",
+            "100 g cooked rice",
+            "150 g bottle gourd (lau), peeled and cubed",
+            "1 tsp oil",
+            "Onion, turmeric, cumin to taste",
+          ],
+          [
+            "Season the fish lightly with salt and turmeric.",
+            "Heat the 1 tsp oil, fry a little onion, then add turmeric and cumin.",
+            "Add a splash of water and the cubed lau, simmer until soft, then gently add the fish and cook until it flakes apart easily.",
+            "Serve with the measured rice. The curry should look light and watery (this is called 'jhol') — that's correct, not a mistake.",
+          ],
+          {
+            prep: "10 min",
+            cook: "15 min",
+            serves: "1",
+            kcal: 450,
+            tip: "This is deliberately lighter than your gym-day lunch since you're not training today.",
+          },
+        ),
+        meal(
+          "4:00 PM",
+          "Snack: tok doi with fruit and chia",
+          [
+            "100 g plain yogurt (tok doi)",
+            "100 g chopped papaya (or any fruit you have)",
+            "1 tsp chia seeds",
+            "10 g almonds",
+          ],
+          [
+            "Stir the yogurt smooth if it has separated in the fridge.",
+            "Mix in the chia seeds and chopped fruit.",
+            "Let it sit 5 minutes so the chia softens slightly, then scatter the almonds on top and eat.",
+          ],
+          {
+            prep: "8 min (includes 5 min rest)",
+            cook: "0 min",
+            serves: "1",
+            kcal: 200,
+            tip: "If the yogurt tastes too sour, let the fruit balance it — don't add sugar or honey.",
+          },
+        ),
+        meal(
+          "8:30 PM",
+          "Dinner: roti with dal and vegetable stir-fry",
+          [
+            "2 whole-wheat roti (about 50 g each)",
+            "100 g cooked dal (masoor or moong)",
+            "100 g sautéed mixed vegetables",
+          ],
+          [
+            "Boil the rinsed dal until it breaks down into a thick soup, about 20 to 25 minutes.",
+            "In a separate pan, stir-fry the vegetables with a small splash of oil until just tender.",
+            "Cook the roti on a dry, hot pan, 1 to 2 minutes per side.",
+            "Plate everything together.",
+          ],
+          {
+            prep: "10 min",
+            cook: "25 min",
+            serves: "1",
+            kcal: 400,
+            tip: "Day total comes to about 1,790 kcal — slightly under your gym-day total, which is correct since you're resting, not training.",
+          },
+        ),
+      ];
+
       const DIET = [
-        diet("Mon", "Gym day — Push", [
-          meal(
-            "7:30 AM",
-            "Morning drink: chia lemon water",
-            [
-              "1 tbsp (about 12 g) whole chia seeds",
-              "250 ml room-temperature water, for soaking",
-              "200 ml warm water (not boiling), to finish",
-              "Juice of half a fresh lemon (about 1.5 tbsp)",
-            ],
-            [
-              "Measure the chia seeds with an actual tablespoon rather than guessing — too much makes the drink gluey and unpleasant on an empty stomach.",
-              "Pour the 250 ml of room-temperature water into a glass and tip in the chia seeds. Stir hard for about 10 seconds right after adding them so they spread out instead of clumping into one wet lump at the bottom.",
-              "Leave the glass untouched for 15 minutes. The seeds swell to roughly ten times their dry size and turn the water into a loose, translucent gel — that gel is what slows digestion and keeps you full, so don't skip the wait.",
-              "While it soaks, halve the lemon and roll each half firmly against the counter under your palm for a few seconds. This breaks the inner membranes and gets noticeably more juice out than squeezing it cold.",
-              "Once the 15 minutes are done, top the glass with the 200 ml of warm water — warm, not hot, since boiling water destroys some of the lemon's vitamin C.",
-              "Squeeze in the lemon juice and stir from the bottom up, because the chia gel settles and the lemon otherwise just floats on top.",
-              "Drink it slowly over 4 to 5 minutes on a completely empty stomach, then wait at least 20 minutes before starting breakfast.",
-            ],
-            {
-              prep: "15 min (mostly soaking)",
-              cook: "0 min",
-              serves: "1",
-              tip: "If the gel texture bothers you, drink it through a wide straw — it removes the 'frog egg' sensation most beginners complain about. Never swallow dry chia seeds without liquid; they keep absorbing water afterward.",
-            },
-          ),
-          meal(
-            "8:00 AM",
-            "Breakfast: masala oats with boiled eggs",
-            [
-              "4 tbsp (about 40 g) rolled oats — Quaker or Pran/Manna",
-              "120 ml water",
-              "1 small onion, finely diced (about 40 g)",
-              "1 green chili, finely sliced (deseed for less heat)",
-              "Pinch of salt",
-              "1/4 tsp turmeric powder (holud)",
-              "2 whole eggs",
-              "1 cup green tea, no sugar",
-            ],
-            [
-              "Set a small dry pan over medium heat and tip in the rolled oats with no oil. Toast for 60 to 90 seconds, stirring constantly so nothing catches — they're ready when they smell faintly nutty and turn one shade darker.",
-              "Pour in the 120 ml of water right away; it will hiss and bubble. Scrape the bottom of the pan with your spoon to lift off any toasted oats stuck there.",
-              "Add the salt, turmeric, diced onion, and sliced chili. The turmeric should dissolve into a pale yellow within seconds — break up any clumps with the back of the spoon.",
-              "Turn the heat down to low and simmer for 3 to 4 minutes, stirring every 30 seconds. Pull it off the heat once the oats coat the back of the spoon but still slide off slowly — it thickens a little more as it cools.",
-              "While the oats simmer, bring a separate small pot of water to a full boil. Lower the 2 eggs in gently with a spoon rather than dropping them, so the shells don't crack.",
-              "Set a timer for exactly 9 minutes from when the water returns to a boil, for a firm yolk that isn't chalky.",
-              "Transfer the eggs straight into a bowl of cold water for 2 minutes — this stops the cooking and makes the shells peel away cleanly instead of tearing the white.",
-              "Peel, halve lengthwise, and season the cut side with a pinch of salt and black pepper.",
-              "Plate the oats, lay the egg halves beside them, and brew the green tea separately, steeping no more than 2 minutes so it doesn't turn bitter.",
-            ],
-            {
-              prep: "5 min",
-              cook: "10 min",
-              serves: "1",
-              tip: "Toasting the dry oats before any liquid goes in is the step most people skip — it's what gives this porridge a savory, almost biryani-like aroma instead of tasting like wallpaper paste.",
-            },
-          ),
-          meal(
-            "11:00 AM",
-            "Snack: motor chaat (spiced yellow pea salad)",
-            [
-              "100 g (about half cup) dry yellow split peas (motor dal)",
-              "1 small cucumber, finely diced",
-              "1 medium tomato, finely diced, seeds scraped out",
-              "Half a small onion, finely diced",
-              "Small handful fresh coriander leaves, chopped",
-              "Juice of half a lemon",
-              "Pinch each of salt, black pepper, and roasted cumin (jeera) powder",
-            ],
-            [
-              "Rinse the dry motor dal under running water until it runs clear, then soak in plenty of water for at least 30 minutes. This shortens the boil time and helps the peas cook evenly instead of bursting outside while staying hard in the middle.",
-              "Drain and move to a pot with fresh water covering the peas by about 2 inches, plus a pinch each of salt and turmeric. Bring to a boil, then drop to a steady simmer.",
-              "Cook for 15 to 20 minutes. Start checking at the 12-minute mark by pressing a pea between two fingers — it should mash easily but still hold its shape, not turn to mush.",
-              "Drain in a sieve and shake out every drop of water you can. Spread the peas on a plate for 5 minutes to air-cool — mixing warm peas with raw vegetables wilts everything and turns the salad watery.",
-              "In a mixing bowl, combine the cooled peas with the diced cucumber, tomato, onion, and coriander.",
-              "Squeeze the lemon juice over the top, then add the salt, black pepper, and cumin powder.",
-              "Toss with a spoon, lifting from the bottom of the bowl, until every pea is coated. Taste and adjust lemon or salt — it should taste bright and tangy, not flat.",
-              "Eat within 30 minutes of mixing, since the cucumber and tomato keep releasing water the longer it sits.",
-            ],
-            {
-              prep: "30 min soak + 10 min chop",
-              cook: "20 min",
-              serves: "1",
-              tip: "Toast whole cumin seeds in a dry pan for 30 seconds and crush them with the back of a spoon — it's far more fragrant than jar cumin powder that's been sitting on a shelf for months.",
-            },
-          ),
-          meal(
-            "1:30 PM",
-            "Lunch: rice with chicken or fish and vegetables",
-            [
-              "1 level cup cooked rice",
-              "150 g chicken breast or local fish (rui, katla, or telapia), cut into bite-size pieces",
-              "1 tsp mustard oil or soybean oil — measured, not guessed",
-              "1 medium onion, sliced",
-              "1 tsp ginger-garlic paste",
-              "1/2 tsp cumin (jeera) powder",
-              "1/2 tsp turmeric (holud)",
-              "1 green chili, slit",
-              "1 large bowl mixed vegetables: patal, lau, spinach, or pumpkin, roughly chopped",
-              "Salt to taste",
-            ],
-            [
-              "Pat the chicken or fish pieces dry with a paper towel first — wet protein steams instead of browning, and browning is where the flavor comes from.",
-              "Heat the 1 tsp of oil in a pan over medium heat until it shimmers, then add the sliced onion. Fry for 3 minutes, stirring occasionally, until the edges turn light golden — this is the base flavor of the whole dish, so don't rush it with high heat.",
-              "Add the ginger-garlic paste, cumin, turmeric, and slit green chili. Stir constantly for about 1 minute until the raw paste smell fades into a toasted, fragrant one. If it starts sticking, splash in a tablespoon of water.",
-              "Add the chicken or fish and stir to coat every piece in the spice base. Cook on medium heat for 12 to 15 minutes, stirring every 2 minutes, until chicken is opaque all the way through or fish flakes apart easily with a fork.",
-              "Add the chopped vegetables in the last 5 minutes only, stirring them through the gravy. They should finish firm with a slight bite, not collapsed and mushy.",
-              "Taste the gravy and adjust salt. Plate the 1 measured cup of rice first, then spoon the chicken or fish and vegetables beside or over it.",
-            ],
-            {
-              prep: "10 min",
-              cook: "20 min",
-              serves: "1",
-              tip: "Measure the oil with an actual teaspoon, not a 'glug from the bottle.' A careless glug is usually 3 to 4 tsp, which can quietly cost 100 to 150 extra calories without you ever noticing.",
-            },
-          ),
-          meal(
-            "4:00 PM (30 min before gym)",
-            "Pre-workout: banana and black coffee",
-            [
-              "1 medium ripe banana (Shobri or Champa variety)",
-              "1 cup (200 ml) freshly brewed strong black coffee — no sugar, no milk",
-            ],
-            [
-              "Pick a banana with a few brown spots on the skin rather than one that's still green — slightly riper fruit has more readily available sugar, exactly what you want for quick energy before lifting.",
-              "Peel and eat the banana on its own, chewing slowly, about 30 minutes before your first warm-up move.",
-              "Brew the coffee strong — roughly 2 tablespoons of ground coffee per cup if using a press or moka pot, or your instant coffee's 'strong cup' measurement — and let it brew the full recommended time so the caffeine actually extracts.",
-              "Drink it black within the same 20 to 30 minute pre-workout window. Sip rather than gulp; downing it fast on a near-empty stomach is what usually causes the jittery feeling people blame on coffee.",
-              "If you're training at 6 PM instead of 4 PM, shift this entire step to 5:30 PM so the caffeine peak — about 30 to 45 minutes after drinking — lines up with your warm-up, not your cool-down.",
-            ],
-            {
-              prep: "5 min",
-              cook: "0 min",
-              serves: "1",
-              tip: "Stop at one cup. A second cup doesn't double the fat-burning effect — it mostly raises evening anxiety and risks pushing your bedtime past 11 PM, which costs more fat loss through bad sleep than the extra caffeine could ever add.",
-            },
-          ),
-          meal(
-            "Within 30 min after gym",
-            "Post-workout: egg white omelet or soya bhuna",
-            [
-              "Option A — egg white omelet: 3 eggs, 1 small onion (finely chopped), 1 green chili (finely chopped), 1 drop (about 1/4 tsp) oil, pinch of salt",
-              "Option B — soya bhuna: 50 g dry soya chunks (badi), 1 tsp mustard oil, 1 small onion (sliced), 1/2 tsp ginger-garlic paste, 1/4 tsp cumin powder, 1/4 tsp chili powder, pinch of turmeric, salt to taste",
-            ],
-            [
-              "Option A: Crack the 3 eggs into a bowl and separate the whites from the yolks — tip the yolk between the two half-shells, letting the white drip into the bowl below, or use a clean hand. Save or discard the yolks.",
-              "Whisk the whites briskly for about 20 seconds until frothy and pale, then stir in the chopped onion, chili, and salt.",
-              "Heat a non-stick pan over medium-low heat and wipe in just a drop of oil with a paper towel. Pour in the egg whites and leave undisturbed for about 90 seconds until the edges turn opaque and start lifting from the pan.",
-              "Fold in half with a spatula and cook another minute per side until no liquid white remains. Serve immediately — egg whites turn rubbery if they sit too long.",
-              "Option B: Boil the dry soya chunks in water for 5 minutes until they puff up and roughly double in size, then drain.",
-              "Once cool enough to handle, squeeze each handful firmly between your palms to push out as much water as possible — this matters more than the spices, since soggy chunks taste bland no matter what.",
-              "Heat the 1 tsp mustard oil until it shimmers and loses its raw sharp smell (30 to 45 seconds), then fry the sliced onion for 3 to 4 minutes until golden at the edges.",
-              "Add the ginger-garlic paste, cumin, chili powder, and turmeric. Stir constantly for a full minute until the raw smell turns toasted and fragrant.",
-              "Add the squeezed soya chunks and stir-fry for 8 to 10 minutes, turning every minute so each piece browns rather than steams in its own moisture. Season with salt and serve hot.",
-            ],
-            {
-              prep: "5 min",
-              cook: "8-10 min",
-              serves: "1",
-              tip: "Whichever option you pick, eat it within 30 minutes of finishing your last set — that's the window your muscles use protein most efficiently to start repairing.",
-            },
-          ),
-          meal(
-            "8:30 PM",
-            "Dinner: roti with grilled protein and salad",
-            [
-              "1 handmade whole-wheat red atta roti",
-              "100 to 150 g grilled fish or chicken, OR 1 bowl clear dal soup",
-              "1 medium cucumber, sliced",
-              "1 medium tomato, sliced",
-              "Juice of half a lemon",
-              "Pinch of salt and black pepper",
-              "1/2 tsp oil, for grilling protein",
-            ],
-            [
-              "For the roti: mix the red atta flour with water gradually, a splash at a time, kneading until you get a soft, non-sticky dough — it should feel like an earlobe when you pinch it. Rest it for 10 minutes under a damp cloth.",
-              "Divide into a ball, dust with dry flour, and roll out flat and even with a rolling pin, rotating a quarter turn between rolls so it stays round.",
-              "Cook on a dry, hot pan with no oil for 1 to 2 minutes per side, pressing lightly with a spatula, until light brown char spots appear and it puffs slightly.",
-              "For the grilled protein: pat the fish or chicken dry, then rub with salt, turmeric, and cumin on both sides.",
-              "Heat the pan with 1/2 tsp oil on medium heat. Cook fish 3 to 4 minutes per side until it flakes apart with a fork; cook chicken 6 to 7 minutes per side until the thickest part shows no pink and juices run clear.",
-              "For the salad: slice the cucumber and tomato, arrange on a plate, squeeze the lemon juice over the top, and season with salt and pepper.",
-              "Plate the roti, protein, and salad together. Eat at least 2 hours before you plan to sleep so digestion doesn't interfere with rest.",
-            ],
-            {
-              prep: "15 min",
-              cook: "15 min",
-              serves: "1",
-              tip: "Resting the roti dough for even 10 minutes relaxes the gluten and makes it roll out round instead of tearing at the edges — don't go straight from kneading to rolling.",
-            },
-          ),
-        ]),
-        diet("Tue", "Gym day — Pull", [
-          meal(
-            "7:30 AM",
-            "Morning drink: chia lemon water",
-            [
-              "1 tbsp (about 12 g) whole chia seeds",
-              "250 ml room-temperature water, for soaking",
-              "200 ml warm water (not boiling), to finish",
-              "Juice of half a fresh lemon",
-            ],
-            [
-              "Measure the chia seeds with a tablespoon rather than guessing. Pour the 250 ml room-temperature water into a glass and stir in the seeds hard for 10 seconds so they don't clump into one wet lump.",
-              "Leave untouched for 15 minutes until they swell into a translucent gel — this is what slows digestion and keeps you full, so don't rush it.",
-              "Top with the 200 ml warm water and the lemon juice, then stir from the bottom up since the gel settles.",
-              "Drink slowly over 4 to 5 minutes on a completely empty stomach. Wait at least 20 minutes before breakfast.",
-            ],
-            {
-              prep: "15 min (mostly soaking)",
-              cook: "0 min",
-              serves: "1",
-              tip: "Drink through a wide straw if the texture bothers you — it removes the 'frog egg' sensation most beginners notice on the first try.",
-            },
-          ),
-          meal(
-            "8:00 AM",
-            "Breakfast: masala oats with boiled eggs",
-            [
-              "4 tbsp (about 40 g) rolled oats",
-              "120 ml water",
-              "1 small onion, finely chopped",
-              "1 green chili, finely sliced",
-              "Pinch of salt and turmeric (holud)",
-              "2 whole eggs",
-              "1 cup green tea, no sugar",
-            ],
-            [
-              "Dry-toast the oats in a pan on medium heat for 60 to 90 seconds, stirring constantly, until they smell faintly nutty and turn a shade darker.",
-              "Pour in the 120 ml water, then stir in the salt, turmeric, onion, and chili. Drop the heat to low and simmer 3 to 4 minutes until it thickens and coats the back of a spoon.",
-              "Boil the eggs in a separate pot for exactly 9 minutes from a full boil, then plunge into cold water for 2 minutes before peeling — this keeps the yolk firm and the shell easy to remove.",
-              "Plate the oats with the peeled, halved eggs on the side, seasoned with a pinch of salt and black pepper. Brew the green tea separately for no more than 2 minutes so it doesn't turn bitter.",
-            ],
-            {
-              prep: "5 min",
-              cook: "10 min",
-              serves: "1",
-              tip: "Toasting the dry oats before any liquid goes in is what gives this its savory aroma instead of tasting like plain porridge.",
-            },
-          ),
-          meal(
-            "11:00 AM",
-            "Snack: motor chaat (spiced yellow pea salad)",
-            [
-              "100 g (about half cup) dry yellow split peas (motor dal)",
-              "1 small cucumber, finely diced",
-              "1 medium tomato, finely diced",
-              "Small handful coriander, chopped",
-              "Juice of half a lemon",
-              "Pinch each of salt, black pepper, and roasted cumin powder",
-            ],
-            [
-              "Soak the dal in water for 30 minutes, then boil in fresh water with a pinch of salt and turmeric for 15 to 20 minutes until a pea mashes easily between your fingers but still holds its shape.",
-              "Drain thoroughly and spread on a plate to air-cool for 5 minutes — mixing warm peas with raw vegetables turns the salad watery.",
-              "Toss the cooled peas with the cucumber, tomato, and coriander, then add the lemon juice, salt, pepper, and cumin powder.",
-              "Mix well, lifting from the bottom of the bowl, and eat within 30 minutes while the vegetables are still crisp.",
-            ],
-            {
-              prep: "30 min soak + 10 min chop",
-              cook: "20 min",
-              serves: "1",
-              tip: "No oil is needed here — the lemon juice and roasted cumin do all the flavor work, which is exactly what makes this snack so cheap on calories.",
-            },
-          ),
-          meal(
-            "1:30 PM",
-            "Lunch: soy chunk bhuna with rice and spinach",
-            [
-              "50 g dry soya chunks (badi)",
-              "1 level cup cooked rice",
-              "1 large handful spinach or lal shak, washed and chopped",
-              "1 tsp mustard oil",
-              "1 small onion, sliced",
-              "1/2 tsp ginger-garlic paste",
-              "1/4 tsp each cumin powder, chili powder, turmeric",
-              "Salt to taste",
-            ],
-            [
-              "Boil the dry soya chunks in water for 8 to 10 minutes until soft all the way through — bite one in half to check there's no dry, chalky center left.",
-              "Drain and squeeze each handful firmly between your palms over the sink until almost no water drips out. This single step decides whether the bhuna tastes meaty and well-spiced or watery and bland.",
-              "Heat the mustard oil in a pan over medium heat until it shimmers and loses its raw sharp smell, about 30 to 45 seconds. Fry the sliced onion for 3 to 4 minutes until soft and golden at the edges.",
-              "Add the ginger-garlic paste, cumin, chili powder, and turmeric. Stir constantly for about a minute until the smell turns toasted, not raw — splash in water if it sticks.",
-              "Add the squeezed soya chunks and stir-fry for 8 to 10 minutes, turning every minute so each piece browns from direct pan contact instead of sitting in liquid.",
-              "In a separate small pan, wilt the spinach for 2 to 3 minutes with a pinch of salt and garlic, just until it collapses and turns deep green — stop there, since overcooked spinach turns bitter and grey.",
-              "Plate the rice, spoon the soya bhuna beside it, and serve the wilted spinach on the side.",
-            ],
-            {
-              prep: "10 min",
-              cook: "20 min",
-              serves: "1",
-              tip: "If the bhuna looks dry halfway through cooking, that's normal for soya chunks — add a splash of water instead of more oil to loosen it.",
-            },
-          ),
-          meal(
-            "4:00 PM (30 min before gym)",
-            "Pre-workout: banana and black coffee",
-            [
-              "1 medium ripe banana",
-              "1 cup (200 ml) strong black coffee, no sugar, no milk",
-            ],
-            [
-              "Eat the banana on its own, chewing slowly, about 30 minutes before your warm-up — a slightly spotted, riper banana digests faster than a green one.",
-              "Brew the coffee strong and drink it black within the same 20 to 30 minute window, sipping rather than gulping to avoid jitters.",
-              "Shift this to 5:30 PM if your session starts at 6 PM, so the caffeine peak lines up with your warm-up.",
-            ],
-            {
-              prep: "5 min",
-              cook: "0 min",
-              serves: "1",
-              tip: "Stick to one cup — a second adds more anxiety and sleep disruption than fat-burning benefit.",
-            },
-          ),
-          meal(
-            "Within 30 min after gym",
-            "Post-workout: egg white omelet or soya bhuna",
-            [
-              "Option A: 3 eggs (whites only), 1 small onion, 1 green chili, 1 drop oil, pinch salt",
-              "Option B: 50 g dry soya chunks, 1 tsp mustard oil, onion, ginger-garlic, cumin, chili powder",
-            ],
-            [
-              "Option A: separate the egg whites from the yolks, whisk for 20 seconds until frothy, stir in the chopped onion and chili, then cook in a non-stick pan over medium-low heat with just a drop of oil for about 90 seconds per side until fully set.",
-              "Option B: boil the soya chunks 5 minutes, drain, squeeze out all the water, then stir-fry in the mustard oil with onion, ginger-garlic, cumin, and chili powder for 8 to 10 minutes until browned.",
-              "Eat whichever option within 30 minutes of finishing your last set, while your muscles are most receptive to the protein.",
-            ],
-            {
-              prep: "5 min",
-              cook: "8-10 min",
-              serves: "1",
-              tip: "Keep the heat medium-low for the egg whites specifically — on high heat they go rubbery almost instantly since they have no fat to buffer the heat.",
-            },
-          ),
-          meal(
-            "8:30 PM",
-            "Dinner: dal soup and eggs",
-            [
-              "1 cup dry masoor (red lentil) or moong dal, rinsed",
-              "600 ml water",
-              "2 eggs",
-              "1 tsp lemon juice",
-              "1/2 tsp cumin seeds",
-              "2 cloves garlic, sliced",
-              "1 green chili",
-              "Pinch turmeric and salt",
-              "Large salad: 1 cucumber + 1 tomato, sliced",
-            ],
-            [
-              "Rinse the dal until the water runs mostly clear — this washes off surface starch that would otherwise make it foam over while boiling.",
-              "Add the dal to a pot with the 600 ml water and a pinch of turmeric. Bring to a boil uncovered, skimming off the white foam that rises in the first few minutes.",
-              "Partially cover and simmer for 15 to 20 minutes (masoor) or 20 to 25 minutes (moong), stirring occasionally, until the lentils fall apart into a thick, porridge-like soup. Add a splash of hot water if it thickens before the dal is fully soft.",
-              "Meanwhile, boil the eggs 9 minutes from a full boil, cool in cold water for 2 minutes, then peel.",
-              "For the tempering, heat a dry pan over medium heat, add the cumin seeds, and let them sizzle for about 20 seconds until fragrant. Add the sliced garlic and chili and fry 30 to 45 seconds until the garlic turns light golden — watch closely, it burns fast and turns bitter past that point.",
-              "Tip the whole tempering into the simmered dal and stir through. Season with salt, then squeeze in the lemon juice right before serving so the citrus stays bright instead of cooking off.",
-              "Halve the boiled eggs into the bowl of dal and serve with the cucumber-tomato salad on the side.",
-            ],
-            {
-              prep: "5 min",
-              cook: "25 min",
-              serves: "1",
-              tip: "This dal is meant to be thick enough to eat like a stew, not a thin soup — that's what makes it filling enough for dinner without extra rice.",
-            },
-          ),
-        ]),
-        diet("Wed", "Gym day — Legs", [
-          meal(
-            "7:30 AM",
-            "Morning drink: chia lemon water",
-            [
-              "1 tbsp (about 12 g) whole chia seeds",
-              "250 ml room-temperature water, for soaking",
-              "200 ml warm water (not boiling), to finish",
-              "Juice of half a fresh lemon",
-            ],
-            [
-              "Stir the chia seeds into the 250 ml room-temperature water hard for 10 seconds right away so they don't clump into one wet lump.",
-              "Leave untouched for 15 minutes until they swell into a translucent gel — this is what slows digestion and keeps you full through the morning.",
-              "Top with the 200 ml warm water and lemon juice, stirring from the bottom up since the gel settles.",
-              "Drink slowly on a completely empty stomach, then wait at least 20 minutes before breakfast — today is your heaviest leg session, so let this fully settle first.",
-            ],
-            {
-              prep: "15 min (mostly soaking)",
-              cook: "0 min",
-              serves: "1",
-              tip: "Drink through a wide straw if the gel texture bothers you — it removes the 'frog egg' sensation most beginners notice on the first try.",
-            },
-          ),
-          meal(
-            "8:00 AM",
-            "Breakfast: masala oats with boiled eggs",
-            [
-              "4 tbsp (about 40 g) rolled oats",
-              "120 ml water",
-              "1 small onion, finely chopped",
-              "1 green chili, finely sliced",
-              "Pinch of salt and turmeric (holud)",
-              "2 whole eggs",
-              "1 cup green tea, no sugar",
-            ],
-            [
-              "Dry-toast the oats in a pan on medium heat for 60 to 90 seconds, stirring constantly, until they smell nutty and turn a shade darker.",
-              "Add the 120 ml water, salt, turmeric, onion, and chili. Drop the heat to low and simmer 3 to 4 minutes, stirring every 30 seconds, until it thickens enough to coat the back of a spoon.",
-              "Boil the eggs separately for exactly 9 minutes from a full boil, then cool in cold water for 2 minutes before peeling so the shell comes away cleanly.",
-              "Plate the oats with the peeled, halved eggs seasoned with salt and pepper. Brew the green tea for no more than 2 minutes so it doesn't turn bitter.",
-            ],
-            {
-              prep: "5 min",
-              cook: "10 min",
-              serves: "1",
-              tip: "Eat this breakfast a little earlier than usual on leg day if you can — heavy squats and leg press on a very full stomach feel uncomfortable.",
-            },
-          ),
-          meal(
-            "11:00 AM",
-            "Snack: motor chaat (spiced yellow pea salad)",
-            [
-              "100 g (about half cup) dry yellow split peas (motor dal)",
-              "1 small cucumber, finely diced",
-              "1 medium tomato, finely diced",
-              "Small handful coriander, chopped",
-              "Juice of half a lemon",
-              "Pinch each of salt, black pepper, and roasted cumin powder",
-            ],
-            [
-              "Soak the dal 30 minutes, then boil in fresh water with a pinch of salt and turmeric for 15 to 20 minutes until a pea mashes easily but still holds its shape.",
-              "Drain thoroughly and air-cool on a plate for 5 minutes so it doesn't turn the salad watery when mixed with the raw vegetables.",
-              "Toss the cooled peas with cucumber, tomato, and coriander, then add the lemon juice, salt, pepper, and cumin powder.",
-              "Mix well and eat within 30 minutes while everything is still crisp. No oil needed.",
-            ],
-            {
-              prep: "30 min soak + 10 min chop",
-              cook: "20 min",
-              serves: "1",
-              tip: "Crush your own roasted cumin seeds with the back of a spoon instead of using old jar powder — it makes a noticeable difference here.",
-            },
-          ),
-          meal(
-            "1:30 PM",
-            "Lunch: chicken or fish with rice and vegetables",
-            [
-              "1 level cup cooked rice",
-              "150 g chicken breast or local fish (rui, katla, or telapia), cut into bite-size pieces",
-              "1 tsp mustard oil — measured, not guessed",
-              "1 medium onion, sliced",
-              "1 tsp ginger-garlic paste",
-              "1/2 tsp cumin (jeera) powder",
-              "1/2 tsp turmeric (holud)",
-              "1 green chili, slit",
-              "1 large bowl mixed vegetables: patal, lau, or spinach, roughly chopped",
-              "Salt to taste",
-            ],
-            [
-              "Pat the chicken or fish dry — wet protein steams instead of browning, and browning is where the flavor comes from.",
-              "Heat the oil over medium heat until it shimmers, then fry the sliced onion for 3 minutes until the edges turn light golden.",
-              "Add the ginger-garlic paste, cumin, turmeric, and chili. Stir for about a minute until the raw smell turns toasted and fragrant.",
-              "Add the chicken or fish and cook on medium heat for 12 to 15 minutes, stirring every 2 minutes, until chicken shows no pink in the thickest piece or fish flakes apart easily.",
-              "Stir in the vegetables for the last 5 minutes only, so they finish firm rather than mushy.",
-              "Taste and adjust salt, then plate the measured cup of rice with the chicken or fish and vegetables alongside.",
-            ],
-            {
-              prep: "10 min",
-              cook: "20 min",
-              serves: "1",
-              tip: "Today's session burns the most calories of the week, so don't under-eat at lunch trying to 'save room' — your legs need the fuel to perform.",
-            },
-          ),
-          meal(
-            "4:00 PM (30 min before gym)",
-            "Pre-workout: banana and black coffee",
-            [
-              "1 medium ripe banana",
-              "1 cup (200 ml) strong black coffee, no sugar, no milk",
-            ],
-            [
-              "Eat the banana on its own about 30 minutes before your warm-up, chewing slowly.",
-              "Brew the coffee strong and drink it black in the same window, sipping rather than gulping.",
-              "Shift this whole step to 5:30 PM if you're training at 6 PM instead of 4 PM.",
-            ],
-            {
-              prep: "5 min",
-              cook: "0 min",
-              serves: "1",
-              tip: "Caffeine genuinely helps you push a heavier squat — this is one of the few supplements with solid evidence behind it, so don't skip it on leg day.",
-            },
-          ),
-          meal(
-            "Within 30 min after gym",
-            "Post-workout: egg white omelet or soya bhuna",
-            [
-              "Option A: 3 eggs (whites only), 1 small onion, 1 green chili, 1 drop oil, pinch salt",
-              "Option B: 50 g dry soya chunks, 1 tsp mustard oil, onion, ginger-garlic, cumin, chili powder",
-            ],
-            [
-              "Option A: whisk the separated egg whites for 20 seconds until frothy, stir in the chopped onion and chili, then cook in a non-stick pan over medium-low heat with a single drop of oil, about 90 seconds per side until fully set.",
-              "Option B: boil the soya chunks 5 minutes, drain, squeeze out all the water by hand, then stir-fry in the mustard oil with onion, ginger-garlic, cumin, and chili powder for 8 to 10 minutes until browned and dry-fried looking.",
-              "Eat whichever option within 30 minutes of finishing your last set, while your legs are most receptive to repairing.",
-            ],
-            {
-              prep: "5 min",
-              cook: "8-10 min",
-              serves: "1",
-              tip: "Your legs took the biggest hit today — don't skip this meal even if you feel too tired to cook; the omelet option takes under 5 minutes start to finish.",
-            },
-          ),
-          meal(
-            "8:30 PM",
-            "Dinner: roti with grilled protein and salad",
-            [
-              "1 handmade whole-wheat red atta roti",
-              "100 to 150 g grilled fish or chicken",
-              "1 medium cucumber, sliced",
-              "1 medium tomato, sliced",
-              "Juice of half a lemon",
-              "Pinch of salt and black pepper",
-              "1/2 tsp oil, for grilling",
-            ],
-            [
-              "Knead the red atta flour with water, a splash at a time, until you get a soft, non-sticky dough. Rest 10 minutes under a damp cloth, then roll out flat and even.",
-              "Cook the roti on a dry, hot pan with no oil, 1 to 2 minutes per side, until light char spots appear and it puffs slightly.",
-              "Rub the fish or chicken with salt, turmeric, and cumin, then cook in a pan with 1/2 tsp oil on medium heat — fish 3 to 4 minutes per side until it flakes apart, chicken 6 to 7 minutes per side until no pink remains.",
-              "Slice the cucumber and tomato, squeeze lemon juice over them, and season with salt and pepper.",
-              "Plate everything together and eat at least 2 hours before bed so your legs can properly recover overnight.",
-            ],
-            {
-              prep: "15 min",
-              cook: "15 min",
-              serves: "1",
-              tip: "Resting the roti dough for 10 minutes before rolling is what keeps it from tearing at the edges — don't skip straight from kneading to rolling.",
-            },
-          ),
-        ]),
-        diet("Thu", "Recovery day", [
-          meal(
-            "7:30 AM",
-            "Morning drink: chia lemon water",
-            [
-              "1 tbsp (about 12 g) whole chia seeds",
-              "250 ml room-temperature water, for soaking",
-              "200 ml warm water (not boiling), to finish",
-              "Juice of half a fresh lemon",
-            ],
-            [
-              "Stir the chia seeds into the 250 ml room-temperature water hard for 10 seconds so they spread out instead of clumping.",
-              "Leave for 15 minutes until they swell into a translucent gel.",
-              "Top with the warm water and lemon juice, stirring from the bottom up.",
-              "Drink slowly on an empty stomach. Wait 20 minutes before breakfast.",
-            ],
-            {
-              prep: "15 min (mostly soaking)",
-              cook: "0 min",
-              serves: "1",
-              tip: "Recovery day or not, this drink stays on the menu every single morning — consistency is what makes it actually do anything for your metabolism.",
-            },
-          ),
-          meal(
-            "8:00 AM",
-            "Breakfast: masala oats with boiled eggs",
-            [
-              "4 tbsp (about 40 g) rolled oats",
-              "120 ml water",
-              "1 small onion, finely chopped",
-              "1 green chili, finely sliced",
-              "Pinch of salt and turmeric",
-              "2 whole eggs",
-              "1 cup green tea, no sugar",
-            ],
-            [
-              "Dry-toast the oats on medium heat for 60 to 90 seconds until they smell nutty, then add the water, salt, turmeric, onion, and chili.",
-              "Simmer on low for 3 to 4 minutes, stirring every 30 seconds, until thick enough to coat the back of a spoon.",
-              "Boil the eggs separately for 9 minutes from a full boil, cool in cold water 2 minutes, then peel.",
-              "Plate the oats with the eggs on the side and brew the green tea for under 2 minutes.",
-            ],
-            {
-              prep: "5 min",
-              cook: "10 min",
-              serves: "1",
-              tip: "Same breakfast as your gym days on purpose — recovery days don't need extra carbs, just consistent protein.",
-            },
-          ),
-          meal(
-            "11:00 AM",
-            "Snack: motor chaat or fresh fruit",
-            [
-              "Option A: 100 g (about half cup) dry yellow split peas (motor dal), cucumber, tomato, onion, lemon",
-              "Option B: 1 medium guava or apple",
-            ],
-            [
-              "Option A: soak the motor dal 30 minutes, boil 15 to 20 minutes until a pea mashes easily but holds its shape, then drain fully and air-cool 5 minutes before mixing with the chopped vegetables, lemon juice, salt, and pepper. No oil needed.",
-              "Option B: wash the guava or apple thoroughly under running water — guava skin is eaten, so scrub it gently with your fingers to remove any grit. Pat dry, slice into wedges, and eat slowly.",
-              "Either option keeps today's snack lighter than your gym-day version, since you're not about to train.",
-            ],
-            {
-              prep: "30 min soak (Option A) or 2 min (Option B)",
-              cook: "20 min (Option A) or 0 min (Option B)",
-              serves: "1",
-              tip: "Rotate between the two options through the week so you're not eating the same chaat every single day — variety makes the plan easier to stick to long-term.",
-            },
-          ),
-          meal(
-            "1:30 PM",
-            "Lunch: fish rice plate",
-            [
-              "150 g local fish (rui, katla, telapia, or pangas), cut into pieces",
-              "1 tsp mustard or soybean oil",
-              "1 small onion, sliced",
-              "1/2 tsp ginger-garlic paste",
-              "1/4 tsp turmeric, 1/4 tsp cumin powder, 1 green chili",
-              "1 cup bottle gourd (lau) or green papaya, peeled and cubed",
-              "1 level cup cooked rice",
-              "Fresh salad: cucumber and tomato, sliced, with lemon",
-            ],
-            [
-              "Pat the fish dry and rub lightly with salt and a pinch of turmeric. Set aside for 10 minutes to let it season through.",
-              "Heat the oil in a pan over medium heat and fry the sliced onion for 3 minutes until soft and translucent — for a fish curry you want it pale, not deep golden the way a chicken bhuna would be.",
-              "Add the ginger-garlic paste, remaining turmeric, cumin, and chili. Stir 30 to 45 seconds until fragrant.",
-              "Pour in about 1 cup of water and bring to a gentle simmer, then carefully lower in the fish pieces and the cubed bottle gourd or papaya — don't stir roughly with a spoon or the fish will break apart, just shake the pan gently instead.",
-              "Simmer uncovered on low-medium for 10 to 12 minutes until the fish is cooked through and the vegetables are soft but still holding their shape. The curry should look light and watery (jhol style), not thick — that's correct for a recovery-day meal with minimal oil.",
-              "Season with salt and taste the broth before plating.",
-              "Plate the vegetables and curry first, then the rice, with the fresh cucumber-tomato salad on the side. Eat slowly without rushing — today has no workout to fuel, so there's no need to overeat.",
-            ],
-            {
-              prep: "15 min",
-              cook: "15 min",
-              serves: "1",
-              tip: "Resist the urge to add more oil if the curry looks thin — bottle gourd and green papaya release their own water as they cook, so a watery jhol is exactly how this dish should look.",
-            },
-          ),
-          meal(
-            "4:00 PM",
-            "Snack: tok doi with fruit",
-            [
-              "1 small bowl (about 150 g) plain tok doi (unsweetened sour yogurt)",
-              "1 guava or apple",
-              "1 tsp chia seeds",
-              "5 to 8 almonds (katha badam)",
-            ],
-            [
-              "If the tok doi has separated in the fridge with a watery layer on top, stir it briskly first to bring it back to a smooth, even consistency.",
-              "Wash and chop the fruit into small bite-size cubes, keeping the skin on if it's a soft apple for extra fiber.",
-              "Stir the chia seeds into the tok doi, then fold in the chopped fruit.",
-              "Let it sit for 5 minutes — this short wait is what turns plain yogurt with fruit into a properly textured snack, as the chia softens slightly.",
-              "Roughly crush the almonds between your fingers and scatter them on top just before eating, so they stay crunchy instead of going soft in the yogurt.",
-            ],
-            {
-              prep: "8 min (includes 5 min rest)",
-              cook: "0 min",
-              serves: "1",
-              tip: "If the tok doi tastes too sour for you, let the fruit do the balancing — don't reach for honey or sugar, since that's exactly the kind of 'healthy snack' that quietly adds up calories.",
-            },
-          ),
-          meal(
-            "8:30 PM",
-            "Dinner: roti dal dinner",
-            [
-              "1 to 2 whole-wheat atta roti",
-              "1 cup dry masoor or moong dal, rinsed",
-              "1 cup mixed seasonal vegetables (potato, pumpkin, or cabbage), chopped",
-              "1/2 to 1 tsp oil total",
-              "Garlic, cumin, turmeric, chili, salt, lemon",
-            ],
-            [
-              "Boil the rinsed dal in about 3 cups water with a pinch of turmeric for 20 to 25 minutes, stirring occasionally and topping up with hot water if it dries out, until it breaks down into a thick, porridge-like consistency.",
-              "Temper a few cumin seeds and sliced garlic in a barely-oiled pan for 30 to 45 seconds until golden, then stir the whole tempering into the dal. Season with salt.",
-              "For the bhaji, heat 1/2 tsp oil, add a pinch of turmeric and the chopped vegetables, cover, and cook on low-medium for 10 to 12 minutes, stirring occasionally, until soft. Finish with salt and a pinch of chili powder.",
-              "Knead the atta into a soft dough, rest 10 minutes under a damp cloth, roll flat, and cook on a dry pan 1 to 2 minutes per side until lightly charred and puffed.",
-              "Squeeze fresh lemon juice into the dal right before serving so it stays bright instead of cooking off.",
-              "Plate the roti, dal, and bhaji together.",
-            ],
-            {
-              prep: "10 min",
-              cook: "25 min",
-              serves: "1",
-              tip: "Cook the dal thick enough that a spoon almost stands up in it — a thin, watery dal at dinner leaves you hungry again within the hour.",
-            },
-          ),
-        ]),
-        diet("Fri", "Gym day — Upper Mix", [
-          meal(
-            "7:30 AM",
-            "Morning drink: chia lemon water",
-            [
-              "1 tbsp (about 12 g) whole chia seeds",
-              "250 ml room-temperature water, for soaking",
-              "200 ml warm water (not boiling), to finish",
-              "Juice of half a fresh lemon",
-            ],
-            [
-              "Stir the chia seeds into the 250 ml room-temperature water hard for 10 seconds so they don't clump.",
-              "Leave for 15 minutes until they swell into a translucent gel.",
-              "Top with the warm water and lemon juice, stirring from the bottom up.",
-              "Drink slowly on an empty stomach. Wait 20 minutes before breakfast — you've now done this 5 days straight, which is exactly the kind of repetition that makes a habit stick.",
-            ],
-            {
-              prep: "15 min (mostly soaking)",
-              cook: "0 min",
-              serves: "1",
-              tip: "Drink through a wide straw if the gel texture still bothers you after a few tries.",
-            },
-          ),
-          meal(
-            "8:00 AM",
-            "Breakfast: masala oats with boiled eggs",
-            [
-              "4 tbsp (about 40 g) rolled oats",
-              "120 ml water",
-              "1 small onion, finely chopped",
-              "1 green chili, finely sliced",
-              "Pinch of salt and turmeric",
-              "2 whole eggs",
-              "1 cup green tea, no sugar",
-            ],
-            [
-              "Dry-toast the oats on medium heat for 60 to 90 seconds until they smell nutty, then stir in the water, salt, turmeric, onion, and chili.",
-              "Simmer on low for 3 to 4 minutes, stirring every 30 seconds, until thick.",
-              "Boil the eggs separately for 9 minutes from a full boil, cool 2 minutes in cold water, then peel.",
-              "Plate the oats with the eggs and brew the green tea for under 2 minutes.",
-            ],
-            {
-              prep: "5 min",
-              cook: "10 min",
-              serves: "1",
-              tip: "After Thursday's rest day, your appetite may be slightly lower this morning — eat the full portion anyway, since today's upper session needs the fuel.",
-            },
-          ),
-          meal(
-            "11:00 AM",
-            "Snack: motor chaat (spiced yellow pea salad)",
-            [
-              "100 g (about half cup) dry yellow split peas (motor dal)",
-              "1 small cucumber, finely diced",
-              "1 medium tomato, finely diced",
-              "Small handful coriander, chopped",
-              "Juice of half a lemon",
-              "Pinch each of salt, black pepper, and roasted cumin powder",
-            ],
-            [
-              "Soak the dal 30 minutes, then boil 15 to 20 minutes in fresh water with a pinch of salt and turmeric until a pea mashes easily but holds its shape.",
-              "Drain fully and air-cool 5 minutes before mixing with the cucumber, tomato, and coriander.",
-              "Add the lemon juice, salt, pepper, and cumin powder, toss well, and eat within 30 minutes.",
-            ],
-            {
-              prep: "30 min soak + 10 min chop",
-              cook: "20 min",
-              serves: "1",
-              tip: "No oil needed — the lemon and roasted cumin carry the whole flavor.",
-            },
-          ),
-          meal(
-            "1:30 PM",
-            "Lunch: chicken stir-fry with rice",
-            [
-              "150 g chicken breast, sliced into thin strips",
-              "1 level cup cooked rice",
-              "1 cup capsicum, patal, or spinach, sliced",
-              "1 tsp mustard oil",
-              "2 cloves garlic, minced",
-              "1 tsp ginger, minced",
-              "1 green chili, sliced",
-              "1/4 tsp cumin powder, 1/4 tsp turmeric",
-              "Salt to taste",
-            ],
-            [
-              "Slice the chicken into thin, even strips against the grain — cutting across the muscle fibers like this is what makes stir-fried chicken tender instead of chewy.",
-              "Heat the oil in a wide pan or wok over fairly high heat until it just shimmers.",
-              "Add the minced garlic and ginger and stir constantly for about 20 seconds only — they burn fast on high heat.",
-              "Add the chicken strips, spreading them in as close to a single layer as your pan allows (a crowded pan makes chicken steam instead of sear). Let them sit undisturbed for 60 to 90 seconds before the first stir, so they pick up color.",
-              "Stir-fry for 10 to 12 minutes total on medium-high heat, turning every minute or two, until no pink remains in the thickest piece.",
-              "Add the cumin, turmeric, and chili, stir for 30 seconds, then add the sliced vegetables.",
-              "Keep the heat high and stir-fry for just 3 minutes — the vegetables should stay bright in color and slightly crisp, not wilted and grey, which is the entire point of a stir-fry over a slow curry.",
-              "Season with salt and serve immediately over the measured cup of rice while everything is still hot and crisp.",
-            ],
-            {
-              prep: "10 min",
-              cook: "15 min",
-              serves: "1",
-              tip: "Don't walk away from the pan during a stir-fry — it lives or dies on timing. Add the vegetables only once the chicken is basically done, or they'll overcook waiting around.",
-            },
-          ),
-          meal(
-            "4:00 PM (30 min before gym)",
-            "Pre-workout: banana and black coffee",
-            [
-              "1 medium ripe banana",
-              "1 cup (200 ml) strong black coffee, no sugar, no milk",
-            ],
-            [
-              "Eat the banana on its own about 30 minutes before your warm-up.",
-              "Brew the coffee strong and drink it black in the same window, sipping rather than gulping.",
-              "Shift this to 5:30 PM if training at 6 PM.",
-            ],
-            {
-              prep: "5 min",
-              cook: "0 min",
-              serves: "1",
-              tip: "Today's session is the longest cardio finisher of the week (20 minutes) — make sure you actually drink the full cup, not half of it.",
-            },
-          ),
-          meal(
-            "Within 30 min after gym",
-            "Post-workout: egg white omelet or soya bhuna",
-            [
-              "Option A: 3 eggs (whites only), 1 small onion, 1 green chili, 1 drop oil, pinch salt",
-              "Option B: 50 g dry soya chunks, 1 tsp mustard oil, onion, ginger-garlic, cumin, chili powder",
-            ],
-            [
-              "Option A: whisk the separated egg whites 20 seconds until frothy, stir in the onion and chili, then cook in a non-stick pan over medium-low heat with a single drop of oil, about 90 seconds per side until fully set.",
-              "Option B: boil the soya chunks 5 minutes, drain, squeeze out the water by hand, then stir-fry in the mustard oil with onion, ginger-garlic, cumin, and chili powder for 8 to 10 minutes until browned.",
-              "Eat within 30 minutes of finishing your last set.",
-            ],
-            {
-              prep: "5 min",
-              cook: "8-10 min",
-              serves: "1",
-              tip: "If you're genuinely too tired to cook after a long session, Option A takes under 5 minutes start to finish — that's the whole point of keeping it that simple.",
-            },
-          ),
-          meal(
-            "8:30 PM",
-            "Dinner: egg curry with roti and salad",
-            [
-              "2 eggs",
-              "1 tsp oil",
-              "1 small onion, finely chopped",
-              "1 medium tomato, finely chopped",
-              "2 cloves garlic, minced",
-              "1 green chili",
-              "1/4 tsp cumin powder, 1/4 tsp turmeric",
-              "Salt to taste",
-              "1 atta roti",
-              "Large cucumber and tomato salad with lemon",
-            ],
-            [
-              "Boil the eggs 9 minutes from a full boil, cool in cold water 2 minutes, then peel. Use a knife to score 2 to 3 shallow slits along each egg without cutting all the way through — this lets the curry soak in rather than just coat the surface.",
-              "Heat the oil in a pan over medium heat, add the chopped onion, and fry 3 to 4 minutes until soft and lightly golden.",
-              "Add the garlic, chili, cumin, and turmeric, stirring 30 to 45 seconds until fragrant.",
-              "Add the chopped tomato and cook, mashing it lightly with the back of a spoon, for 4 to 5 minutes until it breaks down into a thick, jammy base and the oil just starts to separate at the edges — that's the sign the masala is properly cooked, not just heated through.",
-              "Add about 1/4 cup water to loosen into a sauce, bring to a simmer, then gently lower in the scored boiled eggs.",
-              "Simmer 3 to 4 minutes, occasionally spooning the sauce over the top of the eggs so the slits soak it up, then season with salt.",
-              "Cook the roti on a dry, hot pan, 1 to 2 minutes per side, while the curry simmers.",
-              "Plate the egg curry with the roti and a large fresh cucumber-tomato salad dressed with lemon.",
-            ],
-            {
-              prep: "10 min",
-              cook: "15 min",
-              serves: "1",
-              tip: "Scoring the boiled eggs before they go into the curry is a small step that makes a real difference — it's what actually gets the masala flavor into the egg instead of leaving it just sitting on the surface.",
-            },
-          ),
-        ]),
-        diet("Sat", "Gym day — Lower + HIIT", [
-          meal(
-            "7:30 AM",
-            "Morning drink: chia lemon water",
-            [
-              "1 tbsp (about 12 g) whole chia seeds",
-              "250 ml room-temperature water, for soaking",
-              "200 ml warm water (not boiling), to finish",
-              "Juice of half a fresh lemon",
-            ],
-            [
-              "Stir the chia seeds into the room-temperature water hard for 10 seconds so they don't clump.",
-              "Leave for 15 minutes until they swell into a translucent gel.",
-              "Top with the warm water and lemon juice, stirring from the bottom up.",
-              "Drink slowly on an empty stomach and wait 20 minutes before breakfast — today is your highest-intensity day, so start it properly.",
-            ],
-            {
-              prep: "15 min (mostly soaking)",
-              cook: "0 min",
-              serves: "1",
-              tip: "Drink through a wide straw if the texture still bothers you.",
-            },
-          ),
-          meal(
-            "8:00 AM",
-            "Breakfast: oat and tok doi bowl",
-            [
-              "4 tbsp (about 40 g) rolled oats",
-              "1 small bowl (about 150 g) plain tok doi",
-              "1 tsp chia seeds",
-              "1 guava or apple",
-              "5 almonds (katha badam)",
-            ],
-            [
-              "Spoon the tok doi into a bowl and stir briskly if it has separated in the fridge, until smooth.",
-              "Stir in the dry rolled oats and chia seeds directly — no cooking needed today. The yogurt's moisture and a short rest do the softening work instead.",
-              "Let the bowl sit for 10 minutes at room temperature. The oats soften from crunchy to a pleasant chewy texture and the chia starts to gel slightly — this is what turns it from 'yogurt with raw oats' into an actual bowl you'd want to eat.",
-              "While it sits, wash and chop the guava or apple into small cubes.",
-              "Once the 10 minutes are up, fold the chopped fruit into the bowl or layer it on top.",
-              "Roughly crush the almonds with the back of a spoon and scatter them on right before eating, so they stay crunchy against the soft oats.",
-              "Eat as is — no honey or sugar needed.",
-            ],
-            {
-              prep: "12 min (includes 10 min rest)",
-              cook: "0 min",
-              serves: "1",
-              tip: "This is basically a same-day version of overnight oats — for an even softer texture, mix the tok doi, oats, and chia the night before and refrigerate, adding the fruit and almonds fresh in the morning.",
-            },
-          ),
-          meal(
-            "11:00 AM",
-            "Snack: motor chaat (spiced yellow pea salad)",
-            [
-              "100 g (about half cup) dry yellow split peas (motor dal)",
-              "1 small cucumber, finely diced",
-              "1 medium tomato, finely diced",
-              "Small handful coriander, chopped",
-              "Juice of half a lemon",
-              "Pinch each of salt, black pepper, and roasted cumin powder",
-            ],
-            [
-              "Soak the dal 30 minutes, then boil 15 to 20 minutes in fresh water with a pinch of salt and turmeric until a pea mashes easily but holds its shape.",
-              "Drain fully and air-cool 5 minutes before mixing with the cucumber, tomato, and coriander.",
-              "Add the lemon juice, salt, pepper, and cumin powder, toss well, and eat within 30 minutes.",
-            ],
-            {
-              prep: "30 min soak + 10 min chop",
-              cook: "20 min",
-              serves: "1",
-              tip: "No oil needed — the lemon and roasted cumin carry the whole flavor.",
-            },
-          ),
-          meal(
-            "1:30 PM",
-            "Lunch: grilled fish with rice and dal",
-            [
-              "150 g rui, katla, or telapia fish (one fillet or steak)",
-              "Juice of half a lemon",
-              "2 cloves garlic, minced",
-              "1 green chili, minced",
-              "1/4 tsp turmeric",
-              "Salt to taste",
-              "1/2 tsp oil",
-              "1 level cup cooked rice",
-              "1 bowl thin dal (moong or masoor)",
-              "1 cup mixed vegetables, lightly cooked",
-            ],
-            [
-              "Pat the fish completely dry with a paper towel — this is the single most important step for getting a proper sear instead of a soggy mess that sticks to the pan.",
-              "Mix the lemon juice, minced garlic, chili, turmeric, and a pinch of salt into a quick marinade. Rub it over the fish and let it sit for 10 minutes only — any longer and the acidic lemon starts to break down the flesh and turn it mushy.",
-              "Heat a non-stick pan over medium heat and brush on just 1/2 tsp of oil with a pastry brush or paper towel — a thin, even film, not a puddle.",
-              "Lay the fish in the hot pan and don't move it for the first 3 to 4 minutes, letting a proper crust form. It's ready to flip once the edges turn opaque and it releases easily from the pan with a spatula.",
-              "Flip once, gently, and cook the other side another 3 to 4 minutes until the fish flakes apart easily when pressed with a fork.",
-              "While the fish grills, warm a thin, soupy dal (not thick, since this is meant to be a lighter side) and steam the mixed vegetables until just tender.",
-              "Plate the rice, fish, dal, and vegetables together, with any extra lemon squeezed over the fish right before eating.",
-            ],
-            {
-              prep: "10 min marinade + 10 min prep",
-              cook: "10 min",
-              serves: "1",
-              tip: "Don't flip grilled fish more than once — every extra flip is a chance for it to fall apart, and a fillet that's been poked at on the pan never sears properly.",
-            },
-          ),
-          meal(
-            "4:00 PM (30 min before gym)",
-            "Pre-workout: banana and black coffee",
-            [
-              "1 medium ripe banana",
-              "1 cup (200 ml) strong black coffee, no sugar, no milk",
-            ],
-            [
-              "Eat the banana on its own about 30 minutes before your warm-up.",
-              "Brew the coffee strong and drink it black in the same window.",
-              "This is your highest-intensity day of the week (HIIT finisher included) — don't skip either part of this step.",
-            ],
-            {
-              prep: "5 min",
-              cook: "0 min",
-              serves: "1",
-              tip: "Fuel properly today specifically — under-fueling before a HIIT finisher is how beginners end up dizzy halfway through the intervals.",
-            },
-          ),
-          meal(
-            "Within 30 min after gym",
-            "Post-workout: egg white omelet or soya bhuna",
-            [
-              "Option A: 3 eggs (whites only), 1 small onion, 1 green chili, 1 drop oil, pinch salt",
-              "Option B: 50 g dry soya chunks, 1 tsp mustard oil, onion, ginger-garlic, cumin, chili powder",
-            ],
-            [
-              "Option A: whisk the separated egg whites 20 seconds until frothy, stir in the onion and chili, then cook in a non-stick pan over medium-low heat with a single drop of oil, about 90 seconds per side until fully set.",
-              "Option B: boil the soya chunks 5 minutes, drain, squeeze out the water by hand, then stir-fry in the mustard oil with onion, ginger-garlic, cumin, and chili powder for 8 to 10 minutes until browned.",
-              "Eat within 30 minutes of finishing the HIIT finisher, when your body is most ready to use the protein.",
-            ],
-            {
-              prep: "5 min",
-              cook: "8-10 min",
-              serves: "1",
-              tip: "You'll likely be more depleted after today's HIIT than any other day — this is not the meal to skip or shrink.",
-            },
-          ),
-          meal(
-            "8:30 PM",
-            "Dinner: chicken soup",
-            [
-              "150 g chicken pieces (bone-in for more flavor, or boneless)",
-              "1 cup mixed carrot, cabbage, beans, or green papaya, chopped",
-              "1 inch ginger, sliced",
-              "3 cloves garlic, sliced",
-              "Black pepper and salt to taste",
-              "1 atta roti, only if still genuinely hungry",
-            ],
-            [
-              "Place the chicken in a pot with about 700 ml to 1 liter of water, the sliced ginger and garlic, and a pinch of salt. Bring to a boil and skim off any grey foam that rises in the first few minutes — this keeps the broth clear instead of cloudy.",
-              "Reduce to a gentle simmer and cook 15 to 20 minutes (boneless) or 25 to 30 minutes (bone-in) until the chicken is fully tender and shreds easily with a fork.",
-              "Add the chopped vegetables and simmer another 8 to 10 minutes until soft but not falling apart.",
-              "Season generously with black pepper and adjust salt — pepper does most of the flavor work here, since this soup deliberately stays light after a hard training day rather than using heavy spice.",
-              "Taste the broth — it should be light and broth-heavy, almost like a clear soup, not a thick curry. Top up with a little hot water if it has reduced too much.",
-              "Ladle into a bowl. Only warm a roti on the side if you're still genuinely hungry after finishing the soup, not out of habit.",
-            ],
-            {
-              prep: "5 min",
-              cook: "30 min",
-              serves: "1",
-              tip: "This is your hardest training day of the week, so don't be surprised if you're hungrier tonight than usual — that's exactly what the optional roti is there for, not a sign you're doing something wrong.",
-            },
-          ),
-        ]),
-        diet("Sun", "Rest day", [
-          meal(
-            "7:30 AM",
-            "Morning drink: chia lemon water",
-            [
-              "1 tbsp (about 12 g) whole chia seeds",
-              "250 ml room-temperature water, for soaking",
-              "200 ml warm water (not boiling), to finish",
-              "Juice of half a fresh lemon",
-            ],
-            [
-              "Stir the chia seeds into the room-temperature water hard for 10 seconds so they don't clump.",
-              "Leave for 15 minutes until they swell into a translucent gel.",
-              "Top with the warm water and lemon juice, stirring from the bottom up.",
-              "Drink slowly on an empty stomach and wait 20 minutes before breakfast — full week done, keep the streak going.",
-            ],
-            {
-              prep: "15 min (mostly soaking)",
-              cook: "0 min",
-              serves: "1",
-              tip: "Drink through a wide straw if the gel texture bothers you.",
-            },
-          ),
-          meal(
-            "8:00 AM",
-            "Breakfast: vegetable suji (semolina) upma",
-            [
-              "Half cup (about 80 g) suji (semolina)",
-              "1 cup mixed vegetables (onion, carrot, peas), finely diced",
-              "1 boiled egg",
-              "1 green chili, chopped",
-              "Salt to taste",
-              "1 tsp oil",
-              "1 cup water",
-              "Optional: a few mustard seeds or curry leaves",
-            ],
-            [
-              "Dry-roast the suji in a pan over medium heat for 2 to 3 minutes, stirring constantly, until it turns very lightly golden and smells toasted. Don't let it brown deeply — that turns bitter. Tip it into a bowl and set aside; this step is what keeps the upma from turning gluey later.",
-              "Heat the oil in the same pan. If using mustard seeds, add them now and let them pop for about 10 seconds.",
-              "Add the diced onion and cook 2 to 3 minutes until softened, then add the carrot and peas. Cook another 3 to 4 minutes, stirring, until just tender, not mushy. Stir in the chopped chili.",
-              "Pour in the 1 cup of water and bring to a gentle boil, then season with salt.",
-              "Lower the heat and slowly sprinkle in the toasted suji with one hand while stirring continuously with the other. This is the step that prevents lumps — dumping it all in at once is exactly how upma turns into one dense clump.",
-              "Keep stirring for 1 to 2 minutes until the mixture thickens and pulls cleanly away from the sides of the pan. Cover and let it steam off the heat for 2 minutes.",
-              "Fluff with a fork before serving. Boil the egg separately for 9 minutes, peel, halve, and serve alongside, seasoned with a pinch of salt and pepper.",
-            ],
-            {
-              prep: "10 min",
-              cook: "10 min",
-              serves: "1",
-              tip: "Adding the suji slowly while stirring nonstop is the one technique that separates fluffy upma from a single dense lump — don't rush this part even if it feels slow.",
-            },
-          ),
-          meal(
-            "12:00 PM",
-            "Lunch: light chicken khichuri",
-            [
-              "1/3 cup rice",
-              "2/3 cup moong dal (deliberately more dal than rice)",
-              "100 to 120 g chicken pieces",
-              "1 small onion, sliced",
-              "1/2 tsp ginger-garlic paste",
-              "1/4 tsp turmeric, 1/4 tsp cumin powder",
-              "1 cup mixed vegetables (potato, carrot, beans), chopped",
-              "1 tsp oil, salt to taste",
-              "Large fresh salad, for the side",
-            ],
-            [
-              "Wash the rice and moong dal together under running water until it runs mostly clear, then drain.",
-              "Dry-roast the drained dal in a dry pan over medium heat for 2 to 3 minutes until it smells lightly toasted and turns a shade darker — a classic khichuri step that deepens the flavor before it's even boiled.",
-              "Heat the oil in a pot, fry the sliced onion until soft and light golden (about 3 minutes), then add the ginger-garlic paste, turmeric, and cumin, stirring 1 minute until fragrant.",
-              "Add the chicken pieces and sear 3 to 4 minutes per side until lightly browned on the outside — it doesn't need to be cooked through yet.",
-              "Add the toasted rice, dal, and chopped vegetables, stirring everything to coat in the spice base.",
-              "Pour in about 3 cups of water (more than you'd use for plain rice, since khichuri should end up soft and porridge-like, not separate grains). Bring to a boil, then reduce to a simmer.",
-              "Cover partially and cook 20 to 25 minutes, stirring every 5 minutes so nothing sticks at the bottom, until the rice and dal have completely broken down and the chicken is fork-tender. Add hot water if it dries out before everything softens.",
-              "Season with salt and skip the traditional finishing ghee — that's the one swap that keeps this version light enough for a rest-day lunch.",
-              "Serve in a bowl with a large fresh salad of cucumber, tomato, and onion on the side.",
-            ],
-            {
-              prep: "10 min",
-              cook: "30 min",
-              serves: "1",
-              tip: "Because there's deliberately more dal than rice here, this khichuri runs naturally lower in carbs and higher in protein than the festival version — don't flip that ratio even if it tastes 'better' with more rice.",
-            },
-          ),
-          meal(
-            "4:00 PM",
-            "Snack: papaya and tok doi",
-            [
-              "1 cup ripe papaya, cubed",
-              "1 small bowl (about 150 g) plain tok doi",
-              "1 tsp chia seeds",
-              "Pinch of cinnamon, optional",
-            ],
-            [
-              "Peel the papaya, scoop out the seeds, and cut the flesh into small, even cubes. Ripe papaya should give slightly under gentle pressure, similar to a ripe mango.",
-              "Spoon the tok doi into a bowl, stirring first if it has separated in the fridge.",
-              "Add the papaya cubes and chia seeds, folding gently so the papaya doesn't break down into mush.",
-              "Let it rest 5 minutes so the chia seeds soften slightly and start absorbing some of the yogurt's moisture.",
-              "Sprinkle a pinch of cinnamon on top if you like — it adds warmth without adding any sugar.",
-              "Eat right away while the papaya still has texture; it softens further and gets watery the longer it sits in the yogurt.",
-            ],
-            {
-              prep: "8 min (includes 5 min rest)",
-              cook: "0 min",
-              serves: "1",
-              tip: "Papaya is one of the easiest fruits to digest, which is part of why it pairs so well with tok doi on a rest day when your body is focused on recovery, not tough digestion.",
-            },
-          ),
-          meal(
-            "8:00 PM",
-            "Dinner: fish salad plate",
-            [
-              "150 g any local fish fillet (rui, katla, telapia, or pangas)",
-              "1/2 tsp oil",
-              "Salt, black pepper, squeeze of lemon, for the fish",
-              "Large salad: cucumber, tomato, onion, carrot",
-              "Lemon juice and black pepper, for the salad",
-              "Half cup rice, only if still hungry",
-            ],
-            [
-              "Pat the fish dry and season both sides with salt, black pepper, and a squeeze of lemon. Let it sit 5 to 10 minutes.",
-              "Heat a pan over medium heat with the oil brushed thin across the surface.",
-              "Grill or pan-cook the fish 3 to 4 minutes per side until it flakes easily with a fork and is opaque all the way through. Avoid pressing down on it with the spatula — that squeezes out moisture and dries it out.",
-              "While the fish cooks, thinly slice the cucumber, tomato, and onion, and grate the carrot. Toss together in a large bowl.",
-              "Dress the salad with a generous squeeze of lemon juice and a good crack of black pepper — no oil needed in the dressing since the fish already carries some.",
-              "Plate the salad first, filling most of the plate, then place the fish on top or beside it.",
-              "Eat the salad first, then the fish, slowly. Only add a measured half cup of rice afterward if you're still genuinely hungry, not out of habit — this is meant to be your lightest meal of the week, heading into a fresh training week tomorrow.",
-            ],
-            {
-              prep: "10 min",
-              cook: "8 min",
-              serves: "1",
-              tip: "Building the plate 'salad first, protein second, carbs last and optional' is a simple trick that controls portions naturally without needing to count anything.",
-            },
-          ),
-          meal(
-            "Meal prep for the week",
-            "Sunday prep guide",
-            [
-              "6 to 8 eggs, for boiling",
-              "600 to 750 g chicken breast, for batch-cooking",
-              "200 g dry motor dal, for soaking",
-              "Rice, portioned into measuring cups",
-            ],
-            [
-              "Bring a large pot of water to a rolling boil and gently lower in the eggs with a spoon. Boil exactly 9 minutes from the moment the water returns to a full boil, then transfer immediately to a bowl of cold water for 5 minutes before peeling. Store in a sealed container in the fridge — they keep well for up to 5 days, peeled or unpeeled.",
-              "Pat the chicken breast batch dry and season simply with salt, turmeric, and a little cumin. Grill, bake, or pan-sear it in batches until cooked through with no pink and clear juices.",
-              "Let the chicken cool fully on a rack before portioning — packing it away hot traps steam inside the container and makes it soggy by the next day.",
-              "Once cool, slice or cube the chicken and divide into roughly 150 g portions, using a kitchen scale if you have one or your palm size as a rough guide. Store in separate containers or sealed bags in the fridge or freezer.",
-              "Rinse the dry motor dal and leave it soaking in a bowl of water in the fridge overnight — by Monday morning it's already halfway cooked, cutting your 11 AM snack prep time in half.",
-              "If you prefer reheating over cooking daily, cook a batch of rice and portion it into 1-cup containers so a single lunch is always grab-and-go.",
-              "Spend a final 5 minutes laying out tomorrow's ingredients on the counter or fridge door, so Monday morning isn't the first time you're hunting for the ginger-garlic paste.",
-            ],
-            {
-              prep: "10 min active + overnight soak",
-              cook: "30 min",
-              serves: "Whole week",
-              tip: "This entire block takes about 30 to 40 minutes once you're doing it weekly, and it's the single biggest reason people actually stay consistent with a diet plan — cooking from zero every day is what causes people to quit, not the food itself.",
-            },
-          ),
-        ]),
+        diet("Mon", "Gym day — Push", GYM_DAY_MEALS),
+        diet("Tue", "Gym day — Pull", GYM_DAY_MEALS),
+        diet("Wed", "Gym day — Legs", GYM_DAY_MEALS),
+        diet("Thu", "Recovery day", RECOVERY_DAY_MEALS),
+        diet("Fri", "Gym day — Upper Mix", GYM_DAY_MEALS),
+        diet("Sat", "Gym day — Lower + HIIT", GYM_DAY_MEALS),
+        diet("Sun", "Rest day", RECOVERY_DAY_MEALS),
       ];
 
       const DRINKS = [
@@ -4332,6 +4816,22 @@
         return labels[level - 1] || labels[0];
       }
 
+      function pelvicPhase() {
+        if (level <= 2) return PELVIC_PROGRAM[0];
+        if (level <= 4) return PELVIC_PROGRAM[1];
+        return PELVIC_PROGRAM[2];
+      }
+
+      function mainPhaseIndex() {
+        if (level <= 2) return 0;
+        if (level <= 4) return 1;
+        return 2;
+      }
+
+      function mainPhase() {
+        return MAIN_PROGRAM[mainPhaseIndex()];
+      }
+
       function adjusted(exercise, index) {
         let sets = exercise.sets,
           reps = exercise.reps;
@@ -4372,11 +4872,18 @@
         const warmupCount = WARMUPS_BY_DAY[day.id]
           ? WARMUPS_BY_DAY[day.id].items.length
           : 0;
-        const questCount =
-          warmupCount +
-          (day.exercises || []).length +
-          (day.abs || []).length +
-          (day.finisher ? 1 : 0);
+        let questCount = warmupCount + (day.finisher ? 1 : 0);
+        if (day.type === "gym") {
+          const phase = mainPhase();
+          questCount += (phase[day.abbr.toLowerCase()] || []).length;
+          if (day.id === 3) questCount += MAIN_PROGRAM_ABS[mainPhaseIndex()].length;
+        } else {
+          questCount += (day.exercises || []).length;
+          if (day.id === 4 || day.id === 0) {
+            const phase = pelvicPhase();
+            questCount += (day.id === 4 ? phase.thu : phase.sun).length;
+          }
+        }
         $("#today-eyebrow").textContent =
           day.type === "gym" ? "Today's gym session" : "Today's recovery";
         $("#today-card").innerHTML = `
@@ -4458,7 +4965,7 @@
             ? adjusted(item, index)
             : { sets: item.sets, reps: item.reps };
         const reward = routeReward(item, tuned, category);
-        const id = `${day.id}-${category}-${index}`;
+        const id = `${day.id}-${category}-${item.name.replace(/\W+/g, "_")}`;
         const completed = getCompleted();
         const rewarded = getRewarded();
         const done = Boolean(completed[id]);
@@ -4486,6 +4993,7 @@
             <p>${item.cue}</p>
             ${diagram ? `<div class="muscle-diagram-wrap">${diagram}<span>The highlighted area is the <b>${item.target}</b> — that's where you should feel this exercise working. If you feel it somewhere else, lower the weight and slow the rep down.</span></div>` : ""}
             <ol class="steps">${steps.map((s) => `<li>${s}</li>`).join("")}</ol>
+            ${NO_EQUIPMENT_ALT[item.name] ? `<div class="safety-note alt"><b>No equipment? Try this:</b> ${NO_EQUIPMENT_ALT[item.name]}</div>` : ""}
             <div class="exercise-actions">
               <button class="btn small complete-btn ${done ? "done" : ""}" type="button" data-id="${id}" data-xp="${reward.xp}" data-calories="${reward.cal}" data-name="${item.name}" ${done ? "disabled" : ""}>${done ? "✓ Complete" : "Mark complete"}</button>
               <a class="btn small" href="${yt(item.name)}" target="_blank" rel="noopener">${iconPlay} Watch form</a>
@@ -4536,13 +5044,18 @@
         }
 
         if (day.type === "gym") {
-          html += `<div class="section-label">Main exercises</div>`;
-          html += (day.exercises || [])
+          const phase = mainPhase();
+          const dayKey = day.abbr.toLowerCase();
+          const mainExercises = phase[dayKey] || [];
+          html += `<div class="section-label">Main exercises — ${phase.label} (${phase.levelRange})</div>`;
+          html += `<div class="safety-note" style="margin-bottom:12px">These lifts change as you level up — Foundation, Build Strength, then Advanced — so it's never the same 5 exercises forever. You're currently on the "${phase.label}" set. Upgrade your level in the panel above to unlock the next set.</div>`;
+          html += mainExercises
             .map((item, i) => mainExCard(day, item, i, "training"))
             .join("");
-          if (day.abs && day.abs.length) {
+          if (day.id === 3) {
+            const absExercises = MAIN_PROGRAM_ABS[mainPhaseIndex()];
             html += `<div class="section-label">Core and abs</div>`;
-            html += day.abs
+            html += absExercises
               .map((item, i) => mainExCard(day, item, i, "abs"))
               .join("");
           }
@@ -4553,6 +5066,15 @@
           html += (day.exercises || [])
             .map((item, i) => mainExCard(day, item, i, "training"))
             .join("");
+          if (day.id === 4 || day.id === 0) {
+            const phase = pelvicPhase();
+            const pelvicExercises = day.id === 4 ? phase.thu : phase.sun;
+            html += `<div class="section-label">Pelvic floor — ${phase.label} (${phase.levelRange})</div>`;
+            html += `<div class="safety-note" style="margin-bottom:12px">These moves change as you level up, so it's never the same routine forever. You're currently on the "${phase.label}" set. Upgrade your level in the Training tab above to unlock the next set of pelvic floor exercises.</div>`;
+            html += pelvicExercises
+              .map((item, i) => mainExCard(day, item, i, "pelvic"))
+              .join("");
+          }
         }
 
         $("#training-detail").innerHTML = `
@@ -4629,11 +5151,21 @@
             Number(btn.dataset.diet) === selectedDiet,
           );
         });
+        const totalKcal = day.meals.reduce(
+          (sum, m) => sum + (m.info.kcal || 0),
+          0,
+        );
+        $("#diet-note").textContent = totalKcal
+          ? `Today's food adds up to about ${totalKcal} kcal in total. Tap "Recipe" on any meal below to see exactly how to cook it, step by step.`
+          : `Tap Recipe on any dish to see the full ingredients and step-by-step cooking guide.`;
         $("#meals").innerHTML = day.meals
           .map(
             (item, index) => `
           <article class="meal">
-            <span class="meal-time">${item.time}</span>
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px">
+              <span class="meal-time">${item.time}</span>
+              ${item.info.kcal ? `<span class="pill">~${item.info.kcal} kcal</span>` : ""}
+            </div>
             <h3>${item.title}</h3>
             <ul>${item.items.map((f) => `<li>${f}</li>`).join("")}</ul>
             <button class="btn small recipe-toggle" type="button" data-recipe="${index}">Recipe</button>
